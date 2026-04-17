@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Редизайн sro-ssss.ru — 3 варианта дизайна</title>
+  <meta name="description" content="Три профессиональных варианта редизайна сайта саморегулируемой организации в строительстве." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --ink: #0E1628;
+      --bg: #F7F8FB;
+      --muted: #5B6A85;
+      --line: #E3E8F2;
+      --blue: #1F57D0;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+    header.topbar {
+      background: #0B1F4B;
+      color: #fff;
+      padding: 14px 0;
+      font-size: 14px;
+    }
+    .topbar__inner {
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    }
+    .topbar strong { font-family: 'Manrope', sans-serif; letter-spacing: .02em; }
+    .topbar a { color: #9FB6F2; border-bottom: 1px dashed rgba(159,182,242,.4); }
+
+    .hero {
+      padding: 72px 0 40px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-family: 'Manrope', sans-serif;
+      font-size: clamp(34px, 5vw, 56px);
+      letter-spacing: -0.02em;
+      margin: 0 0 16px;
+      line-height: 1.1;
+    }
+    .hero .kicker {
+      display: inline-block;
+      background: #EAF1FF; color: var(--blue);
+      padding: 6px 14px; border-radius: 999px;
+      font-weight: 700; font-size: 13px;
+      letter-spacing: .14em; text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .hero p { max-width: 720px; margin: 0 auto; color: var(--muted); font-size: 18px; }
+
+    .variants {
+      padding: 40px 0 100px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+    }
+    .variant {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .variant:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px rgba(11,31,75,.12);
+    }
+    .variant__preview {
+      aspect-ratio: 16/10;
+      position: relative;
+      overflow: hidden;
+    }
+    .variant__preview iframe {
+      width: 200%;
+      height: 200%;
+      border: 0;
+      transform: scale(.5);
+      transform-origin: top left;
+      pointer-events: none;
+    }
+    .variant__body {
+      padding: 28px;
+      flex: 1;
+      display: flex; flex-direction: column;
+    }
+    .variant__tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
+      padding: 5px 11px; border-radius: 999px;
+      background: #EAF1FF; color: var(--blue);
+      align-self: flex-start;
+      margin-bottom: 14px;
+    }
+    .variant--v2 .variant__tag { background: #1A1B20; color: #D4AF6A; }
+    .variant--v3 .variant__tag { background: #E9FBEF; color: #0B5A2A; }
+    .variant h2 {
+      font-family: 'Manrope', sans-serif;
+      font-size: 26px; margin: 0 0 8px;
+      letter-spacing: -0.02em;
+    }
+    .variant__desc { color: var(--muted); margin: 0 0 20px; font-size: 15px; line-height: 1.55; }
+    .variant__tags {
+      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px;
+    }
+    .variant__tags span {
+      font-size: 12px; color: #3E4A67; background: #F0F3FA;
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .variant__cta {
+      display: flex; gap: 10px; margin-top: auto;
+    }
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 12px 20px; border-radius: 999px;
+      font-weight: 600; font-size: 14px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+    .btn--primary { background: var(--blue); color: #fff; flex: 1; }
+    .btn--primary:hover { background: #2F6BEB; transform: translateY(-1px); }
+    .btn--ghost { background: transparent; border-color: var(--line); color: var(--ink); }
+    .btn--ghost:hover { border-color: var(--ink); }
+
+    .variant--v2 .btn--primary { background: #0B0E14; color: #D4AF6A; }
+    .variant--v2 .btn--primary:hover { background: #1B2231; }
+
+    .variant--v3 .btn--primary { background: #0A0A0C; color: #86FFB3; }
+    .variant--v3 .btn--primary:hover { background: #17181C; }
+
+    .cmp { padding: 40px 0 100px; }
+    .cmp h2 {
+      font-family: 'Manrope', sans-serif; font-size: 28px;
+      margin: 0 0 24px; letter-spacing: -.02em;
+    }
+    table.cmp__table {
+      width: 100%; border-collapse: collapse;
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px; overflow: hidden;
+      font-size: 15px;
+    }
+    table.cmp__table th, table.cmp__table td {
+      padding: 16px 20px; text-align: left;
+      border-bottom: 1px solid var(--line);
+    }
+    table.cmp__table thead th {
+      background: #F0F3FA;
+      font-weight: 700; color: var(--ink);
+      font-family: 'Manrope', sans-serif;
+      letter-spacing: -0.01em;
+    }
+    table.cmp__table tr:last-child td { border-bottom: 0; }
+    table.cmp__table td:first-child { font-weight: 600; color: var(--ink); }
+
+    footer.bottom {
+      padding: 40px 0; border-top: 1px solid var(--line);
+      color: var(--muted); font-size: 14px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
+    }
+
+    @media (max-width: 960px) {
+      .variants { grid-template-columns: 1fr; }
+      .topbar__inner { flex-direction: column; align-items: flex-start; gap: 6px; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar__inner">
+    <div><strong>Редизайн sro-ssss.ru</strong> · 3 концепции для вашего сайта</div>
+    <div>Оригинал: <a href="https://sro-ssss.ru/" target="_blank" rel="noopener">sro-ssss.ru ↗</a></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <span class="kicker">Предложение · Апрель 2026</span>
+    <h1>Три варианта нового сайта для СРО</h1>
+    <p>
+      Ниже — три профессиональных концепции редизайна сайта саморегулируемой организации
+      в сфере строительства. Каждая полностью рабочая: откройте и посмотрите вживую.
+      Любой вариант можно доработать или смешать.
+    </p>
+  </div>
+</section>
+
+<section class="container variants">
+
+  <article class="variant variant--v1">
+    <div class="variant__preview">
+      <iframe src="variants/v1-corporate/index.html" title="Вариант 1: Corporate Blue" loading="lazy"></iframe>
+    </div>
+    <div class="variant__body">
+      <span class="variant__tag">Вариант 1 · Corporate</span>
+      <h2>Корпоративный синий</h2>
+      <p class="variant__desc">
+        Классический деловой стиль: глубокий navy, акцентный синий, чёткая сетка и строгая типографика.
+        Подходит для СРО, работающих с госзаказчиками и крупными подрядчиками. Вызывает доверие с первых секунд.
+      </p>
+      <div class="variant__tags">
+        <span>Navy + Blue</span><span>Manrope/Inter</span><span>Плотная сетка</span><span>Формы и калькулятор</span>
+      </div>
+      <div class="variant__cta">
+        <a class="btn btn--primary" href="variants/v1-corporate/index.html" target="_blank">Открыть макет ↗</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="variant variant--v2">
+    <div class="variant__preview">
+      <iframe src="variants/v2-premium/index.html" title="Вариант 2: Premium Gold" loading="lazy"></iframe>
+    </div>
+    <div class="variant__body">
+      <span class="variant__tag">Вариант 2 · Premium</span>
+      <h2>Премиум в деловом стиле</h2>
+      <p class="variant__desc">
+        Дорогой «клубный» образ: чёрный фон, золотые акценты, антиквенная гарнитура Playfair Display.
+        Позиционирует СРО как элитное сообщество. Выгодно смотрится, если вы работаете с крупными федеральными клиентами.
+      </p>
+      <div class="variant__tags">
+        <span>Dark + Gold</span><span>Playfair Display</span><span>Клубное членство</span><span>Пресс-центр</span>
+      </div>
+      <div class="variant__cta">
+        <a class="btn btn--primary" href="variants/v2-premium/index.html" target="_blank">Открыть макет ↗</a>
+      </div>
+    </div>
+  </article>
+
+  <article class="variant variant--v3">
+    <div class="variant__preview">
+      <iframe src="variants/v3-modern/index.html" title="Вариант 3: Modern Minimal" loading="lazy"></iframe>
+    </div>
+    <div class="variant__body">
+      <span class="variant__tag">Вариант 3 · Modern</span>
+      <h2>Современный минимализм</h2>
+      <p class="variant__desc">
+        Стиль продуктовых tech-компаний: много воздуха, Space Grotesk, сочный мятный акцент, скриншот-кабинет.
+        Отлично подходит, если вы хотите транслировать «цифровую СРО» с API, личным кабинетом и быстрыми выписками.
+      </p>
+      <div class="variant__tags">
+        <span>Light + Mint</span><span>Space Grotesk</span><span>Digital/SaaS</span><span>Мокап кабинета</span>
+      </div>
+      <div class="variant__cta">
+        <a class="btn btn--primary" href="variants/v3-modern/index.html" target="_blank">Открыть макет ↗</a>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<section class="cmp container">
+  <h2>Как выбрать</h2>
+  <table class="cmp__table">
+    <thead>
+      <tr>
+        <th>Критерий</th>
+        <th>Corporate (V1)</th>
+        <th>Premium (V2)</th>
+        <th>Modern (V3)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Настроение</td><td>Надёжно, консервативно</td><td>Статусно, премиально</td><td>Современно, технологично</td></tr>
+      <tr><td>Целевая аудитория</td><td>Гос‑заказчики, подрядчики</td><td>Крупные федеральные клиенты</td><td>Молодые руководители, tech‑проекты</td></tr>
+      <tr><td>Основные цвета</td><td>Navy · Blue · White</td><td>Black · Gold · Paper</td><td>White · Mint · Ink</td></tr>
+      <tr><td>Шрифты</td><td>Manrope + Inter</td><td>Playfair Display + Inter</td><td>Space Grotesk + JetBrains Mono</td></tr>
+      <tr><td>Особенности</td><td>Калькулятор, FAQ, процесс</td><td>Тарифы‑уровни, отзывы прессы</td><td>Мокап кабинета, API, timeline</td></tr>
+      <tr><td>Позиционирование</td><td>«Надёжная СРО»</td><td>«Закрытый клуб профи»</td><td>«Цифровая СРО»</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<footer class="bottom">
+  <div class="container" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
+    <span>© 2026 · Концепции редизайна для sro-ssss.ru</span>
+    <span>Все макеты адаптивны под мобильные устройства.</span>
+  </div>
+</footer>
+
+</body>
+</html>

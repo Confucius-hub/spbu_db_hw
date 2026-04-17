@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>СРО ССС — Саморегулируемая организация в строительстве</title>
+  <meta name="description" content="Допуск СРО, выписки, внесение специалистов в НРС. Надёжное членство, прозрачный реестр, поддержка 24/7." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="container topbar__inner">
+    <div class="topbar__meta">
+      <span>Пн–Пт · 09:00–18:00</span>
+      <span class="dot"></span>
+      <a href="mailto:info@sro-ssss.ru">info@sro-ssss.ru</a>
+      <span class="dot"></span>
+      <a href="tel:+78001234567">8 (800) 123-45-67</a>
+    </div>
+    <div class="topbar__cta">
+      <a class="link-arrow" href="#reestr">Реестр членов</a>
+      <a class="link-arrow" href="#lk">Личный кабинет →</a>
+    </div>
+  </div>
+</header>
+
+<nav class="nav">
+  <div class="container nav__inner">
+    <a class="brand" href="#">
+      <span class="brand__mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40" width="40" height="40">
+          <rect x="2" y="2" width="36" height="36" rx="8" fill="#0B1F4B"/>
+          <path d="M10 28 L20 10 L30 28 Z" fill="#fff"/>
+          <circle cx="20" cy="24" r="2.8" fill="#0B1F4B"/>
+        </svg>
+      </span>
+      <span class="brand__text">
+        <strong>СРО ССС</strong>
+        <em>Союз строительных специалистов</em>
+      </span>
+    </a>
+    <ul class="nav__links">
+      <li><a href="#about">Об организации</a></li>
+      <li><a href="#services">Услуги</a></li>
+      <li><a href="#reestr">Реестр</a></li>
+      <li><a href="#docs">Документы</a></li>
+      <li><a href="#news">Новости</a></li>
+      <li><a href="#contacts">Контакты</a></li>
+    </ul>
+    <a class="btn btn--primary nav__btn" href="#apply">Вступить в СРО</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <div class="hero__badge">
+        <span class="pulse"></span>
+        Сведения внесены в Государственный реестр НОСТРОЙ
+      </div>
+      <h1>
+        Надёжное членство в СРО<br/>
+        для строительных компаний
+      </h1>
+      <p class="hero__lead">
+        Помогаем получить и поддерживать допуск СРО, вносим специалистов
+        в Национальный реестр (НРС), сопровождаем проверки и страхование
+        ответственности — прозрачно и в срок.
+      </p>
+      <div class="hero__cta">
+        <a href="#apply" class="btn btn--primary btn--lg">Подать заявку</a>
+        <a href="#calc" class="btn btn--ghost btn--lg">Рассчитать взнос</a>
+      </div>
+      <ul class="hero__trust">
+        <li>
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 12l5 5L20 7" fill="none" stroke="#0B1F4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Регистрация в реестре за 3 рабочих дня
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 12l5 5L20 7" fill="none" stroke="#0B1F4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Личный куратор на всех этапах
+        </li>
+        <li>
+          <svg viewBox="0 0 24 24" width="22" height="22"><path d="M5 12l5 5L20 7" fill="none" stroke="#0B1F4B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Фиксированная стоимость, без скрытых платежей
+        </li>
+      </ul>
+    </div>
+
+    <aside class="hero__card" aria-label="Быстрая заявка">
+      <div class="hero__card-head">
+        <h3>Быстрая заявка</h3>
+        <span class="tag">Ответ за 30 минут</span>
+      </div>
+      <form class="form" onsubmit="event.preventDefault(); alert('Заявка отправлена');">
+        <label>
+          <span>Название организации</span>
+          <input type="text" placeholder="ООО «Стройгарант»" required />
+        </label>
+        <label>
+          <span>ИНН</span>
+          <input type="text" placeholder="7701234567" pattern="\d{10,12}" required />
+        </label>
+        <label>
+          <span>Контактный телефон</span>
+          <input type="tel" placeholder="+7 (___) ___-__-__" required />
+        </label>
+        <label class="form__select">
+          <span>Тип работ</span>
+          <select>
+            <option>Строительство</option>
+            <option>Проектирование</option>
+            <option>Инженерные изыскания</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn--primary btn--block">Получить расчёт</button>
+        <p class="form__note">Нажимая, вы соглашаетесь с политикой обработки данных.</p>
+      </form>
+    </aside>
+  </div>
+
+  <div class="container hero__stats">
+    <div class="stat">
+      <strong>2 480+</strong>
+      <span>действующих членов</span>
+    </div>
+    <div class="stat">
+      <strong>14 лет</strong>
+      <span>в строительной отрасли</span>
+    </div>
+    <div class="stat">
+      <strong>₽ 680 млн</strong>
+      <span>компенсационного фонда</span>
+    </div>
+    <div class="stat">
+      <strong>0</strong>
+      <span>выплат по фонду возмещения</span>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="services">
+  <div class="container">
+    <header class="section__head">
+      <div>
+        <span class="eyebrow">Наши услуги</span>
+        <h2>Всё необходимое для работы на объектах</h2>
+      </div>
+      <p class="section__lead">
+        Возьмём на себя бюрократию, а вы сосредоточьтесь на проектах.
+        Каждую задачу ведёт отдельный специалист и юрист сопровождения.
+      </p>
+    </header>
+
+    <div class="cards">
+      <article class="card">
+        <div class="card__icon card__icon--blue">
+          <svg viewBox="0 0 32 32" width="26" height="26"><path d="M4 27 L16 5 L28 27 Z M16 18 V23 M16 13 h.01" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Вступление в СРО</h3>
+        <p>Подготовим комплект, согласуем с НОСТРОЙ, получим решение правления за 3 дня.</p>
+        <a class="card__link" href="#">Подробнее →</a>
+      </article>
+
+      <article class="card">
+        <div class="card__icon card__icon--navy">
+          <svg viewBox="0 0 32 32" width="26" height="26"><rect x="5" y="6" width="22" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M10 12h12 M10 17h8 M10 22h10" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Специалисты в НРС</h3>
+        <p>Внесение ГИП / ГАП в Национальный реестр. Разбор отказов и повторная подача.</p>
+        <a class="card__link" href="#">Подробнее →</a>
+      </article>
+
+      <article class="card">
+        <div class="card__icon card__icon--blue">
+          <svg viewBox="0 0 32 32" width="26" height="26"><path d="M16 4 L27 9 V17 c0 7-5 11-11 11 c-6 0-11-4-11-11 V9 Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M12 16 l3 3 l6-6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+        </div>
+        <h3>Страхование ответственности</h3>
+        <p>Оформляем полис ГО и договорной ответственности у аккредитованных страховщиков.</p>
+        <a class="card__link" href="#">Подробнее →</a>
+      </article>
+
+      <article class="card">
+        <div class="card__icon card__icon--navy">
+          <svg viewBox="0 0 32 32" width="26" height="26"><path d="M6 9h20v18H6z M6 9 L16 2 L26 9" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><path d="M13 27V16h6v11" fill="none" stroke="currentColor" stroke-width="2.2"/></svg>
+        </div>
+        <h3>Повышение квалификации</h3>
+        <p>Учебный центр: программы 72/108 ч., дистанционно, документы в день окончания.</p>
+        <a class="card__link" href="#">Подробнее →</a>
+      </article>
+
+      <article class="card">
+        <div class="card__icon card__icon--blue">
+          <svg viewBox="0 0 32 32" width="26" height="26"><circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="2.2"/><path d="M16 8v8l5 3" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></svg>
+        </div>
+        <h3>Выписки из реестра</h3>
+        <p>Электронная выписка с УКЭП за 10 минут. Подходит для участия в тендерах.</p>
+        <a class="card__link" href="#">Подробнее →</a>
+      </article>
+
+      <article class="card">
+        <div class="card__icon card__icon--navy">
+          <svg viewBox="0 0 32 32" width="26" height="26"><path d="M4 27 h24 M7 27 V12 l9-6 l9 6 V27 M12 27 v-8 h8 v8" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Сопровождение проверок</h3>
+        <p>Плановые и внеплановые проверки — готовим документы, отвечаем на запросы.</p>
+        <a class="card__link" href="#">Подробнее →</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--muted" id="about">
+  <div class="container about">
+    <div class="about__media" aria-hidden="true">
+      <div class="about__photo"></div>
+      <div class="about__badge">
+        <strong>ISO 9001</strong>
+        <span>Система менеджмента качества</span>
+      </div>
+    </div>
+    <div class="about__copy">
+      <span class="eyebrow">Об организации</span>
+      <h2>Профессиональное сообщество, которому доверяют подрядчики по всей России</h2>
+      <p>
+        СРО «ССС» объединяет проверенные строительные компании, соответствующие
+        требованиям Градостроительного кодекса РФ. Мы формируем стандарты отрасли,
+        поддерживаем членов и защищаем их интересы при взаимодействии с заказчиками
+        и государственными органами.
+      </p>
+      <ul class="about__list">
+        <li><strong>01.</strong> Прозрачные взносы и публичная бухгалтерия</li>
+        <li><strong>02.</strong> Независимая контрольная комиссия и третейский суд</li>
+        <li><strong>03.</strong> Электронный документооборот и онлайн-сервисы</li>
+        <li><strong>04.</strong> Юридическая поддержка на этапах тендеров и исполнения контрактов</li>
+      </ul>
+      <a href="#contacts" class="btn btn--dark">Связаться с руководством</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="process">
+  <div class="container">
+    <header class="section__head">
+      <div>
+        <span class="eyebrow">Как это работает</span>
+        <h2>Вступление в СРО за 4 шага</h2>
+      </div>
+    </header>
+    <ol class="steps">
+      <li>
+        <div class="steps__num">01</div>
+        <h3>Заявка и консультация</h3>
+        <p>Изучаем задачи компании, подбираем уровень ответственности и формируем смету.</p>
+      </li>
+      <li>
+        <div class="steps__num">02</div>
+        <h3>Сбор документов</h3>
+        <p>Выдаём чек-лист и шаблоны. Проверяем квалификацию специалистов и стаж.</p>
+      </li>
+      <li>
+        <div class="steps__num">03</div>
+        <h3>Решение правления</h3>
+        <p>Коллегиальное рассмотрение заявки, оплата взносов, вступление в силу.</p>
+      </li>
+      <li>
+        <div class="steps__num">04</div>
+        <h3>Выписка и поддержка</h3>
+        <p>Выдаём электронную выписку с УКЭП и закрепляем персонального куратора.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section section--dark" id="calc">
+  <div class="container calc">
+    <div class="calc__copy">
+      <span class="eyebrow eyebrow--light">Калькулятор</span>
+      <h2>Узнайте стоимость членства за 30 секунд</h2>
+      <p>Посчитаем регулярные и вступительные взносы, размер компенсационного фонда и страховку — всё прозрачно, с расшифровкой каждой строки.</p>
+      <ul class="calc__bullets">
+        <li>Уровни ответственности от 60 млн до 10 млрд ₽</li>
+        <li>Скидки для региональных компаний и ИП</li>
+        <li>Рассрочка до 12 месяцев без процентов</li>
+      </ul>
+    </div>
+    <div class="calc__card">
+      <div class="calc__row">
+        <span>Уровень ответственности</span>
+        <strong>I — до 60 000 000 ₽</strong>
+      </div>
+      <div class="calc__row">
+        <span>Вступительный взнос</span>
+        <strong>5 000 ₽</strong>
+      </div>
+      <div class="calc__row">
+        <span>Компенсационный фонд</span>
+        <strong>100 000 ₽</strong>
+      </div>
+      <div class="calc__row">
+        <span>Годовой членский взнос</span>
+        <strong>60 000 ₽</strong>
+      </div>
+      <div class="calc__total">
+        <span>Итого к оплате</span>
+        <strong>165 000 ₽</strong>
+      </div>
+      <a class="btn btn--primary btn--block" href="#apply">Зафиксировать стоимость</a>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="news">
+  <div class="container">
+    <header class="section__head">
+      <div>
+        <span class="eyebrow">Новости и события</span>
+        <h2>Что происходит в отрасли</h2>
+      </div>
+      <a href="#" class="link-arrow">Все новости →</a>
+    </header>
+    <div class="news">
+      <article class="news__item">
+        <div class="news__cover" data-tag="Законодательство"></div>
+        <time>12 апреля 2026</time>
+        <h3>Минстрой опубликовал новые требования к специалистам НРС</h3>
+        <p>Разбираем, какие изменения затронут компании и как подготовиться.</p>
+      </article>
+      <article class="news__item">
+        <div class="news__cover news__cover--2" data-tag="Аналитика"></div>
+        <time>04 апреля 2026</time>
+        <h3>Рост числа тендеров в первом квартале: что это значит для подрядчиков</h3>
+        <p>Отчёт по регионам и прогноз на второй квартал.</p>
+      </article>
+      <article class="news__item">
+        <div class="news__cover news__cover--3" data-tag="События"></div>
+        <time>28 марта 2026</time>
+        <h3>Ежегодная конференция СРО ССС: регистрация открыта</h3>
+        <p>Москва, Экспоцентр, 22–23 мая. Более 40 спикеров и круглых столов.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--muted" id="faq">
+  <div class="container faq">
+    <header class="section__head">
+      <div>
+        <span class="eyebrow">Частые вопросы</span>
+        <h2>Коротко о главном</h2>
+      </div>
+    </header>
+    <div class="faq__list">
+      <details open>
+        <summary>Кому обязательно вступать в СРО?</summary>
+        <p>Всем подрядчикам, заключающим договоры капитального ремонта, строительства или реконструкции объектов капитального строительства, а также проектировщикам и изыскателям.</p>
+      </details>
+      <details>
+        <summary>Сколько стоит вступление?</summary>
+        <p>Стоимость зависит от уровня ответственности и выбранных видов работ. Калькулятор выше показывает базовые суммы. Рассрочка — до 12 месяцев.</p>
+      </details>
+      <details>
+        <summary>Можно ли перейти из другой СРО?</summary>
+        <p>Да. Подготовим перевод компенсационного взноса и сопроводим регистрацию сведений в НОСТРОЙ без приостановки деятельности.</p>
+      </details>
+      <details>
+        <summary>Как получить выписку для тендера?</summary>
+        <p>Через личный кабинет: электронная выписка с УКЭП формируется за 10 минут и бесплатна для членов СРО.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="container cta__inner">
+    <div>
+      <h2>Готовы получить допуск?</h2>
+      <p>Оставьте заявку — куратор свяжется в течение 30 минут и пришлёт расчёт.</p>
+    </div>
+    <a class="btn btn--primary btn--lg" href="#apply">Отправить заявку</a>
+  </div>
+</section>
+
+<footer class="footer" id="contacts">
+  <div class="container footer__grid">
+    <div>
+      <div class="brand brand--footer">
+        <span class="brand__mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40" width="36" height="36">
+            <rect x="2" y="2" width="36" height="36" rx="8" fill="#fff"/>
+            <path d="M10 28 L20 10 L30 28 Z" fill="#0B1F4B"/>
+            <circle cx="20" cy="24" r="2.8" fill="#fff"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <strong>СРО ССС</strong>
+          <em>Союз строительных специалистов</em>
+        </span>
+      </div>
+      <p class="footer__about">
+        Сведения об организации внесены в государственный реестр СРО,
+        номер СРО-С-000-00000000. Член НОСТРОЙ.
+      </p>
+    </div>
+    <div>
+      <h4>Навигация</h4>
+      <ul>
+        <li><a href="#about">Об организации</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#reestr">Реестр членов</a></li>
+        <li><a href="#docs">Документы</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="tel:+78001234567">8 (800) 123-45-67</a></li>
+        <li><a href="mailto:info@sro-ssss.ru">info@sro-ssss.ru</a></li>
+        <li>Москва, ул. Строителей, д. 12, БЦ «Вертикаль», 7 этаж</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Рассылка</h4>
+      <p>Новости отрасли и изменения законодательства — раз в 2 недели.</p>
+      <form class="subscribe" onsubmit="event.preventDefault(); alert('Подписка оформлена');">
+        <input type="email" placeholder="name@company.ru" required />
+        <button class="btn btn--primary">OK</button>
+      </form>
+    </div>
+  </div>
+  <div class="container footer__bottom">
+    <span>© 2010–2026 СРО «ССС». Все права защищены.</span>
+    <div>
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Согласие на обработку ПДн</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
