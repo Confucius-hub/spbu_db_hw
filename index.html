@@ -3,292 +3,416 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Редизайн sro-ssss.ru — 3 варианта дизайна</title>
-  <meta name="description" content="Три профессиональных варианта редизайна сайта саморегулируемой организации в строительстве." />
+  <title>СРО ССС — Саморегулируемая организация строительных специалистов</title>
+  <meta name="description" content="Допуск СРО, внесение специалистов в НРС, страхование ответственности. Надёжное членство с 14-летней историей." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --ink: #0E1628;
-      --bg: #F7F8FB;
-      --muted: #5B6A85;
-      --line: #E3E8F2;
-      --blue: #1F57D0;
-    }
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      -webkit-font-smoothing: antialiased;
-    }
-    a { color: inherit; text-decoration: none; }
-    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-
-    header.topbar {
-      background: #0B1F4B;
-      color: #fff;
-      padding: 14px 0;
-      font-size: 14px;
-    }
-    .topbar__inner {
-      display: flex; justify-content: space-between; align-items: center; gap: 20px;
-    }
-    .topbar strong { font-family: 'Manrope', sans-serif; letter-spacing: .02em; }
-    .topbar a { color: #9FB6F2; border-bottom: 1px dashed rgba(159,182,242,.4); }
-
-    .hero {
-      padding: 72px 0 40px;
-      text-align: center;
-    }
-    .hero h1 {
-      font-family: 'Manrope', sans-serif;
-      font-size: clamp(34px, 5vw, 56px);
-      letter-spacing: -0.02em;
-      margin: 0 0 16px;
-      line-height: 1.1;
-    }
-    .hero .kicker {
-      display: inline-block;
-      background: #EAF1FF; color: var(--blue);
-      padding: 6px 14px; border-radius: 999px;
-      font-weight: 700; font-size: 13px;
-      letter-spacing: .14em; text-transform: uppercase;
-      margin-bottom: 18px;
-    }
-    .hero p { max-width: 720px; margin: 0 auto; color: var(--muted); font-size: 18px; }
-
-    .variants {
-      padding: 40px 0 100px;
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
-    }
-    .variant {
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 22px;
-      overflow: hidden;
-      display: flex; flex-direction: column;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .variant:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 30px 60px rgba(11,31,75,.12);
-    }
-    .variant__preview {
-      aspect-ratio: 16/10;
-      position: relative;
-      overflow: hidden;
-    }
-    .variant__preview iframe {
-      width: 200%;
-      height: 200%;
-      border: 0;
-      transform: scale(.5);
-      transform-origin: top left;
-      pointer-events: none;
-    }
-    .variant__body {
-      padding: 28px;
-      flex: 1;
-      display: flex; flex-direction: column;
-    }
-    .variant__tag {
-      display: inline-block;
-      font-size: 11px; font-weight: 700; letter-spacing: .2em; text-transform: uppercase;
-      padding: 5px 11px; border-radius: 999px;
-      background: #EAF1FF; color: var(--blue);
-      align-self: flex-start;
-      margin-bottom: 14px;
-    }
-    .variant--v2 .variant__tag { background: #1A1B20; color: #D4AF6A; }
-    .variant--v3 .variant__tag { background: #E9FBEF; color: #0B5A2A; }
-    .variant h2 {
-      font-family: 'Manrope', sans-serif;
-      font-size: 26px; margin: 0 0 8px;
-      letter-spacing: -0.02em;
-    }
-    .variant__desc { color: var(--muted); margin: 0 0 20px; font-size: 15px; line-height: 1.55; }
-    .variant__tags {
-      display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 22px;
-    }
-    .variant__tags span {
-      font-size: 12px; color: #3E4A67; background: #F0F3FA;
-      padding: 4px 10px; border-radius: 999px;
-    }
-    .variant__cta {
-      display: flex; gap: 10px; margin-top: auto;
-    }
-    .btn {
-      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
-      padding: 12px 20px; border-radius: 999px;
-      font-weight: 600; font-size: 14px;
-      border: 1px solid transparent;
-      cursor: pointer;
-      transition: all .2s ease;
-    }
-    .btn--primary { background: var(--blue); color: #fff; flex: 1; }
-    .btn--primary:hover { background: #2F6BEB; transform: translateY(-1px); }
-    .btn--ghost { background: transparent; border-color: var(--line); color: var(--ink); }
-    .btn--ghost:hover { border-color: var(--ink); }
-
-    .variant--v2 .btn--primary { background: #0B0E14; color: #D4AF6A; }
-    .variant--v2 .btn--primary:hover { background: #1B2231; }
-
-    .variant--v3 .btn--primary { background: #0A0A0C; color: #86FFB3; }
-    .variant--v3 .btn--primary:hover { background: #17181C; }
-
-    .cmp { padding: 40px 0 100px; }
-    .cmp h2 {
-      font-family: 'Manrope', sans-serif; font-size: 28px;
-      margin: 0 0 24px; letter-spacing: -.02em;
-    }
-    table.cmp__table {
-      width: 100%; border-collapse: collapse;
-      background: #fff;
-      border: 1px solid var(--line);
-      border-radius: 18px; overflow: hidden;
-      font-size: 15px;
-    }
-    table.cmp__table th, table.cmp__table td {
-      padding: 16px 20px; text-align: left;
-      border-bottom: 1px solid var(--line);
-    }
-    table.cmp__table thead th {
-      background: #F0F3FA;
-      font-weight: 700; color: var(--ink);
-      font-family: 'Manrope', sans-serif;
-      letter-spacing: -0.01em;
-    }
-    table.cmp__table tr:last-child td { border-bottom: 0; }
-    table.cmp__table td:first-child { font-weight: 600; color: var(--ink); }
-
-    footer.bottom {
-      padding: 40px 0; border-top: 1px solid var(--line);
-      color: var(--muted); font-size: 14px;
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 10px;
-    }
-
-    @media (max-width: 960px) {
-      .variants { grid-template-columns: 1fr; }
-      .topbar__inner { flex-direction: column; align-items: flex-start; gap: 6px; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<header class="topbar">
-  <div class="container topbar__inner">
-    <div><strong>Редизайн sro-ssss.ru</strong> · 3 концепции для вашего сайта</div>
-    <div>Оригинал: <a href="https://sro-ssss.ru/" target="_blank" rel="noopener">sro-ssss.ru ↗</a></div>
+<!-- ========== Top Nav (Apple-style) ========== -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a class="nav__brand" href="#top">
+      <svg viewBox="0 0 40 40" width="22" height="22" aria-hidden="true">
+        <path d="M8 30 L20 8 L32 30 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <circle cx="20" cy="24" r="2" fill="currentColor"/>
+      </svg>
+      <span>СРО ССС</span>
+    </a>
+    <nav class="nav__links" aria-label="Основная навигация">
+      <a href="#about">О нас</a>
+      <a href="#services">Услуги</a>
+      <a href="#membership">Членство</a>
+      <a href="#process">Как это работает</a>
+      <a href="#numbers">Цифры</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <a class="nav__cta" href="#apply">Подать заявку</a>
   </div>
 </header>
 
-<section class="hero">
-  <div class="container">
-    <span class="kicker">Предложение · Апрель 2026</span>
-    <h1>Три варианта нового сайта для СРО</h1>
-    <p>
-      Ниже — три профессиональных концепции редизайна сайта саморегулируемой организации
-      в сфере строительства. Каждая полностью рабочая: откройте и посмотрите вживую.
-      Любой вариант можно доработать или смешать.
+<!-- ========== HERO ========== -->
+<section class="hero" id="top">
+  <div class="hero__media" aria-hidden="true">
+    <div class="hero__image"></div>
+    <div class="hero__veil"></div>
+  </div>
+  <div class="hero__content">
+    <p class="hero__eyebrow reveal">Est. 2010 · Реестр НОСТРОЙ</p>
+    <h1 class="hero__title reveal">
+      Строим доверие.<br/>
+      <span class="hero__accent">Подтверждаем профессионализм.</span>
+    </h1>
+    <p class="hero__sub reveal">
+      Саморегулируемая организация, которая помогает строительным
+      компаниям получать допуски, работать на крупных объектах и
+      развивать свой бизнес без бюрократии.
     </p>
+    <div class="hero__actions reveal">
+      <a class="btn btn--primary" href="#apply">Вступить в СРО <span aria-hidden="true">→</span></a>
+      <a class="btn btn--ghost" href="#about">Узнать больше</a>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#stats" aria-label="Прокрутить вниз">
+    <span></span>
+  </a>
+</section>
+
+<!-- ========== STATS STRIP ========== -->
+<section class="stats" id="stats">
+  <div class="stats__inner">
+    <div class="stat reveal">
+      <strong data-count="2480">0</strong><em>+</em>
+      <span>членов ассоциации</span>
+    </div>
+    <div class="stat reveal" data-delay="1">
+      <strong data-count="14">0</strong>
+      <span>лет в отрасли</span>
+    </div>
+    <div class="stat reveal" data-delay="2">
+      <strong data-count="680">0</strong><em>млн ₽</em>
+      <span>компенсационный фонд</span>
+    </div>
+    <div class="stat reveal" data-delay="3">
+      <strong>3</strong><em>дня</em>
+      <span>до выдачи допуска</span>
+    </div>
   </div>
 </section>
 
-<section class="container variants">
+<!-- ========== SHOWCASE — Большая картина-переход ========== -->
+<section class="showcase">
+  <div class="showcase__card showcase__card--dark reveal-up">
+    <div class="showcase__bg showcase__bg--crane" aria-hidden="true"></div>
+    <div class="showcase__text">
+      <p class="eyebrow eyebrow--light">О нас</p>
+      <h2>Надёжность,<br/>проверенная временем.</h2>
+      <p class="showcase__lead">14 лет мы формируем стандарты строительной отрасли и защищаем интересы подрядчиков по всей России.</p>
+      <a class="link-arrow link-arrow--light" href="#about">Наша история →</a>
+    </div>
+  </div>
 
-  <article class="variant variant--v1">
-    <div class="variant__preview">
-      <iframe src="variants/v1-corporate/index.html" title="Вариант 1: Corporate Blue" loading="lazy"></iframe>
+  <div class="showcase__card showcase__card--light reveal-up">
+    <div class="showcase__bg showcase__bg--blueprint" aria-hidden="true"></div>
+    <div class="showcase__text">
+      <p class="eyebrow">Допуск СРО</p>
+      <h2>Допуск за 3 дня.<br/>Без очередей и бумаг.</h2>
+      <p class="showcase__lead">Собираем комплект документов онлайн, проводим правление и вносим сведения в НОСТРОЙ.</p>
+      <a class="link-arrow" href="#services">Узнать условия →</a>
     </div>
-    <div class="variant__body">
-      <span class="variant__tag">Вариант 1 · Corporate</span>
-      <h2>Корпоративный синий</h2>
-      <p class="variant__desc">
-        Классический деловой стиль: глубокий navy, акцентный синий, чёткая сетка и строгая типографика.
-        Подходит для СРО, работающих с госзаказчиками и крупными подрядчиками. Вызывает доверие с первых секунд.
-      </p>
-      <div class="variant__tags">
-        <span>Navy + Blue</span><span>Manrope/Inter</span><span>Плотная сетка</span><span>Формы и калькулятор</span>
-      </div>
-      <div class="variant__cta">
-        <a class="btn btn--primary" href="variants/v1-corporate/index.html" target="_blank">Открыть макет ↗</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="variant variant--v2">
-    <div class="variant__preview">
-      <iframe src="variants/v2-premium/index.html" title="Вариант 2: Premium Gold" loading="lazy"></iframe>
-    </div>
-    <div class="variant__body">
-      <span class="variant__tag">Вариант 2 · Premium</span>
-      <h2>Премиум в деловом стиле</h2>
-      <p class="variant__desc">
-        Дорогой «клубный» образ: чёрный фон, золотые акценты, антиквенная гарнитура Playfair Display.
-        Позиционирует СРО как элитное сообщество. Выгодно смотрится, если вы работаете с крупными федеральными клиентами.
-      </p>
-      <div class="variant__tags">
-        <span>Dark + Gold</span><span>Playfair Display</span><span>Клубное членство</span><span>Пресс-центр</span>
-      </div>
-      <div class="variant__cta">
-        <a class="btn btn--primary" href="variants/v2-premium/index.html" target="_blank">Открыть макет ↗</a>
-      </div>
-    </div>
-  </article>
-
-  <article class="variant variant--v3">
-    <div class="variant__preview">
-      <iframe src="variants/v3-modern/index.html" title="Вариант 3: Modern Minimal" loading="lazy"></iframe>
-    </div>
-    <div class="variant__body">
-      <span class="variant__tag">Вариант 3 · Modern</span>
-      <h2>Современный минимализм</h2>
-      <p class="variant__desc">
-        Стиль продуктовых tech-компаний: много воздуха, Space Grotesk, сочный мятный акцент, скриншот-кабинет.
-        Отлично подходит, если вы хотите транслировать «цифровую СРО» с API, личным кабинетом и быстрыми выписками.
-      </p>
-      <div class="variant__tags">
-        <span>Light + Mint</span><span>Space Grotesk</span><span>Digital/SaaS</span><span>Мокап кабинета</span>
-      </div>
-      <div class="variant__cta">
-        <a class="btn btn--primary" href="variants/v3-modern/index.html" target="_blank">Открыть макет ↗</a>
-      </div>
-    </div>
-  </article>
-
+  </div>
 </section>
 
-<section class="cmp container">
-  <h2>Как выбрать</h2>
-  <table class="cmp__table">
-    <thead>
-      <tr>
-        <th>Критерий</th>
-        <th>Corporate (V1)</th>
-        <th>Premium (V2)</th>
-        <th>Modern (V3)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td>Настроение</td><td>Надёжно, консервативно</td><td>Статусно, премиально</td><td>Современно, технологично</td></tr>
-      <tr><td>Целевая аудитория</td><td>Гос‑заказчики, подрядчики</td><td>Крупные федеральные клиенты</td><td>Молодые руководители, tech‑проекты</td></tr>
-      <tr><td>Основные цвета</td><td>Navy · Blue · White</td><td>Black · Gold · Paper</td><td>White · Mint · Ink</td></tr>
-      <tr><td>Шрифты</td><td>Manrope + Inter</td><td>Playfair Display + Inter</td><td>Space Grotesk + JetBrains Mono</td></tr>
-      <tr><td>Особенности</td><td>Калькулятор, FAQ, процесс</td><td>Тарифы‑уровни, отзывы прессы</td><td>Мокап кабинета, API, timeline</td></tr>
-      <tr><td>Позиционирование</td><td>«Надёжная СРО»</td><td>«Закрытый клуб профи»</td><td>«Цифровая СРО»</td></tr>
-    </tbody>
-  </table>
+<!-- ========== ABOUT (Apple-style paragraph section) ========== -->
+<section class="about" id="about">
+  <p class="about__eyebrow reveal">Об организации</p>
+  <h2 class="about__title reveal">
+    Мы объединяем тех,<br/>
+    <span class="muted">кто строит будущее страны.</span>
+  </h2>
+  <div class="about__grid">
+    <div class="about__item reveal-up">
+      <div class="about__icon">
+        <svg viewBox="0 0 32 32" width="28" height="28"><path d="M16 3 L29 9 V17 c0 8-6 12-13 12 c-7 0-13-4-13-12 V9 Z" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M11 16 l4 4 l7-8" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h3>Прозрачность</h3>
+      <p>Публичный реестр, открытая бухгалтерия и независимая контрольная комиссия.</p>
+    </div>
+    <div class="about__item reveal-up" data-delay="1">
+      <div class="about__icon">
+        <svg viewBox="0 0 32 32" width="28" height="28"><circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" stroke-width="1.8"/><path d="M16 7v9l6 4" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </div>
+      <h3>Скорость</h3>
+      <p>Заявки обрабатываются за 1 рабочий день. Электронные выписки — за 10 минут.</p>
+    </div>
+    <div class="about__item reveal-up" data-delay="2">
+      <div class="about__icon">
+        <svg viewBox="0 0 32 32" width="28" height="28"><path d="M4 27 L16 5 L28 27 Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="16" cy="21" r="2" fill="currentColor"/></svg>
+      </div>
+      <h3>Защита</h3>
+      <p>Юридическое сопровождение и компенсационный фонд 680 млн ₽.</p>
+    </div>
+    <div class="about__item reveal-up" data-delay="3">
+      <div class="about__icon">
+        <svg viewBox="0 0 32 32" width="28" height="28"><path d="M6 9h20v18H6z M6 9 L16 2 L26 9" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M13 27V17h6v10" fill="none" stroke="currentColor" stroke-width="1.8"/></svg>
+      </div>
+      <h3>Развитие</h3>
+      <p>Собственный учебный центр, конференции и клубные встречи для членов.</p>
+    </div>
+  </div>
 </section>
 
-<footer class="bottom">
-  <div class="container" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
-    <span>© 2026 · Концепции редизайна для sro-ssss.ru</span>
-    <span>Все макеты адаптивны под мобильные устройства.</span>
+<!-- ========== BIG PARALLAX IMAGE ========== -->
+<section class="banner banner--skyline">
+  <div class="banner__inner reveal">
+    <p class="eyebrow eyebrow--light">Миссия</p>
+    <h2>Каждый объект —<br/>это новая страница истории.</h2>
+    <p>От небольших жилых комплексов до федеральных инфраструктурных проектов — наши члены строят города, которые вы видите каждый день.</p>
+  </div>
+</section>
+
+<!-- ========== SERVICES ========== -->
+<section class="services" id="services">
+  <header class="section-head">
+    <p class="eyebrow reveal">Услуги</p>
+    <h2 class="reveal">Всё, что нужно для работы<br/>на любых объектах.</h2>
+  </header>
+
+  <div class="svc-grid">
+    <article class="svc svc--feature reveal-up">
+      <div class="svc__image svc__image--1" aria-hidden="true"></div>
+      <div class="svc__body">
+        <p class="svc__tag">Ключевая услуга</p>
+        <h3>Вступление в СРО</h3>
+        <p>Подготовим полный комплект документов, согласуем с НОСТРОЙ, получим решение правления. Ваш куратор ведёт заявку от подачи до выдачи выписки.</p>
+        <a class="link-arrow" href="#apply">Подать заявку →</a>
+      </div>
+    </article>
+
+    <article class="svc svc--dark reveal-up" data-delay="1">
+      <div class="svc__body">
+        <p class="svc__tag svc__tag--light">НРС</p>
+        <h3>Специалисты<br/>в Национальном реестре</h3>
+        <p>Внесение ГИП и ГАП, разбор отказов, повторная подача.</p>
+        <a class="link-arrow link-arrow--light" href="#">Подробнее →</a>
+      </div>
+    </article>
+
+    <article class="svc reveal-up" data-delay="2">
+      <div class="svc__image svc__image--2" aria-hidden="true"></div>
+      <div class="svc__body">
+        <p class="svc__tag">Страхование</p>
+        <h3>Полис ответственности</h3>
+        <p>Аккредитованные страховщики, рамочные договоры, скидка до 30% для членов.</p>
+        <a class="link-arrow" href="#">Подробнее →</a>
+      </div>
+    </article>
+
+    <article class="svc reveal-up" data-delay="3">
+      <div class="svc__image svc__image--3" aria-hidden="true"></div>
+      <div class="svc__body">
+        <p class="svc__tag">Обучение</p>
+        <h3>Повышение квалификации</h3>
+        <p>Программы 72 / 108 / 144 ч. Документы государственного образца.</p>
+        <a class="link-arrow" href="#">Программы →</a>
+      </div>
+    </article>
+
+    <article class="svc svc--wide svc--light reveal-up">
+      <div class="svc__image svc__image--4" aria-hidden="true"></div>
+      <div class="svc__body">
+        <p class="svc__tag">Юридическая поддержка</p>
+        <h3>Представительство<br/>интересов 24/7</h3>
+        <p>Сопровождение проверок, помощь в тендерах, защита от необоснованных претензий. Готовая команда юристов работает в ваших интересах круглосуточно.</p>
+        <a class="link-arrow" href="#">Связаться с юристом →</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== PROCESS / Timeline with big images ========== -->
+<section class="process" id="process">
+  <header class="section-head">
+    <p class="eyebrow reveal">Процесс</p>
+    <h2 class="reveal">От заявки до допуска —<br/>четыре простых шага.</h2>
+  </header>
+
+  <div class="steps">
+    <article class="step reveal-up">
+      <div class="step__media step__media--1" aria-hidden="true"></div>
+      <div class="step__text">
+        <span class="step__num">01</span>
+        <h3>Заявка онлайн</h3>
+        <p>Вы оставляете заявку, куратор связывается в течение 30 минут и запрашивает базовый комплект документов.</p>
+      </div>
+    </article>
+
+    <article class="step step--reverse reveal-up" data-delay="1">
+      <div class="step__media step__media--2" aria-hidden="true"></div>
+      <div class="step__text">
+        <span class="step__num">02</span>
+        <h3>Проверка и расчёт</h3>
+        <p>Анализируем квалификацию специалистов, считаем взносы, согласовываем уровень ответственности.</p>
+      </div>
+    </article>
+
+    <article class="step reveal-up" data-delay="2">
+      <div class="step__media step__media--3" aria-hidden="true"></div>
+      <div class="step__text">
+        <span class="step__num">03</span>
+        <h3>Решение правления</h3>
+        <p>Коллегиальное рассмотрение заявки. Оплата взносов. Вступление в силу.</p>
+      </div>
+    </article>
+
+    <article class="step step--reverse reveal-up" data-delay="3">
+      <div class="step__media step__media--4" aria-hidden="true"></div>
+      <div class="step__text">
+        <span class="step__num">04</span>
+        <h3>Выписка и поддержка</h3>
+        <p>Электронная выписка с УКЭП в личном кабинете. Личный куратор закрепляется за вами навсегда.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ========== MEMBERSHIP (pricing) ========== -->
+<section class="membership" id="membership">
+  <header class="section-head section-head--center">
+    <p class="eyebrow reveal">Членство</p>
+    <h2 class="reveal">Выберите уровень,<br/>который подходит вашему бизнесу.</h2>
+  </header>
+
+  <div class="tiers">
+    <article class="tier reveal-up">
+      <h3>Start</h3>
+      <p class="tier__for">Для небольших подрядчиков и ИП</p>
+      <div class="tier__price"><strong>165 000</strong><em>₽/первый год</em></div>
+      <ul>
+        <li>I уровень ответственности (до 60 млн ₽)</li>
+        <li>Электронные выписки с УКЭП</li>
+        <li>Поддержка по email</li>
+        <li>Доступ к личному кабинету</li>
+      </ul>
+      <a class="btn btn--dark btn--block" href="#apply">Выбрать</a>
+    </article>
+
+    <article class="tier tier--feat reveal-up" data-delay="1">
+      <span class="tier__badge">Популярный</span>
+      <h3>Business</h3>
+      <p class="tier__for">Для растущих строительных компаний</p>
+      <div class="tier__price"><strong>420 000</strong><em>₽/год</em></div>
+      <ul>
+        <li>До III уровня ответственности</li>
+        <li>Персональный куратор и юрист</li>
+        <li>Страхование со скидкой 30%</li>
+        <li>Приоритетные выписки</li>
+        <li>Доступ к закрытым событиям</li>
+      </ul>
+      <a class="btn btn--primary btn--block" href="#apply">Стать членом</a>
+    </article>
+
+    <article class="tier reveal-up" data-delay="2">
+      <h3>Enterprise</h3>
+      <p class="tier__for">Для холдингов и крупных подрядчиков</p>
+      <div class="tier__price"><strong>по запросу</strong><em>индивидуально</em></div>
+      <ul>
+        <li>V уровень (до 10 млрд ₽)</li>
+        <li>Выделенная команда экспертов</li>
+        <li>Членство в правлении</li>
+        <li>SLA и отдельные каналы связи</li>
+        <li>PR-поддержка и events</li>
+      </ul>
+      <a class="btn btn--dark btn--block" href="#apply">Обсудить</a>
+    </article>
+  </div>
+</section>
+
+<!-- ========== NUMBERS / Big visual section ========== -->
+<section class="numbers" id="numbers">
+  <div class="numbers__inner">
+    <p class="eyebrow eyebrow--light reveal">Цифры</p>
+    <h2 class="reveal">Нам доверяют<br/>лидеры отрасли.</h2>
+    <div class="numbers__grid">
+      <div class="number reveal-up">
+        <strong>98<em>%</em></strong>
+        <span>выписок за 10 минут</span>
+      </div>
+      <div class="number reveal-up" data-delay="1">
+        <strong>0</strong>
+        <span>выплат из фонда возмещения</span>
+      </div>
+      <div class="number reveal-up" data-delay="2">
+        <strong>AAA</strong>
+        <span>рейтинг надёжности</span>
+      </div>
+      <div class="number reveal-up" data-delay="3">
+        <strong>24/7</strong>
+        <span>юридическая поддержка</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== TESTIMONIAL (one big quote) ========== -->
+<section class="testimonial">
+  <figure class="testimonial__inner reveal-up">
+    <blockquote>
+      «Членство в СРО ССС помогло нам пройти предквалификацию на четыре крупных объектах в Москве за 2025 год. Репутация ассоциации говорит за нас ещё до первой встречи с заказчиком.»
+    </blockquote>
+    <figcaption>
+      <strong>Алексей Громов</strong><span>Генеральный директор «СтройМакс»</span>
+    </figcaption>
+  </figure>
+</section>
+
+<!-- ========== CTA ========== -->
+<section class="cta" id="apply">
+  <div class="cta__media" aria-hidden="true"></div>
+  <div class="cta__inner reveal">
+    <h2>Готовы получить<br/>допуск СРО?</h2>
+    <p>Оставьте заявку — куратор свяжется в течение 30 минут и пришлёт расчёт стоимости.</p>
+    <form class="cta__form" onsubmit="event.preventDefault(); alert('Заявка отправлена. Куратор свяжется в течение 30 минут.');">
+      <input type="text" placeholder="Название компании" required />
+      <input type="tel" placeholder="Контактный телефон" required />
+      <button class="btn btn--primary" type="submit">Отправить заявку →</button>
+    </form>
+    <p class="cta__note">Нажимая, вы соглашаетесь с политикой обработки персональных данных.</p>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer" id="contacts">
+  <div class="footer__grid">
+    <div>
+      <div class="footer__brand">
+        <svg viewBox="0 0 40 40" width="22" height="22" aria-hidden="true">
+          <path d="M8 30 L20 8 L32 30 Z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <circle cx="20" cy="24" r="2" fill="currentColor"/>
+        </svg>
+        <strong>СРО ССС</strong>
+      </div>
+      <p>Саморегулируемая организация строительных специалистов. Сведения внесены в Государственный реестр СРО.</p>
+    </div>
+    <div>
+      <h4>Разделы</h4>
+      <ul>
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#membership">Членство</a></li>
+        <li><a href="#process">Процесс</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Контакты</h4>
+      <ul>
+        <li><a href="tel:+78001234567">8 (800) 123‑45‑67</a></li>
+        <li><a href="mailto:info@sro-ssss.ru">info@sro-ssss.ru</a></li>
+        <li>Москва, Пресненская наб., 8</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Офисы</h4>
+      <ul>
+        <li>Москва</li>
+        <li>Санкт‑Петербург</li>
+        <li>Казань</li>
+        <li>Новосибирск</li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__bottom">
+    <span>© 2010–2026 СРО ССС. Все права защищены.</span>
+    <div>
+      <a href="#">Политика конфиденциальности</a>
+      <a href="#">Пользовательское соглашение</a>
+    </div>
   </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
