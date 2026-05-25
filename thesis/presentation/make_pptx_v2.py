@@ -710,7 +710,7 @@ print('Slide 11 done')
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'ИТОГИ', 'Сравнение с методами-аналогами · Выводы · Перспективы', 12)
+HDR(s, 'ИТОГИ', 'Сравнение с методами-аналогами · Выводы · Значимость', 12)
 
 # Methods comparison figure — left panel
 R(s, 0.1, 0.72, 5.6, 3.95, LGRAY)
@@ -734,23 +734,23 @@ for ci, c in enumerate(conclusions):
     if first:
         tf.paragraphs[0].alignment = PP_ALIGN.LEFT
         r = tf.paragraphs[0].add_run()
-        r.text = f'✓ {c}'
+        r.text = f'•  {c}'
         r.font.name = FONT; r.font.size = Pt(7.8)
         r.font.bold = False; r.font.color.rgb = NAVY
         first = False
     else:
         p = tf.add_paragraph()
         p.space_before = Pt(4)
-        r = p.add_run(); r.text = f'✓ {c}'
+        r = p.add_run(); r.text = f'•  {c}'
         r.font.name = FONT; r.font.size = Pt(7.8)
         r.font.color.rgb = NAVY
 
-# Future work
+# Practical significance (всё выполнено — без планов на будущее)
 R(s, 5.88, 4.76, 4.0, 0.52, LGREEN)
 R(s, 5.88, 4.76, 4.0, 0.24, GREEN)
-T(s, 5.98, 4.78, 3.82, 0.22, 'Перспективы', sz=7.5, col=WHITE, bold=True)
+T(s, 5.98, 4.78, 3.82, 0.22, 'Практическая значимость', sz=7.5, col=WHITE, bold=True)
 T(s, 5.98, 5.0, 3.82, 0.25,
-  'Dual-pol (VV+VH) · Дообучение на новых портах · Веб-платформа реального времени',
+  'Система готова к мониторингу 4 арктических акваторий России; реализован полный конвейер',
   sz=7.5, col=GREEN)
 
 # Bottom full-width conclusion highlight
