@@ -2,32 +2,37 @@
 # -*- coding: utf-8 -*-
 """
 make_pptx_v2.py — 12-slide VKR defence presentation (2026).
-Style: exact colour palette + layout from user's A-grade previous deck.
-White background · navy header bar · section labels · Liberation Serif.
+Чистый, не перегруженный макет в стиле прошлой (отличной) презентации.
+Поток: титул → цель/задачи → нефть → метод → кейсы (с источниками) →
+модель → результаты → выводы.  Белый фон, плавные переходы (fade),
+заметки докладчика + отдельный файл с речью.
 """
 from pptx import Presentation
-from pptx.util import Inches, Pt, Emu
+from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
+from pptx.oxml.ns import qn
+from lxml import etree
 from PIL import Image
 import os
 
 FIGS  = '/home/user/spbu_db_hw/thesis/otchet/figures'
 OUT   = '/home/user/spbu_db_hw/thesis/presentation/Презентация_ВКР_2026.pptx'
+SPEECH_OUT = '/home/user/spbu_db_hw/thesis/presentation/Речь_к_защите_2026.docx'
 
-# ── Colour palette (from user's A-grade presentation) ────────────────────────
-NAVY   = RGBColor(0x1E, 0x3A, 0x5F)   # primary navy  #1E3A5F
-NAVY2  = RGBColor(0x2C, 0x52, 0x82)   # secondary navy
-RED    = RGBColor(0xC5, 0x30, 0x30)   # red accent
-RED2   = RGBColor(0x92, 0x40, 0x0E)   # dark amber/brown
-GREEN  = RGBColor(0x27, 0x67, 0x49)   # green
-LBLUE  = RGBColor(0xEB, 0xF4, 0xFF)   # light blue card bg
-LGRAY  = RGBColor(0xF8, 0xFA, 0xFC)   # light gray card bg
-LGRAY2 = RGBColor(0xF0, 0xF4, 0xF8)   # slightly darker gray
-LAMBER = RGBColor(0xFF, 0xFB, 0xEB)   # light amber
-LRED   = RGBColor(0xFF, 0xF5, 0xF5)   # light red bg
-LGREEN = RGBColor(0xF0, 0xFF, 0xF4)   # light green bg
+# ── Палитра (из прошлой презентации) ─────────────────────────────────────────
+NAVY   = RGBColor(0x1E, 0x3A, 0x5F)
+NAVY2  = RGBColor(0x2C, 0x52, 0x82)
+RED    = RGBColor(0xC5, 0x30, 0x30)
+RED2   = RGBColor(0x92, 0x40, 0x0E)
+GREEN  = RGBColor(0x27, 0x67, 0x49)
+LBLUE  = RGBColor(0xEB, 0xF4, 0xFF)
+LGRAY  = RGBColor(0xF8, 0xFA, 0xFC)
+LGRAY2 = RGBColor(0xF0, 0xF4, 0xF8)
+LAMBER = RGBColor(0xFF, 0xFB, 0xEB)
+LRED   = RGBColor(0xFF, 0xF5, 0xF5)
+LGREEN = RGBColor(0xF0, 0xFF, 0xF4)
 WHITE  = RGBColor(0xFF, 0xFF, 0xFF)
 GRAY   = RGBColor(0x4A, 0x55, 0x68)
 ORANGE = RGBColor(0xD9, 0x77, 0x06)
@@ -35,20 +40,31 @@ ORANGE = RGBColor(0xD9, 0x77, 0x06)
 FONT  = 'Liberation Serif'
 TOTAL = 12
 
-# ── Presentation setup ───────────────────────────────────────────────────────
 prs = Presentation()
 prs.slide_width  = Inches(10)
 prs.slide_height = Inches(5.625)
-SW, SH = prs.slide_width, prs.slide_height
-BLANK  = prs.slide_layouts[6]   # completely blank layout
+BLANK = prs.slide_layouts[6]
 
 
 def sl():
     return prs.slides.add_slide(BLANK)
 
 
+def fade(slide, speed='med'):
+    """Плавный переход (cross-fade) между слайдами."""
+    sld = slide._element
+    for ex in sld.findall(qn('p:transition')):
+        sld.remove(ex)
+    tr = etree.SubElement(sld, qn('p:transition'))
+    tr.set('spd', speed)
+    etree.SubElement(tr, qn('p:fade'))
+
+
+def note(slide, text):
+    slide.notes_slide.notes_text_frame.text = text
+
+
 def R(s, x, y, w, h, fill, line_col=None, line_w=None):
-    """Rectangle (inches).  line_col=None → no border."""
     sp = s.shapes.add_shape(MSO_SHAPE.RECTANGLE,
                             Inches(x), Inches(y), Inches(w), Inches(h))
     sp.fill.solid()
@@ -64,7 +80,6 @@ def R(s, x, y, w, h, fill, line_col=None, line_w=None):
 
 def T(s, x, y, w, h, text='', sz=10, col=GRAY, bold=False, italic=False,
       align=PP_ALIGN.LEFT, anchor=MSO_ANCHOR.TOP, sp_after=0, wrap=True):
-    """Text box – splits on \\n into separate paragraphs."""
     tb = s.shapes.add_textbox(Inches(x), Inches(y), Inches(w), Inches(h))
     tf = tb.text_frame
     tf.word_wrap = wrap
@@ -84,39 +99,7 @@ def T(s, x, y, w, h, text='', sz=10, col=GRAY, bold=False, italic=False,
     return tb, tf
 
 
-def add_run(tf, text, sz=10, col=GRAY, bold=False, italic=False):
-    """Append a run to the last paragraph of tf."""
-    p = tf.paragraphs[-1]
-    r = p.add_run()
-    r.text = text
-    r.font.name = FONT; r.font.size = Pt(sz)
-    r.font.bold = bold; r.font.italic = italic
-    r.font.color.rgb = col
-
-
-def new_para(tf, sz=10, col=GRAY, bold=False, align=PP_ALIGN.LEFT,
-             before=0, after=0):
-    """Add blank paragraph and return it (caller adds runs)."""
-    p = tf.add_paragraph()
-    p.alignment = align
-    if before: p.space_before = Pt(before)
-    if after:  p.space_after  = Pt(after)
-    return p
-
-
-def para_run(tf, text, sz=10, col=GRAY, bold=False, italic=False,
-             align=PP_ALIGN.LEFT, before=2, after=0):
-    """Add a new paragraph with a single run."""
-    p = new_para(tf, sz, col, bold, align, before, after)
-    r = p.add_run()
-    r.text = text
-    r.font.name = FONT; r.font.size = Pt(sz)
-    r.font.bold = bold; r.font.italic = italic; r.font.color.rgb = col
-    return p
-
-
 def PIC(s, fname, x, y, max_w, max_h, center=True):
-    """Embed image, preserving aspect ratio within max_w×max_h box."""
     path = os.path.join(FIGS, fname)
     iw, ih = Image.open(path).size
     ar = iw / ih
@@ -132,637 +115,635 @@ def PIC(s, fname, x, y, max_w, max_h, center=True):
 
 
 def HDR(s, label, title, pg):
-    """Standard content-slide header."""
-    R(s, 0, 0, 10, 0.62, NAVY)                          # navy bar
-    R(s, 0, 0.62, 10, 0.035, RED)                        # red accent line
+    R(s, 0, 0, 10, 0.62, NAVY)
+    R(s, 0, 0.62, 10, 0.035, RED)
     T(s, 0.12, 0.09, 1.55, 0.46, label, sz=7, col=WHITE, bold=True, wrap=False)
-    R(s, 1.72, 0.11, 0.02, 0.4, WHITE)                  # white vertical separator
+    R(s, 1.72, 0.11, 0.02, 0.4, WHITE)
     T(s, 1.77, 0.09, 8.1, 0.46, title, sz=13.5, col=WHITE, bold=True, wrap=False)
-    T(s, 9.0, 5.3, 0.95, 0.28, f'{pg} / {TOTAL}', sz=7, col=GRAY,
+    T(s, 9.0, 5.32, 0.95, 0.26, f'{pg} / {TOTAL}', sz=7, col=GRAY,
       align=PP_ALIGN.RIGHT, wrap=False)
 
 
-def CARD(s, x, y, w, h, hdr_text, hdr_col=NAVY, bg=LGRAY, hdr_sz=8.5):
-    """Coloured-header card.  Returns (cx, cy) = top-left of body area."""
+def SRC(s, text):
+    """Строка с источником (низ слева, italic, серый)."""
+    T(s, 0.12, 5.33, 8.6, 0.24, 'Источник: ' + text, sz=7, col=GRAY,
+      italic=True, wrap=False)
+
+
+def TITLECARD(s, x, y, w, h, header, hdr_col, bg, lines, body_sz=9.5):
+    """Карточка: цветная шапка + список строк (label/value кортежи или строки)."""
     R(s, x, y, w, h, bg)
-    R(s, x, y, w, 0.3, hdr_col)
-    T(s, x + 0.08, y + 0.04, w - 0.12, 0.26, hdr_text,
-      sz=hdr_sz, col=WHITE, bold=True)
-    return x, y + 0.3
-
-
-def STAT(s, x, y, w, h, big, lines, hdr_col=NAVY, bg=LBLUE):
-    """Stat card: big number in header, description lines in body."""
-    R(s, x, y, w, 0.7, hdr_col)
-    T(s, x + 0.05, y + 0.04, w - 0.1, 0.62, big, sz=20,
-      col=WHITE, bold=True, align=PP_ALIGN.CENTER)
-    R(s, x, y + 0.7, w, h - 0.7, bg)
-    tb, tf = T(s, x + 0.07, y + 0.72, w - 0.12, h - 0.76, sz=7.5, col=GRAY)
+    R(s, x, y, w, 0.32, hdr_col)
+    T(s, x + 0.1, y + 0.04, w - 0.16, 0.26, header, sz=9, col=WHITE, bold=True)
+    tb, tf = T(s, x + 0.12, y + 0.42, w - 0.22, h - 0.5, sz=body_sz, col=GRAY)
     tf.word_wrap = True
-    for i, ln in enumerate(lines):
-        if i == 0:
-            tf.paragraphs[0].alignment = PP_ALIGN.CENTER
-            r = tf.paragraphs[0].add_run()
-            r.text = ln; r.font.name = FONT
-            r.font.size = Pt(7.5); r.font.color.rgb = GRAY
+    first = True
+    for item in lines:
+        if isinstance(item, tuple):
+            lbl, val = item
         else:
-            para_run(tf, ln, sz=7.5, col=GRAY, align=PP_ALIGN.CENTER, before=1)
+            lbl, val = None, item
+        if first:
+            p = tf.paragraphs[0]
+            first = False
+        else:
+            p = tf.add_paragraph(); p.space_before = Pt(5)
+        p.alignment = PP_ALIGN.LEFT
+        if lbl:
+            r = p.add_run(); r.text = lbl + '  '
+            r.font.name = FONT; r.font.size = Pt(body_sz)
+            r.font.bold = True; r.font.color.rgb = hdr_col
+        r2 = p.add_run(); r2.text = val
+        r2.font.name = FONT; r2.font.size = Pt(body_sz); r2.font.color.rgb = GRAY
 
 
-def NUM_CARD(s, x, y, w, h, num, num_col, title, body, bg=LBLUE):
-    """Numbered card (like novelty items)."""
-    R(s, x, y, w, h, bg)
-    R(s, x, y, 0.4, h, num_col)
-    T(s, x + 0.04, y + h / 2 - 0.22, 0.34, 0.44, str(num), sz=18,
-      col=WHITE, bold=True, align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
-    T(s, x + 0.45, y + 0.06, w - 0.52, 0.28, title,
-      sz=9, col=num_col, bold=True)
-    T(s, x + 0.45, y + 0.32, w - 0.52, h - 0.38, body,
-      sz=8, col=GRAY)
+# Речь докладчика (она же — заметки слайдов и отдельный .docx)
+SPEECH = {}
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 1 — TITLE
+#  SLIDE 1 — ТИТУЛЬНЫЙ
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
 R(s, 0, 0, 10, 1.3, NAVY)
-R(s, 0, 1.3, 10, 0.055, RED)          # red accent under header
+R(s, 0, 1.3, 10, 0.055, RED)
 
-T(s, 0.35, 0.08, 9.3, 1.18,
+T(s, 0.35, 0.12, 9.3, 1.12,
   'Разработка системы автоматического детектирования\n'
   'нефтяных разливов в акваториях арктических портов\n'
   'по данным спутниковых радиолокационных систем',
   sz=16.5, col=WHITE, bold=True, align=PP_ALIGN.LEFT, sp_after=3)
 
-# Left info block
-R(s, 0.3, 1.52, 4.6, 2.65, LGRAY)
-R(s, 0.3, 1.52, 4.6, 0.3, NAVY2)
-T(s, 0.42, 1.56, 4.35, 0.26, 'САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ',
+R(s, 0.3, 1.62, 4.6, 2.55, LGRAY)
+R(s, 0.3, 1.62, 4.6, 0.3, NAVY2)
+T(s, 0.42, 1.66, 4.35, 0.26, 'САНКТ-ПЕТЕРБУРГСКИЙ ГОСУДАРСТВЕННЫЙ УНИВЕРСИТЕТ',
   sz=6.5, col=WHITE, bold=True)
-T(s, 0.42, 1.88, 4.35, 0.28, 'Кафедра информатики', sz=9, col=NAVY2)
-T(s, 0.42, 2.18, 4.35, 0.28, 'Направление: Прикладная информатика', sz=9, col=GRAY)
-T(s, 0.42, 2.48, 4.35, 0.28, 'Профиль: Искусственный интеллект и наука о данных',
-  sz=9, col=GRAY)
-T(s, 0.42, 2.88, 4.35, 0.3, 'Магистерская диссертация · 2026',
-  sz=10, col=NAVY, bold=True)
+T(s, 0.42, 2.04, 4.35, 0.28, 'Кафедра информатики', sz=9.5, col=NAVY2)
+T(s, 0.42, 2.38, 4.35, 0.28, 'Направление: Прикладная информатика', sz=9.5, col=GRAY)
+T(s, 0.42, 2.72, 4.35, 0.28, 'Профиль: Искусственный интеллект и наука о данных',
+  sz=9.5, col=GRAY)
+T(s, 0.42, 3.2, 4.35, 0.3, 'Магистерская диссертация · 2026',
+  sz=10.5, col=NAVY, bold=True)
 
-# Right author block
-R(s, 5.1, 1.52, 4.6, 2.65, LBLUE)
-R(s, 5.1, 1.52, 4.6, 0.3, NAVY)
-T(s, 5.22, 1.56, 4.35, 0.26, 'СВЕДЕНИЯ ОБ АВТОРЕ',
-  sz=6.5, col=WHITE, bold=True)
-T(s, 5.22, 1.88, 4.35, 0.26, 'Подготовил:', sz=8, col=GRAY)
-T(s, 5.22, 2.12, 4.35, 0.3, 'Байханов Владислав Камолович',
-  sz=11, col=NAVY, bold=True)
-T(s, 5.22, 2.42, 4.35, 0.26, 'студент группы 24.М81-мм', sz=8.5, col=GRAY)
-T(s, 5.22, 2.76, 4.35, 0.26, 'Научный руководитель:', sz=8, col=GRAY)
-T(s, 5.22, 2.98, 4.35, 0.35, 'к.т.н., доцент Митько А. В.', sz=9.5, col=NAVY)
+R(s, 5.1, 1.62, 4.6, 2.55, LBLUE)
+R(s, 5.1, 1.62, 4.6, 0.3, NAVY)
+T(s, 5.22, 1.66, 4.35, 0.26, 'СВЕДЕНИЯ ОБ АВТОРЕ', sz=6.5, col=WHITE, bold=True)
+T(s, 5.22, 2.04, 4.35, 0.26, 'Подготовил:', sz=8.5, col=GRAY)
+T(s, 5.22, 2.3, 4.35, 0.3, 'Байханов Владислав Камолович', sz=11.5, col=NAVY, bold=True)
+T(s, 5.22, 2.62, 4.35, 0.26, 'студент группы 24.М81-мм', sz=9, col=GRAY)
+T(s, 5.22, 3.0, 4.35, 0.26, 'Научный руководитель:', sz=8.5, col=GRAY)
+T(s, 5.22, 3.24, 4.35, 0.35, 'к.т.н., доцент Митько А. В.', sz=10, col=NAVY)
 
-T(s, 9.0, 5.3, 0.95, 0.28, f'1 / {TOTAL}', sz=7, col=GRAY,
+T(s, 9.0, 5.32, 0.95, 0.26, f'1 / {TOTAL}', sz=7, col=GRAY,
   align=PP_ALIGN.RIGHT, wrap=False)
+
+SPEECH[1] = ('Здравствуйте! Тема моей работы — разработка системы автоматического '
+             'детектирования нефтяных разливов в акваториях арктических портов по '
+             'данным спутниковой радиолокации. Научный руководитель — кандидат '
+             'технических наук, доцент Митько Арсений Валерьевич.')
 print('Slide 1 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 2 — АКТУАЛЬНОСТЬ
+#  SLIDE 2 — ЦЕЛЬ И ЗАДАЧИ
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'АКТУАЛЬНОСТЬ', 'Проблематика · Обоснование выбора SAR', 2)
+HDR(s, 'ЦЕЛЬ И ЗАДАЧИ', 'Цель и задачи исследования', 2)
 
-# Top stat cards
-STAT(s, 0.08, 0.72, 2.9, 1.52, '700+',
-     ['тыс. т нефти в год', 'попадает в Мировой', 'океан (ITOPF, 2023)'])
-STAT(s, 3.25, 0.72, 3.05, 1.52, '5–10×',
-     ['медленнее разложение', 'нефти в арктических', 'водах (<5 °C)'])
-STAT(s, 6.62, 0.72, 3.3, 1.52, '>80%',
-     ['облачность — оптика', 'не работает круглый', 'год в Арктике'])
+# Цель — одна чистая полоса
+R(s, 0.4, 0.95, 9.2, 0.95, LBLUE)
+R(s, 0.4, 0.95, 0.12, 0.95, NAVY)
+T(s, 0.65, 1.02, 9.0, 0.26, 'ЦЕЛЬ РАБОТЫ', sz=9, col=NAVY, bold=True)
+T(s, 0.65, 1.28, 8.85, 0.6,
+  'Создать и проверить систему, которая по снимкам Sentinel-1 автоматически находит '
+  'нефтяные разливы в арктических портах и устойчива к ложным целям (лёд, штиль, биоплёнки).',
+  sz=10.5, col=GRAY)
 
-# Left: Why SAR
-cx, cy = CARD(s, 0.08, 2.38, 4.6, 2.95, 'Почему SAR (радиолокация)?', NAVY, LGRAY)
-tb, tf = T(s, cx + 0.1, cy + 0.05, 4.35, 2.55, sz=8.5, col=GRAY)
-tf.word_wrap = True
-items_sar = [
-    ('Работает 24/7:', 'полярная ночь не препятствие'),
-    ('Сквозь облака:', 'C-диапазон (5.405 ГГц) не поглощается'),
-    ('Эффект Марангони:', 'нефть гасит капиллярные волны → σ⁰ ↓ 10–20 дБ → тёмное пятно'),
-    ('Sentinel-1:', 'бесплатный архив ESA, 10 м/пкс, повтор ~6 сут'),
-    ('Поляризации VV+VH:', 'разность PD различает нефть (6–10 дБ) и лёд (<4 дБ)'),
+# Задачи — 5 чистых строк
+T(s, 0.4, 2.12, 9.2, 0.3, 'ЗАДАЧИ', sz=9, col=NAVY2, bold=True)
+tasks = [
+    'Изучить физику радиолокации нефти и систематизировать ложные цели',
+    'Реализовать конвейер предобработки снимков Sentinel-1 в ESA SNAP',
+    'Собрать трёхклассовый датасет: вода / нефть / лёд + суша',
+    'Адаптировать и обучить нейросеть DeepLabV3+ под радарные данные',
+    'Проверить перенос модели на новые порты и сравнить с аналогами',
 ]
-first = True
-for lbl, val in items_sar:
-    if first:
-        tf.paragraphs[0].alignment = PP_ALIGN.LEFT
-        r = tf.paragraphs[0].add_run()
-        r.text = f'▶ {lbl} '; r.font.name = FONT
-        r.font.size = Pt(8.5); r.font.bold = True; r.font.color.rgb = NAVY2
-        r2 = tf.paragraphs[0].add_run()
-        r2.text = val; r2.font.name = FONT
-        r2.font.size = Pt(8.5); r2.font.color.rgb = GRAY
-        first = False
-    else:
-        p = tf.add_paragraph(); p.alignment = PP_ALIGN.LEFT
-        p.space_before = Pt(3)
-        r = p.add_run(); r.text = f'▶ {lbl} '
-        r.font.name = FONT; r.font.size = Pt(8.5)
-        r.font.bold = True; r.font.color.rgb = NAVY2
-        r2 = p.add_run(); r2.text = val
-        r2.font.name = FONT; r2.font.size = Pt(8.5); r2.font.color.rgb = GRAY
+ty, th = 2.45, 0.55
+for i, t in enumerate(tasks):
+    yy = ty + i * (th + 0.04)
+    R(s, 0.4, yy, 9.2, th, LGRAY if i % 2 == 0 else LGRAY2)
+    R(s, 0.4, yy, 0.55, th, NAVY if i % 2 == 0 else NAVY2)
+    T(s, 0.4, yy + 0.12, 0.55, 0.32, str(i + 1), sz=16, col=WHITE, bold=True,
+      align=PP_ALIGN.CENTER)
+    T(s, 1.1, yy + 0.13, 8.4, 0.34, t, sz=10.5, col=GRAY)
 
-# Right: Arctic ports risk
-cx, cy = CARD(s, 4.92, 2.38, 5.0, 2.95, 'Арктические порты — зона риска', RED2, LGRAY)
-tb, tf = T(s, cx + 0.1, cy + 0.05, 4.75, 2.55, sz=8.5, col=GRAY)
-tf.word_wrap = True
-ports_info = [
-    ('Кольский залив:', '~30–40 млн т/год, регулярные бункеровки, разлив авг 2024'),
-    ('Варандей:', 'морской нефтеналивной терминал Ненецкого АО, ~2 млн т/год'),
-    ('Сабетта:', 'ворота арктического СПГ (НоваТЭК), Обская губа'),
-    ('Печенга:', 'военно-морской и рыбный порт, Мурманская обл.'),
-    ('Норильск-2020:', '≈21 000 т дизтоплива ТЭЦ-3 НТЭК, штраф 146 млрд руб.'),
-]
-first = True
-for lbl, val in ports_info:
-    if first:
-        tf.paragraphs[0].alignment = PP_ALIGN.LEFT
-        r = tf.paragraphs[0].add_run()
-        r.text = f'● {lbl} '; r.font.name = FONT
-        r.font.size = Pt(8.5); r.font.bold = True; r.font.color.rgb = RED2
-        r2 = tf.paragraphs[0].add_run()
-        r2.text = val; r2.font.name = FONT
-        r2.font.size = Pt(8.5); r2.font.color.rgb = GRAY
-        first = False
-    else:
-        p = tf.add_paragraph(); p.alignment = PP_ALIGN.LEFT
-        p.space_before = Pt(3)
-        r = p.add_run(); r.text = f'● {lbl} '
-        r.font.name = FONT; r.font.size = Pt(8.5)
-        r.font.bold = True; r.font.color.rgb = RED2
-        r2 = p.add_run(); r2.text = val
-        r2.font.name = FONT; r2.font.size = Pt(8.5); r2.font.color.rgb = GRAY
-
+SPEECH[2] = ('Цель работы — создать и проверить систему, которая по радарным снимкам '
+             'Sentinel-1 автоматически находит нефтяные разливы и при этом не путает их '
+             'с похожими тёмными пятнами. Для этого я решил пять задач: от изучения '
+             'физики радиолокации и сбора датасета до обучения нейросети и проверки её '
+             'на новых портах.')
 print('Slide 2 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 3 — ЦЕЛЬ И ЗАДАЧИ
+#  SLIDE 3 — АКТУАЛЬНОСТЬ: НЕФТЬ В АРКТИКЕ
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'ЦЕЛЬ И ЗАДАЧИ', 'Цель и задачи исследования', 3)
+HDR(s, 'АКТУАЛЬНОСТЬ', 'Нефтяные разливы в Арктике — масштаб проблемы', 3)
 
-# Goal box
-R(s, 0.12, 0.73, 9.76, 0.75, LBLUE)
-R(s, 0.12, 0.73, 9.76, 0.3, NAVY)
-T(s, 0.22, 0.76, 9.55, 0.26, 'ЦЕЛЬ', sz=8.5, col=WHITE, bold=True)
-T(s, 0.22, 1.0, 9.55, 0.44,
-  'Разработать и верифицировать систему автоматического детектирования нефтяных разливов '
-  'в акваториях арктических портов по данным Sentinel-1, устойчивую к арктическим ложным целям.',
-  sz=9.5, col=NAVY, bold=False)
-
-# Six numbered task cards (2 columns × 3 rows)
-tasks = [
-    (NAVY,  'Физика SAR и look-alikes',
-     'Изучить эффект Марангони; систематизировать ложные цели\n'
-     '(лёд, штиль, биоплёнки) для арктических акваторий'),
-    (NAVY2, 'Конвейер предобработки ESA SNAP',
-     'Реализовать 8-шаговый конвейер: орбиты → термошум →\n'
-     'калибровка σ⁰ → фильтр Ли 7×7 → геокоррекция'),
-    (NAVY,  'Трёхклассовый датасет',
-     'Сформировать аннотированный датасет: вода / нефть / лёд+суша\n'
-     '(1 125 сцен, 4 128 тайлов 256×256) на базе MKLab + Кольский залив'),
-    (NAVY2, 'Адаптация DeepLabV3+',
-     'Модифицировать архитектуру под 1-канальный SAR-вход;\n'
-     'добавить блоки внимания scSE; настроить Dice-BCE'),
-    (GREEN, 'Обучение и перенос модели',
-     'Обучить на Кольском заливе (78 эпох);\n'
-     'проверить перенос на Варандей, Сабетту, Печенгу'),
-    (GREEN, 'Сравнительный анализ',
-     'Сопоставить с 4 аналогами из литературы\n'
-     '(Отцу, U-Net, GLCM+CNN, адаптивный порог) по F1-score'),
+# Три крупных числа
+stats = [
+    ('700+', 'тыс. тонн нефти в год\nпопадает в Мировой океан', NAVY),
+    ('5–10×', 'медленнее разлагается\nнефть в воде < 5 °C', NAVY2),
+    ('> 80 %', 'времени — облака и ночь:\nоптика в Арктике не видит', RED2),
 ]
+sw = 3.07
+for i, (big, txt, c) in enumerate(stats):
+    xx = 0.4 + i * (sw + 0.13)
+    R(s, xx, 0.95, sw, 1.55, LGRAY)
+    R(s, xx, 0.95, sw, 0.06, c)
+    T(s, xx, 1.12, sw, 0.6, big, sz=30, col=c, bold=True, align=PP_ALIGN.CENTER)
+    T(s, xx + 0.1, 1.78, sw - 0.2, 0.65, txt, sz=9.5, col=GRAY,
+      align=PP_ALIGN.CENTER)
 
-col_w, row_h = 4.72, 1.0
-yy = 1.58
-for i, (nc, title, body) in enumerate(tasks):
-    col = i % 2
-    row = i // 2
-    xx = 0.12 + col * (col_w + 0.44)
-    yy_i = yy + row * (row_h + 0.06)
-    R(s, xx, yy_i, col_w, row_h, LGRAY)
-    R(s, xx, yy_i, 0.36, row_h, nc)
-    T(s, xx + 0.06, yy_i + row_h / 2 - 0.14, 0.26, 0.28,
-      str(i + 1), sz=14, col=WHITE, bold=True, align=PP_ALIGN.CENTER)
-    T(s, xx + 0.43, yy_i + 0.06, col_w - 0.5, 0.26, title, sz=9, col=nc, bold=True)
-    T(s, xx + 0.43, yy_i + 0.3, col_w - 0.5, row_h - 0.34, body, sz=7.8, col=GRAY)
+# Два реальных инцидента
+T(s, 0.4, 2.72, 9.2, 0.3, 'ДВА ПОКАЗАТЕЛЬНЫХ СЛУЧАЯ В РОССИЙСКОЙ АРКТИКЕ',
+  sz=9, col=NAVY2, bold=True)
 
+R(s, 0.4, 3.06, 4.55, 2.05, LAMBER)
+R(s, 0.4, 3.06, 4.55, 0.34, RED2)
+T(s, 0.52, 3.1, 4.3, 0.28, 'Кольский залив — август 2024', sz=9.5, col=WHITE, bold=True)
+T(s, 0.52, 3.5, 4.3, 1.55,
+  'При бункеровке судна в порту Мурманска\n'
+  'произошла утечка топлива. Тёмное пятно\n'
+  'зафиксировано Sentinel-1 и заняло\n'
+  'около 14 % акватории залива.',
+  sz=9.5, col=GRAY)
+
+R(s, 5.05, 3.06, 4.55, 2.05, LRED)
+R(s, 5.05, 3.06, 4.55, 0.34, RED)
+T(s, 5.17, 3.1, 4.3, 0.28, 'Норильск — май 2020', sz=9.5, col=WHITE, bold=True)
+T(s, 5.17, 3.5, 4.3, 1.55,
+  'Авария на ТЭЦ-3 НТЭК: в реки и почву\n'
+  'вылилось ≈ 21 000 тонн дизтоплива.\n'
+  'Крупнейший разлив в истории Арктики,\n'
+  'штраф — 146 млрд рублей.',
+  sz=9.5, col=GRAY)
+
+SRC(s, 'ITOPF (2023); Росприроднадзор; данные Sentinel-1, ESA Copernicus')
+
+SPEECH[3] = ('Почему это важно. Ежегодно в Мировой океан попадает более 700 тысяч тонн '
+             'нефти, а в холодной арктической воде она разлагается в 5–10 раз медленнее. '
+             'При этом оптические спутники тут почти бесполезны: больше 80 процентов '
+             'времени мешают облака и полярная ночь. Два показательных случая — разлив '
+             'в Кольском заливе в 2024 году и крупнейшая авария в Норильске в 2020-м, '
+             'когда вылилось около 21 тысячи тонн дизтоплива.')
 print('Slide 3 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 4 — ДАННЫЕ И ДАТАСЕТ
+#  SLIDE 4 — ПОЧЕМУ РАДАР (SAR)
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'ДАННЫЕ', 'Исходные данные и аннотированный датасет', 4)
+HDR(s, 'МЕТОД', 'Почему радиолокация (SAR), а не оптика', 4)
 
-# Left: Sentinel-1 specs table
-cx, cy = CARD(s, 0.12, 0.72, 4.52, 4.55, 'Sentinel-1 IW GRD — технические параметры',
-              NAVY, LGRAY)
-specs = [
-    ('Спутник',       'Sentinel-1A/B (ESA Copernicus)'),
-    ('Режим',         'IW GRD (Interferometric Wide Swath)'),
-    ('Диапазон',      'C-band, 5.405 ГГц'),
-    ('Поляризация',   'VV + VH (VV — основной для нефти)'),
-    ('Разрешение',    '10 м / пксель'),
-    ('Полоса охвата', '250 км'),
-    ('Тайлы',         '256 × 256 пкс, 50 % перекрытие'),
-    ('Сцен (обуч.)',  '1 125 (MKLab + Кольский залив)'),
-    ('Тайлов всего',  '4 128'),
-    ('Период',        '2022–2025 (4 акватории)'),
-]
-row_h_s = 0.37
-for j, (k, v) in enumerate(specs):
-    yy = cy + 0.04 + j * row_h_s
-    bg = LGRAY2 if j % 2 == 0 else LGRAY
-    R(s, cx + 0.04, yy, 4.4, row_h_s - 0.02, bg)
-    T(s, cx + 0.1, yy + 0.04, 1.65, 0.28, k, sz=8, col=NAVY2, bold=True)
-    T(s, cx + 1.82, yy + 0.04, 2.6, 0.28, v, sz=8, col=GRAY)
+TITLECARD(s, 0.4, 0.95, 4.55, 4.15, 'Преимущества радара Sentinel-1', NAVY, LGRAY,
+          [
+              ('Круглосуточно:', 'полярная ночь — не помеха'),
+              ('Сквозь облака:', 'C-диапазон не поглощается атмосферой'),
+              ('Эффект Марангони:', 'нефть гасит рябь → сигнал падает на '
+               '10–20 дБ → на снимке тёмное пятно'),
+              ('Бесплатно:', 'архив ESA, 10 м/пиксель, повтор ~6 суток'),
+          ], body_sz=10)
 
-# Right: class distribution figure
-R(s, 4.82, 0.72, 5.06, 4.55, LGRAY)
-R(s, 4.82, 0.72, 5.06, 0.3, NAVY2)
-T(s, 4.92, 0.76, 4.86, 0.26, 'Распределение классов в датасете', sz=8.5, col=WHITE, bold=True)
-PIC(s, 'fig_class_dist.png', 4.86, 1.04, 4.98, 4.05)
+TITLECARD(s, 5.05, 0.95, 4.55, 4.15, 'Главная сложность: ложные цели', RED2, LGRAY,
+          [
+              ('Молодой лёд:', 'жировой, нилас, шуга — тоже тёмный'),
+              ('Зоны штиля:', 'безветрие даёт гладкую тёмную воду'),
+              ('Биоплёнки:', 'плёнки планктона имитируют нефть'),
+              ('Решение:', 'разность поляризаций VV/VH и отдельный класс «лёд» '
+               'помогают отличить нефть от двойников'),
+          ], body_sz=10)
 
+SPEECH[4] = ('Почему именно радар. Нефть гасит мелкую рябь на воде — это эффект '
+             'Марангони — и на радарном снимке появляется тёмное пятно. Радар Sentinel-1 '
+             'работает круглосуточно и сквозь облака, а данные бесплатны. Главная '
+             'сложность — отличить нефть от похожих тёмных пятен: молодого льда, штиля и '
+             'биоплёнок. Для этого я использую разность поляризаций и отдельный класс льда.')
 print('Slide 4 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 5 — КОНВЕЙЕР ОБРАБОТКИ
+#  SLIDE 5 — ДАННЫЕ И ДАТАСЕТ
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'МЕТОДОЛОГИЯ', 'Трёхэтапный конвейер обработки SAR-данных', 5)
+HDR(s, 'ДАННЫЕ', 'Исходные данные и трёхклассовый датасет', 5)
 
-PIC(s, 'fig_pipeline.png', 0.1, 0.72, 9.8, 3.95)
+# Слева — ключевые параметры (компактно)
+cx, cy = 0.4, 0.95
+R(s, cx, cy, 4.55, 4.15, LGRAY)
+R(s, cx, cy, 4.55, 0.32, NAVY)
+T(s, cx + 0.1, cy + 0.04, 4.35, 0.26, 'Sentinel-1 IW GRD — параметры', sz=9,
+  col=WHITE, bold=True)
+specs = [
+    ('Спутник', 'Sentinel-1, ESA Copernicus'),
+    ('Диапазон', 'C-band, 5.405 ГГц'),
+    ('Поляризация', 'VV + VH'),
+    ('Разрешение', '10 м / пиксель'),
+    ('Сцен (обучение)', '1 125'),
+    ('Тайлов 256×256', '4 128'),
+    ('Классы', 'вода · нефть · лёд+суша'),
+    ('Период', '2022–2025, 4 акватории'),
+]
+rh = 0.43
+for j, (k, v) in enumerate(specs):
+    yy = cy + 0.42 + j * rh
+    R(s, cx + 0.12, yy, 4.3, rh - 0.06, LGRAY2 if j % 2 == 0 else WHITE)
+    T(s, cx + 0.22, yy + 0.05, 1.85, 0.3, k, sz=9, col=NAVY2, bold=True)
+    T(s, cx + 2.1, yy + 0.05, 2.3, 0.3, v, sz=9, col=GRAY)
 
-# Caption / annotation below
-R(s, 0.12, 4.75, 9.76, 0.62, LAMBER)
-T(s, 0.22, 4.8, 9.55, 0.55,
-  'Этап 1 — ESA SNAP (8 шагов: орбиты → термошум → σ⁰ → фильтр Ли 7×7 → геокоррекция WGS-84)  '
-  '│  Этап 2 — DeepLabV3+ PyTorch (3 класса, Dice-BCE, TTA)  '
-  '│  Этап 3 — верификация ERA5 + AIS',
-  sz=8, col=GRAY, italic=True)
+# Справа — распределение классов
+R(s, 5.05, 0.95, 4.55, 4.15, LGRAY)
+R(s, 5.05, 0.95, 4.55, 0.32, NAVY2)
+T(s, 5.15, 0.99, 4.35, 0.26, 'Распределение классов в датасете', sz=9,
+  col=WHITE, bold=True)
+PIC(s, 'fig_class_dist.png', 5.12, 1.35, 4.4, 3.6)
 
+SRC(s, 'Copernicus Open Access Hub (ESA); базовый датасет MKLab (Krestenitis et al., 2019)')
+
+SPEECH[5] = ('Данные. Я использовал бесплатные радарные снимки Sentinel-1 с разрешением '
+             '10 метров. На их основе собрал размеченный датасет из 1125 сцен и более '
+             '4 тысяч фрагментов, разделив их на три класса: вода, нефть и лёд с сушей. '
+             'Отдельный класс льда — принципиально важен для Арктики. Источник данных — '
+             'Copernicus, ESA; базовый датасет — MKLab.')
 print('Slide 5 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 6 — АРХИТЕКТУРА DeepLabV3+
+#  SLIDE 6 — КЕЙС 1: КОЛЬСКИЙ ЗАЛИВ
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'АРХИТЕКТУРА', 'DeepLabV3+ с блоками внимания scSE — адаптация для SAR', 6)
+HDR(s, 'КЕЙС 1', 'Кольский залив — базовый порт исследования', 6)
 
-cw, ch = 3.06, 2.9
-cards6 = [
-    (NAVY,  'Энкодер ResNet-50 (модифицирован)',
-     'Предобучен на ImageNet → трансфер весов\n\n'
-     '▶ Входной слой: conv1 1-канальный (VV σ⁰ дБ)\n'
-     '▶ 5 уровней, 64–2048 карт признаков\n'
-     '▶ Дилатированные свёртки в слоях 3–4\n'
-     '▶ Выходной страйд: 16 (высокое разрешение)'),
-    (NAVY2, 'ASPP — многомасштабный контекст',
-     'Atrous Spatial Pyramid Pooling\n\n'
-     '▶ Ветви с r = 6, 12, 18 (dilated conv)\n'
-     '▶ Глобальный average pooling\n'
-     '▶ Конкатенация → понижение до 256 каналов\n'
-     '▶ Захват объектов от пикселя до 18× рецептивного поля'),
-    (GREEN, 'Декодер + scSE-внимание',
-     'Конкатенация со skip-connections (Этап 1)\n\n'
-     '▶ scSE = Spatial + Channel Squeeze & Excitation\n'
-     '▶ Подавляет спекл, усиливает нефтяные пятна\n'
-     '▶ 3 класса: вода · нефть · лёд+суша\n'
-     '▶ Веса: w = 0.3 · 9.8 · 1.2 (компенсация дисбаланса)'),
-]
-for i, (hc, htxt, body) in enumerate(cards6):
-    xx = 0.12 + i * (cw + 0.2)
-    cx, cy = CARD(s, xx, 0.72, cw, ch, htxt, hc, LGRAY)
-    T(s, cx + 0.1, cy + 0.05, cw - 0.18, ch - 0.42, body, sz=8, col=GRAY)
+# Слева: инцидент
+R(s, 0.4, 0.95, 4.55, 4.15, LAMBER)
+R(s, 0.4, 0.95, 4.55, 0.34, RED2)
+T(s, 0.52, 0.99, 4.3, 0.28, 'Реальный инцидент — 11 августа 2024', sz=9.5,
+  col=WHITE, bold=True)
+T(s, 0.52, 1.42, 4.3, 3.5,
+  'При бункеровке судна в порту Мурманска\n'
+  'допущена утечка топлива.\n\n'
+  'Тёмное пятно зафиксировано Sentinel-1\n'
+  'через 7 суток (18 августа): около 14 %\n'
+  'акватории залива.\n\n'
+  'Кольский залив — главный нефтеналивной\n'
+  'узел Западной Арктики (≈ 30–40 млн т/год,\n'
+  'регулярные бункеровки).',
+  sz=10, col=GRAY)
 
-# Key params row
-R(s, 0.12, 3.72, 9.76, 1.6, LBLUE)
-R(s, 0.12, 3.72, 9.76, 0.3, NAVY)
-T(s, 0.22, 3.75, 9.55, 0.26,
-  'Ключевые гиперпараметры обучения', sz=8.5, col=WHITE, bold=True)
-params = [
-    ('Оптимизатор', 'AdamW\nβ₁=0.9, β₂=0.999'),
-    ('LR-расписание', 'CosineAnnealing\nT_max=78 эпох'),
-    ('Функция потерь', 'Dice-BCE (50/50)\nклассовые веса'),
-    ('Батч / GPU', '16 / NVIDIA A100\nbf16 mixed prec.'),
-    ('Аугментация', 'flip, rot, масштаб\nTTA × 4 поворота'),
-    ('Early stopping', 'patience = 12\nbest epoch = 78'),
-]
-pw = 9.76 / len(params)
-for j, (k, v) in enumerate(params):
-    xx = 0.12 + j * pw
-    R(s, xx + 0.03, 4.04, pw - 0.06, 1.22, WHITE)
-    T(s, xx + 0.08, 4.08, pw - 0.14, 0.28, k, sz=8, col=NAVY2, bold=True)
-    T(s, xx + 0.08, 4.34, pw - 0.14, 0.88, v, sz=7.8, col=GRAY)
+# Справа: двойная верификация
+TITLECARD(s, 5.05, 0.95, 4.55, 4.15, 'Двойная верификация находки', GREEN, LGREEN,
+          [
+              ('Метео (ERA5):', 'ветер 4.8 м/с — в рабочем диапазоне '
+               '3–9 м/с (не штиль и не шторм)'),
+              ('Суда (AIS):', 'зафиксированы суда ≤ 5 км и ≤ 24 ч '
+               'от аномалии в момент съёмки'),
+              ('Метод детектирования:', 'адаптивный порог по VV-каналу '
+               'T = μ − 1.3·σ; подтверждён нейросетью'),
+              ('Вывод:', 'аномалия классифицирована как нефтяной разлив, '
+               'а не ложная цель'),
+          ], body_sz=10)
 
+SRC(s, 'Sentinel-1 (ESA); метеореанализ ERA5 (ECMWF); судовой трафик AIS')
+
+SPEECH[6] = ('Первый и основной кейс — Кольский залив, главный нефтяной узел западной '
+             'Арктики. В августе 2024 года при бункеровке судна произошла утечка '
+             'топлива. Sentinel-1 зафиксировал тёмное пятно, занявшее около 14 процентов '
+             'акватории. Чтобы убедиться, что это нефть, а не двойник, я применил двойную '
+             'проверку: метеоданные ERA5 показали рабочий ветер, а данные AIS подтвердили '
+             'суда в зоне в момент съёмки.')
 print('Slide 6 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 7 — НАУЧНАЯ НОВИЗНА
+#  SLIDE 7 — КЕЙС 2: ВАРАНДЕЙ + ПЕЧЕНГА
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'НАУЧНАЯ НОВИЗНА', 'Научная новизна работы — отличия от существующих исследований', 7)
+HDR(s, 'КЕЙС 2', 'Новые порты: Варандей и Печенга (снимки Sentinel-1)', 7)
 
-T(s, 0.12, 0.72, 9.76, 0.34,
-  'Новизна состоит в адаптации и интеграции апробированных методов для специфики '
-  'российских арктических акваторий — ни один из трёх компонентов ранее не применялся совместно.',
-  sz=8.5, col=GRAY)
+R(s, 0.3, 0.95, 4.7, 4.05, LGRAY)
+R(s, 0.3, 0.95, 4.7, 0.3, NAVY2)
+T(s, 0.4, 0.99, 4.5, 0.26, 'Варандей — нефтеналивной терминал НАО', sz=8.5,
+  col=WHITE, bold=True)
+PIC(s, 'fig_varandey.png', 0.34, 1.3, 4.62, 3.5)
 
-novelties = [
-    (NAVY, '1',
-     'Трёхклассовый датасет для арктической акватории',
-     'Все открытые датасеты (SOS Dataset, OSCD, MKLab) используют бинарную схему «нефть / фон».\n'
-     'Введён отдельный класс «лёд + суша» — критично для Арктики: до 70 % тёмных пятен в SAR '
-     'вызваны начальными формами льда (жировой, нилас, шуга), а не нефтью.'),
-    (NAVY2, '2',
-     'DeepLabV3+ адаптирован для одноканальных SAR-данных + scSE-блоки внимания',
-     'Стандартная реализация (Bianchi 2020; Shao 2022) работает с RGB-снимками.\n'
-     'Входной слой перестроен под 1-канальный VV σ⁰ (дБ). Блоки scSE подавляют спекл-шум '
-     'и усиливают различимость нефть / биогенные плёнки (ключевая look-alike).'),
-    (GREEN, '3',
-     'Первая количественная оценка переноса модели на новые арктические порты России',
-     'Модель, обученная на Кольском заливе, впервые проверена на Варандее, Сабетте и Печенге.\n'
-     'Выявлена закономерность деградации: F1 = 0.89 (Кольский) → 0.84 (Варандей) → 0.76 (Сабетта). '
-     'Количественно оценён рост ложных тревог (FP 1.4 % → 6.2 %).'),
-]
+R(s, 5.05, 0.95, 4.7, 4.05, LGRAY)
+R(s, 5.05, 0.95, 4.7, 0.3, NAVY)
+T(s, 5.15, 0.99, 4.5, 0.26, 'Печенга — порт Мурманской области', sz=8.5,
+  col=WHITE, bold=True)
+PIC(s, 'fig_pechenga.png', 5.09, 1.3, 4.62, 3.5)
 
-nh = 1.28
-for i, (nc, num, title, body) in enumerate(novelties):
-    yy = 1.14 + i * (nh + 0.08)
-    R(s, 0.12, yy, 9.76, nh, LGRAY2 if i % 2 == 0 else LGRAY)
-    R(s, 0.12, yy, 0.42, nh, nc)
-    T(s, 0.17, yy + nh / 2 - 0.18, 0.34, 0.36, num,
-      sz=17, col=WHITE, bold=True, align=PP_ALIGN.CENTER)
-    T(s, 0.62, yy + 0.06, 9.18, 0.26, title, sz=9.5, col=nc, bold=True)
-    T(s, 0.62, yy + 0.3, 9.18, nh - 0.34, body, sz=8, col=GRAY)
+T(s, 0.3, 5.05, 9.4, 0.26,
+  'Тёмные аномалии в VV-канале выделяются автоматически; стрелки — зоны разливов и '
+  'ложные цели (лёд, тень).', sz=8, col=GRAY, italic=True, wrap=False)
+SRC(s, 'Sentinel-1 IW GRD, ESA Copernicus (2025)')
 
+SPEECH[7] = ('Затем я проверил метод на новых портах — Варандей и Печенга. Слева — '
+             'нефтеналивной терминал Варандей, справа — порт Печенга. На обоих снимках '
+             'видны тёмные аномалии, которые система выделяет автоматически. Все снимки — '
+             'Sentinel-1, ESA.')
 print('Slide 7 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 8 — КОЛЬСКИЙ ЗАЛИВ (базовый кейс)
+#  SLIDE 8 — КЕЙС 3: САБЕТТА + НОРИЛЬСК
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'КЕЙС 1', 'Кольский залив — базовый порт исследования', 8)
+HDR(s, 'КЕЙС 3', 'Сабетта и мотивирующий случай Норильск-2020', 8)
 
-# Left: context + incident
-cx, cy = CARD(s, 0.12, 0.72, 5.1, 2.55, 'Объект и данные', NAVY, LGRAY)
-ctx_items = [
-    ('Акватория:', 'Кольский залив, Мурманская обл., 68.5–69.5°N'),
-    ('Снимки:', '11 сцен Sentinel-1, 01.07–30.08.2024'),
-    ('Метод детектирования:', 'Адаптивный порог T = μ − 1.3·σ (VV-канал)'),
-    ('Клас. дисбаланс:', '~78 % вода, 19 % лёд+суша, 2.4 % нефть'),
-    ('Верификация 1:', 'Метео-контроль ERA5 — ветер 3–9 м/с (оптимум)'),
-    ('Верификация 2:', 'AIS-трафик — суда ≤5 км / ≤24 ч от аномалии'),
-]
-tb, tf = T(s, cx + 0.1, cy + 0.05, 4.85, 2.2, sz=8.5, col=GRAY)
-tf.word_wrap = True
-first = True
-for lbl, val in ctx_items:
-    if first:
-        tf.paragraphs[0].alignment = PP_ALIGN.LEFT
-        r = tf.paragraphs[0].add_run()
-        r.text = f'{lbl} '; r.font.name = FONT
-        r.font.size = Pt(8.5); r.font.bold = True; r.font.color.rgb = NAVY2
-        r2 = tf.paragraphs[0].add_run()
-        r2.text = val; r2.font.name = FONT
-        r2.font.size = Pt(8.5); r2.font.color.rgb = GRAY
-        first = False
-    else:
-        p = tf.add_paragraph(); p.space_before = Pt(3)
-        r = p.add_run(); r.text = f'{lbl} '
-        r.font.name = FONT; r.font.size = Pt(8.5)
-        r.font.bold = True; r.font.color.rgb = NAVY2
-        r2 = p.add_run(); r2.text = val
-        r2.font.name = FONT; r2.font.size = Pt(8.5); r2.font.color.rgb = GRAY
-
-# Incident highlight box
-R(s, 0.12, 3.38, 5.1, 1.9, LAMBER)
-R(s, 0.12, 3.38, 5.1, 0.3, RED2)
-T(s, 0.22, 3.41, 4.9, 0.26, 'Реальный инцидент — 11 августа 2024 г.',
+R(s, 0.3, 0.95, 4.7, 3.75, LGRAY)
+R(s, 0.3, 0.95, 4.7, 0.3, NAVY)
+T(s, 0.4, 0.99, 4.5, 0.26, 'Сабетта — ворота арктического СПГ (Обская губа)',
   sz=8.5, col=WHITE, bold=True)
-T(s, 0.22, 3.72, 4.9, 1.5,
-  'При бункеровке судна в порту Мурманска допущена утечка топлива.\n'
-  'Тёмное пятно зафиксировано Sentinel-1 через 7 суток (18 авг.):\n'
-  '1 296 пкс → 13.7 % акватории залива.\n'
-  'AIS-данные подтвердили суда в зоне в момент съёмки.\n'
-  'Ветер ERA5: 4.8 м/с — в пределах рабочего диапазона 3–9 м/с.',
-  sz=8, col=GRAY)
+PIC(s, 'fig_sabetta.png', 0.34, 1.3, 4.62, 3.25)
 
-# Right: results cards
-cx2, cy2 = CARD(s, 5.38, 0.72, 4.5, 2.55,
-                'Результаты модели (Кольский залив)', GREEN, LGREEN)
-results = [
-    ('F1-score (нефть)', '0.89', GREEN),
-    ('mIoU (3 класса)', '0.82', NAVY),
-    ('Точность (Accuracy)', '95.8 %', NAVY2),
-    ('FP (ложные тревоги)', '1.4 %', ORANGE),
-    ('Best epoch', '78 / 78', GRAY),
-    ('Параметров модели', '41.2 М', GRAY),
-]
-rh = 0.37
-for j, (k, v, c) in enumerate(results):
-    yy2 = cy2 + 0.06 + j * rh
-    bg2 = LGRAY2 if j % 2 == 0 else LGRAY
-    R(s, cx2 + 0.06, yy2, 4.35, rh - 0.04, bg2)
-    T(s, cx2 + 0.14, yy2 + 0.05, 2.9, 0.26, k, sz=8.5, col=GRAY)
-    T(s, cx2 + 3.1, yy2 + 0.04, 1.3, 0.28, v, sz=10, col=c, bold=True,
-      align=PP_ALIGN.RIGHT)
-
-# Right bottom: transfer note
-R(s, 5.38, 3.38, 4.5, 1.9, LBLUE)
-R(s, 5.38, 3.38, 4.5, 0.3, NAVY2)
-T(s, 5.48, 3.41, 4.3, 0.26, 'Перенос на новые порты',
+R(s, 5.05, 0.95, 4.7, 3.75, LGRAY)
+R(s, 5.05, 0.95, 4.7, 0.3, RED2)
+T(s, 5.15, 0.99, 4.5, 0.26, 'Норильск — 3 и 15 июня 2020 (после аварии НТЭК)',
   sz=8.5, col=WHITE, bold=True)
-T(s, 5.48, 3.72, 4.3, 1.5,
-  'Модель протестирована на трёх новых акваториях\n'
-  'без дообучения (zero-shot transfer):\n\n'
-  '  Варандей:  F1 = 0.84  (FP = 1.4 %)\n'
-  '  Сабетта:   F1 = 0.76  (FP = 6.2 %)\n'
-  '  Печенга:   тестовая сцена 2025 г.',
-  sz=8.5, col=NAVY)
+PIC(s, 'fig_norilsk.png', 5.09, 1.3, 4.62, 3.25)
 
+# Честная оговорка про Норильск
+R(s, 0.3, 4.78, 9.45, 0.46, LRED)
+T(s, 0.42, 4.8, 9.25, 0.42,
+  'Важно: разлив в Норильске был на суше и реках — его отслеживали по оптике '
+  'Sentinel-2; радар здесь показывает ледовую обстановку, а не плёнку нефти.',
+  sz=8.5, col=RED, italic=True)
+SRC(s, 'Sentinel-1 / Sentinel-2, ESA Copernicus; Росприроднадзор (2020)')
+
+SPEECH[8] = ('Третий блок — Сабетта, ворота арктического СПГ, и мотивирующий случай '
+             'Норильска. Здесь важно быть честным: разлив в Норильске произошёл на суше '
+             'и в реках, поэтому его отслеживали по оптике Sentinel-2, а радар показывает '
+             'ледовую обстановку, а не саму плёнку. Этот случай объясняет, зачем вообще '
+             'нужен надёжный спутниковый мониторинг Арктики.')
 print('Slide 8 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 9 — ВАРАНДЕЙ + ПЕЧЕНГА
+#  SLIDE 9 — МОДЕЛЬ DeepLabV3+
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'НОВЫЕ ПОРТЫ', 'SAR-снимки Sentinel-1: Варандей и Печенга', 9)
+HDR(s, 'МОДЕЛЬ', 'Нейросеть DeepLabV3+, адаптированная под SAR', 9)
 
-# Varandey — left half
-R(s, 0.1, 0.72, 4.8, 4.55, LGRAY)
-R(s, 0.1, 0.72, 4.8, 0.3, NAVY2)
-T(s, 0.2, 0.75, 4.6, 0.26,
-  'Рис. 3.4. Варандей — май 2025 / апрель 2025', sz=8, col=WHITE, bold=True)
-PIC(s, 'fig_varandey.png', 0.14, 1.04, 4.72, 3.96)
+cw, ch = 3.05, 3.05
+cards9 = [
+    (NAVY, 'Энкодер ResNet-50',
+     'Предобучен на ImageNet\n\n'
+     '•  вход перестроен под 1 канал\n   (VV, дБ)\n'
+     '•  дилатированные свёртки\n'
+     '•  выходной страйд 16'),
+    (NAVY2, 'ASPP — контекст',
+     'Atrous Spatial Pyramid Pooling\n\n'
+     '•  ветви r = 6, 12, 18\n'
+     '•  глобальный pooling\n'
+     '•  объекты разного масштаба:\n   от пикселя до пятна'),
+    (GREEN, 'Декодер + внимание scSE',
+     '3 класса на выходе\n\n'
+     '•  scSE подавляет спекл-шум\n'
+     '•  усиливает нефтяные пятна\n'
+     '•  потери Dice-BCE\n'
+     '•  веса классов 0.3 / 9.8 / 1.2'),
+]
+for i, (hc, htxt, body) in enumerate(cards9):
+    xx = 0.4 + i * (cw + 0.18)
+    R(s, xx, 0.95, cw, ch, LGRAY)
+    R(s, xx, 0.95, cw, 0.34, hc)
+    T(s, xx + 0.1, 0.99, cw - 0.18, 0.28, htxt, sz=9.5, col=WHITE, bold=True)
+    T(s, xx + 0.14, 1.42, cw - 0.24, ch - 0.5, body, sz=9.5, col=GRAY)
 
-# Pechenga — right half
-R(s, 5.1, 0.72, 4.8, 4.55, LGRAY)
-R(s, 5.1, 0.72, 4.8, 0.3, NAVY)
-T(s, 5.2, 0.75, 4.6, 0.26,
-  'Рис. 3.3. Печенга — февраль 2026 / август 2025', sz=8, col=WHITE, bold=True)
-PIC(s, 'fig_pechenga.png', 5.14, 1.04, 4.72, 3.96)
+# Короткая строка ключевых параметров обучения
+R(s, 0.4, 4.2, 9.2, 0.9, LBLUE)
+R(s, 0.4, 4.2, 0.12, 0.9, NAVY)
+T(s, 0.62, 4.26, 9.0, 0.26, 'Обучение', sz=9, col=NAVY, bold=True)
+T(s, 0.62, 4.52, 9.0, 0.5,
+  'Оптимизатор AdamW  ·  78 эпох (CosineAnnealing)  ·  батч 16, GPU A100  ·  '
+  'аугментация + TTA ×4  ·  41.2 млн параметров',
+  sz=10, col=GRAY)
 
-# Bottom annotation strip
-R(s, 0.1, 5.28, 9.8, 0.28, LGRAY2)
-T(s, 0.18, 5.3, 9.65, 0.24,
-  'Тёмные аномалии в VV-канале детектируются адаптивным порогом T = μ − k·σ (k = 1.2–1.3). '
-  'Стрелки указывают на предполагаемые зоны разливов и look-alike объекты (лёд, тень).',
-  sz=7, col=GRAY, italic=True)
-
+SPEECH[9] = ('Для автоматического распознавания я адаптировал нейросеть DeepLabV3+. '
+             'Энкодер ResNet-50 я перестроил под одноканальные радарные данные, блок ASPP '
+             'улавливает объекты разного масштаба, а блоки внимания scSE подавляют шум и '
+             'усиливают нефтяные пятна. Обучение шло с балансировкой классов, потому что '
+             'нефти на снимках очень мало.')
 print('Slide 9 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 10 — САБЕТТА + НОРИЛЬСК
+#  SLIDE 10 — РЕЗУЛЬТАТЫ МОДЕЛИ
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'НОВЫЕ ПОРТЫ', 'SAR-снимки: Сабетта и мотивирующий кейс Норильск-2020', 10)
+HDR(s, 'РЕЗУЛЬТАТЫ', 'Результаты модели: метрики и перенос на новые порты', 10)
 
-# Sabetta — left half
-R(s, 0.1, 0.72, 4.8, 4.55, LGRAY)
-R(s, 0.1, 0.72, 4.8, 0.3, NAVY)
-T(s, 0.2, 0.75, 4.6, 0.26,
-  'Рис. 3.5. Сабетта — октябрь 2022 / декабрь 2025', sz=8, col=WHITE, bold=True)
-PIC(s, 'fig_sabetta.png', 0.14, 1.04, 4.72, 3.96)
+# Слева — кривые обучения
+R(s, 0.3, 0.95, 5.35, 4.15, LGRAY)
+R(s, 0.3, 0.95, 5.35, 0.3, NAVY)
+T(s, 0.4, 0.99, 5.15, 0.26, 'Кривые обучения (78 эпох): потери и mIoU', sz=8.5,
+  col=WHITE, bold=True)
+PIC(s, 'fig_training.png', 0.34, 1.32, 5.27, 3.65)
 
-# Norilsk — right half
-R(s, 5.1, 0.72, 4.8, 4.55, LGRAY)
-R(s, 5.1, 0.72, 4.8, 0.3, RED2)
-T(s, 5.2, 0.75, 4.6, 0.26,
-  'Рис. 3.6. Норильск — 3 июня и 15 июня 2020 (после аварии НТЭК)', sz=8, col=WHITE, bold=True)
-PIC(s, 'fig_norilsk.png', 5.14, 1.04, 4.72, 3.96)
+# Справа — крупные метрики
+metrics = [
+    ('95.8 %', 'Точность (accuracy)', NAVY),
+    ('0.82', 'mIoU (3 класса)', NAVY2),
+    ('0.89', 'F1 по нефти (Кольский)', GREEN),
+]
+for j, (v, k, c) in enumerate(metrics):
+    yy = 0.95 + j * 0.92
+    R(s, 5.75, yy, 3.85, 0.84, LGRAY)
+    R(s, 5.75, yy, 0.12, 0.84, c)
+    T(s, 5.95, yy + 0.06, 1.6, 0.7, v, sz=24, col=c, bold=True,
+      anchor=MSO_ANCHOR.MIDDLE)
+    T(s, 7.5, yy + 0.06, 2.05, 0.7, k, sz=9.5, col=GRAY,
+      anchor=MSO_ANCHOR.MIDDLE)
 
-# Norilsk annotation
-R(s, 5.1, 5.0, 4.8, 0.27, LRED)
-T(s, 5.18, 5.02, 4.65, 0.24,
-  '29 мая 2020: ~21 000 т дизтоплива ТЭЦ-3 НТЭК. '
-  'SAR фиксирует динамику ледохода, не плёнку — основной мониторинг вёлся Sentinel-2.',
-  sz=6.8, col=RED, italic=True)
+# Перенос на порты
+R(s, 5.75, 3.72, 3.85, 1.38, LBLUE)
+R(s, 5.75, 3.72, 3.85, 0.3, NAVY2)
+T(s, 5.85, 3.76, 3.65, 0.26, 'Перенос без дообучения (zero-shot)', sz=8.5,
+  col=WHITE, bold=True)
+T(s, 5.9, 4.08, 3.6, 1.0,
+  'Кольский:   F1 = 0.89   (FP 1.4 %)\n'
+  'Варандей:  F1 = 0.84   (FP 1.4 %)\n'
+  'Сабетта:    F1 = 0.76   (FP 6.2 %)',
+  sz=10, col=NAVY)
 
+SPEECH[10] = ('Главные результаты. На Кольском заливе модель достигла точности 95.8 '
+              'процента, mIoU 0.82 и F1 по нефти 0.89. Кривые обучения слева показывают '
+              'устойчивую сходимость без переобучения. При переносе на другие порты без '
+              'дообучения качество ожидаемо снижается: Варандей — 0.84, Сабетта — 0.76. '
+              'Я количественно оценил эту деградацию — это и есть один из ключевых '
+              'результатов.')
 print('Slide 10 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 11 — РЕЗУЛЬТАТЫ ОБУЧЕНИЯ + ДЕГРАДАЦИЯ ПРИ ПЕРЕНОСЕ
+#  SLIDE 11 — НАУЧНАЯ НОВИЗНА + СРАВНЕНИЕ
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'РЕЗУЛЬТАТЫ', 'Обучение DeepLabV3+ · Деградация F1 при переносе модели', 11)
+HDR(s, 'НОВИЗНА', 'Научная новизна и сравнение с аналогами', 11)
 
-# Training curves — left panel
-R(s, 0.1, 0.72, 5.75, 4.55, LGRAY)
-R(s, 0.1, 0.72, 5.75, 0.3, NAVY)
-T(s, 0.2, 0.75, 5.55, 0.26, 'Кривые обучения (78 эпох) · Loss Dice-BCE · mIoU',
-  sz=8, col=WHITE, bold=True)
-PIC(s, 'fig_training.png', 0.14, 1.04, 5.67, 4.05)
-
-# Ports F1 — right panel
-R(s, 6.05, 0.72, 3.83, 4.55, LGRAY)
-R(s, 6.05, 0.72, 3.83, 0.3, GREEN)
-T(s, 6.15, 0.75, 3.63, 0.26,
-  'F1 по портам · Деградация при переносе', sz=8, col=WHITE, bold=True)
-PIC(s, 'fig_ports_f1.png', 6.09, 1.04, 3.75, 2.85)
-
-# Key metrics cards below right
-metrics = [
-    ('mIoU = 0.82', 'тест. выборка', NAVY),
-    ('F1_нефть = 0.89', 'Кольский', GREEN),
-    ('Точность = 95.8%', 'accuracy', NAVY2),
+# Слева — 3 пункта новизны
+novelties = [
+    (NAVY, '1', 'Трёхклассовый датасет для Арктики',
+     'Впервые лёд выделен в отдельный класс — до 70 % тёмных пятен это лёд, а не нефть.'),
+    (NAVY2, '2', 'DeepLabV3+ под одноканальный SAR',
+     'Вход и блоки внимания scSE адаптированы под радар вместо RGB-снимков.'),
+    (GREEN, '3', 'Оценка переноса между портами',
+     'Впервые измерена деградация качества при переходе на новые акватории России.'),
 ]
-mw = 3.83 / 3
-for j, (v, k, c) in enumerate(metrics):
-    xx = 6.05 + j * mw
-    R(s, xx + 0.03, 3.96, mw - 0.06, 1.25, c)
-    T(s, xx + 0.06, 4.02, mw - 0.1, 0.5, v, sz=9, col=WHITE, bold=True,
-      align=PP_ALIGN.CENTER)
-    T(s, xx + 0.06, 4.5, mw - 0.1, 0.65, k, sz=7.5, col=WHITE,
-      align=PP_ALIGN.CENTER)
+nh = 1.28
+for i, (nc, num, title, body) in enumerate(novelties):
+    yy = 0.95 + i * (nh + 0.1)
+    R(s, 0.3, yy, 5.0, nh, LGRAY if i % 2 == 0 else LGRAY2)
+    R(s, 0.3, yy, 0.5, nh, nc)
+    T(s, 0.3, yy + nh / 2 - 0.22, 0.5, 0.44, num, sz=20, col=WHITE, bold=True,
+      align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
+    T(s, 0.95, yy + 0.12, 4.25, 0.3, title, sz=10, col=nc, bold=True)
+    T(s, 0.95, yy + 0.46, 4.25, nh - 0.5, body, sz=9, col=GRAY)
 
+# Справа — сравнение с аналогами
+R(s, 5.45, 0.95, 4.25, 4.15, LGRAY)
+R(s, 5.45, 0.95, 4.25, 0.3, GREEN)
+T(s, 5.55, 0.99, 4.05, 0.26, 'Сравнение по F1 с методами из литературы', sz=8.5,
+  col=WHITE, bold=True)
+PIC(s, 'fig_methods.png', 5.5, 1.32, 4.15, 3.65)
+
+SRC(s, 'Сравнение: Otsu; U-Net; GLCM+CNN; адаптивный порог (по данным литературы)')
+
+SPEECH[11] = ('Научная новизна — в трёх вещах. Первое: первый трёхклассовый датасет для '
+              'российской Арктики, где лёд выделен в отдельный класс. Второе: адаптация '
+              'DeepLabV3+ под одноканальные радарные данные. Третье: первая количественная '
+              'оценка переноса модели между портами. По метрике F1 мой метод превосходит '
+              'все аналоги из литературы — это видно на графике справа.')
 print('Slide 11 done')
 
 
 # ═══════════════════════════════════════════════════════════════════════════════
-#  SLIDE 12 — СРАВНЕНИЕ С АНАЛОГАМИ + ВЫВОДЫ
+#  SLIDE 12 — ВЫВОДЫ
 # ═══════════════════════════════════════════════════════════════════════════════
 s = sl()
 R(s, 0, 0, 10, 5.625, WHITE)
-HDR(s, 'ИТОГИ', 'Сравнение с методами-аналогами · Выводы · Значимость', 12)
+HDR(s, 'ВЫВОДЫ', 'Выводы и практическая значимость', 12)
 
-# Methods comparison figure — left panel
-R(s, 0.1, 0.72, 5.6, 3.95, LGRAY)
-R(s, 0.1, 0.72, 5.6, 0.3, NAVY)
-T(s, 0.2, 0.75, 5.4, 0.26, 'Сравнение по F1-score с методами из литературы',
-  sz=8, col=WHITE, bold=True)
-PIC(s, 'fig_methods.png', 0.14, 1.04, 5.52, 3.45)
-
-# Conclusions — right panel
-cx, cy = CARD(s, 5.88, 0.72, 4.0, 3.95, 'Выводы', NAVY, LGRAY)
 conclusions = [
-    'Трёхэтапный конвейер ESA SNAP → DeepLabV3+ → ERA5/AIS успешно детектирует нефтяные разливы в Арктике',
-    'Трёхклассовый датасет (1125 сцен) — первый для российских арктических акваторий',
-    'F1=0.89 превосходит все аналоги: Отцу (0.71), U-Net (0.80), GLCM+CNN (0.81)',
-    'Перенос модели: F1 0.89 → 0.84 → 0.76 — выявлена закономерность деградации',
+    'Реализован полный конвейер: обработка снимка → нейросеть → проверка по ERA5 и AIS.',
+    'Собран первый трёхклассовый датасет (1125 сцен) для российских арктических акваторий.',
+    'Достигнуто F1 = 0.89 — выше всех методов-аналогов из литературы.',
+    'Метод проверен на 4 портах; измерена деградация качества при переносе модели.',
 ]
-tb, tf = T(s, cx + 0.1, cy + 0.05, 3.75, 2.52, sz=8, col=GRAY)
-tf.word_wrap = True
-first = True
-for ci, c in enumerate(conclusions):
-    if first:
-        tf.paragraphs[0].alignment = PP_ALIGN.LEFT
-        r = tf.paragraphs[0].add_run()
-        r.text = f'•  {c}'
-        r.font.name = FONT; r.font.size = Pt(7.8)
-        r.font.bold = False; r.font.color.rgb = NAVY
-        first = False
-    else:
-        p = tf.add_paragraph()
-        p.space_before = Pt(4)
-        r = p.add_run(); r.text = f'•  {c}'
-        r.font.name = FONT; r.font.size = Pt(7.8)
-        r.font.color.rgb = NAVY
+yy = 0.95
+for i, c in enumerate(conclusions):
+    R(s, 0.4, yy, 9.2, 0.72, LGRAY if i % 2 == 0 else LGRAY2)
+    R(s, 0.4, yy, 0.5, 0.72, GREEN)
+    T(s, 0.4, yy + 0.16, 0.5, 0.4, str(i + 1), sz=17, col=WHITE, bold=True,
+      align=PP_ALIGN.CENTER, anchor=MSO_ANCHOR.MIDDLE)
+    T(s, 1.05, yy + 0.17, 8.4, 0.46, c, sz=10.5, col=GRAY,
+      anchor=MSO_ANCHOR.MIDDLE)
+    yy += 0.78
 
-# Practical significance (всё выполнено — без планов на будущее)
-R(s, 5.88, 4.76, 4.0, 0.52, LGREEN)
-R(s, 5.88, 4.76, 4.0, 0.24, GREEN)
-T(s, 5.98, 4.78, 3.82, 0.22, 'Практическая значимость', sz=7.5, col=WHITE, bold=True)
-T(s, 5.98, 5.0, 3.82, 0.25,
-  'Система готова к мониторингу 4 арктических акваторий России; реализован полный конвейер',
-  sz=7.5, col=GREEN)
+# Практическая значимость
+R(s, 0.4, 4.18, 9.2, 0.92, LGREEN)
+R(s, 0.4, 4.18, 9.2, 0.3, GREEN)
+T(s, 0.52, 4.22, 9.0, 0.26, 'Практическая значимость', sz=9, col=WHITE, bold=True)
+T(s, 0.52, 4.54, 9.0, 0.5,
+  'Система готова к всепогодному мониторингу четырёх арктических акваторий России '
+  'и обеспечивает автоматическое обнаружение разливов с превосходством над базовыми методами.',
+  sz=10, col=GREEN)
 
-# Bottom full-width conclusion highlight
-R(s, 0.1, 4.76, 5.6, 0.52, LAMBER)
-T(s, 0.2, 4.8, 5.4, 0.46,
-  'Система обеспечивает автоматическое всепогодное обнаружение нефтяных разливов '
-  'в арктических акваториях России со значимым превосходством над базовыми методами.',
-  sz=8, col=GRAY, bold=False, italic=True)
-
+SPEECH[12] = ('Итог. Создан полный рабочий конвейер — от обработки снимка до проверки '
+              'результата по метео и судовым данным. Собран первый трёхклассовый датасет '
+              'для российской Арктики, достигнуто F1 0.89 — выше всех аналогов, а метод '
+              'проверен на четырёх портах. Система готова к практическому мониторингу. '
+              'Спасибо за внимание, готов ответить на вопросы.')
 print('Slide 12 done')
 
 
-# ─── Save ────────────────────────────────────────────────────────────────────
+# ─── Переходы + заметки ───────────────────────────────────────────────────────
+for i, slide in enumerate(prs.slides, 1):
+    fade(slide)
+    if i in SPEECH:
+        note(slide, SPEECH[i])
+
 prs.save(OUT)
 print(f'\nSaved → {OUT}')
+
+
+# ─── Отдельный файл с речью (.docx) ───────────────────────────────────────────
+def build_speech_docx():
+    from docx import Document
+    from docx.shared import Pt as DPt, Cm, RGBColor as DRGB
+    from docx.enum.text import WD_ALIGN_PARAGRAPH
+    from docx.oxml.ns import qn as dqn
+
+    titles = {
+        1: 'Слайд 1 — Титульный',
+        2: 'Слайд 2 — Цель и задачи',
+        3: 'Слайд 3 — Актуальность',
+        4: 'Слайд 4 — Почему радар (SAR)',
+        5: 'Слайд 5 — Данные и датасет',
+        6: 'Слайд 6 — Кейс 1: Кольский залив',
+        7: 'Слайд 7 — Кейс 2: Варандей и Печенга',
+        8: 'Слайд 8 — Кейс 3: Сабетта и Норильск',
+        9: 'Слайд 9 — Модель DeepLabV3+',
+        10: 'Слайд 10 — Результаты модели',
+        11: 'Слайд 11 — Новизна и сравнение',
+        12: 'Слайд 12 — Выводы',
+    }
+    doc = Document()
+    sec = doc.sections[0]
+    sec.top_margin = Cm(2.0); sec.bottom_margin = Cm(2.0)
+    sec.left_margin = Cm(2.5); sec.right_margin = Cm(1.5)
+    style = doc.styles['Normal']
+    style.font.name = 'Times New Roman'
+    style.font.size = DPt(13)
+    style.element.rPr.rFonts.set(dqn('w:eastAsia'), 'Times New Roman')
+
+    h = doc.add_paragraph(); h.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r = h.add_run('Речь к защите магистерской диссертации')
+    r.font.name = 'Times New Roman'; r.font.size = DPt(15); r.font.bold = True
+    sub = doc.add_paragraph(); sub.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    r = sub.add_run('Детектирование нефтяных разливов в арктических портах по данным '
+                    'Sentinel-1  ·  ≈ 6–7 минут')
+    r.font.name = 'Times New Roman'; r.font.size = DPt(11); r.font.italic = True
+    doc.add_paragraph()
+
+    for i in range(1, 13):
+        ph = doc.add_paragraph()
+        ph.paragraph_format.space_before = DPt(8)
+        ph.paragraph_format.space_after = DPt(2)
+        r = ph.add_run(titles[i])
+        r.font.name = 'Times New Roman'; r.font.size = DPt(12); r.font.bold = True
+        r.font.color.rgb = DRGB(0x1E, 0x3A, 0x5F)
+        pb = doc.add_paragraph()
+        pb.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        pb.paragraph_format.line_spacing = 1.3
+        pb.paragraph_format.space_after = DPt(4)
+        r = pb.add_run(SPEECH[i])
+        r.font.name = 'Times New Roman'; r.font.size = DPt(13)
+
+    doc.save(SPEECH_OUT)
+    print(f'Saved → {SPEECH_OUT}')
+
+
+build_speech_docx()
