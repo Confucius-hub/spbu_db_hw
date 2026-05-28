@@ -1,28 +1,28 @@
-import { Target, Banknote, UserCheck, FileSearch } from "lucide-react";
+import { Clock, Banknote, FileCheck2, ShieldCheck } from "lucide-react";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/ui/Reveal";
 
 const reasons = [
   {
-    icon: Target,
-    title: "Берёмся за результат",
-    text: "Честно оцениваем перспективы дела. Если шансов нет — скажем прямо и не возьмём деньги за пустую работу.",
+    icon: Clock,
+    title: "Допуск за 24 часа",
+    text: "Подбираем СРО и оформляем членство в кратчайший срок — вы успеваете к тендеру и не теряете контракты.",
   },
   {
     icon: Banknote,
-    title: "Прозрачная стоимость",
-    text: "Фиксируем цену и объём в договоре до старта. Без скрытых платежей и доплат «по ходу».",
+    title: "Оплата только компфонда",
+    text: "Вы платите лишь взнос в компенсационный фонд, установленный законом. Без скрытых комиссий и переплат.",
   },
   {
-    icon: UserCheck,
-    title: "Персональный юрист",
-    text: "За вами закрепляется профильный специалист и куратор. Вы всегда знаете статус по делу.",
+    icon: FileCheck2,
+    title: "Документы — бесплатно",
+    text: "Полный пакет документов для вступления в СРО готовим за свой счёт. От вас — только реквизиты.",
   },
   {
-    icon: FileSearch,
-    title: "Глубокая проработка",
-    text: "Стратегию строим на доказательствах и судебной практике, а не на обещаниях.",
+    icon: ShieldCheck,
+    title: "Надёжные СРО",
+    text: "Официальная аккредитация в проверенных СРО Санкт-Петербурга — без риска исключения из реестра.",
   },
 ];
 
@@ -31,9 +31,9 @@ export function WhyUs() {
     <Section tone="white">
       <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr] lg:gap-16">
         <SectionHeading
-          eyebrow="Почему «Лидер»"
-          title="Подход, который вызывает доверие"
-          subtitle="Мы строим долгосрочные отношения с клиентами — поэтому ценим репутацию выше разовой выгоды."
+          eyebrow="Почему ЮРЛИДЕР"
+          title="Допуск СРО без переплат и нервов"
+          subtitle="Берём бюрократию на себя: вы получаете готовый допуск, а не пачку требований и счетов."
         />
 
         <div className="grid gap-x-10 gap-y-9 sm:grid-cols-2">

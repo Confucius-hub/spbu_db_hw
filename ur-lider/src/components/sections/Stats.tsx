@@ -2,10 +2,10 @@ import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 
 const stats = [
-  { value: "14 лет", label: "непрерывной практики" },
-  { value: "3 200+", label: "выигранных дел" },
-  { value: "5,4 млрд ₽", label: "взыскано для клиентов" },
-  { value: "92%", label: "дел в пользу доверителя" },
+  { value: "с 2010", label: "года оформляем допуски СРО" },
+  { value: "24 часа", label: "до получения допуска" },
+  { value: "1 500+", label: "оформленных допусков" },
+  { value: "0 ₽", label: "за подготовку документов" },
 ];
 
 export function Stats() {

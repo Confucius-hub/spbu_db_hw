@@ -45,7 +45,7 @@ export default async function PracticePage({
         subtitle={practice.summary}
         crumbs={[
           { label: "Главная", href: "/" },
-          { label: "Практики", href: "/practices" },
+          { label: "Допуски СРО", href: "/practices" },
           { label: practice.title },
         ]}
       />
@@ -75,7 +75,7 @@ export default async function PracticePage({
 
             {/* Outcomes */}
             <div>
-              <h2 className="text-2xl text-ink sm:text-3xl">Результаты практики</h2>
+              <h2 className="text-2xl text-ink sm:text-3xl">Сроки и условия</h2>
               <div className="mt-7 grid gap-4 sm:grid-cols-3">
                 {practice.outcomes.map((o, i) => (
                   <Reveal key={o.label} delay={i * 70}>

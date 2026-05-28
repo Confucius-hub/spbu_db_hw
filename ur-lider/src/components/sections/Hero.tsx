@@ -14,7 +14,7 @@ export function Hero() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage:
-              "url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=2000&auto=format&fit=crop')",
+              "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2000&auto=format&fit=crop')",
           }}
         />
         <div className="absolute inset-0 bg-ink/90" />
@@ -38,21 +38,21 @@ export function Hero() {
         {/* Copy */}
         <div className="lg:col-span-7">
           <Reveal>
-            <Badge tone="onDark">С 2010 года · Москва</Badge>
+            <Badge tone="onDark">С 2010 года · Санкт-Петербург</Badge>
           </Reveal>
           <Reveal delay={60}>
             <h1 className="mt-6 max-w-2xl text-balance text-4xl leading-[1.06] text-white sm:text-5xl lg:text-6xl">
-              Защищаем ваш бизнес
+              Вступление в СРО
               <br />
-              и капитал —{" "}
-              <span className="italic text-accent">по существу</span>.
+              за 24 часа —{" "}
+              <span className="italic text-accent">без лишних взносов</span>.
             </h1>
           </Reveal>
           <Reveal delay={120}>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/70">
-              Юридическая компания «Лидер» — стратегия и результат в спорах,
-              банкротстве, налогах и сделках. Берёмся за дело, только когда
-              видим реальный путь к победе.
+              Оформляем допуски СРО для строителей, проектировщиков и
+              изыскателей. Бесплатно готовим документы, вы оплачиваете только
+              взнос в компенсационный фонд — без скрытых комиссий.
             </p>
           </Reveal>
 
@@ -63,7 +63,7 @@ export function Hero() {
                 <ArrowRight className="h-4 w-4" aria-hidden />
               </Button>
               <Button href="/practices" variant="onDark" size="lg">
-                Наши практики
+                Допуски СРО
               </Button>
             </div>
           </Reveal>
@@ -80,15 +80,15 @@ export function Hero() {
                   ))}
                 </div>
                 <span className="text-sm text-white/70">
-                  <span className="font-semibold text-white">4.9</span> · 200+
-                  отзывов
+                  <span className="font-semibold text-white">4.9</span> · отзывы
+                  клиентов
                 </span>
               </div>
               <div className="flex items-center gap-2.5 text-sm text-white/70">
                 <ShieldCheck className="h-5 w-5 text-accent" aria-hidden />
                 <span>
-                  <span className="font-semibold text-white">3 200+</span>{" "}
-                  выигранных дел
+                  официальная аккредитация в{" "}
+                  <span className="font-semibold text-white">СРО</span>
                 </span>
               </div>
             </div>
@@ -101,10 +101,10 @@ export function Hero() {
             <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 shadow-[var(--shadow-lift)] backdrop-blur sm:p-7">
               <div className="mb-5">
                 <h2 className="font-sans text-xl font-semibold text-white">
-                  Разберём вашу ситуацию
+                  Рассчитаем стоимость допуска
                 </h2>
                 <p className="mt-1 text-sm text-white/60">
-                  Бесплатно, конфиденциально. Ответим в течение 30 минут.
+                  Бесплатная консультация. Ответим в течение 30 минут.
                 </p>
               </div>
               <ContactForm variant="compact" tone="onDark" />

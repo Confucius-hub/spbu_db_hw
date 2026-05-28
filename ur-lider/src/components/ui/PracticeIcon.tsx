@@ -1,21 +1,21 @@
 import {
-  Briefcase,
-  Scale,
-  ReceiptText,
-  Gavel,
-  Building2,
-  Users,
+  HardHat,
+  PencilRuler,
+  Mountain,
+  BadgeCheck,
+  FileCheck2,
+  Repeat,
   type LucideIcon,
 } from "lucide-react";
 import type { PracticeIcon as IconName } from "@/lib/practices";
 
 const map: Record<IconName, LucideIcon> = {
-  briefcase: Briefcase,
-  scale: Scale,
-  receipt: ReceiptText,
-  gavel: Gavel,
-  building: Building2,
-  users: Users,
+  builders: HardHat,
+  designers: PencilRuler,
+  surveyors: Mountain,
+  nrs: BadgeCheck,
+  extract: FileCheck2,
+  transfer: Repeat,
 };
 
 export function PracticeIcon({

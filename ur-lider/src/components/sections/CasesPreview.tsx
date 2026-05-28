@@ -10,9 +10,9 @@ export function CasesPreview() {
     <Section tone="paper">
       <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
         <SectionHeading
-          eyebrow="Результаты"
-          title="Дела, за которые мы отвечаем цифрами"
-          subtitle="Каждое дело — это конкретный результат для клиента, а не строчка в портфолио."
+          eyebrow="Кейсы"
+          title="Допуски, оформленные в срок"
+          subtitle="Реальные примеры: вид СРО, результат и срок — без воды и общих слов."
           className="max-w-2xl"
         />
         <Reveal>

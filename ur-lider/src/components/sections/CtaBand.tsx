@@ -5,8 +5,8 @@ import { Reveal } from "@/components/ui/Reveal";
 import { site } from "@/lib/site";
 
 export function CtaBand({
-  title = "Обсудим вашу ситуацию?",
-  subtitle = "Первая консультация — бесплатно. Расскажем о перспективах и предложим план действий.",
+  title = "Рассчитать стоимость допуска СРО?",
+  subtitle = "Бесплатная консультация. Подберём СРО, посчитаем взнос в компенсационный фонд и оформим допуск за 24 часа.",
 }: {
   title?: string;
   subtitle?: string;

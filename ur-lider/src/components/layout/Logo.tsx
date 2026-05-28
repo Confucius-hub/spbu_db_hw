@@ -3,8 +3,9 @@ import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
 /**
- * "ЮРЛИДЕР" brand lockup — faithful recreation of the original logo:
- * an A-frame emblem ("UR" over a reversed "LIDER" band) + bold wordmark.
+ * "ЮРЛИДЕР" brand lockup — recreation of the original logo:
+ * a bold A-frame emblem ("UR" над плашкой "LIDER") + жирная надпись.
+ * For a pixel-perfect mark, drop the official SVG into /public and swap here.
  */
 export function Logo({
   tone = "default",
@@ -23,42 +24,38 @@ export function Logo({
       className={cn("group inline-flex items-center gap-2.5", className)}
     >
       <svg
-        viewBox="0 0 84 64"
+        viewBox="0 0 92 64"
         className="h-9 w-auto shrink-0"
         role="img"
         aria-hidden
       >
-        {/* A-frame roof */}
-        <path
-          d="M6 58 L42 7 L78 58"
-          fill="none"
-          stroke={fg}
-          strokeWidth="8"
-          strokeLinejoin="round"
-          strokeLinecap="round"
-        />
+        {/* A-frame: thick legs */}
+        <path d="M14 58 L46 8 L78 58 L66 58 L46 27 L26 58 Z" fill={fg} />
+        {/* feet */}
+        <rect x="6" y="53" width="20" height="6" rx="1" fill={fg} />
+        <rect x="66" y="53" width="20" height="6" rx="1" fill={fg} />
         {/* UR */}
         <text
-          x="42"
-          y="35"
+          x="46"
+          y="34"
           textAnchor="middle"
           fontFamily="var(--font-inter), sans-serif"
-          fontSize="15"
+          fontSize="14"
           fontWeight="800"
           fill={fg}
         >
           UR
         </text>
         {/* LIDER band */}
-        <rect x="13" y="41" width="58" height="17" rx="2.5" fill={fg} />
+        <rect x="13" y="40" width="66" height="16" rx="2" fill={fg} />
         <text
-          x="42"
-          y="53.5"
+          x="46"
+          y="52"
           textAnchor="middle"
           fontFamily="var(--font-inter), sans-serif"
           fontSize="12"
           fontWeight="800"
-          letterSpacing="1"
+          letterSpacing="1.5"
           fill={bg}
         >
           LIDER

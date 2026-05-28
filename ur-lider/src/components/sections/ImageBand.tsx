@@ -16,7 +16,7 @@ export function ImageBand() {
               className="absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage:
-                  "url('https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2000&auto=format&fit=crop')",
+                  "url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?q=80&w=2000&auto=format&fit=crop')",
               }}
             />
             <div
@@ -28,8 +28,8 @@ export function ImageBand() {
                 Наш подход
               </p>
               <blockquote className="mt-4 max-w-2xl text-2xl font-medium leading-snug text-white sm:text-3xl lg:text-4xl">
-                Мы не продаём часы юристов — мы отвечаем за результат и
-                сопровождаем дело до конца.
+                Вы получаете готовый допуск СРО, а всю работу с документами
+                и реестром мы берём на себя.
               </blockquote>
             </div>
           </div>

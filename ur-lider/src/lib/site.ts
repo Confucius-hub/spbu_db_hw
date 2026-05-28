@@ -4,18 +4,19 @@
  */
 
 export const site = {
-  name: "Лидер",
-  legalName: 'Юридическая компания «Лидер»',
-  tagline: "Юридическая защита бизнеса и частных клиентов",
+  name: "ЮРЛИДЕР",
+  legalName: 'Юридическая компания «ЮРЛИДЕР»',
+  tagline: "Вступление в СРО в Санкт-Петербурге за 24 часа",
   description:
-    "Юридическая компания «Лидер» — сопровождение бизнеса, банкротство, налоговые и арбитражные споры, сделки с недвижимостью. 14 лет практики, более 3 200 выигранных дел.",
+    "ЮРЛИДЕР — оформление допусков СРО в Санкт-Петербурге с 2010 года: строители, проектировщики, изыскатели. Вступление за 24 часа, первый год без ежемесячных взносов, бесплатная подготовка документов, оплата только компенсационного фонда.",
   url: "https://ur-lider.ru",
   email: "info@ur-lider.ru",
-  phone: "+7 (495) 120-45-67",
-  phoneHref: "+74951204567",
-  address: "Москва, Пресненская наб., 8, стр. 1, БЦ «Город Столиц»",
-  workingHours: "Пн–Пт, 09:00–20:00",
-  inn: "7701234567",
+  // TODO: заменить на реальные контакты компании.
+  phone: "+7 (812) 425-30-90",
+  phoneHref: "+78124253090",
+  address: "Санкт-Петербург, Лиговский пр., 92, офис 4",
+  workingHours: "Пн–Пт, 09:00–19:00",
+  inn: "7840000000",
 } as const;
 
 export type NavChild = {
@@ -30,41 +31,41 @@ export type NavItem = {
   children?: NavChild[];
 };
 
-/** Primary navigation. Practices use a mega-menu (children). */
+/** Primary navigation. SRO admissions use a mega-menu (children). */
 export const nav: NavItem[] = [
   {
-    label: "Практики",
+    label: "Допуски СРО",
     href: "/practices",
     children: [
       {
-        label: "Сопровождение бизнеса",
-        href: "/practices/business",
-        description: "Договоры, корпоративные споры, due diligence",
+        label: "СРО строителей",
+        href: "/practices/builders",
+        description: "Допуск на строительство и капремонт",
       },
       {
-        label: "Банкротство",
-        href: "/practices/bankruptcy",
-        description: "Физлиц и компаний, защита от кредиторов",
+        label: "СРО проектировщиков",
+        href: "/practices/designers",
+        description: "Допуск на проектные работы",
       },
       {
-        label: "Налоговые споры",
-        href: "/practices/tax",
-        description: "Проверки, доначисления, возврат переплат",
+        label: "СРО изыскателей",
+        href: "/practices/surveyors",
+        description: "Допуск на инженерные изыскания",
       },
       {
-        label: "Арбитраж и суды",
-        href: "/practices/litigation",
-        description: "Представительство в судах всех инстанций",
+        label: "Специалисты НРС",
+        href: "/practices/nrs",
+        description: "Внесение в Национальный реестр",
       },
       {
-        label: "Недвижимость",
-        href: "/practices/real-estate",
-        description: "Сделки, оспаривание, земельные вопросы",
+        label: "Выписки из реестра",
+        href: "/practices/extract",
+        description: "Электронная выписка за 1 день",
       },
       {
-        label: "Частным клиентам",
-        href: "/practices/private",
-        description: "Семейные, наследственные, трудовые дела",
+        label: "Смена и переход СРО",
+        href: "/practices/transfer",
+        description: "Перевод компфонда без простоя",
       },
     ],
   },
