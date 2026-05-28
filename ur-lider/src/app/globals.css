@@ -1,0 +1,107 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Design tokens — "Юридическая компания «Лидер»"
+   Premium legal: deep ink + warm paper + refined bronze accent
+   ============================================================ */
+@theme {
+  --color-white: #ffffff;
+  --color-paper: #f7f5f0;
+  --color-paper-2: #efeae1;
+
+  --color-ink: #0f1c24;
+  --color-ink-2: #16262f;
+  --color-graphite: #27343d;
+  --color-muted: #5f6e79;
+  --color-faint: #8a96a0;
+
+  --color-line: #e7e2d9;
+  --color-line-strong: #d9d3c7;
+  --color-line-dark: #24343d;
+
+  --color-accent: #a87c4f;
+  --color-accent-strong: #8c6537;
+  --color-accent-soft: #f1e8da;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-lora), ui-serif, Georgia, serif;
+
+  --shadow-card: 0 1px 2px rgba(15, 28, 36, 0.04),
+    0 12px 32px -12px rgba(15, 28, 36, 0.12);
+  --shadow-lift: 0 2px 4px rgba(15, 28, 36, 0.05),
+    0 24px 56px -20px rgba(15, 28, 36, 0.22);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* ============================================================
+   Base layer
+   ============================================================ */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-graphite);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-accent);
+    color: #fff;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    color: var(--color-ink);
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* ============================================================
+   Utilities
+   ============================================================ */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  /* Scroll-reveal animation primitive */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    will-change: opacity, transform;
+  }
+  .reveal[data-in="true"] {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* Subtle hairline grid background for dark hero */
+  .bg-grid-dark {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

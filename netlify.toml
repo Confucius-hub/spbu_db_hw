@@ -1,0 +1,16 @@
+# Netlify configuration.
+# The deployable site is the Next.js app in /ur-lider (not the repo root).
+# `base` makes Netlify build from that directory; the Next.js Runtime
+# plugin handles the publish directory and serverless functions
+# (SSR pages + the /api/contact route handler) automatically.
+
+[build]
+  base = "ur-lider"
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
