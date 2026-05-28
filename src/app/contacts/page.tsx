@@ -22,6 +22,7 @@ const contacts: { icon: IconName; label: string; value: string; href?: string }[
 ];
 
 export default function ContactsPage() {
+  const mapEmbed = process.env.NEXT_PUBLIC_MAP_EMBED_URL;
   return (
     <>
       <PageHeader
@@ -63,16 +64,26 @@ export default function ContactsPage() {
               })}
             </div>
 
-            {/* Карта (заглушка) */}
+            {/* Карта: интерактивный embed, если задан NEXT_PUBLIC_MAP_EMBED_URL */}
             <div className="mt-6 overflow-hidden rounded-2xl border border-slate-200">
-              <div className="relative flex aspect-[16/10] items-center justify-center bg-gradient-to-br from-navy-800 to-navy-950">
-                <div className="absolute inset-0 bg-grid opacity-40" aria-hidden />
-                <div className="relative text-center text-white">
-                  <Icon name="MapPin" className="mx-auto h-10 w-10 text-gold-400" />
-                  <p className="mt-2 font-semibold">{site.address}</p>
-                  <p className="text-sm text-slate-300">Санкт-Петербург</p>
+              {mapEmbed ? (
+                <iframe
+                  src={mapEmbed}
+                  title="Карта проезда"
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="aspect-[16/10] w-full"
+                />
+              ) : (
+                <div className="relative flex aspect-[16/10] items-center justify-center bg-gradient-to-br from-navy-800 to-navy-950">
+                  <div className="absolute inset-0 bg-grid opacity-40" aria-hidden />
+                  <div className="relative px-6 text-center text-white">
+                    <Icon name="MapPin" className="mx-auto h-10 w-10 text-gold-400" />
+                    <p className="mt-2 font-semibold">{site.address}</p>
+                    <p className="text-sm text-slate-300">Санкт-Петербург</p>
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
 

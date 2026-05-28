@@ -70,11 +70,11 @@ export default async function ArticlePage({ params }: { params: Params }) {
             <Breadcrumbs
               items={[
                 { label: "Новости", href: "/news" },
-                { label: article.category.title, href: `/news?category=${article.category.slug}` },
+                { label: article.category.title, href: `/news/category/${article.category.slug}` },
               ]}
             />
             <div className="mt-6 flex flex-wrap items-center gap-3">
-              <Link href={`/news?category=${article.category.slug}`}>
+              <Link href={`/news/category/${article.category.slug}`}>
                 <Badge variant="navy">{article.category.title}</Badge>
               </Link>
               <span className="inline-flex items-center gap-1.5 text-sm text-slate-500">
