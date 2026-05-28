@@ -9,7 +9,18 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden bg-ink text-white">
       {/* Background layers */}
-      <div aria-hidden className="absolute inset-0 bg-grid-dark opacity-60" />
+      <div aria-hidden className="absolute inset-0">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage:
+              "url('https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=2000&auto=format&fit=crop')",
+          }}
+        />
+        <div className="absolute inset-0 bg-ink/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/90 to-ink/60" />
+      </div>
+      <div aria-hidden className="absolute inset-0 bg-grid-dark opacity-40" />
       <div
         aria-hidden
         className="absolute -right-40 -top-40 h-[520px] w-[520px] rounded-full opacity-50 blur-3xl"

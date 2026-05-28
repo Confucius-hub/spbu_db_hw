@@ -3,6 +3,7 @@ import { ShieldCheck, Scale, HeartHandshake, Lock } from "lucide-react";
 import { PageHeader } from "@/components/ui/PageHeader";
 import { Section } from "@/components/ui/Section";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { Container } from "@/components/ui/Container";
 import { Reveal } from "@/components/ui/Reveal";
 import { CtaBand } from "@/components/sections/CtaBand";
 
@@ -51,6 +52,26 @@ export default function AboutPage() {
         subtitle="«Лидер» — команда юристов и адвокатов, для которых репутация важнее сиюминутной выгоды. Мы соединяем глубокую экспертизу с человеческим подходом."
         crumbs={[{ label: "Главная", href: "/" }, { label: "О компании" }]}
       />
+
+      {/* Photo */}
+      <Container className="pt-12">
+        <Reveal>
+          <div className="relative h-72 overflow-hidden rounded-3xl sm:h-96 lg:h-[460px]">
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage:
+                  "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2000&auto=format&fit=crop')",
+              }}
+            />
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-gradient-to-t from-ink/50 via-ink/10 to-transparent"
+            />
+          </div>
+        </Reveal>
+      </Container>
 
       {/* Intro + key facts */}
       <Section tone="paper">
