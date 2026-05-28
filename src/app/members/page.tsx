@@ -1,0 +1,124 @@
+import type { Metadata } from "next";
+import { Section, SectionHeading } from "@/components/ui/section";
+import { PageHeader } from "@/components/layout/page-header";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Cta } from "@/components/sections/cta";
+import { Icon, type IconName } from "@/lib/icons";
+import { site } from "@/lib/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = pageMetadata({
+  title: "Членам СРО",
+  description:
+    "Сервисы для действующих членов СРО: личный кабинет, реестр членов, уведомления о договорах, сопровождение проверок.",
+  path: "/members",
+});
+
+const services: { icon: IconName; title: string; text: string }[] = [
+  { icon: "LayoutDashboard", title: "Личный кабинет", text: "Подача уведомлений, статус заявок и доступ к документам онлайн." },
+  { icon: "ClipboardList", title: "Уведомления о договорах", text: "Передача сведений о договорах и исках в срок (правило трёх дней)." },
+  { icon: "Scale", title: "Сопровождение проверок", text: "Предварительный аудит документации и помощь при проверках." },
+  { icon: "TrendingUp", title: "Повышение уровня", text: "Изменение уровня ответственности по компенсационному фонду." },
+  { icon: "FileText", title: "Документы и формы", text: "Актуальные бланки, положения и выписки из реестра." },
+  { icon: "Headset", title: "Поддержка 24/7", text: "Консультации по любым вопросам саморегулирования." },
+];
+
+export default function MembersPage() {
+  return (
+    <>
+      <PageHeader
+        eyebrow="Действующим членам"
+        title="Сервисы для членов СРО"
+        description="Всё для удобной работы в составе СРО: онлайн-сервисы, сопровождение и поддержка по любым вопросам саморегулирования."
+        breadcrumbs={[{ label: "Членам СРО" }]}
+      >
+        <Button href="#cabinet" variant="gold" size="lg">
+          <Icon name="LayoutDashboard" className="h-5 w-5" />
+          Войти в личный кабинет
+        </Button>
+      </PageHeader>
+
+      <Section tone="white">
+        <SectionHeading
+          eyebrow="Возможности"
+          title="Что доступно членам СРО «СССС»"
+        />
+        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {services.map((s) => (
+            <Card key={s.title} hover className="p-6">
+              <span className="inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gold-100 text-gold-700">
+                <Icon name={s.icon} className="h-6 w-6" />
+              </span>
+              <h3 className="mt-4 text-lg font-bold text-navy-900">{s.title}</h3>
+              <p className="mt-2 text-[0.95rem] leading-relaxed text-slate-600">{s.text}</p>
+            </Card>
+          ))}
+        </div>
+      </Section>
+
+      {/* Личный кабинет */}
+      <Section tone="navy" id="cabinet">
+        <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div>
+            <SectionHeading
+              align="left"
+              tone="dark"
+              eyebrow="Личный кабинет"
+              title="Управляйте членством онлайн"
+              description="Подавайте уведомления, отслеживайте статусы и сроки, работайте с документами — без визитов в офис."
+            />
+            <div className="mt-7 flex flex-wrap gap-3">
+              <Button href="#" variant="gold" size="lg">
+                Войти
+              </Button>
+              <Button href="/contacts" variant="white" size="lg">
+                Получить доступ
+              </Button>
+            </div>
+          </div>
+          <Card className="bg-white/5 p-8 ring-1 ring-white/10">
+            <ul className="space-y-4">
+              {[
+                "Уведомления о договорах и исках в пару кликов",
+                "История обращений и статусы заявок",
+                "Напоминания о сроках уплаты взносов",
+                "Доступ к выпискам и документам 24/7",
+              ].map((t) => (
+                <li key={t} className="flex items-start gap-3 text-slate-200">
+                  <Icon name="CheckCircle2" className="mt-0.5 h-5 w-5 shrink-0 text-gold-400" />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </Card>
+        </div>
+      </Section>
+
+      {/* Реестр членов */}
+      <Section tone="muted" id="registry">
+        <Card className="mx-auto max-w-3xl p-8 text-center">
+          <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-navy-800 text-gold-400">
+            <Icon name="Landmark" className="h-7 w-7" />
+          </span>
+          <h2 className="mt-5 text-2xl font-bold text-navy-900">Реестр членов СРО</h2>
+          <p className="mx-auto mt-3 max-w-xl text-slate-600">
+            Актуальный реестр членов и сведения об организации доступны в едином реестре НОСТРОЙ.
+            Проверьте статус компании по регистрационному номеру {site.registryNumber}.
+          </p>
+          <div className="mt-6 flex flex-wrap justify-center gap-3">
+            <Button href={site.nostroyUrl} external variant="primary">
+              Открыть реестр НОСТРОЙ
+              <Icon name="ExternalLink" className="h-4 w-4" />
+            </Button>
+            <Button href="/documents" variant="outline">
+              Выписка из реестра
+            </Button>
+          </div>
+        </Card>
+      </Section>
+
+      <Cta title="Нужна помощь по членству?" text="Персональный менеджер ответит на вопросы и поможет с документами и уведомлениями." />
+    </>
+  );
+}

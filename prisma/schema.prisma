@@ -1,0 +1,77 @@
+// Схема данных портала СРО «СССС».
+// СУБД: SQLite — нулевая настройка, запускается локально из коробки.
+// Перенос на PostgreSQL: поменяйте provider и DATABASE_URL.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Рубрики новостного раздела
+model Category {
+  id          String    @id @default(cuid())
+  slug        String    @unique
+  title       String
+  description String?
+  accent      String    @default("navy") // ключ цветовой темы карточки
+  articles    Article[]
+  createdAt   DateTime  @default(now())
+}
+
+/// Теги для фильтрации и SEO
+model Tag {
+  id       String    @id @default(cuid())
+  slug     String    @unique
+  title    String
+  articles Article[]
+}
+
+/// Новость / статья медиа-раздела
+model Article {
+  id             String   @id @default(cuid())
+  slug           String   @unique
+  title          String
+  excerpt        String
+  content        String // Markdown
+  author         String   @default("Пресс-служба СРО «СССС»")
+  readingTime    Int      @default(3)
+  views          Int      @default(0)
+  featured       Boolean  @default(false)
+  published      Boolean  @default(true)
+  publishedAt    DateTime @default(now())
+  seoTitle       String?
+  seoDescription String?
+
+  category   Category @relation(fields: [categoryId], references: [id])
+  categoryId String
+  tags       Tag[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([publishedAt])
+  @@index([categoryId])
+  @@index([featured])
+}
+
+/// Заявки с сайта: обратный звонок, консультация, заявка на вступление, расчёт
+model Lead {
+  id        String   @id @default(cuid())
+  type      String // CALLBACK | CONSULTATION | APPLICATION | CALCULATOR
+  name      String
+  phone     String
+  email     String?
+  company   String?
+  message   String?
+  payload   String? // JSON со структурой расчёта/деталями
+  status    String   @default("NEW") // NEW | IN_PROGRESS | DONE
+  source    String?
+  createdAt DateTime @default(now())
+
+  @@index([createdAt])
+  @@index([status])
+}
