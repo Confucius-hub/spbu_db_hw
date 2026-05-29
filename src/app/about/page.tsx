@@ -13,15 +13,25 @@ import { pageMetadata } from "@/lib/seo";
 export const metadata: Metadata = pageMetadata({
   title: "О СРО",
   description:
-    "СРО «Строительный союз Северной столицы» — саморегулируемая организация строителей Санкт-Петербурга в реестре НОСТРОЙ с 2010 года.",
+    "СРО «Строительный союз Северной столицы» — саморегулируемая организация строителей Санкт-Петербурга в реестре НОСТРОЙ (СРО-С-335-25122025).",
   path: "/about",
 });
 
 const values: { icon: IconName; title: string; text: string }[] = [
-  { icon: "ShieldCheck", title: "Надёжность", text: "Компенсационный фонд более 300 млн ₽ и нулевые выплаты за всю историю." },
+  { icon: "ShieldCheck", title: "Надёжность", text: "Компенсационные фонды возмещения вреда и обеспечения договорных обязательств." },
   { icon: "Scale", title: "Прозрачность", text: "Фиксированные условия и понятные правила без скрытых платежей." },
-  { icon: "Users", title: "Сообщество", text: "Более 900 строительных компаний Санкт-Петербурга и области." },
-  { icon: "BadgeCheck", title: "Соответствие", text: "100% соответствие требованиям реестра НОСТРОЙ." },
+  { icon: "Users", title: "Сообщество", text: "Объединяем строительные компании и ИП Санкт-Петербурга." },
+  { icon: "BadgeCheck", title: "Соответствие", text: "Работаем в соответствии с требованиями реестра НОСТРОЙ и № 309-ФЗ." },
+];
+
+/** Функции СРО (с официального сайта). */
+const functions = [
+  "Контроль качества работ членов и выдача допусков",
+  "Обучение и аттестация специалистов",
+  "Защита интересов членов перед государством и регуляторами",
+  "Компенсационные фонды для возмещения ущерба",
+  "Разработка стандартов и рекомендаций по отрасли",
+  "Консультации по законодательству и страхованию",
 ];
 
 const requisites = [
@@ -40,7 +50,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="Об организации"
         title="Строительный союз Северной столицы"
-        description="Саморегулируемая организация строителей Санкт-Петербурга. В реестре НОСТРОЙ с 2010 года."
+        description="Саморегулируемая организация строителей Санкт-Петербурга. Внесена в государственный реестр НОСТРОЙ: СРО-С-335-25122025."
         breadcrumbs={[{ label: "О СРО" }]}
       />
 
@@ -51,22 +61,23 @@ export default function AboutPage() {
             <SectionHeading
               align="left"
               eyebrow="Кто мы"
-              title="15 лет развиваем строительный рынок Санкт-Петербурга"
+              title="Объединяем профессионалов строительной отрасли"
             />
             <div className="mt-6 space-y-4 text-[1.02rem] leading-relaxed text-slate-600">
               <p>
-                СРО «Строительный союз Северной столицы» объединяет строительные, монтажные и
-                ремонтные компании, обеспечивая их допуск к работам и защищая интересы заказчиков
-                через институт компенсационного фонда.
+                Ассоциация объединяет компании и индивидуальных предпринимателей, работающих в
+                области строительства, реконструкции и капитального ремонта капитальных объектов.
               </p>
               <p>
-                Мы помогаем компаниям соответствовать требованиям законодательства, оперативно
-                адаптироваться к изменениям — в том числе к реформе саморегулирования 2026 года — и
-                развивать бизнес без юридических рисков.
+                Основная миссия СРО — отстаивать права и интересы своих участников перед Федеральной
+                антимонопольной службой, органами исполнительной власти, местными властями и другими
+                регуляторами строительного рынка. Это помогает создать оптимальные условия для
+                бизнеса, повысить надёжность и качество работ — особенно в условиях уникальной
+                исторической среды Северной столицы.
               </p>
               <p>
                 Наша задача — сделать саморегулирование понятным и удобным инструментом, а не
-                формальностью.
+                формальностью, и помочь членам адаптироваться к реформе отрасли 2026 года.
               </p>
             </div>
           </div>
@@ -74,18 +85,37 @@ export default function AboutPage() {
             <h3 className="text-lg font-bold text-white">Коротко о главном</h3>
             <dl className="mt-6 space-y-5">
               {[
-                ["В реестре НОСТРОЙ", `с ${site.founded} года`],
-                ["Компаний в составе", "более 900"],
-                ["Компенсационный фонд", "более 300 млн ₽"],
-                ["Выплат из фонда", "0 ₽ за всю историю"],
+                ["Статус", "СРО в реестре НОСТРОЙ"],
+                ["Регистрационный номер", site.registryNumber],
+                ["Дата внесения в реестр", site.registryDate],
+                ["Компенсационные фонды", "ВВ и ОДО"],
               ].map(([k, v]) => (
-                <div key={k} className="flex items-center justify-between border-b border-white/10 pb-4 last:border-0 last:pb-0">
+                <div key={k} className="flex items-center justify-between gap-4 border-b border-white/10 pb-4 last:border-0 last:pb-0">
                   <dt className="text-slate-300">{k}</dt>
-                  <dd className="font-display text-lg font-bold text-gold-gradient">{v}</dd>
+                  <dd className="text-right font-display text-base font-bold text-gold-gradient">{v}</dd>
                 </div>
               ))}
             </dl>
           </Card>
+        </div>
+      </Section>
+
+      {/* Функции СРО */}
+      <Section tone="white" className="pt-0">
+        <SectionHeading
+          align="left"
+          eyebrow="Чем мы занимаемся"
+          title="Основные функции СРО"
+        />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {functions.map((f) => (
+            <div key={f} className="flex items-start gap-3 rounded-2xl border border-slate-200 bg-white p-5">
+              <span className="mt-0.5 inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                <Icon name="Check" className="h-4 w-4" strokeWidth={2.5} />
+              </span>
+              <span className="text-slate-700">{f}</span>
+            </div>
+          ))}
         </div>
       </Section>
 
@@ -116,17 +146,17 @@ export default function AboutPage() {
           <Card className="order-2 overflow-hidden lg:order-1">
             <div className="bg-gradient-to-br from-navy-800 to-navy-950 p-8 text-white">
               <Icon name="ShieldCheck" className="h-12 w-12 text-gold-400" />
-              <p className="mt-4 font-display text-4xl font-extrabold text-gold-gradient">300+ млн ₽</p>
-              <p className="mt-1 text-slate-300">размер компенсационного фонда</p>
+              <p className="mt-4 font-display text-3xl font-extrabold text-gold-gradient">2 фонда</p>
+              <p className="mt-1 text-slate-300">компенсационные фонды СРО</p>
             </div>
             <div className="grid grid-cols-2 divide-x divide-slate-100">
               <div className="p-6 text-center">
-                <p className="font-display text-2xl font-extrabold text-navy-900">0 ₽</p>
-                <p className="mt-1 text-sm text-slate-500">выплат за историю</p>
+                <p className="font-display text-lg font-extrabold text-navy-900">КФ ВВ</p>
+                <p className="mt-1 text-sm text-slate-500">возмещение вреда</p>
               </div>
               <div className="p-6 text-center">
-                <p className="font-display text-2xl font-extrabold text-navy-900">2 фонда</p>
-                <p className="mt-1 text-sm text-slate-500">ВВ и ОДО</p>
+                <p className="font-display text-lg font-extrabold text-navy-900">КФ ОДО</p>
+                <p className="mt-1 text-sm text-slate-500">договорные обязательства</p>
               </div>
             </div>
           </Card>

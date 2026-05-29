@@ -7,7 +7,7 @@ import { site } from "@/lib/site";
 
 const trust: { icon: IconName; title: string; text: string }[] = [
   { icon: "BadgeCheck", title: "Официально", text: "В реестре НОСТРОЙ" },
-  { icon: "ShieldCheck", title: "Надёжно", text: "Фонд 300+ млн ₽" },
+  { icon: "ShieldCheck", title: "Надёжно", text: "Компенсационные фонды" },
   { icon: "Zap", title: "Быстро", text: "Решение за 1 день" },
 ];
 

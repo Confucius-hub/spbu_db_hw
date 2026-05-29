@@ -8,8 +8,8 @@ export function Reviews() {
     <Section tone="muted">
       <SectionHeading
         eyebrow="Отзывы"
-        title="Нам доверяют более 900 компаний"
-        description="Что говорят о работе с СРО «СССС» наши члены."
+        title="Что говорят о работе с нами"
+        description="Опыт компаний, которые проходили вступление и сопровождение в СРО «СССС»."
       />
       <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
         {reviews.map((r) => (

@@ -9,11 +9,11 @@ export function Stats() {
         <div className="mx-auto max-w-2xl text-center">
           <div className="mb-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-gold-400">
             <span className="h-px w-6 bg-gold-400/70" />
-            Мы в цифрах
+            Коротко о главном
             <span className="h-px w-6 bg-gold-400/70" />
           </div>
           <h2 className="text-3xl font-bold text-white sm:text-4xl">
-            15 лет надёжной работы в цифрах
+            Надёжность, подтверждённая статусом
           </h2>
         </div>
 
