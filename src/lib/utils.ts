@@ -26,6 +26,23 @@ export function formatDateShort(date: Date | string): string {
   return dateFmtShort.format(new Date(date));
 }
 
+/** Опубликовано недавно (по умолчанию ≤ 10 дней) — для бейджа «Свежее». */
+export function isRecent(date: Date | string, days = 10): boolean {
+  const diff = Date.now() - new Date(date).getTime();
+  return diff >= 0 && diff <= days * 24 * 60 * 60 * 1000;
+}
+
+/** Относительная дата: «сегодня», «вчера», «N дней назад» или полная дата. */
+export function relativeDate(date: Date | string): string {
+  const d = new Date(date);
+  const days = Math.floor((Date.now() - d.getTime()) / (24 * 60 * 60 * 1000));
+  if (days < 0) return formatDate(d);
+  if (days === 0) return "сегодня";
+  if (days === 1) return "вчера";
+  if (days < 7) return `${days} ${pluralize(days, ["день", "дня", "дней"])} назад`;
+  return formatDate(d);
+}
+
 /** Форматирует число в рубли без копеек: 300000 -> «300 000 ₽». */
 export function formatCurrency(value: number): string {
   return new Intl.NumberFormat("ru-RU", {

@@ -1,8 +1,9 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { Icon } from "@/lib/icons";
-import { formatDate, cn } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import type { DocItem } from "@/lib/documents";
 
 const formatColors: Record<DocItem["format"], string> = {
@@ -67,33 +68,45 @@ export function DocumentsExplorer({
       </div>
 
       <div className="mt-8 space-y-3">
-        {filtered.map((d, i) => (
-          <a
-            key={i}
-            href={d.href}
-            className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-soft transition-all hover:border-gold-200 hover:shadow-card"
-          >
-            <span
-              className={cn(
-                "inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-xs font-bold ring-1",
-                formatColors[d.format],
-              )}
+        {filtered.map((d, i) => {
+          const RowTag = d.href ? "a" : "div";
+          return (
+            <RowTag
+              key={i}
+              {...(d.href ? { href: d.href } : {})}
+              className="group flex items-center gap-4 rounded-2xl border border-slate-200 bg-white p-4 shadow-soft transition-all hover:border-gold-200 hover:shadow-card"
             >
-              {d.format}
-            </span>
-            <div className="min-w-0 flex-1">
-              <p className="truncate font-semibold text-navy-900 group-hover:text-navy-700">
-                {d.title}
-              </p>
-              <p className="mt-0.5 text-sm text-slate-500">
-                {d.category} · {d.size} · обновлено {formatDate(d.date)}
-              </p>
-            </div>
-            <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-navy-700 transition-colors group-hover:bg-gold-100 group-hover:text-gold-700">
-              <Icon name="Download" className="h-5 w-5" />
-            </span>
-          </a>
-        ))}
+              <span
+                className={cn(
+                  "inline-flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-xs font-bold ring-1",
+                  formatColors[d.format],
+                )}
+              >
+                {d.format}
+              </span>
+              <div className="min-w-0 flex-1">
+                <p className="truncate font-semibold text-navy-900 group-hover:text-navy-700">
+                  {d.title}
+                </p>
+                <p className="mt-0.5 text-sm text-slate-500">{d.category}</p>
+              </div>
+              {d.href ? (
+                <span className="inline-flex h-10 items-center gap-1.5 rounded-xl bg-slate-100 px-3 text-sm font-semibold text-navy-700 transition-colors group-hover:bg-gold-100 group-hover:text-gold-700">
+                  <Icon name="Download" className="h-4 w-4" />
+                  Скачать
+                </span>
+              ) : (
+                <Link
+                  href="/contacts"
+                  className="inline-flex h-10 shrink-0 items-center gap-1.5 rounded-xl border border-slate-200 px-3 text-sm font-semibold text-navy-700 transition-colors hover:border-gold-300 hover:bg-gold-50"
+                >
+                  Запросить
+                  <Icon name="ArrowRight" className="h-4 w-4" />
+                </Link>
+              )}
+            </RowTag>
+          );
+        })}
 
         {filtered.length === 0 && (
           <div className="rounded-2xl border border-dashed border-slate-300 bg-white py-14 text-center">

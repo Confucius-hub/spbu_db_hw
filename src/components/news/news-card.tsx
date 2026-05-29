@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { ArticleCover } from "./cover";
 import { Icon } from "@/lib/icons";
-import { formatDate, pluralize } from "@/lib/utils";
+import { formatDate, isRecent, pluralize } from "@/lib/utils";
 import type { ArticleWithRelations } from "@/lib/news";
 
 export function NewsCard({
@@ -18,12 +18,18 @@ export function NewsCard({
         (className ?? "")
       }
     >
-      <Link href={`/news/${article.slug}`} className="block">
+      <Link href={`/news/${article.slug}`} className="relative block">
         <ArticleCover
           categorySlug={article.category.slug}
           categoryTitle={article.category.title}
           className="aspect-[16/9]"
         />
+        {isRecent(article.publishedAt) && (
+          <span className="absolute right-4 top-4 inline-flex items-center gap-1 rounded-full bg-gold-500 px-2.5 py-1 text-xs font-bold text-navy-950 shadow-sm">
+            <span className="h-1.5 w-1.5 rounded-full bg-navy-900" />
+            Свежее
+          </span>
+        )}
       </Link>
       <div className="flex flex-1 flex-col p-5">
         <div className="flex items-center gap-3 text-xs text-slate-500">

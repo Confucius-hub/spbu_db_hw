@@ -28,8 +28,8 @@ export default function DocumentsPage() {
         <div className="mb-8 flex items-start gap-3 rounded-2xl border border-navy-100 bg-navy-50 p-5">
           <Icon name="Layers" className="mt-0.5 h-5 w-5 shrink-0 text-navy-700" />
           <p className="text-sm text-slate-600">
-            Раздел содержит документы, подлежащие обязательному раскрытию. Демонстрационные файлы —
-            замените ссылки на актуальные документы в каталоге <code>/public</code>.
+            Здесь публикуются документы, подлежащие обязательному раскрытию. Если нужный документ
+            или выписка ещё не выложены — нажмите «Запросить», и мы направим актуальную версию.
           </p>
         </div>
         <DocumentsExplorer documents={documents} categories={documentCategories} />
