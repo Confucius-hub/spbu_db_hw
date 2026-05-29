@@ -16,12 +16,12 @@ export const metadata: Metadata = pageMetadata({
 });
 
 const services: { icon: IconName; title: string; text: string }[] = [
-  { icon: "LayoutDashboard", title: "Личный кабинет", text: "Подача уведомлений, статус заявок и доступ к документам онлайн." },
+  { icon: "LayoutDashboard", title: "Личный кабинет (скоро)", text: "Подача уведомлений, статусы заявок и доступ к документам онлайн." },
   { icon: "ClipboardList", title: "Уведомления о договорах", text: "Передача сведений о договорах и исках в срок (правило трёх дней)." },
   { icon: "Scale", title: "Сопровождение проверок", text: "Предварительный аудит документации и помощь при проверках." },
   { icon: "TrendingUp", title: "Повышение уровня", text: "Изменение уровня ответственности по компенсационному фонду." },
   { icon: "FileText", title: "Документы и формы", text: "Актуальные бланки, положения и выписки из реестра." },
-  { icon: "Headset", title: "Поддержка 24/7", text: "Консультации по любым вопросам саморегулирования." },
+  { icon: "Headset", title: "Поддержка членов", text: "Консультации по любым вопросам саморегулирования." },
 ];
 
 export default function MembersPage() {
@@ -30,13 +30,18 @@ export default function MembersPage() {
       <PageHeader
         eyebrow="Действующим членам"
         title="Сервисы для членов СРО"
-        description="Всё для удобной работы в составе СРО: онлайн-сервисы, сопровождение и поддержка по любым вопросам саморегулирования."
+        description="Всё для удобной работы в составе СРО: сопровождение, документы и поддержка по любым вопросам саморегулирования."
         breadcrumbs={[{ label: "Членам СРО" }]}
       >
-        <Button href="#cabinet" variant="gold" size="lg">
-          <Icon name="LayoutDashboard" className="h-5 w-5" />
-          Войти в личный кабинет
-        </Button>
+        <div className="flex flex-wrap gap-3">
+          <Button href="/contacts" variant="gold" size="lg">
+            <Icon name="Headset" className="h-5 w-5" />
+            Связаться с менеджером
+          </Button>
+          <Button href="/documents" variant="white" size="lg">
+            Документы и формы
+          </Button>
+        </div>
       </PageHeader>
 
       <Section tone="white">
@@ -57,27 +62,35 @@ export default function MembersPage() {
         </div>
       </Section>
 
-      {/* Личный кабинет */}
+      {/* Личный кабинет — в разработке */}
       <Section tone="navy" id="cabinet">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
+            <span className="inline-flex items-center gap-2 rounded-full bg-white/10 px-3.5 py-1.5 text-xs font-semibold text-gold-300 ring-1 ring-white/15">
+              <span className="h-1.5 w-1.5 rounded-full bg-gold-400" />
+              Скоро · в разработке
+            </span>
             <SectionHeading
               align="left"
               tone="dark"
+              className="mt-4"
               eyebrow="Личный кабинет"
-              title="Управляйте членством онлайн"
-              description="Подавайте уведомления, отслеживайте статусы и сроки, работайте с документами — без визитов в офис."
+              title="Управление членством онлайн"
+              description="Запускаем личный кабинет: подача уведомлений, статусы заявок и доступ к документам без визитов в офис. Пока эти задачи решает ваш персональный менеджер."
             />
             <div className="mt-7 flex flex-wrap gap-3">
-              <Button href="#" variant="gold" size="lg">
-                Войти
+              <Button href="/contacts" variant="gold" size="lg">
+                Запросить доступ
               </Button>
               <Button href="/contacts" variant="white" size="lg">
-                Получить доступ
+                Связаться с менеджером
               </Button>
             </div>
           </div>
           <Card className="bg-white/5 p-8 ring-1 ring-white/10">
+            <p className="mb-4 text-sm font-semibold uppercase tracking-wider text-gold-300">
+              Что будет доступно
+            </p>
             <ul className="space-y-4">
               {[
                 "Уведомления о договорах и исках в пару кликов",
