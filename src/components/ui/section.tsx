@@ -26,7 +26,11 @@ export function Section({
   contained?: boolean;
 }) {
   return (
-    <section id={id} className={cn("py-16 sm:py-20 lg:py-24", tones[tone], className)}>
+    <section
+      id={id}
+      data-reveal
+      className={cn("py-16 sm:py-20 lg:py-24", tones[tone], className)}
+    >
       {contained ? <Container size={containerSize}>{children}</Container> : children}
     </section>
   );

@@ -51,6 +51,7 @@ export function AdminShell({ children }: { children: React.ReactNode }) {
           <Link
             href="/"
             target="_blank"
+            rel="noopener"
             className="inline-flex items-center gap-2 rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition-colors hover:bg-white/10 hover:text-white"
           >
             <Icon name="ExternalLink" className="h-4 w-4" />

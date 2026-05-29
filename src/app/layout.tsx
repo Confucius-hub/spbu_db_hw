@@ -3,6 +3,7 @@ import { Inter, Manrope } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
+import { ScrollReveal } from "@/components/util/scroll-reveal";
 import { baseMetadata, organizationJsonLd } from "@/lib/seo";
 
 const inter = Inter({
@@ -43,6 +44,7 @@ export default function RootLayout({
           Перейти к содержимому
         </a>
         <Header />
+        <ScrollReveal />
         <main id="main" className="flex-1">
           {children}
         </main>

@@ -33,6 +33,7 @@ export default async function EditArticlePage({
         <Link
           href={`/news/${article.slug}`}
           target="_blank"
+          rel="noopener"
           className="inline-flex items-center gap-1.5 text-sm font-medium text-navy-700 hover:text-gold-700"
         >
           <Icon name="Eye" className="h-4 w-4" />

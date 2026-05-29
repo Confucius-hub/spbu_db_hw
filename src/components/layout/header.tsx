@@ -87,6 +87,7 @@ export function Header() {
               <Link
                 key={item.href}
                 href={item.href}
+                aria-current={isActive(item.href) ? "page" : undefined}
                 className={cn(
                   "relative rounded-lg px-3.5 py-2 text-[0.95rem] font-medium transition-colors",
                   isActive(item.href)
@@ -178,6 +179,7 @@ function MobileMenu({
               key={item.href}
               href={item.href}
               onClick={onClose}
+              aria-current={isActive(item.href) ? "page" : undefined}
               className={cn(
                 "flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors",
                 isActive(item.href)
