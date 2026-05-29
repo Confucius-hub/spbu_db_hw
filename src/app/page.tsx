@@ -5,7 +5,6 @@ import { Stats } from "@/components/sections/stats";
 import { Services } from "@/components/sections/services";
 import { Steps } from "@/components/sections/steps";
 import { NewsTeaser } from "@/components/sections/news-teaser";
-import { Reviews } from "@/components/sections/reviews";
 import { Faq } from "@/components/sections/faq";
 import { Cta } from "@/components/sections/cta";
 
@@ -21,7 +20,6 @@ export default function HomePage() {
       <Stats />
       <Steps />
       <NewsTeaser />
-      <Reviews />
       <Faq />
       <Cta />
     </>

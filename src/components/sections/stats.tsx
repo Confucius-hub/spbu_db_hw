@@ -17,9 +17,9 @@ export function Stats() {
           </h2>
         </div>
 
-        <dl className="mt-12 grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-5">
+        <dl className="mx-auto mt-12 grid max-w-5xl grid-cols-2 gap-x-6 gap-y-10 lg:grid-cols-4">
           {stats.map((s) => (
-            <div key={s.label} className="text-center">
+            <div key={s.label} className="px-2 text-center">
               <dt className="font-display text-4xl font-extrabold text-gold-gradient lg:text-5xl">
                 {s.value}
               </dt>
