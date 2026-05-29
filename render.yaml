@@ -1,0 +1,23 @@
+# Render Blueprint — деплой портала СРО «СССС» в один клик.
+# Использует репозиторий как есть (SQLite), без внешней БД.
+# Как применить: см. DEPLOY.md → «Вариант Render».
+services:
+  - type: web
+    name: sro-ssss-portal
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      # Адрес сайта подставьте после первого деплоя (URL Render-сервиса)
+      - key: NEXT_PUBLIC_SITE_URL
+        sync: false
+      # Пароль админки и секрет сессии. Если не задать — возьмутся
+      # значения по умолчанию из .env.example (пароль: sro-admin-2026).
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: ADMIN_SESSION_SECRET
+        generateValue: true
