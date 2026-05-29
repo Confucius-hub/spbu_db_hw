@@ -6,6 +6,7 @@ import { CategoryNav } from "@/components/news/category-nav";
 import { SearchBox } from "@/components/news/search-box";
 import { FeaturedArticle } from "@/components/news/featured-article";
 import { Pagination } from "@/components/news/pagination";
+import { IndustryFeed } from "@/components/news/industry-feed";
 import { Cta } from "@/components/sections/cta";
 import { Icon } from "@/lib/icons";
 import { getCategories, getFeaturedArticle, getTags, listArticles } from "@/lib/news";
@@ -99,6 +100,8 @@ export default async function NewsPage({ searchParams }: { searchParams: SearchP
           />
         </Container>
       </section>
+
+      <IndustryFeed />
 
       <Cta
         title="Не пропускайте важные изменения"
