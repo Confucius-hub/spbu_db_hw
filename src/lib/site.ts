@@ -32,15 +32,45 @@ export type NavItem = {
   label: string;
   href: string;
   description?: string;
+  children?: NavItem[];
 };
 
 /** Главная навигация (шапка + мобильное меню). */
 export const mainNav: NavItem[] = [
-  { label: "О СРО", href: "/about", description: "Об организации, реквизиты, документы" },
-  { label: "Вступление", href: "/membership", description: "Условия и расчёт стоимости" },
+  {
+    label: "О СРО",
+    href: "/about",
+    description: "Об организации, реквизиты, документы",
+    children: [
+      { label: "Об организации", href: "/about", description: "Миссия и функции СРО" },
+      { label: "Компенсационные фонды", href: "/about#fund", description: "Гарантии для заказчиков" },
+      { label: "Реквизиты", href: "/about#requisites", description: "Сведения об организации" },
+      { label: "Документы", href: "/documents", description: "Устав, положения, формы" },
+    ],
+  },
+  {
+    label: "Вступление",
+    href: "/membership",
+    description: "Условия и расчёт стоимости",
+    children: [
+      { label: "Условия вступления", href: "/membership", description: "Что входит и сроки" },
+      { label: "Калькулятор стоимости", href: "/membership#calculator", description: "Расчёт взносов онлайн" },
+      { label: "Уровни ответственности", href: "/membership#levels", description: "Взносы в компфонды" },
+      { label: "Допуск на ОПО", href: "/membership#opo", description: "Особо опасные объекты" },
+    ],
+  },
   { label: "НРС", href: "/nrs", description: "Национальный реестр специалистов" },
   { label: "Документы", href: "/documents", description: "Реестр документов и формы" },
-  { label: "Членам СРО", href: "/members", description: "Сервисы для действующих членов" },
+  {
+    label: "Членам СРО",
+    href: "/members",
+    description: "Сервисы для действующих членов",
+    children: [
+      { label: "Сервисы для членов", href: "/members", description: "Что доступно членам СРО" },
+      { label: "Реестр членов", href: "/members#registry", description: "Проверка в реестре НОСТРОЙ" },
+      { label: "Личный кабинет", href: "/members#cabinet", description: "Скоро · в разработке" },
+    ],
+  },
   { label: "Новости", href: "/news", description: "Изменения в отрасли и события" },
   { label: "Контакты", href: "/contacts", description: "Связаться с нами" },
 ];

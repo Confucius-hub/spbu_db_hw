@@ -82,25 +82,69 @@ export function Header() {
             <Logo />
           </div>
 
-          <nav className="hidden items-center gap-1 xl:flex">
-            {mainNav.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                aria-current={isActive(item.href) ? "page" : undefined}
-                className={cn(
-                  "relative rounded-lg px-3.5 py-2 text-[0.95rem] font-medium transition-colors",
-                  isActive(item.href)
-                    ? "text-navy-900"
-                    : "text-slate-600 hover:text-navy-900",
-                )}
-              >
-                {item.label}
-                {isActive(item.href) && (
-                  <span className="absolute inset-x-3.5 -bottom-0.5 h-0.5 rounded-full bg-gold-500" />
-                )}
-              </Link>
-            ))}
+          <nav className="hidden items-center gap-0.5 xl:flex">
+            {mainNav.map((item) =>
+              item.children ? (
+                <div key={item.href} className="group relative">
+                  <Link
+                    href={item.href}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    aria-haspopup="true"
+                    className={cn(
+                      "relative inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[0.95rem] font-medium transition-colors",
+                      isActive(item.href) ? "text-navy-900" : "text-slate-600 hover:text-navy-900",
+                    )}
+                  >
+                    {item.label}
+                    <Icon
+                      name="ChevronDown"
+                      className="h-3.5 w-3.5 text-slate-400 transition-transform duration-200 group-hover:rotate-180"
+                    />
+                    {isActive(item.href) && (
+                      <span className="absolute inset-x-3.5 -bottom-0.5 h-0.5 rounded-full bg-gold-500" />
+                    )}
+                  </Link>
+
+                  {/* Панель подменю (pt-3 — невидимый «мостик» для наведения) */}
+                  <div className="invisible absolute left-0 top-full z-50 w-72 translate-y-1 pt-3 opacity-0 transition-all duration-200 ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100">
+                    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white p-2 shadow-lift">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          className="group/sub flex items-start gap-3 rounded-xl px-3 py-2.5 transition-colors hover:bg-navy-50"
+                        >
+                          <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-gold-400 transition-transform group-hover/sub:scale-125" />
+                          <span>
+                            <span className="block text-sm font-semibold text-navy-900">
+                              {child.label}
+                            </span>
+                            {child.description && (
+                              <span className="block text-xs text-slate-500">{child.description}</span>
+                            )}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              ) : (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  aria-current={isActive(item.href) ? "page" : undefined}
+                  className={cn(
+                    "relative rounded-lg px-3.5 py-2 text-[0.95rem] font-medium transition-colors",
+                    isActive(item.href) ? "text-navy-900" : "text-slate-600 hover:text-navy-900",
+                  )}
+                >
+                  {item.label}
+                  {isActive(item.href) && (
+                    <span className="absolute inset-x-3.5 -bottom-0.5 h-0.5 rounded-full bg-gold-500" />
+                  )}
+                </Link>
+              ),
+            )}
           </nav>
 
           <div className="flex items-center gap-2 sm:gap-3">
@@ -140,6 +184,7 @@ function MobileMenu({
   isActive: (href: string) => boolean;
   onClose: () => void;
 }) {
+  const [expanded, setExpanded] = useState<string | null>(null);
   return (
     <div
       className={cn(
@@ -174,30 +219,65 @@ function MobileMenu({
         </div>
 
         <nav className="flex-1 overflow-y-auto px-3 py-4">
-          {mainNav.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              onClick={onClose}
-              aria-current={isActive(item.href) ? "page" : undefined}
-              className={cn(
-                "flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors",
-                isActive(item.href)
-                  ? "bg-navy-50 text-navy-900"
-                  : "text-slate-700 hover:bg-slate-50",
-              )}
-            >
-              <span>
-                {item.label}
-                {item.description && (
-                  <span className="mt-0.5 block text-xs font-normal text-slate-400">
-                    {item.description}
-                  </span>
+          {mainNav.map((item) =>
+            item.children ? (
+              <div key={item.href}>
+                <button
+                  type="button"
+                  onClick={() => setExpanded((v) => (v === item.href ? null : item.href))}
+                  aria-expanded={expanded === item.href}
+                  className={cn(
+                    "flex w-full items-center justify-between rounded-xl px-4 py-3.5 text-left text-base font-medium transition-colors",
+                    isActive(item.href) ? "bg-navy-50 text-navy-900" : "text-slate-700 hover:bg-slate-50",
+                  )}
+                >
+                  <span>{item.label}</span>
+                  <Icon
+                    name="ChevronDown"
+                    className={cn(
+                      "h-4 w-4 text-slate-400 transition-transform duration-200",
+                      expanded === item.href && "rotate-180",
+                    )}
+                  />
+                </button>
+                <div
+                  className={cn(
+                    "grid transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]",
+                    expanded === item.href ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0",
+                  )}
+                >
+                  <div className="overflow-hidden">
+                    <div className="ml-4 border-l border-slate-100 py-1 pl-3">
+                      {item.children.map((child) => (
+                        <Link
+                          key={child.href}
+                          href={child.href}
+                          onClick={onClose}
+                          className="block rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition-colors hover:bg-slate-50 hover:text-navy-900"
+                        >
+                          {child.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={onClose}
+                aria-current={isActive(item.href) ? "page" : undefined}
+                className={cn(
+                  "flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors",
+                  isActive(item.href) ? "bg-navy-50 text-navy-900" : "text-slate-700 hover:bg-slate-50",
                 )}
-              </span>
-              <Icon name="ChevronRight" className="h-4 w-4 text-slate-300" />
-            </Link>
-          ))}
+              >
+                <span>{item.label}</span>
+                <Icon name="ChevronRight" className="h-4 w-4 text-slate-300" />
+              </Link>
+            ),
+          )}
         </nav>
 
         <div className="space-y-3 border-t border-slate-100 p-5">
