@@ -66,6 +66,13 @@ export function Header() {
               <Icon name="Mail" className="h-4 w-4 text-slate-400" />
               {site.email}
             </a>
+            <a
+              href={site.phoneHref}
+              className="inline-flex items-center gap-2 whitespace-nowrap font-medium text-white transition-colors hover:text-gold-300 2xl:hidden"
+            >
+              <Icon name="Phone" className="h-4 w-4 text-gold-400" />
+              {site.phone}
+            </a>
           </div>
         </div>
       </div>
@@ -91,7 +98,7 @@ export function Header() {
                     aria-current={isActive(item.href) ? "page" : undefined}
                     aria-haspopup="true"
                     className={cn(
-                      "relative inline-flex items-center gap-1 rounded-lg px-3.5 py-2 text-[0.95rem] font-medium transition-colors",
+                      "relative inline-flex items-center gap-1 whitespace-nowrap rounded-lg px-3 py-2 text-[0.95rem] font-medium transition-colors",
                       isActive(item.href) ? "text-navy-900" : "text-slate-600 hover:text-navy-900",
                     )}
                   >
@@ -134,7 +141,7 @@ export function Header() {
                   href={item.href}
                   aria-current={isActive(item.href) ? "page" : undefined}
                   className={cn(
-                    "relative rounded-lg px-3.5 py-2 text-[0.95rem] font-medium transition-colors",
+                    "relative whitespace-nowrap rounded-lg px-3 py-2 text-[0.95rem] font-medium transition-colors",
                     isActive(item.href) ? "text-navy-900" : "text-slate-600 hover:text-navy-900",
                   )}
                 >
@@ -150,7 +157,7 @@ export function Header() {
           <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={site.phoneHref}
-              className="hidden items-center gap-2 text-sm font-bold text-navy-900 transition-colors hover:text-gold-700 md:inline-flex"
+              className="hidden items-center gap-2 whitespace-nowrap text-sm font-bold text-navy-900 transition-colors hover:text-gold-700 2xl:inline-flex"
             >
               <Icon name="Phone" className="h-4 w-4 text-gold-600" />
               {site.phone}

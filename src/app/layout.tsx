@@ -4,6 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/header";
 import { Footer } from "@/components/layout/footer";
 import { ScrollReveal } from "@/components/util/scroll-reveal";
+import { ScrollToTop } from "@/components/util/scroll-to-top";
 import { baseMetadata, organizationJsonLd } from "@/lib/seo";
 
 const inter = Inter({
@@ -48,6 +49,7 @@ export default function RootLayout({
         <main id="main" className="flex-1">
           {children}
         </main>
+        <ScrollToTop />
         <Footer />
       </body>
     </html>
