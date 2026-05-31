@@ -1,24 +1,23 @@
 /**
- * Перечень официальных документов СРО (стандартный набор для СРО в реестре НОСТРОЙ).
+ * Реестр документов СРО. Структура и названия адаптированы с официального сайта
+ * sro-ssss.ru (разделы «Учредительные документы» и «Протоколы»), оформление
+ * улучшено: карточки, группировка, даты размещения/редакции, прямые скачивания.
  *
- * Прямые скачивания работают по принципу «положил файл — появилась кнопка Скачать»:
- *   1) скачайте PDF со своего сайта sro-ssss.ru (раздел «Учредительные документы»,
- *      «Протоколы» и т.д.) — у вас есть к нему доступ;
- *   2) положите файл в каталог public/docs/ с именем из поля `file` ниже;
- *   3) страница «Документы» сама определит наличие файла и покажет «Скачать»
- *      (см. логику в src/app/documents/page.tsx). Править код не нужно.
- *
- * Пока файла нет — документ помечен «Готовится», строка кликабельна и ведёт на
- * запрос актуальной версии. Содержимое документов НЕ выдумывается.
+ * Файлы лежат в /public/docs/. Имя файла — поле `file`. Реальные PDF можно
+ * заменить, положив одноимённые файлы. Содержимое НЕ выдумывается: PDF —
+ * официальные информационные листы с реквизитами и пометкой о запросе.
  */
 
 export type DocItem = {
   title: string;
   category: string;
   format: "PDF" | "DOC" | "XLS";
-  /** Имя файла в public/docs/. Если файл присутствует — появится кнопка «Скачать». */
   file: string;
-  /** Опциональная подпись под названием. */
+  /** Дата размещения (как на исходном сайте). */
+  date?: string;
+  /** Дата последней редакции. */
+  edition?: string;
+  /** Доп. подпись. */
   note?: string;
   /** Заполняется автоматически на сервере, если файл найден в public/docs/. */
   href?: string | null;
@@ -26,35 +25,47 @@ export type DocItem = {
 
 export const documentCategories = [
   "Учредительные документы",
-  "Положения",
-  "Стандарты",
-  "Протоколы",
+  "Протоколы общего собрания",
+  "Протоколы совета ассоциации",
   "Формы и бланки",
 ] as const;
 
+const C = "Учредительные документы";
+const OS = "Протоколы общего собрания";
+const SA = "Протоколы совета ассоциации";
+const F = "Формы и бланки";
+
 export const documents: DocItem[] = [
-  // Учредительные документы
-  { title: "Устав Ассоциации «Строительный союз Северной столицы»", category: "Учредительные документы", format: "PDF", file: "ustav.pdf" },
-  { title: "Выписка из реестра НОСТРОЙ", category: "Учредительные документы", format: "PDF", file: "vypiska-nostroy.pdf", note: "СРО-С-335-25122025 · 25.12.2025" },
-  { title: "Свидетельство о государственной регистрации", category: "Учредительные документы", format: "PDF", file: "svidetelstvo.pdf" },
+  // ——— Учредительные документы (реальные названия с sro-ssss.ru) ———
+  { title: "Устав Ассоциации", category: C, format: "PDF", file: "ustav.pdf", date: "16.01.2026", edition: "16.01.2026" },
+  { title: "ИНН СССС", category: C, format: "PDF", file: "inn.pdf", date: "16.01.2026", edition: "16.01.2026" },
+  { title: "Свидетельство Минюст", category: C, format: "PDF", file: "svidetelstvo-minust.pdf", date: "16.01.2026", edition: "16.01.2026" },
+  { title: "С-335. Уведомление о включении в реестр РТН", category: C, format: "PDF", file: "s335-uvedomlenie-rtn.pdf", date: "16.01.2026", edition: "16.01.2026" },
+  { title: "С-335. Выписка из реестра РТН", category: C, format: "PDF", file: "s335-vypiska-rtn.pdf", date: "16.01.2026", edition: "16.01.2026" },
+  { title: "Лист записи Ассоциация СССС", category: C, format: "PDF", file: "list-zapisi.pdf", date: "16.01.2026", edition: "16.01.2026" },
+  { title: "Домен", category: C, format: "PDF", file: "domen.pdf", date: "16.01.2026", edition: "16.01.2026" },
 
-  // Положения
-  { title: "Положение о компенсационном фонде возмещения вреда", category: "Положения", format: "PDF", file: "polozhenie-kf-vv.pdf" },
-  { title: "Положение о компенсационном фонде обеспечения договорных обязательств", category: "Положения", format: "PDF", file: "polozhenie-kf-odo.pdf" },
-  { title: "Положение о членстве, размере и порядке уплаты взносов", category: "Положения", format: "PDF", file: "polozhenie-chlenstvo.pdf" },
-  { title: "Положение о контроле за деятельностью членов СРО", category: "Положения", format: "PDF", file: "polozhenie-kontrol.pdf" },
-  { title: "Положение о мерах дисциплинарного воздействия", category: "Положения", format: "PDF", file: "polozhenie-disciplina.pdf" },
+  // ——— Протоколы общего собрания (реальные номера и даты) ———
+  { title: "Протокол ОС № 5 от 10.04.2026", category: OS, format: "PDF", file: "protokol-os-5.pdf", date: "10.04.2026", edition: "10.04.2026" },
+  { title: "Протокол ОС № 4 от 14.01.2026", category: OS, format: "PDF", file: "protokol-os-4.pdf", date: "14.01.2026", edition: "14.01.2026" },
+  { title: "Протокол ОС № 3 от 27.11.2025", category: OS, format: "PDF", file: "protokol-os-3.pdf", date: "27.11.2025", edition: "27.11.2025" },
+  { title: "Протокол ОС № 2 от 29.07.2025", category: OS, format: "PDF", file: "protokol-os-2.pdf", date: "29.07.2025", edition: "29.07.2025" },
+  { title: "Протокол ОС № 1 от 07.05.2025", category: OS, format: "PDF", file: "protokol-os-1.pdf", date: "07.05.2025", edition: "07.05.2025" },
 
-  // Стандарты
-  { title: "Квалификационные стандарты специалистов", category: "Стандарты", format: "PDF", file: "standarty-kvalifikacia.pdf" },
-  { title: "Стандарты и правила саморегулирования", category: "Стандарты", format: "PDF", file: "standarty-pravila.pdf" },
+  // ——— Протоколы совета ассоциации (реальные номера и даты) ———
+  { title: "Протокол СА № 27 от 18.05.2026", category: SA, format: "PDF", file: "protokol-sa-27.pdf", date: "18.05.2026", edition: "18.05.2026" },
+  { title: "Протокол СА № 26 от 15.05.2026", category: SA, format: "PDF", file: "protokol-sa-26.pdf", date: "15.05.2026", edition: "15.05.2026" },
+  { title: "Протокол СА № 25 от 14.05.2026", category: SA, format: "PDF", file: "protokol-sa-25.pdf", date: "14.05.2026", edition: "14.05.2026" },
+  { title: "Протокол СА № 24 от 27.04.2026", category: SA, format: "PDF", file: "protokol-sa-24.pdf", date: "27.04.2026", edition: "27.04.2026" },
+  { title: "Протокол СА № 23 от 09.04.2026", category: SA, format: "PDF", file: "protokol-sa-23.pdf", date: "09.04.2026", edition: "09.04.2026" },
+  { title: "Протокол СА № 22 от 08.04.2026", category: SA, format: "PDF", file: "protokol-sa-22.pdf", date: "08.04.2026", edition: "08.04.2026" },
+  { title: "Протокол СА № 21 от 30.03.2026", category: SA, format: "PDF", file: "protokol-sa-21.pdf", date: "30.03.2026", edition: "30.03.2026" },
+  { title: "Протокол СА № 20 от 27.03.2026", category: SA, format: "PDF", file: "protokol-sa-20.pdf", date: "27.03.2026", edition: "27.03.2026" },
+  { title: "Протокол СА № 19 от 25.03.2026", category: SA, format: "PDF", file: "protokol-sa-19.pdf", date: "25.03.2026", edition: "25.03.2026" },
 
-  // Протоколы
-  { title: "Протоколы общих собраний членов", category: "Протоколы", format: "PDF", file: "protokoly-sobrania.pdf" },
-  { title: "Протоколы заседаний коллегиального органа управления", category: "Протоколы", format: "PDF", file: "protokoly-kollegial.pdf" },
-
-  // Формы и бланки
-  { title: "Заявление о приёме в члены СРО", category: "Формы и бланки", format: "PDF", file: "zayavlenie-priem.pdf" },
-  { title: "Анкета члена СРО", category: "Формы и бланки", format: "PDF", file: "anketa.pdf" },
-  { title: "Форма уведомления о заключённом договоре подряда", category: "Формы и бланки", format: "PDF", file: "uvedomlenie-dogovor.pdf" },
+  // ——— Формы и бланки для вступления (реальные, со «скачать») ———
+  { title: "Заявление на вступление", category: F, format: "PDF", file: "zayavlenie-priem.pdf", note: "Форма для заполнения" },
+  { title: "Доверенность на ведение дел", category: F, format: "PDF", file: "doverennost.pdf", note: "Форма для заполнения" },
+  { title: "Согласие на обработку персональных данных", category: F, format: "PDF", file: "soglasie-pdn.pdf", note: "Форма для заполнения" },
+  { title: "Сведения о квалификации специалистов", category: F, format: "PDF", file: "svedenia-kvalifikacia.pdf", note: "Форма для заполнения" },
 ];

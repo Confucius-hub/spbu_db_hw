@@ -62,6 +62,7 @@ export function DocumentsExplorer({
         {categories.map((cat) => {
           const items = byCategory.get(cat) ?? [];
           if (items.length === 0) return null;
+          const hasDates = items.some((d) => d.date || d.edition);
           return (
             <section key={cat}>
               <h3 className="mb-4 inline-flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.14em] text-gold-700">
@@ -71,10 +72,22 @@ export function DocumentsExplorer({
                   · {items.length}
                 </span>
               </h3>
-              <div className="divide-y divide-slate-100 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
-                {items.map((d, i) => (
-                  <DocumentRow key={i} doc={d} />
-                ))}
+              <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-soft">
+                {/* Заголовок столбцов (десктоп) — как на исходном сайте */}
+                {hasDates && (
+                  <div className="hidden items-center gap-4 border-b border-slate-100 bg-slate-50/60 px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-wider text-slate-400 md:flex">
+                    <span className="h-12 w-12 shrink-0" />
+                    <span className="flex-1">Документ</span>
+                    <span className="w-24 text-center">Размещено</span>
+                    <span className="w-24 text-center">Редакция</span>
+                    <span className="w-28 text-center">Файл</span>
+                  </div>
+                )}
+                <div className="divide-y divide-slate-100">
+                  {items.map((d, i) => (
+                    <DocumentRow key={i} doc={d} />
+                  ))}
+                </div>
               </div>
             </section>
           );
@@ -109,10 +122,17 @@ function DocumentRow({ doc }: { doc: DocItem }) {
         <p className="font-medium text-navy-900 group-hover:text-navy-700">{doc.title}</p>
         {doc.note && <p className="mt-0.5 text-xs text-slate-500">{doc.note}</p>}
       </div>
+      {/* Даты «Размещено / Редакция» — выровнены под заголовки столбцов секции */}
+      {(doc.date || doc.edition) && (
+        <div className="hidden shrink-0 items-center gap-4 md:flex">
+          <span className="w-24 text-center text-sm font-medium text-slate-600">{doc.date ?? "—"}</span>
+          <span className="w-24 text-center text-sm font-medium text-slate-600">{doc.edition ?? "—"}</span>
+        </div>
+      )}
       {available ? (
-        <span className="inline-flex shrink-0 items-center gap-1.5 text-sm font-semibold text-navy-700 transition-colors group-hover:text-gold-700">
-          Скачать
+        <span className="inline-flex w-28 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-navy-50 py-2 text-sm font-semibold text-navy-800 transition-colors group-hover:bg-gold-100 group-hover:text-gold-800">
           <Icon name="Download" className="h-4 w-4" />
+          Скачать
         </span>
       ) : (
         <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500 transition-colors group-hover:bg-gold-100 group-hover:text-gold-800">
