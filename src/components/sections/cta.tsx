@@ -1,8 +1,9 @@
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { CallbackButton } from "@/components/forms/callback-modal";
+import { Photo } from "@/components/ui/photo";
 import { Icon } from "@/lib/icons";
-import { site } from "@/lib/site";
+import { site, media } from "@/lib/site";
 
 export function Cta({
   title = "Получите расчёт стоимости вступления в СРО",
@@ -15,7 +16,13 @@ export function Cta({
     <section className="bg-white py-16 sm:py-20">
       <Container>
         <div className="relative overflow-hidden rounded-3xl bg-navy-900 px-6 py-12 text-center sm:px-12 sm:py-16">
-          <div className="absolute inset-0 bg-grid opacity-40" aria-hidden />
+          <Photo
+            src={media.construction}
+            className="absolute inset-0"
+            imgClassName="opacity-15 object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-navy-900 via-navy-900/90 to-navy-900/75" aria-hidden />
+          <div className="absolute inset-0 bg-grid opacity-30" aria-hidden />
           <div
             className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-gold-500/15 blur-3xl"
             aria-hidden

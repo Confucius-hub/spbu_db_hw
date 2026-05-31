@@ -103,18 +103,16 @@ export function Calculator({ variant = "compact" }: { variant?: "compact" | "ful
             <label className={labelCls} htmlFor="calc-spec">
               Специалистов в НРС
             </label>
-            <select
+            <input
               id="calc-spec"
+              inputMode="numeric"
               value={specialists}
-              onChange={(e) => setSpecialists(Number(e.target.value))}
+              onChange={(e) =>
+                setSpecialists(Math.min(999, Number(e.target.value.replace(/\D/g, "")) || 0))
+              }
               className={fieldCls}
-            >
-              {[0, 1, 2, 3, 4, 5].map((n) => (
-                <option key={n} value={n}>
-                  {n === 5 ? "5 и более" : n}
-                </option>
-              ))}
-            </select>
+              placeholder="2"
+            />
           </div>
         </div>
 

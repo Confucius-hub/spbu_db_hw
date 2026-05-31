@@ -28,6 +28,23 @@ export const site = {
   },
 } as const;
 
+/**
+ * Тематические фотографии (строительство / Санкт-Петербург).
+ * Грузятся с Unsplash (свободная лицензия). Если фото не загрузится,
+ * автоматически показывается фирменный градиент — вёрстка не ломается.
+ *
+ * Чтобы поставить своё фото: положите файл в /public/images/ и впишите путь,
+ * например hero: "/images/hero.jpg".
+ */
+export const media = {
+  // Современная застройка / небоскрёбы у воды — перекликается с «Северной столицей»
+  hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=70",
+  // Строительная площадка с краном
+  construction: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=70",
+  // Инженеры на объекте
+  team: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=70",
+} as const;
+
 export type NavItem = {
   label: string;
   href: string;

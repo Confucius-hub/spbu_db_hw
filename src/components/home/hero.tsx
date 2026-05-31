@@ -2,8 +2,9 @@ import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { CallbackButton } from "@/components/forms/callback-modal";
 import { Calculator } from "@/components/home/calculator";
+import { Photo } from "@/components/ui/photo";
 import { Icon, type IconName } from "@/lib/icons";
-import { site } from "@/lib/site";
+import { site, media } from "@/lib/site";
 
 const trust: { icon: IconName; title: string; text: string }[] = [
   { icon: "BadgeCheck", title: "Официально", text: "В реестре НОСТРОЙ" },
@@ -14,10 +15,20 @@ const trust: { icon: IconName; title: string; text: string }[] = [
 export function Hero() {
   return (
     <section className="relative overflow-hidden bg-navy-950 text-white">
-      {/* Декоративный фон */}
-      <div className="absolute inset-0 bg-grid opacity-60" aria-hidden />
+      {/* Фоновое фото (с фолбэком на градиент) + затемнение для читаемости текста */}
+      <Photo
+        src={media.hero}
+        className="absolute inset-0"
+        imgClassName="opacity-25 [mask-image:linear-gradient(to_right,black,transparent_85%)]"
+      />
       <div
-        className="absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-navy-700/40 blur-3xl"
+        className="absolute inset-0 bg-gradient-to-r from-navy-950 via-navy-950/85 to-navy-900/70"
+        aria-hidden
+      />
+      {/* Декоративный фон */}
+      <div className="absolute inset-0 bg-grid opacity-40" aria-hidden />
+      <div
+        className="absolute -right-40 -top-40 h-[36rem] w-[36rem] rounded-full bg-navy-700/30 blur-3xl"
         aria-hidden
       />
       <div
