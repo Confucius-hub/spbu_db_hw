@@ -42,14 +42,19 @@ export function Footer() {
               {site.legalName}. Допуск к строительным работам, внесение специалистов в НРС и
               сопровождение членов СРО с {site.founded} года.
             </p>
-            <div className="mt-5 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-xs">
+            <a
+              href={site.nostroyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-5 inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-xs transition-colors hover:border-gold-400/40 hover:bg-white/10"
+            >
               <Icon name="BadgeCheck" className="h-5 w-5 text-gold-400" />
               <span>
                 Реестр НОСТРОЙ
                 <span className="ml-1 font-semibold text-white">{site.registryNumber}</span>
-                <span className="block text-slate-500">от {site.registryDate}</span>
+                <span className="block text-slate-500">от {site.registryDate} · проверить ↗</span>
               </span>
-            </div>
+            </a>
           </div>
 
           {footerNav.map((col) => (
@@ -100,9 +105,11 @@ export function Footer() {
         </div>
 
         {/* Нижняя полоса */}
-        <div className="flex flex-col gap-3 border-t border-white/10 py-6 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>
+        <div className="flex flex-col gap-4 border-t border-white/10 py-6 text-xs text-slate-500">
+          <p className="leading-relaxed">
             © {site.founded}—{year} {site.legalName}. Все права защищены.
+            <br />
+            Юридический адрес: {site.address}
           </p>
           <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
             <Link href="/privacy" className="transition-colors hover:text-gold-300">
@@ -110,6 +117,9 @@ export function Footer() {
             </Link>
             <Link href="/documents" className="transition-colors hover:text-gold-300">
               Документы
+            </Link>
+            <Link href="/members/registry" className="transition-colors hover:text-gold-300">
+              Реестр членов
             </Link>
             <Link href="/sitemap.xml" className="transition-colors hover:text-gold-300">
               Карта сайта
