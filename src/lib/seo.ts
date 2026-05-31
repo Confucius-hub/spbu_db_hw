@@ -88,3 +88,33 @@ export function organizationJsonLd() {
     areaServed: "RU",
   };
 }
+
+/** JSON-LD: услуга (для страниц услуг — /membership, /nrs). */
+export function serviceJsonLd({
+  name,
+  description,
+  path,
+  serviceType,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  serviceType: string;
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    serviceType,
+    url: `${site.url}${path}`,
+    areaServed: { "@type": "AdministrativeArea", name: "Санкт-Петербург" },
+    provider: {
+      "@type": "Organization",
+      name: site.legalName,
+      identifier: site.registryNumber,
+      telephone: site.phone,
+      url: site.url,
+    },
+  };
+}

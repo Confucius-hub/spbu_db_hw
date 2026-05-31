@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Cta } from "@/components/sections/cta";
 import { LeadForm } from "@/components/forms/lead-form";
 import { Icon, type IconName } from "@/lib/icons";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "НРС — Национальный реестр специалистов",
@@ -31,6 +31,20 @@ const docs = [
 export default function NrsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            serviceJsonLd({
+              name: "Внесение специалистов в НРС",
+              description:
+                "Подготовка документов и сопровождение внесения специалистов по организации строительства в Национальный реестр специалистов (НРС) НОСТРОЙ.",
+              path: "/nrs",
+              serviceType: "Внесение в Национальный реестр специалистов",
+            }),
+          ),
+        }}
+      />
       <PageHeader
         eyebrow="Услуги · НРС"
         title="Национальный реестр специалистов (НРС)"

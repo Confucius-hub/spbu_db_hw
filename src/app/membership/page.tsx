@@ -12,7 +12,7 @@ import { LeadForm } from "@/components/forms/lead-form";
 import { Icon } from "@/lib/icons";
 import { formatCurrency } from "@/lib/utils";
 import { VV_LEVELS, ODO_LEVELS } from "@/lib/calculator";
-import { pageMetadata } from "@/lib/seo";
+import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
   title: "Вступление в СРО",
@@ -33,6 +33,20 @@ const included = [
 export default function MembershipPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            serviceJsonLd({
+              name: "Вступление в СРО строителей",
+              description:
+                "Сопровождение вступления в СРО строителей под ключ: подбор уровня ответственности, подготовка документов, внесение специалистов в НРС, допуск на ОПО.",
+              path: "/membership",
+              serviceType: "Допуск к строительным работам через членство в СРО",
+            }),
+          ),
+        }}
+      />
       <PageHeader
         eyebrow="Услуги · Вступление"
         title="Вступление в СРО строителей за 1 день"
