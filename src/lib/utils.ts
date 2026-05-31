@@ -52,6 +52,32 @@ export function formatCurrency(value: number): string {
   }).format(value);
 }
 
+/**
+ * Маска российского телефона: форматирует ввод в «+7 (XXX) XXX-XX-XX».
+ * Корректно обрабатывает ведущую 7/8 и частичный ввод.
+ */
+export function formatRuPhone(input: string): string {
+  let digits = input.replace(/\D/g, "");
+  if (!digits) return "";
+  // Нормализуем код страны: ведущие 7 или 8 -> код «7»
+  if (digits[0] === "8") digits = "7" + digits.slice(1);
+  if (digits[0] !== "7") digits = "7" + digits;
+  digits = digits.slice(0, 11); // 7 + 10 цифр
+
+  const a = digits.slice(1, 4); // код
+  const b = digits.slice(4, 7);
+  const c = digits.slice(7, 9);
+  const d = digits.slice(9, 11);
+
+  let out = "+7";
+  if (a) out += ` (${a}`;
+  if (a.length === 3) out += ")";
+  if (b) out += ` ${b}`;
+  if (c) out += `-${c}`;
+  if (d) out += `-${d}`;
+  return out;
+}
+
 /** Русские склонения: pluralize(2, ['день','дня','дней']) -> 'дня'. */
 export function pluralize(n: number, forms: [string, string, string]): string {
   const abs = Math.abs(n) % 100;

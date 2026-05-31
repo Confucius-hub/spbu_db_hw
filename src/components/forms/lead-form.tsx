@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Icon } from "@/lib/icons";
-import { cn } from "@/lib/utils";
+import { cn, formatRuPhone } from "@/lib/utils";
 
 export type LeadType = "CALLBACK" | "CONSULTATION" | "APPLICATION" | "CALCULATOR";
 type ExtraField = "email" | "company" | "message";
@@ -30,6 +30,7 @@ export function LeadForm({
 }) {
   const [state, setState] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [error, setError] = useState<string | null>(null);
+  const [phone, setPhone] = useState("");
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -60,6 +61,7 @@ export function LeadForm({
       }
       setState("success");
       form.reset();
+      setPhone("");
     } catch (err) {
       setState("error");
       setError(err instanceof Error ? err.message : "Ошибка отправки");
@@ -130,6 +132,9 @@ export function LeadForm({
           name="phone"
           type="tel"
           required
+          inputMode="tel"
+          value={phone}
+          onChange={(e) => setPhone(formatRuPhone(e.target.value))}
           placeholder="+7 (___) ___-__-__"
           className={inputCls}
           autoComplete="tel"
