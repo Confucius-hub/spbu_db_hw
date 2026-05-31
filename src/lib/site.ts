@@ -30,35 +30,30 @@ export const site = {
 
 /**
  * Тематические фотографии (строительство / Санкт-Петербург).
- * Грузятся с Unsplash (свободная лицензия). Если фото не загрузится,
- * автоматически показывается фирменный градиент — вёрстка не ломается.
  *
- * Чтобы поставить своё фото: положите файл в /public/images/ и впишите путь,
- * например hero: "/images/hero.jpg".
+ * Используются ЛОКАЛЬНЫЕ файлы из /public/images/ — это работает офлайн,
+ * без внешних сервисов и гарантированно загружается. Просто положите файлы
+ * с указанными именами в каталог public/images/ (см. public/images/README.md).
+ *
+ * Пока файла нет — автоматически показывается фирменный градиент
+ * (компонент Photo скрывает битое изображение). Верстка не ломается.
  */
 export const media = {
-  // Современная застройка / небоскрёбы у воды — перекликается с «Северной столицей»
-  hero: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1920&q=70",
-  // Строительная площадка с краном
-  construction: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=70",
-  // Инженеры на объекте
-  team: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=70",
+  hero: "/images/hero.jpg",
+  construction: "/images/construction.jpg",
+  team: "/images/team.jpg",
 } as const;
 
 /**
- * Фоновые фото для обложек новостей по рубрикам (тема строительства/права/бизнеса).
- * Если фото не загрузится — остаётся фирменный градиент карточки.
+ * Фоновые фото для обложек новостей по рубрикам.
+ * Файлы кладутся в /public/images/. Нет файла — остаётся фирменный градиент.
  */
 export const newsCategoryImages: Record<string, string> = {
-  legislation:
-    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=70",
-  industry:
-    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=70",
-  sro: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=70",
-  nostroy:
-    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=70",
-  guides:
-    "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=70",
+  legislation: "/images/news-legislation.jpg",
+  industry: "/images/news-industry.jpg",
+  sro: "/images/news-sro.jpg",
+  nostroy: "/images/news-nostroy.jpg",
+  guides: "/images/news-guides.jpg",
 };
 
 export type NavItem = {

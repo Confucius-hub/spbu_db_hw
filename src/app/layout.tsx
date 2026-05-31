@@ -33,9 +33,6 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru" className={`${inter.variable} ${manrope.variable} h-full antialiased`}>
-      <head>
-        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="" />
-      </head>
       <body className="flex min-h-full flex-col bg-white">
         <script
           type="application/ld+json"

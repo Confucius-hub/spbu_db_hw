@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import Link from "next/link";
 import { Icon } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import type { DocItem } from "@/lib/documents";
@@ -114,9 +115,10 @@ function DocumentRow({ doc }: { doc: DocItem }) {
           <Icon name="Download" className="h-4 w-4" />
         </span>
       ) : (
-        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500">
+        <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-slate-100 px-3 py-1 text-xs font-medium text-slate-500 transition-colors group-hover:bg-gold-100 group-hover:text-gold-800">
           <Icon name="Clock" className="h-3.5 w-3.5" />
-          Готовится
+          <span className="group-hover:hidden">Готовится</span>
+          <span className="hidden group-hover:inline">Запросить</span>
         </span>
       )}
     </>
@@ -135,5 +137,14 @@ function DocumentRow({ doc }: { doc: DocItem }) {
     );
   }
 
-  return <div className="group flex items-center gap-4 px-5 py-4">{content}</div>;
+  // Документа ещё нет в свободном доступе — строка ведёт на запрос актуальной версии
+  return (
+    <Link
+      href="/contacts"
+      title={`Запросить документ: ${doc.title}`}
+      className="group flex items-center gap-4 px-5 py-4 transition-colors hover:bg-gold-50/40"
+    >
+      {content}
+    </Link>
+  );
 }
