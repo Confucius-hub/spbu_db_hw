@@ -54,7 +54,7 @@ export const documents: DocItem[] = [
   { title: "Протоколы заседаний коллегиального органа управления", category: "Протоколы", format: "PDF", file: "protokoly-kollegial.pdf" },
 
   // Формы и бланки
-  { title: "Заявление о приёме в члены СРО", category: "Формы и бланки", format: "DOC", file: "zayavlenie-priem.docx" },
-  { title: "Анкета члена СРО", category: "Формы и бланки", format: "DOC", file: "anketa.docx" },
-  { title: "Форма уведомления о заключённом договоре подряда", category: "Формы и бланки", format: "DOC", file: "uvedomlenie-dogovor.docx" },
+  { title: "Заявление о приёме в члены СРО", category: "Формы и бланки", format: "PDF", file: "zayavlenie-priem.pdf" },
+  { title: "Анкета члена СРО", category: "Формы и бланки", format: "PDF", file: "anketa.pdf" },
+  { title: "Форма уведомления о заключённом договоре подряда", category: "Формы и бланки", format: "PDF", file: "uvedomlenie-dogovor.pdf" },
 ];
