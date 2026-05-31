@@ -13,11 +13,14 @@ export function Photo({
   alt = "",
   className,
   imgClassName,
+  priority = false,
 }: {
   src: string;
   alt?: string;
   className?: string;
   imgClassName?: string;
+  /** Для изображений «над сгибом» (hero) — грузить сразу, без ленивой загрузки. */
+  priority?: boolean;
 }) {
   const [failed, setFailed] = useState(false);
   if (failed) return null;
@@ -28,7 +31,8 @@ export function Photo({
       <img
         src={src}
         alt={alt}
-        loading="lazy"
+        loading={priority ? "eager" : "lazy"}
+        fetchPriority={priority ? "high" : "auto"}
         decoding="async"
         onError={() => setFailed(true)}
         className={cn("h-full w-full object-cover", imgClassName)}

@@ -18,6 +18,7 @@ export function Hero() {
       {/* Фоновое фото (с фолбэком на градиент) + затемнение для читаемости текста */}
       <Photo
         src={media.hero}
+        priority
         className="absolute inset-0"
         imgClassName="opacity-25 [mask-image:linear-gradient(to_right,black,transparent_85%)]"
       />
