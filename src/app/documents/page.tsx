@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { Section } from "@/components/ui/section";
 import { PageHeader } from "@/components/layout/page-header";
 import { DocumentsExplorer } from "@/components/documents/documents-explorer";
@@ -8,6 +10,8 @@ import { Icon } from "@/lib/icons";
 import { documents, documentCategories } from "@/lib/documents";
 import { pageMetadata } from "@/lib/seo";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = pageMetadata({
   title: "Документы",
   description:
@@ -16,6 +20,13 @@ export const metadata: Metadata = pageMetadata({
 });
 
 export default function DocumentsPage() {
+  // Авто-определение: если файл реально лежит в public/docs/ — показываем «Скачать».
+  const docsDir = join(process.cwd(), "public", "docs");
+  const docs = documents.map((d) => ({
+    ...d,
+    href: existsSync(join(docsDir, d.file)) ? `/docs/${d.file}` : null,
+  }));
+  const availableCount = docs.filter((d) => d.href).length;
   return (
     <>
       <PageHeader
@@ -36,8 +47,9 @@ export default function DocumentsPage() {
               <div>
                 <p className="font-semibold text-navy-900">Не нашли нужный документ?</p>
                 <p className="mt-1 text-sm text-slate-600">
-                  Часть документов готовится к публикации. Актуальную версию пришлёт менеджер
-                  по запросу.
+                  {availableCount > 0
+                    ? "Не все документы выложены в открытый доступ. Актуальную версию пришлёт менеджер по запросу."
+                    : "Документы готовятся к публикации. Актуальную версию пришлёт менеджер по запросу."}
                 </p>
               </div>
             </div>
@@ -48,7 +60,7 @@ export default function DocumentsPage() {
           </div>
         </div>
 
-        <DocumentsExplorer documents={documents} categories={documentCategories} />
+        <DocumentsExplorer documents={docs} categories={documentCategories} />
       </Section>
 
       <Cta />

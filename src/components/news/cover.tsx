@@ -1,4 +1,5 @@
 import { Photo } from "@/components/ui/photo";
+import { Cityscape } from "@/components/brand/cityscape";
 import { Icon, type IconName } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import { newsCategoryImages } from "@/lib/site";
@@ -65,14 +66,16 @@ export function ArticleCover({
         className="absolute -bottom-8 -right-6 h-40 w-40 rounded-full bg-gold-500/10 blur-2xl"
         aria-hidden
       />
-      {/* Иконка-«водяной знак» — на случай отсутствия фото остаётся узнаваемой */}
+      {/* Фирменная архитектурная графика по нижнему краю (тематический акцент) */}
+      <Cityscape className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 w-full text-gold-400/20" />
+      {/* Иконка рубрики — небольшой акцент в углу */}
       <Icon
         name={s.icon}
         className={cn(
-          "absolute text-white/10",
-          size === "hero" ? "-bottom-8 -right-4 h-52 w-52" : "-bottom-6 -right-3 h-32 w-32",
+          "absolute right-4 text-white/15",
+          size === "hero" ? "bottom-4 h-12 w-12" : "bottom-3 h-9 w-9",
         )}
-        strokeWidth={1.25}
+        strokeWidth={1.5}
       />
       {/* Чип рубрики */}
       <span className="absolute left-4 top-4 inline-flex items-center gap-1.5 rounded-full bg-navy-900/70 px-3 py-1 text-xs font-semibold text-gold-200 ring-1 ring-white/15 backdrop-blur-sm">

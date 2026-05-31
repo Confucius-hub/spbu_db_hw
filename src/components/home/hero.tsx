@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CallbackButton } from "@/components/forms/callback-modal";
 import { Calculator } from "@/components/home/calculator";
 import { Photo } from "@/components/ui/photo";
+import { Cityscape } from "@/components/brand/cityscape";
 import { Icon, type IconName } from "@/lib/icons";
 import { site, media } from "@/lib/site";
 
@@ -36,6 +37,8 @@ export function Hero() {
         className="absolute -left-40 bottom-0 h-[28rem] w-[28rem] rounded-full bg-gold-600/10 blur-3xl"
         aria-hidden
       />
+      {/* Фирменная архитектурная графика по нижнему краю */}
+      <Cityscape className="pointer-events-none absolute inset-x-0 bottom-0 h-40 w-full text-gold-500/15" />
 
       <Container className="relative">
         <div className="grid items-center gap-12 py-14 lg:grid-cols-[1.05fr_0.95fr] lg:py-20">
