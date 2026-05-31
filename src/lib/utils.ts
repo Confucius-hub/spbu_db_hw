@@ -52,6 +52,16 @@ export function formatCurrency(value: number): string {
   }).format(value);
 }
 
+/** Детерминированный хеш строки в положительное число (для стабильного выбора фото). */
+export function hashToInt(input: string, max = 100000): number {
+  let h = 2166136261;
+  for (let i = 0; i < input.length; i++) {
+    h ^= input.charCodeAt(i);
+    h = Math.imul(h, 16777619);
+  }
+  return (Math.abs(h) % max) + 1;
+}
+
 /**
  * Маска российского телефона: форматирует ввод в «+7 (XXX) XXX-XX-XX».
  * Корректно обрабатывает ведущую 7/8 и частичный ввод.

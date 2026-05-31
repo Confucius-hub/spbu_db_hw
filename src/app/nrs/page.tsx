@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Cta } from "@/components/sections/cta";
 import { LeadForm } from "@/components/forms/lead-form";
 import { Icon, type IconName } from "@/lib/icons";
+import { media } from "@/lib/site";
 import { pageMetadata, serviceJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -50,6 +51,7 @@ export default function NrsPage() {
         title="Национальный реестр специалистов (НРС)"
         description="Для членства в СРО компания должна иметь не менее двух специалистов по организации строительства, внесённых в НРС НОСТРОЙ. Поможем внести специалистов без замечаний."
         breadcrumbs={[{ label: "НРС" }]}
+        image={media.team}
       />
 
       <Section tone="white">

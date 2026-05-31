@@ -22,6 +22,7 @@ export function NewsCard({
         <ArticleCover
           categorySlug={article.category.slug}
           categoryTitle={article.category.title}
+          seed={article.slug}
           className="aspect-[16/9]"
         />
         {isRecent(article.publishedAt) && (

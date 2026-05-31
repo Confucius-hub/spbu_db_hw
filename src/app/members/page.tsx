@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Cta } from "@/components/sections/cta";
 import { Icon, type IconName } from "@/lib/icons";
-import { site } from "@/lib/site";
+import { site, media } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -32,6 +32,7 @@ export default function MembersPage() {
         title="Сервисы для членов СРО"
         description="Всё для удобной работы в составе СРО: сопровождение, документы и поддержка по любым вопросам саморегулирования."
         breadcrumbs={[{ label: "Членам СРО" }]}
+        image={media.office}
       >
         <div className="flex flex-wrap gap-3">
           <Button href="/contacts" variant="gold" size="lg">

@@ -4,7 +4,7 @@ import { PageHeader } from "@/components/layout/page-header";
 import { Card } from "@/components/ui/card";
 import { LeadForm } from "@/components/forms/lead-form";
 import { Icon, type IconName } from "@/lib/icons";
-import { site } from "@/lib/site";
+import { site, media } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -30,6 +30,7 @@ export default function ContactsPage() {
         title="Контакты"
         description="Ответим на вопросы о вступлении, рассчитаем стоимость и поможем с документами."
         breadcrumbs={[{ label: "Контакты" }]}
+        image={media.hero}
       />
 
       <Section tone="white">

@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Cta } from "@/components/sections/cta";
 import { Icon } from "@/lib/icons";
 import { documents, documentCategories } from "@/lib/documents";
+import { media } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const dynamic = "force-dynamic";
@@ -34,6 +35,7 @@ export default function DocumentsPage() {
         title="Документы"
         description="Уставные документы, положения, стандарты, протоколы и формы организации."
         breadcrumbs={[{ label: "Документы" }]}
+        image={media.documents}
       />
 
       <Section tone="muted">

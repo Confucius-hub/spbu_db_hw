@@ -21,7 +21,7 @@ export const site = {
   email: "info@sro-ssss.ru",
   emailHref: "mailto:info@sro-ssss.ru",
   address: "191119, Санкт-Петербург, Лиговский пр-т, д. 114, лит. А",
-  workHours: "Пн–Пт, 09:00–18:00",
+  workHours: "Пн–Пт, 10:00–17:00",
   social: {
     telegram: "https://t.me/",
     vk: "https://vk.com/",
@@ -45,22 +45,28 @@ export const site = {
 //
 // Чтобы поставить СВОИ фото: положите файлы в /public/images/ и впишите путь
 // (например hero: "/images/hero.jpg") — локальные имеют приоритет.
-const flickr = (tags: string, lock: number, w = 1600, h = 900) =>
+export const flickr = (tags: string, lock: number, w = 1600, h = 900) =>
   `https://loremflickr.com/${w}/${h}/${tags}?lock=${lock}`;
 
 export const media = {
   hero: flickr("building,construction,city", 21, 1920, 1080),
   construction: flickr("construction,crane,building", 22),
   team: flickr("engineer,construction,site", 23),
+  office: flickr("business,office,meeting", 24),
+  documents: flickr("documents,law,paperwork", 25),
 } as const;
 
-/** Фоновые фото для обложек новостей по рубрикам (реальные снимки по тегам). */
-export const newsCategoryImages: Record<string, string> = {
-  legislation: flickr("law,documents,office", 31, 1200, 675),
-  industry: flickr("construction,building,site", 32, 1200, 675),
-  sro: flickr("business,meeting,office", 33, 1200, 675),
-  nostroy: flickr("architecture,skyscraper,building", 34, 1200, 675),
-  guides: flickr("blueprint,architecture,engineering", 35, 1200, 675),
+/**
+ * Теги фото по рубрикам новостей. Конкретное фото выбирается уникально для
+ * каждой статьи (через хеш slug → ?lock), поэтому в одной рубрике снимки
+ * получаются разные, но по теме.
+ */
+export const newsCategoryTags: Record<string, string> = {
+  legislation: "law,documents,courthouse",
+  industry: "construction,building,crane",
+  sro: "business,meeting,handshake",
+  nostroy: "architecture,skyscraper,city",
+  guides: "blueprint,engineering,drawing",
 };
 
 export type NavItem = {

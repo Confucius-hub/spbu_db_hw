@@ -12,6 +12,7 @@ export function FeaturedArticle({ article }: { article: ArticleWithRelations }) 
         <ArticleCover
           categorySlug={article.category.slug}
           categoryTitle={article.category.title}
+          seed={article.slug}
           size="hero"
           className="aspect-[16/10] lg:h-full lg:aspect-auto"
         />

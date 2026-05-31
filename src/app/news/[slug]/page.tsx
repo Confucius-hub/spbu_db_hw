@@ -102,6 +102,7 @@ export default async function ArticlePage({ params }: { params: Params }) {
           <ArticleCover
             categorySlug={article.category.slug}
             categoryTitle={article.category.title}
+            seed={article.slug}
             size="hero"
             className="aspect-[16/8] rounded-2xl"
           />

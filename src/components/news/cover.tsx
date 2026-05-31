@@ -1,8 +1,8 @@
 import { Photo } from "@/components/ui/photo";
 import { Cityscape } from "@/components/brand/cityscape";
 import { Icon, type IconName } from "@/lib/icons";
-import { cn } from "@/lib/utils";
-import { newsCategoryImages } from "@/lib/site";
+import { cn, hashToInt } from "@/lib/utils";
+import { newsCategoryTags, flickr } from "@/lib/site";
 
 type CoverStyle = { gradient: string; icon: IconName; pattern: "grid" | "dots" };
 
@@ -25,14 +25,19 @@ export function ArticleCover({
   categoryTitle,
   className,
   size = "card",
+  seed,
 }: {
   categorySlug: string;
   categoryTitle: string;
   className?: string;
   size?: "card" | "hero";
+  /** Уникальный ключ статьи (slug) — для разного фото у статей одной рубрики. */
+  seed?: string;
 }) {
   const s = STYLES[categorySlug] ?? FALLBACK;
-  const photo = newsCategoryImages[categorySlug];
+  const tags = newsCategoryTags[categorySlug] ?? "construction,building,city";
+  // Уникальное фото на статью: ?lock = хеш slug; в одной рубрике — разные кадры.
+  const photo = flickr(tags, hashToInt(seed ?? categorySlug), 1200, 675);
 
   return (
     <div

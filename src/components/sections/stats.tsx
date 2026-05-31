@@ -1,10 +1,18 @@
 import { Section } from "@/components/ui/section";
-import { stats } from "@/lib/site";
+import { Photo } from "@/components/ui/photo";
+import { stats, media } from "@/lib/site";
 
 export function Stats() {
   return (
     <Section tone="navy" className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-grid opacity-40" aria-hidden />
+      {/* Фоновое фото с сильным затемнением — добавляет визуальной фактуры */}
+      <Photo
+        src={media.construction}
+        className="absolute inset-0"
+        imgClassName="opacity-15 object-cover"
+      />
+      <div className="absolute inset-0 bg-gradient-to-b from-navy-900 via-navy-900/92 to-navy-900" aria-hidden />
+      <div className="absolute inset-0 bg-grid opacity-25" aria-hidden />
       <div className="relative">
         <div className="mx-auto max-w-2xl text-center">
           <div className="mb-3 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.14em] text-gold-400">

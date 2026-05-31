@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Stats } from "@/components/sections/stats";
 import { Cta } from "@/components/sections/cta";
 import { Icon, type IconName } from "@/lib/icons";
-import { site } from "@/lib/site";
+import { site, media } from "@/lib/site";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -53,6 +53,7 @@ export default function AboutPage() {
         title="Строительный союз Северной столицы"
         description="Саморегулируемая организация строителей Санкт-Петербурга. Внесена в государственный реестр НОСТРОЙ: СРО-С-335-25122025."
         breadcrumbs={[{ label: "О СРО" }]}
+        image={media.office}
       />
 
       <PageToc
