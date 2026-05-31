@@ -5,7 +5,7 @@ import { joinSteps } from "@/lib/site";
 
 export function Steps() {
   return (
-    <Section tone="navy" className="relative overflow-hidden">
+    <Section tone="navy" id="steps" className="relative overflow-hidden">
       <div
         className="absolute -right-32 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-gold-600/10 blur-3xl"
         aria-hidden

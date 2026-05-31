@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { PageHeader } from "@/components/layout/page-header";
+import { PageToc } from "@/components/layout/page-toc";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calculator } from "@/components/home/calculator";
@@ -48,6 +49,17 @@ export default function MembershipPage() {
           </Button>
         </div>
       </PageHeader>
+
+      <PageToc
+        items={[
+          { label: "Условия и калькулятор", href: "#calculator" },
+          { label: "Уровни ответственности", href: "#levels" },
+          { label: "Допуск на ОПО", href: "#opo" },
+          { label: "Как вступить", href: "#steps" },
+          { label: "Оставить заявку", href: "#application" },
+          { label: "Вопросы и ответы", href: "#faq" },
+        ]}
+      />
 
       {/* Что входит + калькулятор */}
       <Section tone="white" id="calculator">

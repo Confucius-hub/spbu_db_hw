@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { PageHeader } from "@/components/layout/page-header";
+import { PageToc } from "@/components/layout/page-toc";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Stats } from "@/components/sections/stats";
@@ -54,8 +55,18 @@ export default function AboutPage() {
         breadcrumbs={[{ label: "О СРО" }]}
       />
 
+      <PageToc
+        items={[
+          { label: "Кто мы", href: "#mission" },
+          { label: "Функции СРО", href: "#functions" },
+          { label: "Принципы", href: "#values" },
+          { label: "Компенсационные фонды", href: "#fund" },
+          { label: "Реквизиты", href: "#requisites" },
+        ]}
+      />
+
       {/* Миссия */}
-      <Section tone="white">
+      <Section tone="white" id="mission">
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <div>
             <SectionHeading
@@ -101,7 +112,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Функции СРО */}
-      <Section tone="white" className="pt-0">
+      <Section tone="white" id="functions" className="pt-0">
         <SectionHeading
           align="left"
           eyebrow="Чем мы занимаемся"
@@ -120,7 +131,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Ценности */}
-      <Section tone="muted">
+      <Section tone="muted" id="values">
         <SectionHeading
           eyebrow="Наши принципы"
           title="Ценности, на которых мы работаем"
