@@ -108,7 +108,7 @@ export default function MembersPage() {
         </div>
       </Section>
 
-      {/* Реестр членов */}
+      {/* Реестр членов — тизер на отдельную страницу */}
       <Section tone="muted" id="registry">
         <Card className="mx-auto max-w-3xl p-8 text-center">
           <span className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-navy-800 text-gold-400">
@@ -116,16 +116,17 @@ export default function MembersPage() {
           </span>
           <h2 className="mt-5 text-2xl font-bold text-navy-900">Реестр членов СРО</h2>
           <p className="mx-auto mt-3 max-w-xl text-slate-600">
-            Актуальный реестр членов и сведения об организации доступны в едином реестре НОСТРОЙ.
-            Проверьте статус компании по регистрационному номеру {site.registryNumber}.
+            Сведения об Ассоциации и её членах внесены в единый реестр НОСТРОЙ. Регистрационный
+            номер — {site.registryNumber}.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
-            <Button href={site.nostroyUrl} external variant="primary">
+            <Button href="/members/registry" variant="primary">
+              Подробнее о реестре
+              <Icon name="ArrowRight" className="h-4 w-4" />
+            </Button>
+            <Button href={site.nostroyUrl} external variant="outline">
               Открыть реестр НОСТРОЙ
               <Icon name="ExternalLink" className="h-4 w-4" />
-            </Button>
-            <Button href="/documents" variant="outline">
-              Выписка из реестра
             </Button>
           </div>
         </Card>

@@ -84,7 +84,7 @@ export const mainNav: NavItem[] = [
     description: "Сервисы для действующих членов",
     children: [
       { label: "Сервисы для членов", href: "/members", description: "Что доступно членам СРО" },
-      { label: "Реестр членов", href: "/members#registry", description: "Проверка в реестре НОСТРОЙ" },
+      { label: "Реестр членов", href: "/members/registry", description: "Проверка в реестре НОСТРОЙ" },
       { label: "Личный кабинет", href: "/members#cabinet", description: "Скоро · в разработке" },
     ],
   },
@@ -116,7 +116,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     title: "Членам СРО",
     items: [
       { label: "Личный кабинет", href: "/members" },
-      { label: "Реестр членов", href: "/members#registry" },
+      { label: "Реестр членов", href: "/members/registry" },
       { label: "Компенсационный фонд", href: "/about#fund" },
       { label: "Часто задаваемые вопросы", href: "/membership#faq" },
     ],
