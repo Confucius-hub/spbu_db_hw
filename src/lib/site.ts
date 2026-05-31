@@ -38,22 +38,29 @@ export const site = {
  * Пока файла нет — автоматически показывается фирменный градиент
  * (компонент Photo скрывает битое изображение). Верстка не ломается.
  */
+// Реальные тематические фото из интернета по тегам (стройка/архитектура/СПб).
+// LoremFlickr отдаёт настоящие снимки Flickr по тегам; ?lock=N фиксирует
+// конкретное фото (чтобы не менялось). Грузятся в браузере пользователя.
+// Если фото не загрузится — компонент Photo покажет фирменную графику-фон.
+//
+// Чтобы поставить СВОИ фото: положите файлы в /public/images/ и впишите путь
+// (например hero: "/images/hero.jpg") — локальные имеют приоритет.
+const flickr = (tags: string, lock: number, w = 1600, h = 900) =>
+  `https://loremflickr.com/${w}/${h}/${tags}?lock=${lock}`;
+
 export const media = {
-  hero: "/images/hero.jpg",
-  construction: "/images/construction.jpg",
-  team: "/images/team.jpg",
+  hero: flickr("building,construction,city", 21, 1920, 1080),
+  construction: flickr("construction,crane,building", 22),
+  team: flickr("engineer,construction,site", 23),
 } as const;
 
-/**
- * Фоновые фото для обложек новостей по рубрикам.
- * Файлы кладутся в /public/images/. Нет файла — остаётся фирменный градиент.
- */
+/** Фоновые фото для обложек новостей по рубрикам (реальные снимки по тегам). */
 export const newsCategoryImages: Record<string, string> = {
-  legislation: "/images/news-legislation.jpg",
-  industry: "/images/news-industry.jpg",
-  sro: "/images/news-sro.jpg",
-  nostroy: "/images/news-nostroy.jpg",
-  guides: "/images/news-guides.jpg",
+  legislation: flickr("law,documents,office", 31, 1200, 675),
+  industry: flickr("construction,building,site", 32, 1200, 675),
+  sro: flickr("business,meeting,office", 33, 1200, 675),
+  nostroy: flickr("architecture,skyscraper,building", 34, 1200, 675),
+  guides: flickr("blueprint,architecture,engineering", 35, 1200, 675),
 };
 
 export type NavItem = {
