@@ -2,34 +2,49 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { site } from "@/lib/site";
 
-/** Фирменный знак СРО «СССС»: лаконичная «арка/портал» в золоте на navy. */
+/**
+ * Фирменный знак СРО «СССС»: классический портал/колоннада (символ строительства
+ * и архитектурного наследия Северной столицы). Использует currentColor, поэтому
+ * перекрашивается в любой цвет через text-* у родителя (navy на светлом фоне,
+ * белый на тёмном). Чтобы заменить на свою PNG/SVG — положите файл в
+ * /public/brand/logo.svg и используйте <img src="/brand/logo.svg" />.
+ */
 export function LogoMark({ className }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 48 48"
+      viewBox="0 0 100 84"
       className={className}
       role="img"
       aria-label={site.name}
-      fill="none"
+      fill="currentColor"
     >
-      <rect width="48" height="48" rx="11" fill="var(--color-navy-800)" />
-      <rect
-        x="0.6"
-        y="0.6"
-        width="46.8"
-        height="46.8"
-        rx="10.4"
-        stroke="var(--color-gold-500)"
-        strokeOpacity="0.35"
-        strokeWidth="1.2"
+      {/* Фронтон (треугольник) с многослойной обводкой */}
+      <path
+        fillRule="evenodd"
+        clipRule="evenodd"
+        d="M50 2 L98 27 L2 27 Z M50 9 L86 27 L14 27 Z"
       />
-      {/* Колонны/портал */}
-      <g fill="var(--color-gold-400)">
-        <path d="M11 34V20l5-3v17h-5Z" />
-        <path d="M21.5 34V15l5-3v22h-5Z" opacity="0.92" />
-        <path d="M32 34V18l5-3v19h-5Z" opacity="0.84" />
+      <path d="M50 13 L78 27 L22 27 Z" />
+
+      {/* Антаблемент (карниз + фриз + архитрав) */}
+      <rect x="2" y="29" width="96" height="3" />
+      <rect x="5" y="33.5" width="90" height="1.8" />
+      <rect x="2" y="37" width="96" height="3" />
+
+      {/* 6 колонн */}
+      <g>
+        <rect x="11" y="41" width="6" height="22" />
+        <rect x="25" y="41" width="6" height="22" />
+        <rect x="39" y="41" width="6" height="22" />
+        <rect x="53" y="41" width="6" height="22" />
+        <rect x="67" y="41" width="6" height="22" />
+        <rect x="81" y="41" width="6" height="22" />
       </g>
-      <rect x="9" y="35.5" width="30" height="2.6" rx="1.3" fill="var(--color-gold-500)" />
+
+      {/* Стилобат (ступени) */}
+      <rect x="5" y="65" width="90" height="3" />
+      <rect x="2" y="70" width="96" height="3" />
+      <rect x="0" y="75" width="100" height="5" />
     </svg>
   );
 }
@@ -49,7 +64,12 @@ export function Logo({
       className={cn("group inline-flex items-center gap-3", className)}
       aria-label={`${site.name} — на главную`}
     >
-      <LogoMark className="h-11 w-11 shrink-0 transition-transform duration-300 group-hover:scale-[1.04]" />
+      <LogoMark
+        className={cn(
+          "h-11 w-auto shrink-0 transition-transform duration-300 group-hover:scale-[1.04]",
+          variant === "dark" ? "text-navy-900" : "text-white",
+        )}
+      />
       {withText && (
         <span className="flex flex-col leading-none">
           <span
