@@ -45,6 +45,22 @@ export const media = {
   team: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1600&q=70",
 } as const;
 
+/**
+ * Фоновые фото для обложек новостей по рубрикам (тема строительства/права/бизнеса).
+ * Если фото не загрузится — остаётся фирменный градиент карточки.
+ */
+export const newsCategoryImages: Record<string, string> = {
+  legislation:
+    "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=70",
+  industry:
+    "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=70",
+  sro: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=70",
+  nostroy:
+    "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=70",
+  guides:
+    "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=1200&q=70",
+};
+
 export type NavItem = {
   label: string;
   href: string;

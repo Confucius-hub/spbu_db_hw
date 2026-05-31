@@ -1,23 +1,40 @@
 import { Container } from "@/components/ui/container";
 import { Breadcrumbs, type Crumb } from "@/components/layout/breadcrumbs";
+import { Photo } from "@/components/ui/photo";
+import { media } from "@/lib/site";
 
-/** Шапка внутренней страницы: тёмная полоса с хлебными крошками и заголовком. */
+/** Шапка внутренней страницы: тёмная полоса с фото-фоном, крошками и заголовком. */
 export function PageHeader({
   title,
   description,
   breadcrumbs,
   eyebrow,
   children,
+  image = media.construction,
 }: {
   title: string;
   description?: string;
   breadcrumbs: Crumb[];
   eyebrow?: string;
   children?: React.ReactNode;
+  /** Фоновое фото. По умолчанию — стройплощадка. Передайте свой URL/путь, чтобы заменить. */
+  image?: string;
 }) {
   return (
     <section className="relative overflow-hidden bg-navy-900 text-white">
-      <div className="absolute inset-0 bg-grid opacity-40" aria-hidden />
+      {/* Фото-фон с фолбэком на градиент */}
+      {image && (
+        <Photo
+          src={image}
+          className="absolute inset-0"
+          imgClassName="opacity-25 [mask-image:linear-gradient(to_right,black,transparent_88%)]"
+        />
+      )}
+      <div
+        className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/85 to-navy-900/70"
+        aria-hidden
+      />
+      <div className="absolute inset-0 bg-grid opacity-25" aria-hidden />
       <div
         className="absolute -right-24 -top-24 h-72 w-72 rounded-full bg-gold-500/10 blur-3xl"
         aria-hidden
