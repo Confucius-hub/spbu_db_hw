@@ -6,6 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Calculator } from "@/components/home/calculator";
 import { Steps } from "@/components/sections/steps";
+import { MembershipDocs } from "@/components/membership/docs";
 import { Faq } from "@/components/sections/faq";
 import { Cta } from "@/components/sections/cta";
 import { LeadForm } from "@/components/forms/lead-form";
@@ -69,6 +70,7 @@ export default function MembershipPage() {
           { label: "Условия и калькулятор", href: "#calculator" },
           { label: "Уровни ответственности", href: "#levels" },
           { label: "Допуск на ОПО", href: "#opo" },
+          { label: "Документы для вступления", href: "#documents" },
           { label: "Как вступить", href: "#steps" },
           { label: "Оставить заявку", href: "#application" },
           { label: "Вопросы и ответы", href: "#faq" },
@@ -173,6 +175,8 @@ export default function MembershipPage() {
           </Card>
         </div>
       </Section>
+
+      <MembershipDocs />
 
       <Steps />
 
