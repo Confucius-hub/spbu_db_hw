@@ -4,8 +4,10 @@ import { PageHeader } from "@/components/layout/page-header";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Cta } from "@/components/sections/cta";
+import { MembersTable } from "@/components/members/members-table";
 import { Icon, type IconName } from "@/lib/icons";
 import { site } from "@/lib/site";
+import { members } from "@/lib/members-registry";
 import { pageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = pageMetadata({
@@ -55,6 +57,19 @@ export default function MembersRegistryPage() {
           Открыть реестр НОСТРОЙ
         </Button>
       </PageHeader>
+
+      {/* Реестр компаний — членов СРО (реальные данные с sro-ssss.ru/register) */}
+      <Section tone="muted">
+        <SectionHeading
+          align="left"
+          eyebrow="Реестр компаний"
+          title="Члены СРО «СССС»"
+          description="Сведения о действующих членах саморегулируемой организации. Полная версия реестра ведётся в НОСТРОЙ."
+        />
+        <div className="mt-8">
+          <MembersTable members={members} />
+        </div>
+      </Section>
 
       {/* Карточка организации в реестре */}
       <Section tone="white">
