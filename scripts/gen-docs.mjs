@@ -21,8 +21,9 @@ for (const f of readdirSync(outDir)) {
   if (f.endsWith(".pdf")) rmSync(join(outDir, f));
 }
 
-const FONT = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf";
-const FONT_BOLD = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf";
+// Liberation Sans — метрический аналог Arial (с кириллицей)
+const FONT = "/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf";
+const FONT_BOLD = "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf";
 const NAVY = "#142340";
 const GOLD = "#c4933a";
 const SLATE = "#475569";
@@ -73,8 +74,7 @@ function buildPdf(doc0) {
     doc.moveTo(M, fy).lineTo(W - M, fy).strokeColor("#e2e8f0").lineWidth(1).stroke();
     doc.font("body").fontSize(9).fillColor(SLATE)
       .text(org.full, M, fy + 14, { width: cw })
-      .text(`Адрес: ${org.address}`, M, fy + 40, { width: cw })
-      .text(`Сформировано: ${new Date().toLocaleDateString("ru-RU")}`, M, fy + 56);
+      .text(`Адрес: ${org.address}`, M, fy + 40, { width: cw });
     doc.rect(0, doc.page.height - 8, W, 8).fill(NAVY);
 
     doc.end();
