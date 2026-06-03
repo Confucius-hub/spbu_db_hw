@@ -5,6 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Cta } from "@/components/sections/cta";
 import { MembersTable } from "@/components/members/members-table";
+import { MembersChanges } from "@/components/members/changes";
 import { Icon, type IconName } from "@/lib/icons";
 import { site } from "@/lib/site";
 import { members } from "@/lib/members-registry";
@@ -149,6 +150,8 @@ export default function MembersRegistryPage() {
           ))}
         </div>
       </Section>
+
+      <MembersChanges />
 
       <Cta
         title="Нужна выписка из реестра?"

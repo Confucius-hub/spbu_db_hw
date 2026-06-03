@@ -20,7 +20,10 @@ export const site = {
   phoneHref: "tel:+78127038877",
   email: "info@sro-ssss.ru",
   emailHref: "mailto:info@sro-ssss.ru",
-  address: "191119, Санкт-Петербург, Лиговский пр-т, д. 114, лит. А",
+  address: "191119, Санкт-Петербург, Лиговский пр-т, д. 114, лит. А, пом. 2-Н, № 104–105",
+  inn: "7842229740",
+  ogrn: "1257800047450",
+  kpp: "784201001",
   workHours: "Пн–Пт, 10:00–17:00",
   social: {
     telegram: "https://t.me/",

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Section, SectionHeading } from "@/components/ui/section";
 import { PageHeader } from "@/components/layout/page-header";
 import { PageToc } from "@/components/layout/page-toc";
+import { RequisitesFull } from "@/components/about/requisites-full";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Stats } from "@/components/sections/stats";
@@ -33,16 +34,6 @@ const functions = [
   "Компенсационные фонды для возмещения ущерба",
   "Разработка стандартов и рекомендаций по отрасли",
   "Консультации по законодательству и страхованию",
-];
-
-const requisites = [
-  { label: "Полное наименование", value: site.legalName },
-  { label: "Сокращённое наименование", value: `СРО Ассоциация «${site.name}»` },
-  { label: "Регистрационный номер", value: site.registryNumber },
-  { label: "Дата внесения в реестр", value: site.registryDate },
-  { label: "Адрес", value: site.address },
-  { label: "Телефон", value: site.phone },
-  { label: "E-mail", value: site.email },
 ];
 
 export default function AboutPage() {
@@ -189,17 +180,14 @@ export default function AboutPage() {
 
       {/* Реквизиты */}
       <Section tone="muted" id="requisites">
-        <SectionHeading eyebrow="Реквизиты" title="Сведения об организации" />
-        <Card className="mx-auto mt-10 max-w-3xl overflow-hidden">
-          <dl className="divide-y divide-slate-100">
-            {requisites.map((r) => (
-              <div key={r.label} className="grid gap-1 px-6 py-4 sm:grid-cols-3 sm:gap-4">
-                <dt className="text-sm text-slate-500">{r.label}</dt>
-                <dd className="font-medium text-navy-900 sm:col-span-2">{r.value}</dd>
-              </div>
-            ))}
-          </dl>
-        </Card>
+        <SectionHeading
+          eyebrow="Реквизиты"
+          title="Сведения об организации"
+          description="Юридические и банковские реквизиты, включая специальные счета для размещения компенсационных фондов."
+        />
+        <div className="mx-auto mt-10 max-w-5xl">
+          <RequisitesFull />
+        </div>
         <p className="mt-6 text-center">
           <Link
             href={site.nostroyUrl}

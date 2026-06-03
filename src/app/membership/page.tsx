@@ -7,6 +7,8 @@ import { Button } from "@/components/ui/button";
 import { Calculator } from "@/components/home/calculator";
 import { Steps } from "@/components/sections/steps";
 import { MembershipDocs } from "@/components/membership/docs";
+import { MembershipFees } from "@/components/membership/fees";
+import { MembershipInsurance } from "@/components/membership/insurance";
 import { Faq } from "@/components/sections/faq";
 import { Cta } from "@/components/sections/cta";
 import { LeadForm } from "@/components/forms/lead-form";
@@ -69,8 +71,10 @@ export default function MembershipPage() {
         items={[
           { label: "Условия и калькулятор", href: "#calculator" },
           { label: "Уровни ответственности", href: "#levels" },
+          { label: "Членские взносы", href: "#fees" },
           { label: "Допуск на ОПО", href: "#opo" },
           { label: "Документы для вступления", href: "#documents" },
+          { label: "Страхование", href: "#insurance" },
           { label: "Как вступить", href: "#steps" },
           { label: "Оставить заявку", href: "#application" },
           { label: "Вопросы и ответы", href: "#faq" },
@@ -136,6 +140,8 @@ export default function MembershipPage() {
         </div>
       </Section>
 
+      <MembershipFees />
+
       {/* Допуск на ОПО */}
       <Section tone="white" id="opo">
         <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -177,6 +183,8 @@ export default function MembershipPage() {
       </Section>
 
       <MembershipDocs />
+
+      <MembershipInsurance />
 
       <Steps />
 

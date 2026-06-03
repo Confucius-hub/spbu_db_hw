@@ -68,4 +68,5 @@ export const documents: DocItem[] = [
   { title: "Доверенность на ведение дел", category: F, format: "PDF", file: "doverennost.pdf", note: "Форма для заполнения" },
   { title: "Согласие на обработку персональных данных", category: F, format: "PDF", file: "soglasie-pdn.pdf", note: "Форма для заполнения" },
   { title: "Сведения о квалификации специалистов", category: F, format: "PDF", file: "svedenia-kvalifikacia.pdf", note: "Форма для заполнения" },
+  { title: "Заявление ЮЛ. Внесение изменений в реестр членов СРО", category: F, format: "PDF", file: "zayavlenie-izmenenia.pdf", note: "Форма для заполнения" },
 ];
