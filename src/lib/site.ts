@@ -90,6 +90,7 @@ export const mainNav: NavItem[] = [
       { label: "Компенсационные фонды", href: "/about#fund", description: "Гарантии для заказчиков" },
       { label: "Реквизиты", href: "/about#requisites", description: "Сведения об организации" },
       { label: "Документы", href: "/documents", description: "Устав, положения, формы" },
+      { label: "Законодательство", href: "/legislation", description: "Нормативная база" },
     ],
   },
   {
@@ -126,6 +127,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "О СРО", href: "/about" },
       { label: "Документы", href: "/documents" },
+      { label: "Законодательство", href: "/legislation" },
       { label: "Новости", href: "/news" },
       { label: "Контакты", href: "/contacts" },
     ],
