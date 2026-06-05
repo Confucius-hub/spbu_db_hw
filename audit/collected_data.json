@@ -1,3 +1,21 @@
 {
-  "_comment": "Сюда расширение кладёт данные по каждой компании, ключ = ИНН. Пока пусто — отчёт собирается со статусом 'ожидает данных'. Формат одной записи см. в collected_data.example.json"
+  "_comment": "Данные браузерного расширения по ИНН. nostroy_checked/cases_checked — раздельные флаги. Формат записи см. collected_data.example.json",
+
+  "6167127284": {
+    "company": "ОООЮГСЕРВИС",
+    "nostroy_checked": true,
+    "nostroy": {"found": true, "status": "приостановлен", "odo_level": "не установлен"},
+    "cases_checked": false,
+    "cases_source": "rusprofile_paywall",
+    "podryad_cases_2025plus": []
+  },
+
+  "6168081843": {
+    "company": "КОМПАНИЯ ДДК",
+    "nostroy_checked": true,
+    "nostroy": {"found": true, "status": "приостановлен", "odo_level": "Второй уровень"},
+    "cases_checked": false,
+    "cases_source": "rusprofile_paywall",
+    "podryad_cases_2025plus": []
+  }
 }

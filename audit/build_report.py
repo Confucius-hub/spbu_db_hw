@@ -7,12 +7,18 @@
   2) Статус НОСТРОЙ берётся пер-компанийно из собранных данных
      (действителен / приостановлен / исключён), а не "действителен" для всех.
   3) Судебные дела: учитываются ТОЛЬКО дела категории «...подряда»
-     (категория содержит слово "подряд"), и только потом фильтр на 2025+.
-     Источник — Rusprofile (там категория прописана явно).
+     (категория/предмет содержит слово "подряд"), и только потом фильтр на 2025+.
   4) Описание спора = номер дела + сумма иска + роль компании
      (истец / ответчик / третье лицо), без «хаотичного» текста.
   5) Ссылка ведёт на конкретную карточку дела (kad.arbitr.ru/Card/...),
      а не на главную сайта.
+
+Модель «проверено» — РАЗДЕЛЬНАЯ, чтобы не выдавать ложный «0 дел»:
+  • nostroy_checked — статус/ОДО в НОСТРОЙ подтверждены;
+  • cases_checked   — дела действительно перечислены по полному источнику
+                      (kad.arbitr.ru или платный Rusprofile). Если источник
+                      показал не все дела (пейволл) — cases_checked=false,
+                      и в отчёте стоит «не проверено», а не «нет дел».
 
 Вход:
   audit/companies.csv          — выверенная база (имя, ИНН, вид, контракты, сумма, штрафы)
@@ -42,7 +48,10 @@ OUT_XLSX = os.path.join(BASE, "audit_report_corrected.xlsx")
 BIG_FINE = 1_000_000
 # --------------------------------------------------------------------------
 
-PENDING = "⏳ ожидает данных"   # маркер: веб-проверка ещё не проведена
+PENDING = "⏳ ожидает данных"        # НОСТРОЙ ещё не проверен
+CASES_PENDING = "⏳ не проверено (kad)"  # дела ещё не собраны по полному источнику
+NO_STATUS = {"не установлен", "не установлено", "отсутствует", "нет", "—", ""}
+NOT_FOUND = {"не найден", "не найдена", "нет данных", ""}
 
 
 # ============================ Загрузка входных данных ======================
@@ -59,69 +68,85 @@ def load_companies():
 
 
 def load_collected():
-    """Данные расширения, ключ — ИНН (строка). Если файла нет — пустой словарь."""
+    """Данные расширения, ключ — ИНН (строка). Нормализуем флаги проверки."""
     if not os.path.exists(COLLECTED_JSON):
         return {}
     with open(COLLECTED_JSON, encoding="utf-8") as f:
         data = json.load(f)
-    # допускаем как dict{inn:...}, так и list[{inn:...}]
     if isinstance(data, list):
         data = {str(item["inn"]): item for item in data}
-    return {str(k): v for k, v in data.items()}
+    out = {}
+    for k, v in data.items():
+        if k.startswith("_") or not isinstance(v, dict):
+            continue  # служебные ключи вроде "_comment"
+        # обратная совместимость: старый общий флаг "checked"
+        if "checked" in v and "nostroy_checked" not in v:
+            v["nostroy_checked"] = bool(v["checked"])
+            v["cases_checked"] = bool(v["checked"])
+        v.setdefault("nostroy_checked", False)
+        v.setdefault("cases_checked", False)
+        out[str(k)] = v
+    return out
 
 
 # ============================ Оценка риска =================================
 
-def assess_risk(c, collected):
-    """Возвращает (уровень, основание, флаг_проверено)."""
-    info = collected.get(c["inn"])
+def assess_risk(c, info):
+    """Возвращает (уровень, основание). Учитывает раздельные флаги проверки."""
     fines = c["fines"] or 0
-
-    if not info or not info.get("checked"):
-        # Веб-проверка ещё не проведена — оценить нельзя
-        reasons = []
-        if fines >= BIG_FINE:
-            reasons.append(f"крупные штрафы/неустойки {fines:,.0f} ₽".replace(",", " "))
-        elif fines > 0:
-            reasons.append(f"небольшие штрафы/неустойки {fines:,.0f} ₽".replace(",", " "))
-        base = "; ".join(reasons) if reasons else ""
-        return (PENDING, base, False)
-
-    nostroy = (info.get("nostroy") or {})
+    nostroy_checked = bool(info.get("nostroy_checked"))
+    cases_checked = bool(info.get("cases_checked"))
+    nostroy = info.get("nostroy") or {}
+    found = nostroy.get("found", True)
     status = (nostroy.get("status") or "").strip().lower()
     odo = (nostroy.get("odo_level") or "").strip().lower()
-    cases = info.get("podryad_cases_2025plus") or []
-    n_cases = len(cases)
+    n_cases = len(info.get("podryad_cases_2025plus") or [])
 
-    high, med = [], []
+    high, med, pending = [], [], []
 
-    if "приостан" in status:
-        high.append("статус НОСТРОЙ: приостановлен")
-    if "исключ" in status or "прекращ" in status:
-        high.append(f"статус НОСТРОЙ: {nostroy.get('status')}")
-    if odo in ("не установлен", "не установлено", "отсутствует", "нет"):
-        high.append("уровень ответственности (ОДО) не установлен")
-    if n_cases >= 1:
-        high.append(f"арбитражные дела по подряду 2025+ ({n_cases})")
+    # --- НОСТРОЙ ---
+    if nostroy_checked:
+        if "приостан" in status:
+            high.append("статус НОСТРОЙ приостановлен")
+        elif "исключ" in status or "прекращ" in status:
+            high.append(f"статус НОСТРОЙ: {nostroy.get('status')}")
+        elif (not found) or status in NOT_FOUND:
+            med.append("не найден в НОСТРОЙ (спорные данные)")
+        if found and odo in NO_STATUS:
+            high.append("уровень ответственности (ОДО) не установлен")
+    else:
+        pending.append("НОСТРОЙ не проверен")
+
+    # --- Суды ---
+    if cases_checked:
+        if n_cases >= 1:
+            high.append(f"арбитражные дела по подряду 2025+ ({n_cases})")
+    else:
+        pending.append("дела по подряду не проверены")
+
+    # --- Штрафы ---
     if fines >= BIG_FINE:
-        high.append(f"штрафы/неустойки {fines:,.0f} ₽".replace(",", " "))
+        high.append(f"крупные штрафы/неустойки {fines:,.0f} ₽".replace(",", " "))
     elif fines > 0:
         med.append(f"небольшие штрафы/неустойки {fines:,.0f} ₽".replace(",", " "))
 
-    if status in ("не найден", "не найдена", "нет данных", ""):
-        med.append("статус НОСТРОЙ не подтверждён (спорные данные)")
-
+    # --- Итог ---
     if high:
-        return ("Высокий", "; ".join(high), True)
+        return ("Высокий", "; ".join(high))
+    if pending:
+        # нельзя финализировать «Низкий», пока не проверено то, что может поднять риск
+        base = "ожидается проверка: " + ", ".join(pending)
+        if med:
+            base += "; " + "; ".join(med)
+        return (PENDING, base)
     if med:
-        return ("Средний", "; ".join(med), True)
-    return ("Низкий", "НОСТРОЙ действителен; дел по подряду 2025+ нет; штрафов нет", True)
+        return ("Средний", "; ".join(med))
+    return ("Низкий", "НОСТРОЙ действителен; дел по подряду 2025+ нет; штрафов нет")
 
 
 # ============================ Формирование строк ===========================
 
 def case_brief(case):
-    """Короткая строка по делу для столбца «описание»: № — сумма — роль."""
     num = case.get("case_number", "?")
     amt = case.get("claim_amount")
     role = case.get("our_role", "")
@@ -136,24 +161,28 @@ def build_rows(companies, collected):
     out = []
     for c in companies:
         info = collected.get(c["inn"]) or {}
-        checked = bool(info.get("checked"))
+        nostroy_checked = bool(info.get("nostroy_checked"))
+        cases_checked = bool(info.get("cases_checked"))
         nostroy = info.get("nostroy") or {}
         cases = info.get("podryad_cases_2025plus") or []
 
-        if checked:
+        if nostroy_checked:
             status_str = nostroy.get("status") or "не найден"
             odo_str = nostroy.get("odo_level") or "не установлен"
+        else:
+            status_str = PENDING
+            odo_str = PENDING
+
+        if cases_checked:
             has_cases = "Да" if cases else "Нет"
             n_cases = len(cases)
             descr = "; ".join(case_brief(x) for x in cases) if cases else "—"
         else:
-            status_str = PENDING
-            odo_str = PENDING
-            has_cases = PENDING
+            has_cases = CASES_PENDING
             n_cases = ""
-            descr = PENDING
+            descr = CASES_PENDING
 
-        risk, basis, _ = assess_risk(c, collected)
+        risk, basis = assess_risk(c, info)
 
         out.append({
             "name": c["name"], "inn": c["inn"], "vid": c["vid_zakupki"],
@@ -254,8 +283,9 @@ def write_cases_sheet(wb, rows):
                 ws.cell(rr, 10).number_format = '# ##0.00'
 
     if not any_case:
-        ws.append(["⏳ Данные по делам ещё не собраны браузерным расширением — "
-                   "будут заполнены после прогона по Rusprofile.", "", "", "", "", "", "", "", "", "", "", "", ""])
+        ws.append(["⏳ Дела по подряду ещё не собраны по полному источнику (kad.arbitr.ru). "
+                   "Rusprofile показывает категории дел только по платной подписке.",
+                   "", "", "", "", "", "", "", "", "", "", "", ""])
         ws.merge_cells(start_row=2, start_column=1, end_row=2, end_column=13)
 
     widths = [22, 13, 18, 14, 34, 24, 24, 22, 16, 16, 18, 16, 30]
@@ -285,7 +315,7 @@ def write_risk_sheet(wb, rows):
             ws.cell(rr, 1).fill = RISK_FILL[r["risk"]]
             ws.cell(rr, 1).font = Font(bold=True)
 
-    widths = [14, 24, 13, 16, 16, 12, 16, 40]
+    widths = [16, 24, 13, 16, 16, 12, 16, 40]
     for i, w in enumerate(widths, 1):
         ws.column_dimensions[get_column_letter(i)].width = w
     ws.freeze_panes = "A2"
@@ -307,7 +337,6 @@ def copy_vidy_sheet(wb):
     for col in range(1, s.max_column + 1):
         for rr in range(2, ws.max_row + 1):
             ws.cell(rr, col).border = BORDER
-        ws.cell(ws.max_row, col)
     for i, w in enumerate([14, 30, 14, 12, 20], 1):
         ws.column_dimensions[get_column_letter(i)].width = w
     return ws
@@ -320,22 +349,23 @@ def main():
     collected = load_collected()
     rows = build_rows(companies, collected)
 
-    checked = sum(1 for c in companies if collected.get(c["inn"], {}).get("checked"))
+    n_nostroy = sum(1 for c in companies if collected.get(c["inn"], {}).get("nostroy_checked"))
+    n_cases_chk = sum(1 for c in companies if collected.get(c["inn"], {}).get("cases_checked"))
     dist = {}
     for r in rows:
         dist[r["risk"]] = dist.get(r["risk"], 0) + 1
-    n_susp = sum(1 for r in rows if "приостан" in r["nostroy_status"].lower())
+    n_susp = sum(1 for r in rows if "приостан" in str(r["nostroy_status"]).lower())
     n_noodo = sum(1 for r in rows if r["odo"] == "не установлен")
     n_cases_companies = sum(1 for r in rows if r["cases"])
 
     meta = (
         f"Проверка членов СРО (исправленная методика). Компаний: {len(companies)}. "
-        f"Веб-проверка пройдена: {checked}/{len(companies)}. "
+        f"НОСТРОЙ проверено: {n_nostroy}/{len(companies)}; дела проверены: {n_cases_chk}/{len(companies)}. "
         f"Фильтр контрактов: дата окончания ≥ 01.01.2023 (цифры из выверенной выгрузки ЦИСК). "
-        f"НОСТРОЙ (reestr.nostroy.ru): статус права + уровень ОДО; приостановлено: {n_susp}, ОДО не установлен: {n_noodo}. "
-        f"Суды (Rusprofile → kad.arbitr.ru): берутся ТОЛЬКО дела категории «…по договорам подряда», затем дата ≥ 01.01.2025. "
-        f"Описание спора = № дела + сумма иска + роль (истец/ответчик/третье лицо). "
-        f"С делами по подряду 2025+: {n_cases_companies}. "
+        f"НОСТРОЙ (reestr.nostroy.ru): статус права + уровень КФ ОДО (обеспечение договорных обязательств, "
+        f"не путать с КФ ВВ); приостановлено: {n_susp}, ОДО не установлен: {n_noodo}. "
+        f"Суды: берутся ТОЛЬКО дела категории «…по договорам подряда», затем дата ≥ 01.01.2025. "
+        f"Описание = № дела + сумма иска + роль (истец/ответчик/третье лицо). "
         f"Риск — Высокий: {dist.get('Высокий',0)}, Средний: {dist.get('Средний',0)}, "
         f"Низкий: {dist.get('Низкий',0)}, Ожидает: {dist.get(PENDING,0)}."
     )
@@ -349,9 +379,9 @@ def main():
     wb.save(OUT_XLSX)
 
     print(f"✓ Сохранено: {OUT_XLSX}")
-    print(f"  Компаний: {len(companies)} | проверено вебом: {checked}")
+    print(f"  Компаний: {len(companies)} | НОСТРОЙ проверено: {n_nostroy} | дела проверены: {n_cases_chk}")
     print(f"  Риск: {dist}")
-    print(f"  Приостановлено НОСТРОЙ: {n_susp} | ОДО не установлен: {n_noodo} | с делами по подряду: {n_cases_companies}")
+    print(f"  Приостановлено: {n_susp} | ОДО не установлен: {n_noodo} | с делами по подряду: {n_cases_companies}")
 
 
 if __name__ == "__main__":
