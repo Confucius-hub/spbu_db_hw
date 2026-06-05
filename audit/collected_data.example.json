@@ -1,0 +1,29 @@
+{
+  "6163214264": {
+    "company": "ЭНТЭЛ",
+    "checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/<...>",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень ответственности",
+      "source_url": "https://reestr.nostroy.ru/..."
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-11445/2025",
+        "reg_date": "03.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "отсутствует",
+        "defendants": "ООО \"Энтэл\", Ассоциация \"ОРС\"",
+        "other_party": "НКО \"Фонд Капитального Ремонта\"",
+        "our_role": "ответчик",
+        "claim_amount": 3030897.47,
+        "outcome": "Частично проиграно (иск удовлетворён частично, 12.12.2025)",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card?number=А53-11445/2025"
+      }
+    ]
+  }
+}
