@@ -1940,5 +1940,200 @@
         "kad_url": "https://kad.arbitr.ru/Card/7105a8f7-9d7b-4722-863b-2ce14df7f088"
       }
     ]
+  },
+  "6163211048": {
+    "company": "ООО СК \"ДОНЮГСТРОЙ\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/11537305",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "0800019547": {
+    "company": "ООО \"Доммастер\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1240800005698",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5800504"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6141047940": {
+    "company": "ООО СК \"Горизонт\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/7633047",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6162074590": {
+    "company": "ООО \"Альянс-Т\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/10885246",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "0816034124": {
+    "company": "ООО \"Ника\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/10813670",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5800504"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "615522305969": {
+    "company": "ИП Айрапетян Игнат Аршавирович",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/320619600119478",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5841614"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "610200085371": {
+    "company": "ИП Кошаташян Амлет Грандович",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/308611613300012",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5841614"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "0816010067": {
+    "company": "ООО \"Ремстрой\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/4114754",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5800504"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "0800015937": {
+    "company": "ООО \"Санрайз-Строй\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1240800002057",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5800504"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6165187104": {
+    "company": "ООО \"АСМ-Инжиниринг\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/7137022",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "612802867122": {
+    "company": "ИП Гнатюк Юрий Степанович",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/318619600094457",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5841614"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6155064061": {
+    "company": "ООО \"Южпромгеология\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/6138553",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "080500824511": {
+    "company": "ИП Цыбанев Игорь Николаевич",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/325080000005313",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5800504"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6168058072": {
+    "company": "ООО \"Строй Альянс Юг\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/5752746",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "345800466900": {
+    "company": "ИП Налбандян Эдуард Арамович",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/323344300051934",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5880434"
+    },
+    "podryad_cases_2025plus": []
   }
 }
