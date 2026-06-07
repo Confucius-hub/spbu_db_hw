@@ -1287,5 +1287,658 @@
         "kad_url": "https://kad.arbitr.ru/Card/b2435716-8d4f-4b8d-8b38-a4e2547d1d61"
       }
     ]
+  },
+  "343527639881": {
+    "company": "ИП Барабанов Алексей Михайлович",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/316344300148622",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5880434"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А64-3754/2025",
+        "reg_date": "23.04.2025",
+        "category": "Подряд - неисполнение или ненадлежащее исполнение обязательств",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "Администрация Петровского Муниципального округа, ИП Барабанов А. М.",
+        "defendants": "ИП Барабанов А. М.",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 57282.84,
+        "outcome": "—",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/7bfdff18-fcd1-47a2-8b37-6824855c073e"
+      }
+    ]
+  },
+  "0816030754": {
+    "company": "ООО \"ИНКОМ\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/10177659",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5800504"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6168103663": {
+    "company": "ООО \"ЮгСтрой\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/11514752",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-12275/2026",
+        "reg_date": "02.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Югстрой\"",
+        "defendants": "Департамент ЖКХ",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 3528576.49,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/32fb8965-cc58-4143-839b-ad5ed517a4fc"
+      }
+    ]
+  },
+  "6165217648": {
+    "company": "ООО \"МДМ-СТРОЙ\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/11673896",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5818755"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-15989/2026",
+        "reg_date": "27.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"ЭСА\"",
+        "defendants": "Департамент ЖКХ",
+        "other_party": "ООО \"МДМ-Строй\"",
+        "our_role": "третье лицо",
+        "claim_amount": 691975.35,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/711d9b9c-1880-4f25-b4cb-a8adbff8bf53"
+      },
+      {
+        "case_number": "А53-12277/2026",
+        "reg_date": "02.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Технострой\"",
+        "defendants": "ФГБНУ \"АНЦ \"Донской\"",
+        "other_party": "ООО \"МДМ-Строй\"",
+        "our_role": "третье лицо",
+        "claim_amount": 3795945.96,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/2d6fc133-27d2-4545-b5d5-b812df5720a3"
+      },
+      {
+        "case_number": "А53-9771/2026",
+        "reg_date": "18.03.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Зевс\"",
+        "defendants": "ФГБНУ \"АНЦ \"Донской\"",
+        "other_party": "ООО \"МДМ-Строй\"",
+        "our_role": "третье лицо",
+        "claim_amount": 3076126.8,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/fc0a5346-e2ef-40d7-b30b-78728e523a81"
+      }
+    ]
+  },
+  "9204000968": {
+    "company": "ООО \"СТРОЙГАРАНТ\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/7479055",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "Третий уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5878421"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-13416/2025",
+        "reg_date": "17.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"Стройгарант\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 322104.91,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/df84c8fb-e4e2-4ef7-b952-49a23e6f396e"
+      }
+    ]
+  },
+  "6166065317": {
+    "company": "ООО \"АРИАЛ\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1668884",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860365"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6163207475": {
+    "company": "ООО \"ДВР\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/11255101",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Третий уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860165"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6163138292": {
+    "company": "ООО \"Ресурс-Дон\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/7609024",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5804319"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "615520155429": {
+    "company": "ИП Сизенко Максим Алексеевич",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/312618212500092",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5841614"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-39445/2025",
+        "reg_date": "21.10.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ИП Сизенко М. А.",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 740316.22,
+        "outcome": "Не проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/f2f5ba27-01b6-4718-a96e-8a0f7118327a"
+      }
+    ]
+  },
+  "6165157340": {
+    "company": "ООО \"АМЕТИСТ\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/4344611",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5885986"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-36865/2025",
+        "reg_date": "03.10.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Аметист\"",
+        "defendants": "ИП Чернобылов А. В.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 1459508.39,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/517f59bb-51d1-49c5-955c-3ba6165b"
+      }
+    ]
+  },
+  "6143099278": {
+    "company": "ООО \"ЭЛЕМЕНТ СИТИ СТРОЙ\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1206100023854",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5818755"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6154097900": {
+    "company": "ООО \"Триумф\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1233339",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-42304/2025",
+        "reg_date": "11.11.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Триумф\"",
+        "defendants": "—",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 0,
+        "outcome": "—",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card?number=А53-42304/2025"
+      }
+    ]
+  },
+  "615509586157": {
+    "company": "ИП Айрапетян Игорь Аршавирович",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/315618200009364",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5841614"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-17299/2025",
+        "reg_date": "21.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Айрапетян И. А.",
+        "defendants": "—",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 0,
+        "outcome": "—",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card?number=А53-17299/2025"
+      }
+    ]
+  },
+  "6153028043": {
+    "company": "ООО \"СтройГарант\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/4829294",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5818755"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А59-4019/2025",
+        "reg_date": "—",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"СтройГарант\"",
+        "defendants": "—",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 0,
+        "outcome": "—",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card?number=А59-4019/2025"
+      }
+    ]
+  },
+  "6165150168": {
+    "company": "ООО \"СК Сварог\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/2439854",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Второй уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6165233135": {
+    "company": "ООО \"Промстрой\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1226100017439",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5885986"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "0816027053": {
+    "company": "ООО \"Патриот\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/7224746",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5800504"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6165175518": {
+    "company": "ООО \"ИНСИТИ\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/6080549",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5885986"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6164291494": {
+    "company": "ООО \"СК СТРОЙИМПУЛЬС\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/803351",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5818755"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "616610744501": {
+    "company": "ИП Клименков Максим Сергеевич",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/325619600075338",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5880434"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "3665810360": {
+    "company": "ООО \"СФЕРА-М\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1203600017774",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6139004428": {
+    "company": "ООО \"ДИКЕ\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/11456577",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5885986"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6164280527": {
+    "company": "ООО \"Мегаполис\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/2309860",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5818755"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "0816037238": {
+    "company": "ООО \"НОЙОН\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/11556017",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5800504"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "615430629307": {
+    "company": "ИП Сериков Владимир Николаевич",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/315615400009434",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5841614"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-16785/2026",
+        "reg_date": "04.05.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Сериков В. Н.",
+        "defendants": "ИП Убейкина И. А.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 230000.0,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/d332ec56-460d-4699-8e4d-52981633f0dd"
+      },
+      {
+        "case_number": "А53-156/2025",
+        "reg_date": "09.01.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Сериков В. Н.",
+        "defendants": "ИП Магомаева Б. К.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 2150000.0,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/ed23e9ea-66a1-4ecc-9e79-2437dd220672"
+      }
+    ]
+  },
+  "613302494379": {
+    "company": "ИП Войтиков Виталий Геннадьевич",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/319619600166761",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5841614"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-11209/2026",
+        "reg_date": "26.03.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Кочнев С. Ф.",
+        "defendants": "ИП Войтиков В. Г.",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 1085929.0,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/82a38280-30c4-4bcd-ac79-f6ed2acd62ae"
+      }
+    ]
+  },
+  "6101932201": {
+    "company": "ООО \"ВЕРТИКАЛЬ-61\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/7348103",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "не установлен",
+      "source_url": "https://reestr.nostroy.ru/member/5818755"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-17329/2025",
+        "reg_date": "21.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "АО \"Тагмет\"",
+        "defendants": "ООО \"Вертикаль-61\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 2907192.54,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/cade9cad-35ac-4394-9488-e208232c05b6"
+      }
+    ]
+  },
+  "6166129874": {
+    "company": "ООО \"ТАМАРА\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1246100002246",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860571"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6164138344": {
+    "company": "ООО \"Строймонтаждон\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1226100016394",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5818755"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "6163228919": {
+    "company": "ООО \"ЦЕРБЕР\"",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/id/1236100010618",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5860165"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "612401635847": {
+    "company": "ИП Недодаев Александр Сергеевич",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/317619600105926",
+    "nostroy": {
+      "found": true,
+      "status": "приостановлен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5841614"
+    },
+    "podryad_cases_2025plus": []
+  },
+  "182900235059": {
+    "company": "ИП Галеян Араик Дереникович",
+    "nostroy_checked": true,
+    "cases_checked": true,
+    "rusprofile_url": "https://www.rusprofile.ru/ip/314618630400069",
+    "nostroy": {
+      "found": true,
+      "status": "действителен",
+      "odo_level": "Первый уровень",
+      "source_url": "https://reestr.nostroy.ru/member/5880434"
+    },
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-20020/2026",
+        "reg_date": "25.05.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Галеян А. Д.",
+        "defendants": "ООО \"Ортус\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 7268993.26,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/7105a8f7-9d7b-4722-863b-2ce14df7f088"
+      }
+    ]
   }
 }
