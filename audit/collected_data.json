@@ -1509,7 +1509,7 @@
     ]
   },
   "6165157340": {
-    "company": "ООО \"АМЕТИСТ\"",
+    "company": "ООО \"Аметист\"",
     "nostroy_checked": true,
     "cases_checked": true,
     "rusprofile_url": "https://www.rusprofile.ru/id/4344611",
@@ -1532,7 +1532,21 @@
         "claim_amount": 1459508.39,
         "outcome": "Выиграно",
         "status": "Завершено",
-        "kad_url": "https://kad.arbitr.ru/Card/517f59bb-51d1-49c5-955c-3ba6165b"
+        "kad_url": "https://kad.arbitr.ru/Card/517f59bb-51d1-49c5-955c-3ba6165b6f89"
+      },
+      {
+        "case_number": "А53-5236/2025",
+        "reg_date": "20.02.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Аметист\"",
+        "defendants": "ФГБОУ ВО \"Российская Академия Народного Хозяйства и Государственной Службы При Президенте Российской Федерации\" (РАНХиГС)",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 197833.32,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/c0cf2f60-4d12-4d10-b56b-ed198ab3c5f3"
       }
     ]
   },
@@ -1558,7 +1572,7 @@
       "found": true,
       "status": "действителен",
       "odo_level": "не установлен",
-      "source_url": "https://reestr.nostroy.ru/member/5860571"
+      "source_url": "https://reestr.nostroy.ru/member/5861356"
     },
     "podryad_cases_2025plus": [
       {
@@ -1566,14 +1580,14 @@
         "reg_date": "11.11.2025",
         "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
         "type": "Экономические споры по гражданским правоотношениям",
-        "plaintiff": "ООО \"Триумф\"",
-        "defendants": "—",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"Триумф\"",
         "other_party": "",
-        "our_role": "истец",
-        "claim_amount": 0,
-        "outcome": "—",
+        "our_role": "ответчик",
+        "claim_amount": 172275.5,
+        "outcome": "Частично проиграно",
         "status": "Завершено",
-        "kad_url": "https://kad.arbitr.ru/Card?number=А53-42304/2025"
+        "kad_url": "https://kad.arbitr.ru/Card/f29291b7-396e-4217-9810-f39f11850a61"
       }
     ]
   },
@@ -1586,7 +1600,7 @@
       "found": true,
       "status": "действителен",
       "odo_level": "Первый уровень",
-      "source_url": "https://reestr.nostroy.ru/member/5841614"
+      "source_url": "https://reestr.nostroy.ru/member/5861017"
     },
     "podryad_cases_2025plus": [
       {
@@ -1594,19 +1608,19 @@
         "reg_date": "21.05.2025",
         "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
         "type": "Экономические споры по гражданским правоотношениям",
-        "plaintiff": "ИП Айрапетян И. А.",
-        "defendants": "—",
-        "other_party": "",
-        "our_role": "истец",
-        "claim_amount": 0,
-        "outcome": "—",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ИП Айрапетян И. А.",
+        "other_party": "ООО \"Стройлидер\"",
+        "our_role": "ответчик",
+        "claim_amount": 300000.0,
+        "outcome": "Не проиграно",
         "status": "Завершено",
-        "kad_url": "https://kad.arbitr.ru/Card?number=А53-17299/2025"
+        "kad_url": "https://kad.arbitr.ru/Card/311ec147-5568-4e01-9ea9-fc928bfd0dd9"
       }
     ]
   },
   "6153028043": {
-    "company": "ООО \"СтройГарант\"",
+    "company": "ООО \"Стройгарант\"",
     "nostroy_checked": true,
     "cases_checked": true,
     "rusprofile_url": "https://www.rusprofile.ru/id/4829294",
@@ -1614,22 +1628,22 @@
       "found": true,
       "status": "действителен",
       "odo_level": "Второй уровень",
-      "source_url": "https://reestr.nostroy.ru/member/5818755"
+      "source_url": "https://reestr.nostroy.ru/member/5861220"
     },
     "podryad_cases_2025plus": [
       {
         "case_number": "А59-4019/2025",
-        "reg_date": "—",
-        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "reg_date": "17.07.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
         "type": "Экономические споры по гражданским правоотношениям",
-        "plaintiff": "ООО \"СтройГарант\"",
-        "defendants": "—",
+        "plaintiff": "ООО \"Стройгарант\"",
+        "defendants": "ООО \"СК \"Монолит\"",
         "other_party": "",
         "our_role": "истец",
-        "claim_amount": 0,
-        "outcome": "—",
+        "claim_amount": 102948.71,
+        "outcome": "Выиграно",
         "status": "Завершено",
-        "kad_url": "https://kad.arbitr.ru/Card?number=А59-4019/2025"
+        "kad_url": "https://kad.arbitr.ru/Card/85d334dc-1476-4925-b739-ff2f9076bee9"
       }
     ]
   },
