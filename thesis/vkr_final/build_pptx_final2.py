@@ -290,10 +290,11 @@ txt(s, Inches(0.95), Inches(5.5), Inches(5.5), Inches(1.1),
        "У классических методов — до 70 % ложных срабатываний.", 13, False, DARK)]],
     line=1.05, space_after=4)
 # изображение справа
-txt(s, Inches(7.0), Inches(1.65), Inches(5.6), Inches(0.4),
-    [[("Реальный разлив мазута, Кольский залив, август 2024", 12, True, GRAY)]])
-add_image_fit(s, FIG + "fig_kola.png", Inches(6.85), Inches(2.1),
-              Inches(5.9), Inches(4.6))
+txt(s, Inches(6.85), Inches(1.65), Inches(5.9), Inches(0.5),
+    [[("Кольский залив (Sentinel-1, VV): тёмное пятно нефти "
+       "и результат сегментации", 12, True, GRAY)]], line=1.05)
+add_image_fit(s, FIG + "fig_kola_slide.png", Inches(6.7), Inches(2.35),
+              Inches(6.1), Inches(4.3))
 
 # ════════════════════════════════════════════════════════════════════════════
 # СЛАЙД 3 — ЦЕЛЬ И ЗАДАЧИ
