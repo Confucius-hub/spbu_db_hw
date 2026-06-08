@@ -189,7 +189,7 @@
     "nostroy": {
       "found": true,
       "status": "действителен",
-      "odo_level": "не установлен",
+      "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5818755"
     },
     "podryad_cases_2025plus": [
@@ -208,7 +208,8 @@
         "kad_url": "https://kad.arbitr.ru/Card/cade9cad-35ac-4394-9488-e208232c05b6"
       }
     ],
-    "data_note": "перенесено из прошлого аудита"
+    "data_note": "перенесено из прошлого аудита",
+    "correction_note": "ОДО исправлен по факту заказчика: 'не установлен' → 'Первый уровень' (расширение ошиблось)"
   },
   "6166110369": {
     "company": "ООО \"Межрегионторг\"",
@@ -451,12 +452,13 @@
     "rusprofile_url": "https://www.rusprofile.ru/ip/320619600119478",
     "nostroy": {
       "found": true,
-      "status": "действителен",
+      "status": "приостановлен",
       "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5841614"
     },
     "podryad_cases_2025plus": [],
-    "data_note": "перенесено из прошлого аудита"
+    "data_note": "перенесено из прошлого аудита",
+    "correction_note": "Статус исправлен по факту заказчика: 'действителен' → 'приостановлен' (расширение ошиблось)"
   },
   "345800466900": {
     "company": "ИП Налбандян Эдуард Арамович",
@@ -1189,12 +1191,13 @@
     "rusprofile_url": "https://www.rusprofile.ru/id/11556017",
     "nostroy": {
       "found": true,
-      "status": "действителен",
+      "status": "приостановлен",
       "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5800504"
     },
     "podryad_cases_2025plus": [],
-    "data_note": "перенесено из прошлого аудита"
+    "data_note": "перенесено из прошлого аудита",
+    "correction_note": "Статус исправлен по факту заказчика: 'действителен' → 'приостановлен' (расширение ошиблось)"
   },
   "6165233135": {
     "company": "ООО \"Промстрой\"",
@@ -1218,11 +1221,12 @@
     "nostroy": {
       "found": true,
       "status": "действителен",
-      "odo_level": "не установлен",
+      "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5860571"
     },
     "podryad_cases_2025plus": [],
-    "data_note": "перенесено из прошлого аудита"
+    "data_note": "перенесено из прошлого аудита",
+    "correction_note": "ОДО исправлен по факту заказчика: 'не установлен' → 'Первый уровень' (расширение ошиблось)"
   },
   "6153028043": {
     "company": "ООО \"Стройгарант\"",
@@ -1375,11 +1379,12 @@
     "nostroy": {
       "found": true,
       "status": "действителен",
-      "odo_level": "не установлен",
+      "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5818755"
     },
     "podryad_cases_2025plus": [],
-    "data_note": "перенесено из прошлого аудита"
+    "data_note": "перенесено из прошлого аудита",
+    "correction_note": "ОДО исправлен по факту заказчика: 'не установлен' → 'Первый уровень' (расширение ошиблось)"
   },
   "6163142700": {
     "company": "ООО \"Скит\"",
@@ -1570,12 +1575,13 @@
     "rusprofile_url": "https://www.rusprofile.ru/id/6138553",
     "nostroy": {
       "found": true,
-      "status": "действителен",
+      "status": "приостановлен",
       "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5860571"
     },
     "podryad_cases_2025plus": [],
-    "data_note": "перенесено из прошлого аудита"
+    "data_note": "перенесено из прошлого аудита",
+    "correction_note": "Статус исправлен по факту заказчика: 'действителен' → 'приостановлен' (расширение ошиблось)"
   },
   "3665810360": {
     "company": "ООО \"СФЕРА-М\"",
@@ -1848,12 +1854,13 @@
     "rusprofile_url": "https://www.rusprofile.ru/id/7137022",
     "nostroy": {
       "found": true,
-      "status": "действителен",
+      "status": "приостановлен",
       "odo_level": "Второй уровень",
       "source_url": "https://reestr.nostroy.ru/member/5860571"
     },
     "podryad_cases_2025plus": [],
-    "data_note": "перенесено из прошлого аудита"
+    "data_note": "перенесено из прошлого аудита",
+    "correction_note": "Статус исправлен по факту заказчика: 'действителен' → 'приостановлен' (расширение ошиблось)"
   },
   "0814002945": {
     "company": "ООО Фирма Геола",

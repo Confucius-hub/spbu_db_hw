@@ -1759,10 +1759,11 @@
     "nostroy": {
       "found": true,
       "status": "действителен",
-      "odo_level": "не установлен",
+      "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5818755"
     },
-    "podryad_cases_2025plus": []
+    "podryad_cases_2025plus": [],
+    "correction_note": "ОДО исправлен по факту заказчика: 'не установлен' → 'Первый уровень' (расширение ошиблось)"
   },
   "0816037238": {
     "company": "ООО \"НОЙОН\"",
@@ -1771,11 +1772,12 @@
     "rusprofile_url": "https://www.rusprofile.ru/id/11556017",
     "nostroy": {
       "found": true,
-      "status": "действителен",
+      "status": "приостановлен",
       "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5800504"
     },
-    "podryad_cases_2025plus": []
+    "podryad_cases_2025plus": [],
+    "correction_note": "Статус исправлен по факту заказчика: 'действителен' → 'приостановлен' (расширение ошиблось)"
   },
   "615430629307": {
     "company": "ИП Сериков Владимир Николаевич",
@@ -1855,7 +1857,7 @@
     "nostroy": {
       "found": true,
       "status": "действителен",
-      "odo_level": "не установлен",
+      "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5818755"
     },
     "podryad_cases_2025plus": [
@@ -1873,7 +1875,8 @@
         "status": "Завершено",
         "kad_url": "https://kad.arbitr.ru/Card/cade9cad-35ac-4394-9488-e208232c05b6"
       }
-    ]
+    ],
+    "correction_note": "ОДО исправлен по факту заказчика: 'не установлен' → 'Первый уровень' (расширение ошиблось)"
   },
   "6166129874": {
     "company": "ООО \"ТАМАРА\"",
@@ -2027,11 +2030,12 @@
     "rusprofile_url": "https://www.rusprofile.ru/ip/320619600119478",
     "nostroy": {
       "found": true,
-      "status": "действителен",
+      "status": "приостановлен",
       "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5841614"
     },
-    "podryad_cases_2025plus": []
+    "podryad_cases_2025plus": [],
+    "correction_note": "Статус исправлен по факту заказчика: 'действителен' → 'приостановлен' (расширение ошиблось)"
   },
   "610200085371": {
     "company": "ИП Кошаташян Амлет Грандович",
@@ -2079,11 +2083,12 @@
     "rusprofile_url": "https://www.rusprofile.ru/id/7137022",
     "nostroy": {
       "found": true,
-      "status": "действителен",
+      "status": "приостановлен",
       "odo_level": "Второй уровень",
       "source_url": "https://reestr.nostroy.ru/member/5860571"
     },
-    "podryad_cases_2025plus": []
+    "podryad_cases_2025plus": [],
+    "correction_note": "Статус исправлен по факту заказчика: 'действителен' → 'приостановлен' (расширение ошиблось)"
   },
   "612802867122": {
     "company": "ИП Гнатюк Юрий Степанович",
@@ -2105,11 +2110,12 @@
     "rusprofile_url": "https://www.rusprofile.ru/id/6138553",
     "nostroy": {
       "found": true,
-      "status": "действителен",
+      "status": "приостановлен",
       "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5860571"
     },
-    "podryad_cases_2025plus": []
+    "podryad_cases_2025plus": [],
+    "correction_note": "Статус исправлен по факту заказчика: 'действителен' → 'приостановлен' (расширение ошиблось)"
   },
   "080500824511": {
     "company": "ИП Цыбанев Игорь Николаевич",
@@ -2132,10 +2138,11 @@
     "nostroy": {
       "found": true,
       "status": "действителен",
-      "odo_level": "не установлен",
+      "odo_level": "Первый уровень",
       "source_url": "https://reestr.nostroy.ru/member/5860571"
     },
-    "podryad_cases_2025plus": []
+    "podryad_cases_2025plus": [],
+    "correction_note": "ОДО исправлен по факту заказчика: 'не установлен' → 'Первый уровень' (расширение ошиблось)"
   },
   "345800466900": {
     "company": "ИП Налбандян Эдуард Арамович",
