@@ -6,7 +6,7 @@
 минимум вводных слов — максимум сути, резервные слайды (заслайды) для Q&A.
 """
 from pptx import Presentation
-from pptx.util import Inches, Pt, Emu
+from pptx.util import Inches, Pt
 from pptx.dml.color import RGBColor
 from pptx.enum.text import PP_ALIGN, MSO_ANCHOR
 from pptx.enum.shapes import MSO_SHAPE
@@ -289,12 +289,10 @@ txt(s, Inches(0.95), Inches(5.5), Inches(5.5), Inches(1.1),
      [("Лёд, биоплёнки и штиль дают тёмные пятна, неотличимые от нефти. "
        "У классических методов — до 70 % ложных срабатываний.", 13, False, DARK)]],
     line=1.05, space_after=4)
-# изображение справа
-txt(s, Inches(6.85), Inches(1.65), Inches(5.9), Inches(0.5),
-    [[("Кольский залив (Sentinel-1, VV): тёмное пятно нефти "
-       "и результат сегментации", 12, True, GRAY)]], line=1.05)
-add_image_fit(s, FIG + "fig_kola_slide.png", Inches(6.7), Inches(2.35),
-              Inches(6.1), Inches(4.3))
+# изображение справа — вертикальная раскладка (верх: снимок, низ: сегм.)
+# заголовки панелей вшиты в саму фигуру, внешний caption не нужен
+add_image_fit(s, FIG + "fig_kola_slide.png", Inches(6.65), Inches(1.65),
+              Inches(6.3), Inches(5.05))
 
 # ════════════════════════════════════════════════════════════════════════════
 # СЛАЙД 3 — ЦЕЛЬ И ЗАДАЧИ
@@ -365,11 +363,11 @@ rows = [
 make_table(s, Inches(0.7), Inches(1.75), Inches(11.95), rows,
            col_w=[0.34, 0.16, 0.17, 0.18, 0.15],
            header_size=12, body_size=13, row_h=Inches(0.62))
-txt(s, Inches(0.7), Inches(6.35), Inches(11.9), Inches(0.7),
-    [[("Вывод: ", 15, True, BLUE),
-      ("во всех аналогах — бинарная схема и нет отдельного класса для льда; "
-       "именно это даёт до 70 % ложных тревог в арктических акваториях.",
-       15, False, DARK)]], line=1.1)
+txt(s, Inches(0.7), Inches(6.05), Inches(11.2), Inches(0.65),
+    [[("Вывод: ", 14, True, BLUE),
+      ("во всех аналогах — бинарная схема, нет отдельного класса льда → "
+       "до 70 % ложных тревог в арктических акваториях.",
+       14, False, DARK)]], line=1.05)
 
 # ════════════════════════════════════════════════════════════════════════════
 # СЛАЙД 6 — АРХИТЕКТУРА РЕШЕНИЯ
@@ -480,8 +478,8 @@ txt(s, Inches(9.15), Inches(4.78), Inches(3.45), Inches(1.7),
 # ════════════════════════════════════════════════════════════════════════════
 s = content_slide("Типы ложных целей по акваториям", 11)
 add_image_fit(s, FIG + "fig_varandey.png", Inches(6.7), Inches(1.7),
-              Inches(6.0), Inches(5.2))
-txt(s, Inches(6.7), Inches(6.95), Inches(6.0), Inches(0.3),
+              Inches(6.0), Inches(5.0))
+txt(s, Inches(6.7), Inches(6.78), Inches(6.0), Inches(0.28),
     [[("Варандей: разметка look-alike и детекция тёмных зон", 11, True, GRAY)]],
     align=PP_ALIGN.CENTER)
 ports = [
