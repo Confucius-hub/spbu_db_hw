@@ -1,0 +1,2368 @@
+{
+  "_comment": "Аудит 08.06.2026 (91 компания). РЕШЕНИЕ: НОСТРОЙ перепроверяется заново (pending), судебные дела ПЕРЕИСПОЛЬЗОВАНЫ из прошлых аудитов.",
+  "6167073060": {
+    "company": "ЮСК",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-46084/2025",
+        "reg_date": "03.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"ЮСК\"",
+        "defendants": "ООО \"Русалексгрупп\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 3581250,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/b1b8c0e5-ed0f-4ed2-ba60-f608da312c09"
+      },
+      {
+        "case_number": "А53-34365/2025",
+        "reg_date": "18.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"ЮСК\"",
+        "defendants": "ООО \"МФС Групп\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 9891254.28,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/167ea3b1-7b52-4c91-94dc-68db6bda757b"
+      },
+      {
+        "case_number": "А53-34092/2025",
+        "reg_date": "17.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "МКУ \"УКС\"",
+        "defendants": "ООО \"ЮСК\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 81593176.87,
+        "outcome": "Не проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/f9f5665f-5a2e-408f-bffa-bc8adecb44ec"
+      },
+      {
+        "case_number": "А53-26845/2025",
+        "reg_date": "28.07.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"ЮСК\"",
+        "defendants": "ИП Янковская К.О.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 1167795.4,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/84d1e8bb-d21a-415b-b5dc-f1ee54963268"
+      },
+      {
+        "case_number": "А53-21492/2025",
+        "reg_date": "23.06.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"ЮСК\"",
+        "defendants": "ИП Янковская К.О.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 968150,
+        "outcome": "Прекращено",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/41f4a8ef-a888-4315-8e6f-1cda1308724d"
+      }
+    ]
+  },
+  "6143078253": {
+    "company": "АРМ ИНЖИНИРИНГ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А41-84221/2025",
+        "reg_date": "23.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Жилстрой-Мо\"",
+        "defendants": "ООО \"Арм Инжиниринг\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 1612195.98,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/033dd1d3-aa1a-4948-b966-abb4621cc4fb"
+      },
+      {
+        "case_number": "А41-84224/2025",
+        "reg_date": "23.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Жилстрой-Мо\"",
+        "defendants": "ООО \"Арм Инжиниринг\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 11715253.3,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/7c5216c1-f9d7-4223-aa62-edd11e2600ff"
+      }
+    ]
+  },
+  "6168066718": {
+    "company": "СПЕЦСТРОЙИНЖИНИРИНГ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6163127773": {
+    "company": "РСА",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-13532/2026",
+        "reg_date": "10.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"РСА\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 0,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/281285bd-fa93-412b-851b-9105cb389e7f"
+      },
+      {
+        "case_number": "А53-7426/2025",
+        "reg_date": "10.03.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"РСА\"",
+        "defendants": "НКО \"Фонд Капитального Ремонта\"",
+        "other_party": "АО \"Банк СГБ\"",
+        "our_role": "истец",
+        "claim_amount": 10084971.6,
+        "outcome": "Прекращено",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/9692018e-f12e-4156-9e4b-8296ac20098f"
+      }
+    ]
+  },
+  "2303022430": {
+    "company": "ТелекомСервис",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А40-142120/2026",
+        "reg_date": "19.05.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Телекомсервис\"",
+        "defendants": "ООО \"ГДС\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 15000000.0,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/ddcec46f-6f4f-4e52-82ee-108d03ac02f0"
+      },
+      {
+        "case_number": "А63-18993/2025",
+        "reg_date": "03.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Телекомсервис\"",
+        "defendants": "ООО \"Газ Проект Строй\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 16552961.1,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/399bf3e2-c161-495e-b319-b72fb8d79510"
+      }
+    ]
+  },
+  "6143075975": {
+    "company": "Монтаж плюс",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6163143503": {
+    "company": "Телефонстрой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6141049970": {
+    "company": "Гидрострой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6168069324": {
+    "company": "Альтура Фасад",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-32000/2025",
+        "reg_date": "02.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Гласс Сервис\"",
+        "defendants": "ООО \"Альтура Фасад\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 505730.2,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/7cf214b3-84bd-4f30-b28d-baffbcb69740"
+      },
+      {
+        "case_number": "А41-45586/2025",
+        "reg_date": "03.06.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Гласс Сервис\"",
+        "defendants": "ООО \"Альтура Фасад\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 0,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/52b0e626-c2c0-4f7e-ae3a-1d6ebc9c1eb6"
+      }
+    ]
+  },
+  "6166081502": {
+    "company": "ЕвроСтрой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-9568/2026",
+        "reg_date": "17.03.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Еврострой\"",
+        "defendants": "ОАО \"РЖД\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 3120912.87,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/7e68bc4a-beea-42b2-8f7e-36b20bdda711"
+      },
+      {
+        "case_number": "А53-7290/2026",
+        "reg_date": "02.03.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Еврострой\"",
+        "defendants": "ОАО \"РЖД\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 449569.28,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/466f74f6-e96f-4c37-8a57-54aba70c1e27"
+      },
+      {
+        "case_number": "А53-11051/2025",
+        "reg_date": "01.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Еврострой\"",
+        "defendants": "ОАО \"РЖД\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 3559341.89,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/088e9d33-5f19-4050-baf5-4774ae4ca80f"
+      },
+      {
+        "case_number": "А53-4615/2025",
+        "reg_date": "17.02.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Еврострой\"",
+        "defendants": "ОАО \"РЖД\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 205334.88,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/2f9985ee-e90d-4da5-8d39-2bc5be909b27"
+      }
+    ]
+  },
+  "6141043760": {
+    "company": "ВодоГазСервис",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-19992/2025",
+        "reg_date": "10.06.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Водогазсервис\"",
+        "defendants": "ООО \"СМР-1\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 233000.0,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/6b32758a-650c-484b-92e0-7e29fe3cab65"
+      }
+    ]
+  },
+  "6161070112": {
+    "company": "Энергоэффект",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-17509/2026",
+        "reg_date": "07.05.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Энергоэффект\"",
+        "defendants": "ООО \"Стройвсё\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 476076.31,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/30249014-9e05-4698-935f-5ad47b676c16"
+      },
+      {
+        "case_number": "А53-14289/2026",
+        "reg_date": "15.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Энергоэффект\"",
+        "defendants": "ООО \"Магма Девелопмент\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 2864400.0,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/6da9eea8-b129-40a3-9b83-d91af3ef07b0"
+      },
+      {
+        "case_number": "А53-36756/2025",
+        "reg_date": "03.10.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Энергоэффект\"",
+        "defendants": "ИП Юрченко М. Ю.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 480000.0,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/b89b1867-76bd-430a-8885-ed8103ebf29a"
+      },
+      {
+        "case_number": "А40-229731/2025",
+        "reg_date": "01.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Энергоэффект\"",
+        "defendants": "АО \"РТ-Инфраструктура\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 325405.59,
+        "outcome": "Определить не удалось",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/9895af9f-2312-4cca-be38-a88c4e407a1d"
+      },
+      {
+        "case_number": "А40-229640/2025",
+        "reg_date": "01.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Энергоэффект\"",
+        "defendants": "АО \"РТ-Инфраструктура\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 31210.31,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/4c95f37b-7f0b-409c-ab94-bef0f2c7cefd"
+      },
+      {
+        "case_number": "А40-100824/2025",
+        "reg_date": "25.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Энергоэффект\"",
+        "defendants": "АО \"РТ-Инфраструктура\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 31210.31,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/4c95f37b-7f0b-409c-ab94-bef0f2c7cefd"
+      },
+      {
+        "case_number": "А40-100828/2025",
+        "reg_date": "25.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Энергоэффект\"",
+        "defendants": "АО \"РТ-Инфраструктура\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 325405.59,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/6eb862e5-7094-43e1-8d0c-3b977500e91c"
+      }
+    ]
+  },
+  "6154097900": {
+    "company": "Триумф",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-42304/2025",
+        "reg_date": "11.11.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"Триумф\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 172275.5,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/f29291b7-396e-4217-9810-f39f11850a61"
+      }
+    ]
+  },
+  "6125029253": {
+    "company": "РусЮгСтрой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6155049909": {
+    "company": "ЦДС",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6166065317": {
+    "company": "АРИАЛ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6164106399": {
+    "company": "ВитоТерм",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А40-5081/2025",
+        "reg_date": "16.01.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ФГУП \"Эндофарм\"",
+        "defendants": "ООО \"Витотерм\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 1717250.99,
+        "outcome": "Проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/5a5c069e-5991-4591-88e6-19d60f38deb1"
+      }
+    ]
+  },
+  "6167126523": {
+    "company": "СУ-310",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-41198/2025",
+        "reg_date": "01.11.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Су-310\"",
+        "defendants": "ООО \"Донэлектросталь\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 396445.5,
+        "outcome": "Иск удовлетворить частично",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/f77044f6-9ba5-48f9-b8e9-636b2086d1ce"
+      },
+      {
+        "case_number": "А53-29407/2025",
+        "reg_date": "14.08.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Су-310\"",
+        "defendants": "ИП Арутюнов К. М.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 330547.49,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/017bd487-cbf9-430f-8e46-da512bf2977f"
+      },
+      {
+        "case_number": "А53-16387/2025",
+        "reg_date": "14.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"Су-310\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 122744.4,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/85f513da-14d8-47b9-aa26-2bf88c1f06b0"
+      }
+    ]
+  },
+  "6163126307": {
+    "company": "СтройЭлектроМонтаж",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6165156508": {
+    "company": "Мегаполис-Юг",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6165187104": {
+    "company": "АСМ-Инжиниринг",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6166061471": {
+    "company": "Интеллектика",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6165161931": {
+    "company": "ОООДонСтройПрогресс",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6102040797": {
+    "company": "СМУСпецМонтаж",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6143070582": {
+    "company": "ПСК",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6162077985": {
+    "company": "СКСпарта",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-2053/2026",
+        "reg_date": "26.01.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"СК Спарта\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 194732.0,
+        "outcome": "В иске отказать полностью",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/39c31670-142d-4f53-9bf9-21d1cfed9037"
+      },
+      {
+        "case_number": "А53-50733/2025",
+        "reg_date": "29.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Стройсервис\"",
+        "defendants": "НКО \"Фонд Капитального Ремонта\"",
+        "other_party": "ООО \"СК Спарта\" (третье лицо)",
+        "our_role": "третье лицо",
+        "claim_amount": 6470344.07,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/dbca2766-f882-42cb-9ad0-2054be99ee50"
+      },
+      {
+        "case_number": "А53-18385/2025",
+        "reg_date": "28.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"СК Спарта\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 0,
+        "outcome": "Удовлетворить заявление (жалобу)",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/a0ec48ab-77cb-46d5-a462-675296ba21e8"
+      }
+    ]
+  },
+  "6163009297": {
+    "company": "НПП Вибробит",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6165167732": {
+    "company": "МДС",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6143096171": {
+    "company": "ИНЖЕНЕРНЫЕ РЕШЕНИЯ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6163003802": {
+    "company": "ЭЛСИКО",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-21326/2025",
+        "reg_date": "20.06.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Элсико\"",
+        "defendants": "АО \"Энергосервис Юга\"",
+        "other_party": "ООО \"Юнигрин Инжиниринг\"",
+        "our_role": "истец",
+        "claim_amount": 8758485.84,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/a8635ab4-ed44-4c96-a61a-800b1c1d46c8"
+      }
+    ]
+  },
+  "615509586157": {
+    "company": "АЙРАПЕТЯН ИГОРЬ АРШАВИРОВИЧ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-17299/2025",
+        "reg_date": "21.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ИП Айрапетян И. А.",
+        "other_party": "ООО \"Стройлидер\"",
+        "our_role": "ответчик",
+        "claim_amount": 300000.0,
+        "outcome": "Не проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/311ec147-5568-4e01-9ea9-fc928bfd0dd9"
+      }
+    ]
+  },
+  "6154148600": {
+    "company": "ЛИМЕРТ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-17506/2026",
+        "reg_date": "07.05.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Рба-МБ\"",
+        "defendants": "ООО \"Лимерт\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 53330.67,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/30c3feee-3c5f-458a-b892-db0fbabf92e5"
+      },
+      {
+        "case_number": "А53-16758/2026",
+        "reg_date": "04.05.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Лимерт\"",
+        "defendants": "ГУП РО \"Урсв\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 0,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/d11b7613-cce1-4de8-bc15-497a5995f04c"
+      },
+      {
+        "case_number": "А53-15623/2026",
+        "reg_date": "23.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "Дсигр",
+        "defendants": "ООО \"Генпроект\"",
+        "other_party": "ООО \"Лимерт\" (третье лицо), Диара, Росстройконтроль",
+        "our_role": "третье лицо",
+        "claim_amount": 590000,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/8954e61f-2f0e-475a-96c7-f4df9a08ff22"
+      },
+      {
+        "case_number": "А53-15343/2026",
+        "reg_date": "22.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Лимерт\"",
+        "defendants": "Министерство Строительства РО",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 38015541.37,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/fc09e91a-fec5-481f-ba0a-e8d75d204808"
+      },
+      {
+        "case_number": "А53-11758/2026",
+        "reg_date": "30.03.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Лимерт\"",
+        "defendants": "МКУ \"Отдел Заказчика\" Боковского района",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 54713831.07,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/08b38eb7-d44e-443d-b117-899e902d860b"
+      },
+      {
+        "case_number": "А53-46207/2025",
+        "reg_date": "04.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Лимерт\"",
+        "defendants": "ООО \"Стройгазсервис\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 10947592.32,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/e7054f47-51e3-46c7-a748-acbd5e9f4e84"
+      },
+      {
+        "case_number": "А53-31277/2025",
+        "reg_date": "28.08.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Лимерт\"",
+        "defendants": "ИП Крот М.М.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 413950.68,
+        "outcome": "Частично выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/2fff797b-51b8-4d2a-802c-07f601237217"
+      },
+      {
+        "case_number": "А53-31468/2025",
+        "reg_date": "28.08.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Лимерт\"",
+        "defendants": "Министерство ЖКХ области",
+        "other_party": "иное лицо ГБУ РО \"Ростовоблстройзаказчик\"",
+        "our_role": "истец",
+        "claim_amount": 3398681.18,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/da4da002-645c-4d09-9009-c11c2b66085c"
+      },
+      {
+        "case_number": "А53-17979/2025",
+        "reg_date": "26.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Лимерт\"",
+        "defendants": "ИП Васильцова Н.В.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 1477014.66,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/1b94b99c-1b87-4f52-af8f-dd4edf56452c"
+      },
+      {
+        "case_number": "А53-17976/2025",
+        "reg_date": "26.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Лимерт\"",
+        "defendants": "ИП Радченко А.А.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 229999.45,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/e33c4534-40c3-4550-9baa-c07131ff7038"
+      },
+      {
+        "case_number": "А53-12185/2025",
+        "reg_date": "09.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Лимерт\"",
+        "defendants": "ООО РТЗ \"Спецстрой\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 75026.59,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/28800f26-846e-49de-a02b-d9f1460e25f8"
+      }
+    ]
+  },
+  "0816002330": {
+    "company": "Жилпромстрой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А22-1060/2026",
+        "reg_date": "24.03.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "Прокуратура РК",
+        "defendants": "ООО \"Жилпромстрой\", МАУ \"УКС Г. Элисты\"",
+        "other_party": "Управление ЖКХ и Строительства Администрации Города Элисты (третье лицо)",
+        "our_role": "ответчик",
+        "claim_amount": 0,
+        "outcome": "Иск удовлетворить полностью",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/06598625-1735-474b-940a-41445a7f9727"
+      },
+      {
+        "case_number": "А22-888/2025",
+        "reg_date": "10.03.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Жилпромстрой\"",
+        "defendants": "МКОУ \"Уманцевская СОШ им. Х.А. Надеева\"",
+        "other_party": "ООО \"Тепло-Эксперт\", Минобрнауки РК, Отдел по Управлению Муниципальным Имуществом Сарпинского РМО (третьи лица)",
+        "our_role": "истец",
+        "claim_amount": 12099355.97,
+        "outcome": "Приостановить производство",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/1bb6f203-1062-4d52-9bde-62a29968616a"
+      },
+      {
+        "case_number": "А22-870/2025",
+        "reg_date": "07.03.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Жилпромстрой\"",
+        "defendants": "МКОУ \"Восходовская СОШ\"",
+        "other_party": "Министерство по Строительству, Транспорту и Дорожному Хозяйству РК (третье лицо); иное лицо КФ ФБУ Волгоградской Лсэ Минюста России",
+        "our_role": "истец",
+        "claim_amount": 4040312.22,
+        "outcome": "Приостановить производство",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/5525d5ee-c662-41e9-a5ac-4539c987083d"
+      }
+    ]
+  },
+  "615520155429": {
+    "company": "Сизенко Максим Алексеевич",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-39445/2025",
+        "reg_date": "21.10.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ИП Сизенко М. А.",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 740316.22,
+        "outcome": "Не проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/f2f5ba27-01b6-4718-a96e-8a0f7118327a"
+      }
+    ]
+  },
+  "6167127284": {
+    "company": "ОООЮГСЕРВИС",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-44550/2025",
+        "reg_date": "25.11.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Дока-Строй\"",
+        "defendants": "ООО \"Югсервис\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 188835.64,
+        "outcome": "Проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/2f9675d6-5d72-4211-bdde-90645c9a23f8"
+      },
+      {
+        "case_number": "А53-30087/2025",
+        "reg_date": "19.08.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Дока-Строй\"",
+        "defendants": "ООО \"Югсервис\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 986882.5,
+        "outcome": "Проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/9d82aa5e-4a38-4925-8048-0ae5d3f4fb21"
+      },
+      {
+        "case_number": "А83-11057/2025",
+        "reg_date": "04.06.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"СТИ\"",
+        "defendants": "ГКУ \"Инвестстрой Республики Крым\"",
+        "other_party": "ООО \"Югсервис\", Банк ВТБ, КФУ; иное лицо Губайдулин А.М.",
+        "our_role": "третье лицо",
+        "claim_amount": 92378561.65,
+        "outcome": "В роли третьего/иного лица",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/9b484cdb-1097-4cb0-ac24-e24ff3df04a9"
+      }
+    ]
+  },
+  "0814002945": {
+    "company": "Фирма ГЕОЛА",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А40-354953/2025",
+        "reg_date": "23.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ФКУ Цокр",
+        "defendants": "ООО Фирма Геола",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 4657414.45,
+        "outcome": "Оставить без рассмотрения",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/48f7c06d-a8f5-4351-b770-f5d8ea7aecc4"
+      },
+      {
+        "case_number": "А40-281267/2025",
+        "reg_date": "16.10.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ФКУ Цокр",
+        "defendants": "ООО Фирма Геола",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 4657414.45,
+        "outcome": "Оставить решение суда без изменения, жалобу без удовлетворения",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/5725b915-29f9-49f8-b10c-33a5c7048045"
+      },
+      {
+        "case_number": "А53-37065/2025",
+        "reg_date": "06.10.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ФКУ Цокр",
+        "defendants": "ООО Фирма Геола",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 4657414.45,
+        "outcome": "О возвращении искового заявления (заявления)",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/b2435716-8d4f-4b8d-8b38-a4e2547d1d61"
+      }
+    ]
+  },
+  "615522305969": {
+    "company": "Айрапетян Игнат Аршавирович",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "3810050189": {
+    "company": "СТРОЙДОРХОЛДИНГ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-18293/2026",
+        "reg_date": "14.05.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО РСП \"Топка\"",
+        "defendants": "ООО \"Стройдорхолдинг\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 11480557.63,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/5515b5e6-d533-4e44-8b6b-ff34305adf25"
+      },
+      {
+        "case_number": "А19-3283/2026",
+        "reg_date": "11.02.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "КГХ Администрации Города Усолье-Сибирское",
+        "defendants": "ООО \"Стройдорхолдинг\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 0,
+        "outcome": "Не проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/fdfea6c1-42e3-4cac-bc9a-79ba989a16f6"
+      },
+      {
+        "case_number": "А19-2654/2026",
+        "reg_date": "04.02.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО РСП \"Топка\"",
+        "defendants": "ООО \"Стройдорхолдинг\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 11480557,
+        "outcome": "Прекращено",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/dd04508a-5cd5-4d41-b5c8-7e183e33a149"
+      },
+      {
+        "case_number": "А19-353/2026",
+        "reg_date": "13.01.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "КГХ Усолье-Сибирское",
+        "defendants": "ООО \"Стройдорхолдинг\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 703237,
+        "outcome": "Проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/3cf7d9eb-a9d6-4a7f-afe0-2429fc73e563"
+      },
+      {
+        "case_number": "А19-21740/2025",
+        "reg_date": "16.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Стройдорхолдинг\"",
+        "defendants": "АО \"ДСК 156\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 22556385,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/6d66d0bd-99d0-4111-a68d-db241a8d24a9"
+      },
+      {
+        "case_number": "А19-11465/2025",
+        "reg_date": "23.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "отсутствует",
+        "defendants": "Комитет по ЖКХ",
+        "other_party": "ООО \"Стройдорхолдинг\" (третье лицо)",
+        "our_role": "третье лицо",
+        "claim_amount": 0,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/b66d7d66-4990-4bbe-bc6a-db88b4ea36e0"
+      },
+      {
+        "case_number": "А19-3476/2025",
+        "reg_date": "17.02.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Стройдорхолдинг\"",
+        "defendants": "ООО \"ПКФ \"Пионер\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 115647,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/8ebed499-598d-49e0-9c44-f73a35642e77"
+      }
+    ]
+  },
+  "6166125510": {
+    "company": "Ростовстрой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-44067/2025",
+        "reg_date": "21.11.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"Ростовстрой\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 275529.55,
+        "outcome": "Проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/7e3d311e-5053-42e5-b36f-5cc15b11a8cc"
+      },
+      {
+        "case_number": "А53-34668/2025",
+        "reg_date": "22.09.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"Ростовстрой\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 352750.03,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/bd39a9ec-d8fc-4c07-8bd4-85c8dfb2cd05"
+      },
+      {
+        "case_number": "А53-27361/2025",
+        "reg_date": "30.07.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"СПУ\"",
+        "defendants": "ООО \"Ростовстрой\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 618300.0,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/719c858c-1d2a-4280-9c36-a2b242cb0ae8"
+      },
+      {
+        "case_number": "А53-17302/2025",
+        "reg_date": "21.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"Ростовстрой\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 100000.0,
+        "outcome": "О прекращении производства по делу",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/d5af57d0-4a22-438f-b72d-7b23e4854367"
+      }
+    ]
+  },
+  "6101932201": {
+    "company": "ВЕРТИКАЛЬ 61",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-17329/2025",
+        "reg_date": "21.05.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "АО \"Тагмет\"",
+        "defendants": "ООО \"Вертикаль-61\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 2907192.54,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/cade9cad-35ac-4394-9488-e208232c05b6"
+      }
+    ]
+  },
+  "6163214264": {
+    "company": "ЭНТЭЛ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-42900/2025",
+        "reg_date": "14.11.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО Энтэл",
+        "defendants": "НКО Фонд Капитального Ремонта",
+        "other_party": "ТСН ТСЖ Дом 50 (третье лицо)",
+        "our_role": "истец",
+        "claim_amount": 258773.28,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/b98c5658-6eae-4138-b1a1-0db72cb4a6de"
+      },
+      {
+        "case_number": "А53-11445/2025",
+        "reg_date": "03.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "отсутствует",
+        "defendants": "ООО Энтэл, Ассоциация ОРС",
+        "other_party": "НКО Фонд Капитального Ремонта (иное лицо)",
+        "our_role": "ответчик",
+        "claim_amount": 3030897.47,
+        "outcome": "Иск удовлетворить частично",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/26385c2f-66b6-4842-8812-c17114f495a4"
+      }
+    ]
+  },
+  "6165233135": {
+    "company": "Промстрой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6164138344": {
+    "company": "Строймонтаждон",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "0816037238": {
+    "company": "НОЙОН",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "0816030754": {
+    "company": "ИНКОМ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "9204000968": {
+    "company": "СТРОЙГАРАНТ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-13416/2025",
+        "reg_date": "17.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "НКО \"Фонд Капитального Ремонта\"",
+        "defendants": "ООО \"Стройгарант\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 322104.91,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/df84c8fb-e4e2-4ef7-b952-49a23e6f396e"
+      }
+    ]
+  },
+  "6163228919": {
+    "company": "ЦЕРБЕР",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6162074590": {
+    "company": "Альянс-Т",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "0816010067": {
+    "company": "РемСтрой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6163226020": {
+    "company": "ПСС",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А05-2918/2026",
+        "reg_date": "18.03.2026",
+        "category": "Подряд - неисполнение или ненадлежащее исполнение обязательств",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Федькович А.В.",
+        "defendants": "ООО \"ПСС\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 645216.12,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/879a3093-8e76-49ab-8fc1-41d556003753"
+      },
+      {
+        "case_number": "А53-3691/2026",
+        "reg_date": "05.02.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"ПСС\"",
+        "defendants": "ООО \"Союздонстрой\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 19379992.99,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/8cab0f29-4a76-4cf4-966e-c57e412e2028"
+      },
+      {
+        "case_number": "А53-50381/2025",
+        "reg_date": "26.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Артель\"",
+        "defendants": "ООО \"ПСС\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 42130977.24,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/7add7d5a-3c6a-4b9b-9364-27d943ceb8b2"
+      },
+      {
+        "case_number": "А53-24171/2025",
+        "reg_date": "08.07.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "МКУ \"УКС\"",
+        "defendants": "ООО \"ПСС\"",
+        "other_party": "ООО \"Сим Пласт\", Копченко А.М. (третьи лица); иное лицо ООО \"Артель\"",
+        "our_role": "ответчик",
+        "claim_amount": 13293112.74,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/0bc93eeb-ab4e-428f-a1ee-e032380ee6a0"
+      }
+    ]
+  },
+  "6155050037": {
+    "company": "ОООПолимерспецстрой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-15589/2026",
+        "reg_date": "23.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Дельта-Л\"",
+        "defendants": "ООО \"Полимерспецстрой\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 19692413.4,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/217123e5-7393-4e49-b43c-ab2c75b347bf"
+      },
+      {
+        "case_number": "А53-46577/2025",
+        "reg_date": "05.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Полимерспецстрой\"",
+        "defendants": "Управление ЖКХ Г. Азова",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 0,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/620a7b0b-42dd-44ac-928a-64cade291e06"
+      },
+      {
+        "case_number": "А53-22788/2025",
+        "reg_date": "01.07.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "МКУ \"Департамент ГХ\"",
+        "defendants": "ООО \"Полимерспецстрой\"",
+        "other_party": "ООО Экспертное Бюро \"Верум\", ООО \"Армила\" (третьи лица); иное лицо ГУП РО \"Урсв\"",
+        "our_role": "ответчик",
+        "claim_amount": 0,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/ffbf94a6-e419-4ec2-8928-27639ae26841"
+      },
+      {
+        "case_number": "А53-12447/2025",
+        "reg_date": "10.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Высокая Марка\"",
+        "defendants": "ООО \"Полимерспецстрой\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 5400633.19,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/83e45950-1538-40dc-b570-1a0931c94a17"
+      }
+    ]
+  },
+  "6163212700": {
+    "company": "ЦИФРОВОЕ ПРЕВОСХОДСТВО",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-16432/2026",
+        "reg_date": "29.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Цифровое Превосходство\"",
+        "defendants": "ООО \"Су-5\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 2035549.14,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/7050a254-57fd-4eb0-abef-c9d0a44c5bd3"
+      },
+      {
+        "case_number": "А53-16444/2026",
+        "reg_date": "29.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Цифровое Превосходство\"",
+        "defendants": "АО \"Апск \"ГСА\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 2995500,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/ead99d04-0c07-43d6-9d73-c42df831373f"
+      },
+      {
+        "case_number": "А53-16485/2026",
+        "reg_date": "29.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Цифровое Превосходство\"",
+        "defendants": "ООО \"Нор-Девелопмент\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 278832.19,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/70a699b6-70ce-4380-ae65-f6178d036756"
+      },
+      {
+        "case_number": "А53-48319/2025",
+        "reg_date": "16.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Цифровоепревосходство\", ООО \"Мономер-Т\"",
+        "defendants": "ООО \"Цифровое Превосходство\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 2948572,
+        "outcome": "Не проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/3baabdf8-d91b-4fa1-8510-7a8452e1f586"
+      },
+      {
+        "case_number": "А53-31499/2025",
+        "reg_date": "29.08.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Денисов Д.В.",
+        "defendants": "ООО \"Цифровое Превосходство\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 489000,
+        "outcome": "Проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/409242c8-b063-4bf7-82ee-cd313dbcf242"
+      },
+      {
+        "case_number": "А53-1777/2025",
+        "reg_date": "24.01.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "МБУ \"Центр ИТС\"",
+        "defendants": "Акгёзова Аида Бийисламовна",
+        "other_party": "ООО \"Цифровое Превосходство\" (третье лицо), Муниципальное Казначейство; иное лицо Хасанов Р.И.",
+        "our_role": "третье лицо",
+        "claim_amount": 122229.75,
+        "outcome": "В роли третьего/иного лица",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/79a4f003-5b4d-4674-8b2d-44cca7e7a30f"
+      }
+    ]
+  },
+  "6168115080": {
+    "company": "МЕРКУРИЙ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-22074/2025",
+        "reg_date": "26.06.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "Дадиодд",
+        "defendants": "ООО \"Меркурий\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 1790000.0,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/ba7a2f1f-2a53-4699-b282-0460c1a60e4f"
+      }
+    ]
+  },
+  "6165150168": {
+    "company": "СК Сварог",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "612401635847": {
+    "company": "Недодаев Александр Сергеевич",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "615430629307": {
+    "company": "Сериков Владимир Николаевич",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-16785/2026",
+        "reg_date": "04.05.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Сериков В. Н.",
+        "defendants": "ИП Убейкина И. А.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 230000.0,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/d332ec56-460d-4699-8e4d-52981633f0dd"
+      },
+      {
+        "case_number": "А53-156/2025",
+        "reg_date": "09.01.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Сериков В. Н.",
+        "defendants": "ИП Магомаева Б. К.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 2150000.0,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/ed23e9ea-66a1-4ecc-9e79-2437dd220672"
+      }
+    ]
+  },
+  "6153028043": {
+    "company": "СтройГарант",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А59-4019/2025",
+        "reg_date": "17.07.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Стройгарант\"",
+        "defendants": "ООО \"СК \"Монолит\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 102948.71,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/85d334dc-1476-4925-b739-ff2f9076bee9"
+      }
+    ]
+  },
+  "6163138292": {
+    "company": "Ресурс-Дон",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6164291494": {
+    "company": "СК СТРОЙИМПУЛЬС",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6168081843": {
+    "company": "КОМПАНИЯ ДДК",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-13038/2026",
+        "reg_date": "07.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Юнас+\"",
+        "defendants": "ООО \"Компания ДДК\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 2126622.87,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/0e4a3044-7540-437e-b6b0-2bf087d604c3"
+      }
+    ]
+  },
+  "6155064061": {
+    "company": "ОООЮЖПРОМГЕОЛОГИЯ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "614909563219": {
+    "company": "Гаджиева Лала Гамид Кызы",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6165157340": {
+    "company": "АМЕТИСТ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-36865/2025",
+        "reg_date": "03.10.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Аметист\"",
+        "defendants": "ИП Чернобылов А. В.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 1459508.39,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/517f59bb-51d1-49c5-955c-3ba6165b6f89"
+      },
+      {
+        "case_number": "А53-5236/2025",
+        "reg_date": "20.02.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Аметист\"",
+        "defendants": "ФГБОУ ВО \"Российская Академия Народного Хозяйства и Государственной Службы При Президенте Российской Федерации\" (РАНХиГС)",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 197833.32,
+        "outcome": "Выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/c0cf2f60-4d12-4d10-b56b-ed198ab3c5f3"
+      }
+    ]
+  },
+  "0800019547": {
+    "company": "ДОММАСТЕР",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "612802867122": {
+    "company": "Гнатюк Юрий Степанович",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6168058072": {
+    "company": "Строй Альянс Юг",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "610200085371": {
+    "company": "Кошаташян Амлет Грандович",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6168103663": {
+    "company": "ЮгСтрой",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-12275/2026",
+        "reg_date": "02.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Югстрой\"",
+        "defendants": "Департамент ЖКХ",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 3528576.49,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/32fb8965-cc58-4143-839b-ad5ed517a4fc"
+      }
+    ]
+  },
+  "0816027053": {
+    "company": "Патриот",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "0816034124": {
+    "company": "НИКА",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "613302494379": {
+    "company": "Войтиков Виталий Геннадьевич",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-11209/2026",
+        "reg_date": "26.03.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Кочнев С. Ф.",
+        "defendants": "ИП Войтиков В. Г.",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 1085929.0,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/82a38280-30c4-4bcd-ac79-f6ed2acd62ae"
+      }
+    ]
+  },
+  "6163207475": {
+    "company": "ДВР",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6139004428": {
+    "company": "ДИКЕ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6143099278": {
+    "company": "ЭЛЕМЕНТ СИТИ СТРОЙ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6168032645": {
+    "company": "ОООПКТ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А40-47154/2026",
+        "reg_date": "25.02.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"В2В\"",
+        "defendants": "ООО \"ПКТ\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 1830150.0,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/a38e254c-cb38-4b47-aeda-dcf1712c13d2"
+      },
+      {
+        "case_number": "А53-15234/2025",
+        "reg_date": "30.04.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"ПКТ\"",
+        "defendants": "ООО \"Ростстройком\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 4820741.07,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/c134956b-f62a-40ec-8f72-e8a215e9c076"
+      },
+      {
+        "case_number": "А53-8542/2025",
+        "reg_date": "17.03.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"ПКТ\"",
+        "defendants": "ООО \"Ростстройком\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 309219.73,
+        "outcome": "Частично выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/de300706-4c42-4c61-a3fd-57c8a352886f"
+      }
+    ]
+  },
+  "3665810360": {
+    "company": "СФЕРА-М",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6141047940": {
+    "company": "СК ГОРИЗОНТ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "616610744501": {
+    "company": "Клименков Максим Сергеевич",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "182900235059": {
+    "company": "Галеян Араик Дереникович",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-20020/2026",
+        "reg_date": "25.05.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Галеян А. Д.",
+        "defendants": "ООО \"Ортус\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 7268993.26,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/7105a8f7-9d7b-4722-863b-2ce14df7f088"
+      }
+    ]
+  },
+  "6166129874": {
+    "company": "ТАМАРА",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "0800015937": {
+    "company": "САНРАЙЗ-СТРОЙ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "343527639881": {
+    "company": "Барабанов Алексей Михайлович",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А64-3754/2025",
+        "reg_date": "23.04.2025",
+        "category": "Подряд - неисполнение или ненадлежащее исполнение обязательств",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "Администрация Петровского Муниципального округа, ИП Барабанов А. М.",
+        "defendants": "ИП Барабанов А. М.",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 57282.84,
+        "outcome": "—",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/7bfdff18-fcd1-47a2-8b37-6824855c073e"
+      }
+    ]
+  },
+  "080500824511": {
+    "company": "Цыбанев Игорь Николаевич",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6166110369": {
+    "company": "МЕЖРЕГИОНТОРГ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-26016/2025",
+        "reg_date": "22.07.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Межрегионторг\"",
+        "defendants": "АО \"Донаэродорстрой\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 1709083.42,
+        "outcome": "Прекратить производство",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/b622f941-896f-4ea2-9fab-8937913f3dec"
+      },
+      {
+        "case_number": "А53-19727/2025",
+        "reg_date": "09.06.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Кит Строй\"",
+        "defendants": "ООО \"Межрегионторг\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 353281.52,
+        "outcome": "В иске отказать полностью",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/0f52fb0b-926d-4d7a-bffb-37d46fe5976b"
+      }
+    ]
+  },
+  "6164280527": {
+    "company": "Мегаполис",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6164246452": {
+    "company": "Ростгорсвет",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-46162/2025",
+        "reg_date": "04.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "МКП \"Ростгорсвет\"",
+        "defendants": "ИП Майоров М.В.",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 74200.43,
+        "outcome": "Не выиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/7ab9cf32-c281-4b0c-89d3-971592da5280"
+      },
+      {
+        "case_number": "А53-9899/2025",
+        "reg_date": "25.03.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ИП Ковальчук А.В.",
+        "defendants": "МКП \"Ростгорсвет\"",
+        "other_party": "",
+        "our_role": "ответчик",
+        "claim_amount": 4261840.97,
+        "outcome": "Частично проиграно",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/2fd1d200-767f-49cb-a077-641ab2a71f93"
+      }
+    ]
+  },
+  "6163142700": {
+    "company": "СКИТ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А32-6419/2026",
+        "reg_date": "30.01.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Скит\"",
+        "defendants": "ГАУ КК \"Детский Оздоровительный Лагерь Лидер\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 0,
+        "outcome": "Об отложении судебного разбирательства",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/b0944cff-d856-442d-a116-2fdc4a47fd84"
+      },
+      {
+        "case_number": "А32-4977/2026",
+        "reg_date": "26.01.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Скит\"",
+        "defendants": "ГАУ КК \"Детский Оздоровительный Лагерь Лидер\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 157325.56,
+        "outcome": "Прекращено",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/433908e5-2cff-4b9c-b2ed-bdafbb8c1727"
+      },
+      {
+        "case_number": "А53-1378/2026",
+        "reg_date": "21.01.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Скит\"",
+        "defendants": "ФГБОУ ВО Ростгму Минздрава России",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 718528.59,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/bce2dc31-98c4-4583-9184-eb30b7803dce"
+      },
+      {
+        "case_number": "А53-768/2026",
+        "reg_date": "16.01.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Скит\"",
+        "defendants": "ФГБОУ ВО Ростгму Минздрава России",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 7667167.5,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/db2a6930-4162-4c8c-b722-f787bef1ff51"
+      },
+      {
+        "case_number": "А32-81003/2025",
+        "reg_date": "22.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Скит\"",
+        "defendants": "ГАУ КК \"Детский Оздоровительный Лагерь Лидер\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 144380.55,
+        "outcome": "Прекращено",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/a113d5f6-2baa-48a0-8841-f6e8df9f5cfd"
+      },
+      {
+        "case_number": "А32-81000/2025",
+        "reg_date": "22.12.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам строительного подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Скит\"",
+        "defendants": "ГАУ КК \"Детский Оздоровительный Лагерь Лидер\"",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 0,
+        "outcome": "Прекращено",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/f04d4a9f-9a03-4eb7-ac80-62eddd07547f"
+      },
+      {
+        "case_number": "А63-25914/2025",
+        "reg_date": "25.11.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Скит\"",
+        "defendants": "Гкдоу Детский Сад №3 Крепыш",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 453580.67,
+        "outcome": "Рассматривается",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/4baa5042-67e4-48ed-a121-fe6065239235"
+      },
+      {
+        "case_number": "А53-621/2025",
+        "reg_date": "15.01.2025",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Скит\"",
+        "defendants": "МБОУ Пролетарская СОШ",
+        "other_party": "",
+        "our_role": "истец",
+        "claim_amount": 0,
+        "outcome": "В иске отказать полностью",
+        "status": "Завершено",
+        "kad_url": "https://kad.arbitr.ru/Card/ed206291-4101-4a19-b706-cb14d0e0a274"
+      }
+    ]
+  },
+  "345800466900": {
+    "company": "Налбандян Эдуард Арамович",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6165175518": {
+    "company": "ИНСИТИ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6163211048": {
+    "company": "СК ДОНЮГСТРОЙ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": []
+  },
+  "6165217648": {
+    "company": "МДМ-СТРОЙ",
+    "nostroy_checked": false,
+    "cases_checked": true,
+    "cases_source": "reused_prior_audit",
+    "nostroy": {},
+    "podryad_cases_2025plus": [
+      {
+        "case_number": "А53-15989/2026",
+        "reg_date": "27.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"ЭСА\"",
+        "defendants": "Департамент ЖКХ",
+        "other_party": "ООО \"МДМ-Строй\"",
+        "our_role": "третье лицо",
+        "claim_amount": 691975.35,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/711d9b9c-1880-4f25-b4cb-a8adbff8bf53"
+      },
+      {
+        "case_number": "А53-12277/2026",
+        "reg_date": "02.04.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Технострой\"",
+        "defendants": "ФГБНУ \"АНЦ \"Донской\"",
+        "other_party": "ООО \"МДМ-Строй\"",
+        "our_role": "третье лицо",
+        "claim_amount": 3795945.96,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/2d6fc133-27d2-4545-b5d5-b812df5720a3"
+      },
+      {
+        "case_number": "А53-9771/2026",
+        "reg_date": "18.03.2026",
+        "category": "О неисполнении или ненадлежащем исполнении обязательств по договорам подряда",
+        "type": "Экономические споры по гражданским правоотношениям",
+        "plaintiff": "ООО \"Зевс\"",
+        "defendants": "ФГБНУ \"АНЦ \"Донской\"",
+        "other_party": "ООО \"МДМ-Строй\"",
+        "our_role": "третье лицо",
+        "claim_amount": 3076126.8,
+        "outcome": "—",
+        "status": "Рассматривается",
+        "kad_url": "https://kad.arbitr.ru/Card/fc0a5346-e2ef-40d7-b30b-78728e523a81"
+      }
+    ]
+  }
+}
