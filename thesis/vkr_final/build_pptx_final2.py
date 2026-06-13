@@ -37,7 +37,7 @@ prs.slide_height = Inches(7.5)
 SW, SH = prs.slide_width, prs.slide_height
 BLANK = prs.slide_layouts[6]
 
-TOTAL = 13  # основная презентация: 13 слайдов, последний — «Спасибо»
+TOTAL = 18  # единый файл: 13 основных + 5 резервных (заслайды для Q&A)
 
 
 # ── низкоуровневые помощники ────────────────────────────────────────────────
@@ -436,7 +436,7 @@ cardp = card(s, Inches(6.9), Inches(5.05), Inches(5.75), Inches(1.75),
              accent=OIL)
 txt(s, Inches(7.15), Inches(5.2), Inches(5.4), Inches(1.5),
     [[("Главная сложность — дисбаланс классов", 14, True, OIL)],
-     [("Пиксели нефти — менее 1 %. Решение: взвешенная Dice-BCE, "
+     [("Пиксели нефти — менее 2,4 %. Решение: взвешенная Dice-BCE, "
        "вес класса «нефть» повышен до 9,8.", 13, False, DARK)]],
     line=1.08, space_after=4)
 
@@ -570,28 +570,14 @@ txt(s, Inches(1.1), Inches(5.0), Inches(11), Inches(1.2),
        RGBColor(0x9F, 0xB2, 0xD0))]], line=1.3, space_after=4)
 page_number(s, 13)
 
-# ── сохранение основной презентации (13 слайдов, последний — «Спасибо») ──────
-out = "/home/user/spbu_db_hw/thesis/vkr_final/Презентация_Финал_Байханов_2026.pptx"
-prs.save(out)
-print("saved:", out, "| slides:", len(prs.slides._sldIdLst))
-
 # ════════════════════════════════════════════════════════════════════════════
-# ОТДЕЛЬНЫЙ ФАЙЛ — РЕЗЕРВНЫЕ СЛАЙДЫ (заслайды для вопросов комиссии)
-# Научрук просил, чтобы «Спасибо» был последним в основной презентации,
-# поэтому технические слайды вынесены в отдельный файл для ответов на вопросы.
+# РЕЗЕРВНЫЕ СЛАЙДЫ (заслайды для вопросов комиссии) — в том же файле, 14–18
 # ════════════════════════════════════════════════════════════════════════════
-prs = Presentation()
-prs.slide_width  = Inches(13.333)
-prs.slide_height = Inches(7.5)
-SW, SH = prs.slide_width, prs.slide_height
-BLANK = prs.slide_layouts[6]
-TOTAL = 5  # 5 резервных слайдов с собственной нумерацией
-
 def backup_slide(title, n):
     return content_slide(title, n, kicker="резервный слайд")
 
-# СЛАЙД 1 (резерв) — Архитектура DeepLabV3+
-s = backup_slide("DeepLabV3+ с энкодером ResNet-50", 1)
+# СЛАЙД 14 — Архитектура DeepLabV3+
+s = backup_slide("DeepLabV3+ с энкодером ResNet-50", 14)
 steps = [
     ("Энкодер ResNet-50", "извлечение признаков из SAR-тайла 256×256; "
      "предобучен на ImageNet, адаптирован к 1-канальному входу"),
@@ -610,8 +596,8 @@ for i, (h, b) in enumerate(steps, 1):
         [[(h + " — ", 15, True, BLUE_DK), (b, 15, False, DARK)]], line=1.1)
     y += Inches(1.18)
 
-# СЛАЙД 2 (резерв) — Функция потерь и обучение
-s = backup_slide("Функция потерь и гиперпараметры", 2)
+# СЛАЙД 15 — Функция потерь и обучение
+s = backup_slide("Функция потерь и гиперпараметры", 15)
 txt(s, Inches(0.7), Inches(1.75), Inches(6), Inches(0.4),
     [[("Комбинированная функция потерь Dice-BCE", 16, True, DARK)]])
 txt(s, Inches(0.7), Inches(2.25), Inches(5.9), Inches(1.0),
@@ -642,8 +628,8 @@ for k, v in hp:
         [[(v, 14, False, DARK)]])
     y += Inches(0.62)
 
-# СЛАЙД 3 (резерв) — Предобработка SNAP
-s = backup_slide("Предобработка SAR в ESA SNAP", 3)
+# СЛАЙД 16 — Предобработка SNAP
+s = backup_slide("Предобработка SAR в ESA SNAP", 16)
 pre = [
     ("Apply Orbit File", "уточнение параметров орбиты спутника"),
     ("Thermal Noise Removal", "удаление теплового шума сенсора"),
@@ -660,8 +646,8 @@ for i, (h, b) in enumerate(pre, 1):
         anchor=MSO_ANCHOR.MIDDLE)
     y += Inches(0.78)
 
-# СЛАЙД 4 (резерв) — Метрики качества
-s = backup_slide("Метрики оценки качества", 4)
+# СЛАЙД 17 — Метрики качества
+s = backup_slide("Метрики оценки качества", 17)
 mt = [
     ("Precision", "доля верных среди предсказанных пикселей «нефть»"),
     ("Recall", "доля найденных среди всех истинных пикселей «нефть»"),
@@ -678,8 +664,8 @@ for h, b in mt:
         anchor=MSO_ANCHOR.MIDDLE)
     y += Inches(0.98)
 
-# СЛАЙД 5 (резерв) — Матрица ошибок: разбор
-s = backup_slide("Разбор матрицы ошибок", 5)
+# СЛАЙД 18 — Матрица ошибок: разбор
+s = backup_slide("Разбор матрицы ошибок", 18)
 add_image_fit(s, FIG + "fig_confusion.png", Inches(0.5), Inches(1.7),
               Inches(6.2), Inches(5.1))
 bullets(s, Inches(7.0), Inches(2.0), Inches(5.6), Inches(4.5),
@@ -691,7 +677,7 @@ bullets(s, Inches(7.0), Inches(2.0), Inches(5.6), Inches(4.5),
           "остаточная путаница ожидаема физически")],
         size=15, gap=13)
 
-# ── сохранение резервного файла ──────────────────────────────────────────────
-out_bak = "/home/user/spbu_db_hw/thesis/vkr_final/Презентация_Резерв_Байханов_2026.pptx"
-prs.save(out_bak)
-print("saved:", out_bak, "| slides:", len(prs.slides._sldIdLst))
+# ── сохранение ───────────────────────────────────────────────────────────────
+out = "/home/user/spbu_db_hw/thesis/vkr_final/Презентация_Финал_Байханов_2026.pptx"
+prs.save(out)
+print("saved:", out, "| slides:", len(prs.slides._sldIdLst))
