@@ -502,23 +502,22 @@ txt(s, Inches(9.15), Inches(4.78), Inches(3.45), Inches(1.7),
 # СЛАЙД 11 — ЛОЖНЫЕ ЦЕЛИ
 # ════════════════════════════════════════════════════════════════════════════
 s = content_slide("Типы ложных целей по акваториям", 11)
-add_image_fit(s, FIG + "fig_varandey.png", Inches(6.7), Inches(1.7),
-              Inches(6.0), Inches(5.0))
-txt(s, Inches(6.7), Inches(6.78), Inches(6.0), Inches(0.28),
-    [[("Варандей: разметка look-alike и детекция тёмных зон", 11, True, GRAY)]],
-    align=PP_ALIGN.CENTER)
 ports = [
-    ("Печенга", "безлёдный тип: ветровые тени и биогенные плёнки", TEAL),
-    ("Варандей", "сезонный первогодний дрейфующий лёд", BLUE),
-    ("Сабетта", "жировой и ниласовый лёд, припай — самая сложная акватория", OIL),
+    ("Печенга", "безлёдный тип: ветровые тени и биогенные плёнки", TEAL,
+     FIG + "fig_pechenga.png"),
+    ("Варандей", "сезонный первогодний дрейфующий лёд", BLUE,
+     FIG + "fig_varandey.png"),
+    ("Сабетта", "жировой и ниласовый лёд, припай — самая сложная акватория", OIL,
+     FIG + "fig_sabetta.png"),
 ]
 y = Inches(1.9)
-for name, desc, acc in ports:
+for name, desc, acc, fig in ports:
     card(s, Inches(0.7), y, Inches(5.7), Inches(1.35), bg=CARDBG,
          border=LIGHTBLUE, accent=acc)
     txt(s, Inches(1.0), y + Inches(0.18), Inches(5.2), Inches(1.0),
         [[(name, 17, True, acc)], [(desc, 13, False, DARK)]],
         line=1.08, space_after=3)
+    add_image_fit(s, fig, Inches(6.7), y, Inches(6.0), Inches(1.35))
     y += Inches(1.55)
 
 # ════════════════════════════════════════════════════════════════════════════
