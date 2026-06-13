@@ -37,7 +37,7 @@ prs.slide_height = Inches(7.5)
 SW, SH = prs.slide_width, prs.slide_height
 BLANK = prs.slide_layouts[6]
 
-TOTAL = 18  # единый файл: 13 основных + 5 резервных (заслайды для Q&A)
+TOTAL_MAIN = 14  # основных слайдов (1–14); после них 5 резервных, затем Спасибо
 
 
 # ── низкоуровневые помощники ────────────────────────────────────────────────
@@ -125,7 +125,7 @@ def bullets(slide, l, t, w, h, items, size=15, color=DARK, gap=8,
     return tb
 
 
-def page_number(slide, n):
+def _counter_pill(slide, label):
     pill = slide.shapes.add_shape(MSO_SHAPE.ROUNDED_RECTANGLE,
                                   SW - Inches(1.15), SH - Inches(0.55),
                                   Inches(0.85), Inches(0.34))
@@ -136,11 +136,19 @@ def page_number(slide, n):
     tf.margin_left = 0; tf.margin_right = 0
     tf.margin_top = 0; tf.margin_bottom = 0
     p = tf.paragraphs[0]; p.alignment = PP_ALIGN.CENTER
-    r = p.add_run(); r.text = f"{n} / {TOTAL}"
+    r = p.add_run(); r.text = label
     r.font.size = Pt(11); r.font.color.rgb = GRAY; r.font.name = FONT
 
 
-def content_slide(title, n, kicker=None):
+def page_number(slide, n):
+    _counter_pill(slide, f"{n} / {TOTAL_MAIN}")
+
+
+def backup_num(slide, n):
+    _counter_pill(slide, f"В.{n}")
+
+
+def content_slide(title, n, kicker=None, counter=True):
     """Белый фон + заголовок + акцентная черта + номер."""
     slide = prs.slides.add_slide(BLANK)
     rect(slide, 0, 0, SW, SH, WHITE)
@@ -157,7 +165,8 @@ def content_slide(title, n, kicker=None):
         [[(title, 30, True, BLUE)]])
     # подчёркивание заголовка
     rect(slide, L, ty + Inches(0.72), Inches(2.2), Pt(3), BLUE)
-    page_number(slide, n)
+    if counter:
+        page_number(slide, n)
     return slide
 
 
@@ -406,7 +415,7 @@ add_image_fit(s, FIG + "fig_pipeline.png", Inches(0.7), Inches(2.25),
 items = [("65 сек", "обработка одной сцены"),
          ("Python · PyTorch", "стек реализации"),
          ("NVIDIA RTX 3090", "вычисления"),
-         ("Открытый код", "GitHub")]
+         ("Код на GitHub", "по запросу к автору")]
 x = Inches(0.7); cw = Inches(2.85); gap = Inches(0.18)
 for big, small in items:
     card(s, x, Inches(5.85), cw, Inches(1.05), bg=CARDBG, border=LIGHTBLUE)
@@ -499,31 +508,24 @@ txt(s, Inches(9.15), Inches(4.78), Inches(3.45), Inches(1.7),
     line=1.1, space_after=4)
 
 # ════════════════════════════════════════════════════════════════════════════
-# СЛАЙД 11 — ЛОЖНЫЕ ЦЕЛИ
+# СЛАЙДЫ 11–13 — ЛОЖНЫЕ ЦЕЛИ: по одному порту на слайд (крупный снимок)
 # ════════════════════════════════════════════════════════════════════════════
-s = content_slide("Типы ложных целей по акваториям", 11)
-ports = [
-    ("Печенга", "безлёдный тип: ветровые тени и биогенные плёнки", TEAL,
-     FIG + "fig_pechenga.png"),
-    ("Варандей", "сезонный первогодний дрейфующий лёд", BLUE,
-     FIG + "fig_varandey.png"),
-    ("Сабетта", "жировой и ниласовый лёд, припай — самая сложная акватория", OIL,
-     FIG + "fig_sabetta.png"),
+_ports = [
+    (11, "Порт Печенга",  "безлёдная акватория — ветровые тени и биогенные плёнки",
+     TEAL, FIG + "fig_pechenga.png"),
+    (12, "Терминал Варандей", "сезонный первогодний дрейфующий лёд",
+     BLUE, FIG + "fig_varandey.png"),
+    (13, "Порт Сабетта",  "жировой и ниласовый лёд, припай — самая сложная акватория",
+     OIL,  FIG + "fig_sabetta.png"),
 ]
-y = Inches(1.9)
-for name, desc, acc, fig in ports:
-    card(s, Inches(0.7), y, Inches(5.7), Inches(1.35), bg=CARDBG,
-         border=LIGHTBLUE, accent=acc)
-    txt(s, Inches(1.0), y + Inches(0.18), Inches(5.2), Inches(1.0),
-        [[(name, 17, True, acc)], [(desc, 13, False, DARK)]],
-        line=1.08, space_after=3)
-    add_image_fit(s, fig, Inches(6.7), y, Inches(6.0), Inches(1.35))
-    y += Inches(1.55)
+for _n, _name, _kicker, _acc, _fig in _ports:
+    s = content_slide(_name, _n, kicker=_kicker)
+    add_image_fit(s, _fig, Inches(0.5), Inches(1.55), Inches(12.35), Inches(5.25))
 
 # ════════════════════════════════════════════════════════════════════════════
-# СЛАЙД 12 — ЗАКЛЮЧЕНИЕ
+# СЛАЙД 14 — ЗАКЛЮЧЕНИЕ
 # ════════════════════════════════════════════════════════════════════════════
-s = content_slide("Заключение", 12)
+s = content_slide("Заключение", 14)
 card(s, Inches(0.7), Inches(1.6), Inches(11.95), Inches(0.95),
      bg=RGBColor(0xEC, 0xF7, 0xF0), border=RGBColor(0xC2, 0xE5, 0xD2),
      accent=GREEN)
@@ -554,30 +556,16 @@ txt(s, Inches(1.0), Inches(5.68), Inches(11.4), Inches(1.0),
     line=1.1, space_after=4)
 
 # ════════════════════════════════════════════════════════════════════════════
-# СЛАЙД 13 — СПАСИБО
+# РЕЗЕРВНЫЕ СЛАЙДЫ (В.1–В.5) — перед слайдом «Спасибо»
 # ════════════════════════════════════════════════════════════════════════════
-s = prs.slides.add_slide(BLANK)
-gradient_bg(s, NAVY, NAVY2)
-txt(s, Inches(0.9), Inches(2.7), Inches(11.5), Inches(1.2),
-    [[("Спасибо за внимание!", 46, True, WHITE)]])
-txt(s, Inches(0.9), Inches(3.9), Inches(11.5), Inches(0.6),
-    [[("Готов ответить на ваши вопросы", 20, False,
-       RGBColor(0x9F, 0xB2, 0xD0))]])
-rect(s, Inches(0.9), Inches(5.0), Pt(3), Inches(1.1), BLUE)
-txt(s, Inches(1.1), Inches(5.0), Inches(11), Inches(1.2),
-    [[("Байханов Владислав Камолович", 16, True, WHITE)],
-     [("Санкт-Петербургский государственный университет · 2026", 13, False,
-       RGBColor(0x9F, 0xB2, 0xD0))]], line=1.3, space_after=4)
-page_number(s, 13)
+def backup_slide(title, bk_n):
+    """Слайд для вопросов Q&A: без кикера, счётчик В.N."""
+    s = content_slide(title, bk_n, counter=False)
+    backup_num(s, bk_n)
+    return s
 
-# ════════════════════════════════════════════════════════════════════════════
-# РЕЗЕРВНЫЕ СЛАЙДЫ (заслайды для вопросов комиссии) — в том же файле, 14–18
-# ════════════════════════════════════════════════════════════════════════════
-def backup_slide(title, n):
-    return content_slide(title, n, kicker="резервный слайд")
-
-# СЛАЙД 14 — Архитектура DeepLabV3+
-s = backup_slide("DeepLabV3+ с энкодером ResNet-50", 14)
+# В.1 — Архитектура DeepLabV3+
+s = backup_slide("DeepLabV3+ с энкодером ResNet-50", 1)
 steps = [
     ("Энкодер ResNet-50", "извлечение признаков из SAR-тайла 256×256; "
      "предобучен на ImageNet, адаптирован к 1-канальному входу"),
@@ -596,8 +584,8 @@ for i, (h, b) in enumerate(steps, 1):
         [[(h + " — ", 15, True, BLUE_DK), (b, 15, False, DARK)]], line=1.1)
     y += Inches(1.18)
 
-# СЛАЙД 15 — Функция потерь и обучение
-s = backup_slide("Функция потерь и гиперпараметры", 15)
+# В.2 — Функция потерь и обучение
+s = backup_slide("Функция потерь и гиперпараметры", 2)
 txt(s, Inches(0.7), Inches(1.75), Inches(6), Inches(0.4),
     [[("Комбинированная функция потерь Dice-BCE", 16, True, DARK)]])
 txt(s, Inches(0.7), Inches(2.25), Inches(5.9), Inches(1.0),
@@ -628,8 +616,8 @@ for k, v in hp:
         [[(v, 14, False, DARK)]])
     y += Inches(0.62)
 
-# СЛАЙД 16 — Предобработка SNAP
-s = backup_slide("Предобработка SAR в ESA SNAP", 16)
+# В.3 — Предобработка SNAP
+s = backup_slide("Предобработка SAR в ESA SNAP", 3)
 pre = [
     ("Apply Orbit File", "уточнение параметров орбиты спутника"),
     ("Thermal Noise Removal", "удаление теплового шума сенсора"),
@@ -646,8 +634,8 @@ for i, (h, b) in enumerate(pre, 1):
         anchor=MSO_ANCHOR.MIDDLE)
     y += Inches(0.78)
 
-# СЛАЙД 17 — Метрики качества
-s = backup_slide("Метрики оценки качества", 17)
+# В.4 — Метрики качества
+s = backup_slide("Метрики оценки качества", 4)
 mt = [
     ("Precision", "доля верных среди предсказанных пикселей «нефть»"),
     ("Recall", "доля найденных среди всех истинных пикселей «нефть»"),
@@ -664,8 +652,8 @@ for h, b in mt:
         anchor=MSO_ANCHOR.MIDDLE)
     y += Inches(0.98)
 
-# СЛАЙД 18 — Матрица ошибок: разбор
-s = backup_slide("Разбор матрицы ошибок", 18)
+# В.5 — Матрица ошибок: разбор
+s = backup_slide("Разбор матрицы ошибок", 5)
 add_image_fit(s, FIG + "fig_confusion.png", Inches(0.5), Inches(1.7),
               Inches(6.2), Inches(5.1))
 bullets(s, Inches(7.0), Inches(2.0), Inches(5.6), Inches(4.5),
@@ -676,6 +664,22 @@ bullets(s, Inches(7.0), Inches(2.0), Inches(5.6), Inches(4.5),
          ("Вывод", " — модель устойчиво разделяет три класса; "
           "остаточная путаница ожидаема физически")],
         size=15, gap=13)
+
+# ════════════════════════════════════════════════════════════════════════════
+# ПОСЛЕДНИЙ СЛАЙД — СПАСИБО ЗА ВНИМАНИЕ (без счётчика)
+# ════════════════════════════════════════════════════════════════════════════
+s = prs.slides.add_slide(BLANK)
+gradient_bg(s, NAVY, NAVY2)
+txt(s, Inches(0.9), Inches(2.7), Inches(11.5), Inches(1.2),
+    [[("Спасибо за внимание!", 46, True, WHITE)]])
+txt(s, Inches(0.9), Inches(3.9), Inches(11.5), Inches(0.6),
+    [[("Готов ответить на ваши вопросы", 20, False,
+       RGBColor(0x9F, 0xB2, 0xD0))]])
+rect(s, Inches(0.9), Inches(5.0), Pt(3), Inches(1.1), BLUE)
+txt(s, Inches(1.1), Inches(5.0), Inches(11), Inches(1.2),
+    [[("Байханов Владислав Камолович", 16, True, WHITE)],
+     [("Санкт-Петербургский государственный университет · 2026", 13, False,
+       RGBColor(0x9F, 0xB2, 0xD0))]], line=1.3, space_after=4)
 
 # ── сохранение ───────────────────────────────────────────────────────────────
 out = "/home/user/spbu_db_hw/thesis/vkr_final/Презентация_Финал_Байханов_2026.pptx"
