@@ -89,10 +89,12 @@ fig.tight_layout(); fig.savefig(f'{OUT}/fig_ports_f1.png',dpi=150,facecolor='whi
 plt.close(); print('fig_ports_f1.png')
 
 # ───────────────────────── 5. Method comparison ──────────────────────────
-methods=['Метод Оцу\n(2024)','U-Net\nKrestenitis (2019)','GLCM+CNN\n(2025)',
-         'Порог μ−1,5σ\n(уч. практика)','DeepLabV3+ scSE\n(наст. работа)']
+# Порядок и значения строго по Таблице 4 ВКР (F1-score):
+# Оцу 0,71 · адаптивный порог 0,80 · GLCM+CNN 0,81 · U-Net 0,86 · DeepLabV3+ 0,89
+methods=['Метод Оцу\n(2024)','Порог μ−1,5σ\n(уч. практика)','GLCM+CNN\n(2025)',
+         'U-Net\nKrestenitis (2019)','DeepLabV3+ scSE\n(наст. работа)']
 vals=[0.71,0.80,0.81,0.86,0.89]
-cols=['#9aa0a6','#7a93b8','#6f8fb0','#5a8f6b',C_OK]
+cols=['#9aa0a6','#8a9bb0','#7a93b8','#6f8fb0',C_OK]
 fig,ax=plt.subplots(figsize=(9.2,4.8),facecolor='white')
 bars=ax.barh(range(5),vals,color=cols,edgecolor='black',lw=0.6,height=0.6)
 for i,v in enumerate(vals): ax.text(v+0.006,i,f'{v:.2f}',va='center',fontsize=11,fontweight='bold')
