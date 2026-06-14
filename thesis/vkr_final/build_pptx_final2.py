@@ -37,7 +37,7 @@ prs.slide_height = Inches(7.5)
 SW, SH = prs.slide_width, prs.slide_height
 BLANK = prs.slide_layouts[6]
 
-TOTAL_MAIN = 11  # основных слайдов (1–11); после них 4 резервных, затем Спасибо
+TOTAL_MAIN = 13  # основных слайдов (1–13); после них 4 резервных, затем Спасибо
 
 
 # ── низкоуровневые помощники ────────────────────────────────────────────────
@@ -378,29 +378,14 @@ txt(s, Inches(0.7), Inches(6.05), Inches(11.2), Inches(0.65),
        14, False, DARK)]], line=1.05)
 
 # ════════════════════════════════════════════════════════════════════════════
-# СЛАЙД 6 — АРХИТЕКТУРА РЕШЕНИЯ
+# СЛАЙД 5 — КОНВЕЙЕР ОБРАБОТКИ SAR-ДАННЫХ
 # ════════════════════════════════════════════════════════════════════════════
-s = content_slide("Архитектура решения", 5)
-txt(s, Inches(0.7), Inches(1.65), Inches(11.9), Inches(0.5),
-    [[("Трёхэтапный модульный конвейер обработки SAR-сцены", 16, True, DARK)]])
-add_image_fit(s, FIG + "fig_pipeline.png", Inches(0.7), Inches(2.25),
-              Inches(11.95), Inches(3.3))
-# метрики-итоги внизу
-items = [("65 сек", "обработка одной сцены"),
-         ("Python · PyTorch", "стек реализации"),
-         ("NVIDIA RTX 3090", "вычисления"),
-         ("Код на GitHub", "по запросу к автору")]
-x = Inches(0.7); cw = Inches(2.85); gap = Inches(0.18)
-for big, small in items:
-    card(s, x, Inches(5.85), cw, Inches(1.05), bg=CARDBG, border=LIGHTBLUE)
-    txt(s, x, Inches(5.98), cw, Inches(0.5),
-        [[(big, 17, True, BLUE)]], align=PP_ALIGN.CENTER, space_after=0)
-    txt(s, x, Inches(6.45), cw, Inches(0.4),
-        [[(small, 12, False, GRAY)]], align=PP_ALIGN.CENTER, space_after=0)
-    x += cw + gap
+s = content_slide("Конвейер обработки SAR-данных", 5)
+add_image_fit(s, FIG + "fig_pipeline.png", Inches(0.4), Inches(1.5),
+              Inches(12.55), Inches(5.8))
 
 # ════════════════════════════════════════════════════════════════════════════
-# СЛАЙД 7 — ДАТАСЕТ И ОБУЧЕНИЕ
+# СЛАЙД 6 — ДАТАСЕТ И ОБУЧЕНИЕ
 # ════════════════════════════════════════════════════════════════════════════
 s = content_slide("Датасет и обучение", 6)
 txt(s, Inches(0.7), Inches(1.65), Inches(5.8), Inches(0.4),
@@ -482,28 +467,21 @@ txt(s, Inches(9.15), Inches(4.78), Inches(3.45), Inches(1.7),
     line=1.1, space_after=4)
 
 # ════════════════════════════════════════════════════════════════════════════
-# СЛАЙД 10 — ЛОЖНЫЕ ЦЕЛИ: три порта в одном слайде (три колонки)
+# СЛАЙДЫ 9–11 — ЛОЖНЫЕ ЦЕЛИ: по одному порту на слайд (крупный снимок)
 # ════════════════════════════════════════════════════════════════════════════
-s = content_slide("Ложные цели в арктических акваториях", 10,
-                  kicker="характерные ложные цели по типу ледовой обстановки")
-_cols3 = [
-    ("Порт Печенга",      "ветровые тени и\nбиогенные плёнки",      TEAL, FIG + "fig_pechenga.png"),
-    ("Терминал Варандей", "первогодний\nдрейфующий лёд",             BLUE, FIG + "fig_varandey.png"),
-    ("Порт Сабетта",      "жировой лёд,\nниласовый лёд, припай",    OIL,  FIG + "fig_sabetta.png"),
+_ports = [
+    (10, "Порт Печенга",      "ветровые тени и биогенные плёнки",              TEAL, FIG + "fig_pechenga.png"),
+    (11, "Терминал Варандей", "первогодний дрейфующий лёд",                    BLUE, FIG + "fig_varandey.png"),
+    (12, "Порт Сабетта",      "жировой и ниласовый лёд, припай — наиболее сложная акватория", OIL, FIG + "fig_sabetta.png"),
 ]
-_cw3 = Inches(3.95); _gap3 = Inches(0.15); _x0_3 = Inches(0.55)
-for _k3, (_pname, _plabel, _pacc, _pfig) in enumerate(_cols3):
-    _px3 = _x0_3 + _k3 * (_cw3 + _gap3)
-    add_image_fit(s, _pfig, _px3, Inches(1.55), _cw3, Inches(4.45))
-    card(s, _px3, Inches(6.1), _cw3, Inches(0.9), bg=CARDBG, border=LIGHTBLUE, accent=_pacc)
-    txt(s, _px3 + Inches(0.15), Inches(6.16), _cw3 - Inches(0.2), Inches(0.82),
-        [[(_pname, 13, True, _pacc)], [(_plabel, 11, False, DARK)]],
-        line=1.05, space_after=1)
+for _pn, _pname, _pkicker, _pacc, _pfig in _ports:
+    s = content_slide(_pname, _pn, kicker=_pkicker)
+    add_image_fit(s, _pfig, Inches(0.4), Inches(1.45), Inches(12.55), Inches(5.9))
 
 # ════════════════════════════════════════════════════════════════════════════
-# СЛАЙД 11 — ЗАКЛЮЧЕНИЕ
+# СЛАЙД 13 — ЗАКЛЮЧЕНИЕ
 # ════════════════════════════════════════════════════════════════════════════
-s = content_slide("Заключение", 11)
+s = content_slide("Заключение", 13)
 card(s, Inches(0.7), Inches(1.6), Inches(11.95), Inches(0.95),
      bg=RGBColor(0xEC, 0xF7, 0xF0), border=RGBColor(0xC2, 0xE5, 0xD2),
      accent=GREEN)
@@ -534,7 +512,7 @@ txt(s, Inches(1.0), Inches(5.68), Inches(11.4), Inches(1.0),
     line=1.1, space_after=4)
 
 # ════════════════════════════════════════════════════════════════════════════
-# РЕЗЕРВНЫЕ СЛАЙДЫ (В.1–В.4) — перед слайдом «Спасибо»
+# РЕЗЕРВНЫЕ СЛАЙДЫ (В.1–В.4) — перед слайдом «Спасибо» (открывать при вопросах)
 # ════════════════════════════════════════════════════════════════════════════
 def backup_slide(title, bk_n):
     """Слайд для вопросов Q&A: без кикера, счётчик В.N."""
@@ -612,8 +590,8 @@ for i, (h, b) in enumerate(pre, 1):
         anchor=MSO_ANCHOR.MIDDLE)
     y += Inches(0.78)
 
-# В.4 — Ответы на замечания рецензента (Филиппова Н.А.)
-s = backup_slide("Ответы на замечания рецензента", 4)
+# В.4 — Ответы на замечания
+s = backup_slide("Ответы на замечания", 4)
 _remarks = [
     (
         "Замечание 1: влияние VH-канала не рассмотрено",
