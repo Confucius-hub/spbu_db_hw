@@ -520,7 +520,7 @@ _ports = [
 ]
 for _n, _name, _kicker, _acc, _fig in _ports:
     s = content_slide(_name, _n, kicker=_kicker)
-    add_image_fit(s, _fig, Inches(0.5), Inches(1.55), Inches(12.35), Inches(5.25))
+    add_image_fit(s, _fig, Inches(0.5), Inches(1.5), Inches(12.35), Inches(5.85))
 
 # ════════════════════════════════════════════════════════════════════════════
 # СЛАЙД 14 — ЗАКЛЮЧЕНИЕ
