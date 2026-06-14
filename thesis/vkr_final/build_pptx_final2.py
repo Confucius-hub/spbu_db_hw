@@ -234,6 +234,15 @@ def make_table(slide, l, t, w, rows, col_w, header_size=12, body_size=12,
             r.font.size = Pt(header_size if i == 0 else body_size)
             r.font.bold = (i == 0) or (first_bold and j == 0)
             r.font.color.rgb = BLUE_DK if i == 0 else DARK
+            # цветовая маркировка ячеек сравнения (как в современных дек)
+            if i > 0:
+                _vs = str(val).strip().lower()
+                if _vs == "+":
+                    r.font.color.rgb = GREEN; r.font.bold = True; r.font.size = Pt(body_size + 2)
+                elif _vs in ("—", "-", "–"):
+                    r.font.color.rgb = LGRAY; r.font.bold = True; r.font.size = Pt(body_size + 2)
+                elif "частич" in _vs:
+                    r.font.color.rgb = RGBColor(0xD9, 0x77, 0x06); r.font.bold = True
     return gtbl
 
 
@@ -322,7 +331,7 @@ txt(s, Inches(7.0), Inches(2.42), Inches(5.6), Inches(1.7),
 
 # ── Снимок Кольского залива — ПОЛНАЯ ШИРИНА внизу ──────────────────────
 txt(s, Inches(0.7), Inches(4.46), Inches(11.5), Inches(0.32),
-    [[("Кольский залив: разлив мазута 11.09.2024 (открытая вода) — исходный снимок Sentinel-1 и результат модели",
+    [[("Кольский залив, разлив мазута 11.09.2024 — иллюстрация работы модели (схема: слева сцена, справа сегментация)",
        11, True, GRAY)]])
 add_image_fit(s, FIG + "fig_kola.png",
               Inches(0.7), Inches(4.82),

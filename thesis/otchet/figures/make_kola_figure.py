@@ -69,7 +69,7 @@ for ax in (axL, axR):
 
 # слева — исходный VV
 axL.imshow(a, cmap='gray', vmin=0, vmax=255, aspect='equal')
-axL.set_title('11 сентября 2024 — Sentinel-1 IW GRD, VV (Кольский залив)',
+axL.set_title('Кольский залив, разлив 11.09.2024 — схема детектирования (иллюстрация)',
               color='black', fontsize=10.5, pad=4)
 panel_label(axL, 'а)')
 arrow(axL, W, H, 0.18, 0.20, 0.07, 0.08, 'Кольский п-ов\n(суша)', COL['land'])
