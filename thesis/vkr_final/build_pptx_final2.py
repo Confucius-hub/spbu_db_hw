@@ -386,38 +386,57 @@ add_image_fit(s, FIG + "fig_pipeline.png", Inches(0.4), Inches(1.5),
 # ════════════════════════════════════════════════════════════════════════════
 # СЛАЙД 6 — ДАТАСЕТ И ОБУЧЕНИЕ
 # ════════════════════════════════════════════════════════════════════════════
-s = content_slide("Датасет и обучение", 6)
-txt(s, Inches(0.7), Inches(1.65), Inches(5.8), Inches(0.4),
-    [[("1125 сцен → 4128 тайлов 256×256", 15, True, DARK)]])
-add_image_fit(s, FIG + "fig_class_dist.png", Inches(0.55), Inches(2.05),
-              Inches(5.6), Inches(4.0))
-txt(s, Inches(0.7), Inches(6.15), Inches(5.9), Inches(0.9),
-    [[("1112 сцен MKLab Krestenitis + 13 собственных сцен Кольского залива; "
-       "деление 70 / 20 / 10 на уровне сцен.", 12, False, GRAY)]], line=1.05)
+s = content_slide("Предобработка и датасет", 6)
 
-txt(s, Inches(6.9), Inches(1.65), Inches(5.8), Inches(0.4),
-    [[("Сходимость: 78 эпох, лучшее mIoU = 0,84", 15, True, DARK)]])
-add_image_fit(s, FIG + "fig_training.png", Inches(6.75), Inches(2.05),
-              Inches(5.9), Inches(2.7))
-cardp = card(s, Inches(6.9), Inches(5.05), Inches(5.75), Inches(1.75),
-             bg=RGBColor(0xFD, 0xF0, 0xEE), border=RGBColor(0xF0, 0xC8, 0xC0),
-             accent=OIL)
-txt(s, Inches(7.15), Inches(5.2), Inches(5.4), Inches(1.5),
-    [[("Главная сложность — дисбаланс классов", 14, True, OIL)],
-     [("Пиксели нефти — менее 2,4 %. Решение: взвешенная Dice-BCE, "
-       "вес класса «нефть» повышен до 9,8.", 13, False, DARK)]],
-    line=1.08, space_after=4)
+# ── ЛЕВО: предобработка — 6 шагов SNAP ───────────────────────────────────
+txt(s, Inches(0.7), Inches(1.5), Inches(5.9), Inches(0.4),
+    [[("Предобработка снимка — 6 шагов (ESA SNAP)", 16, True, BLUE)]])
+_pre = [
+    ("Apply Orbit File", "уточнение орбиты спутника"),
+    ("Thermal Noise Removal", "удаление шума сенсора"),
+    ("Калибровка → σ⁰", "перевод в физическую величину"),
+    ("Фильтр Ли 7×7", "подавление зернистости (спекл)"),
+    ("Range-Doppler", "геопривязка к местности"),
+    ("Перевод в дБ", "логарифмическая шкала яркости"),
+]
+_y = Inches(2.12)
+for _i, (_h, _b) in enumerate(_pre, 1):
+    num_badge(s, Inches(0.7), _y, _i, d=Inches(0.46), color=TEAL)
+    txt(s, Inches(1.32), _y - Inches(0.02), Inches(5.3), Inches(0.55),
+        [[(_h + " — ", 13.5, True, DARK), (_b, 13.5, False, GRAY)]],
+        anchor=MSO_ANCHOR.MIDDLE, line=1.05)
+    _y += Inches(0.74)
 
-# компактная техническая строка (бывшие резервные В.1–В.3) — внизу во всю ширину
+# ── ПРАВО: датасет + обучение ────────────────────────────────────────────
+txt(s, Inches(6.9), Inches(1.5), Inches(5.8), Inches(0.4),
+    [[("Датасет и обучение", 16, True, BLUE)]])
+card(s, Inches(6.9), Inches(2.05), Inches(5.75), Inches(1.45),
+     bg=CARDBG, border=LIGHTBLUE, accent=BLUE)
+txt(s, Inches(7.15), Inches(2.18), Inches(5.4), Inches(1.25),
+    [[("1125 снимков → 4128 фрагментов 256×256", 14, True, DARK)],
+     [("1112 — открытый набор (переразмечен) +", 13, False, DARK)],
+     [("13 — собственные снимки Кольского залива.", 13, False, DARK)],
+     [("Деление 70 / 20 / 10 на уровне снимков.", 12, False, GRAY)]],
+    line=1.1, space_after=1)
+card(s, Inches(6.9), Inches(3.65), Inches(5.75), Inches(1.0),
+     bg=RGBColor(0xFD, 0xF0, 0xEE), border=RGBColor(0xF0, 0xC8, 0xC0), accent=OIL)
+txt(s, Inches(7.15), Inches(3.78), Inches(5.4), Inches(0.8),
+    [[("Дисбаланс классов: ", 13.5, True, OIL),
+      ("нефть < 2,4 % пикселей.", 13, False, DARK)],
+     [("Решение: взвешенная Dice-BCE, вес «нефти» = 9,8.", 13, False, DARK)]],
+    line=1.1, space_after=2)
+txt(s, Inches(6.9), Inches(4.88), Inches(5.8), Inches(0.4),
+    [[("Сходимость: лучшее mIoU = 0,84 на 78-й эпохе", 12.5, True, DARK)]])
+add_image_fit(s, FIG + "fig_training.png", Inches(6.9), Inches(5.25),
+              Inches(5.75), Inches(1.5))
+
+# ── низ: модель (архитектура одной строкой) ──────────────────────────────
 card(s, Inches(0.7), Inches(6.98), Inches(11.4), Inches(0.42),
      bg=CARDBG, border=LIGHTBLUE, accent=BLUE)
-txt(s, Inches(0.95), Inches(7.0), Inches(11.0), Inches(0.38),
+txt(s, Inches(0.95), Inches(7.0), Inches(11.2), Inches(0.38),
     [[("Модель: ", 11, True, BLUE),
-      ("DeepLabV3+ (ResNet-50) + scSE-внимание     ·     ", 11, False, DARK),
-      ("Обучение: ", 11, True, BLUE),
-      ("AdamW, 100 эпох     ·     ", 11, False, DARK),
-      ("Предобработка: ", 11, True, BLUE),
-      ("6 шагов ESA SNAP", 11, False, DARK)]],
+      ("DeepLabV3+ (энкодер ResNet-50) + scSE-внимание · сегментация на 3 класса: вода / нефть / лёд+суша",
+       11, False, DARK)]],
     anchor=MSO_ANCHOR.MIDDLE)
 
 # ════════════════════════════════════════════════════════════════════════════
