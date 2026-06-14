@@ -523,40 +523,55 @@ _ports = [
 ]
 for _pn, _pname, _pkicker, _pacc, _pfig in _ports:
     s = content_slide(_pname, _pn, kicker=_pkicker)
-    add_image_fit(s, _pfig, Inches(0.4), Inches(1.45), Inches(12.55), Inches(5.9))
+    add_image_fit(s, _pfig, Inches(0.4), Inches(1.4), Inches(12.55), Inches(5.5))
+    txt(s, Inches(0.4), Inches(7.04), Inches(12.55), Inches(0.32),
+        [[("Источник снимков: Sentinel-1 (ESA) · ASF DAAC — earthdata.nasa.gov; "
+           "предобработка — ESA SNAP", 9.5, False, GRAY)]],
+        align=PP_ALIGN.CENTER)
 
 # ════════════════════════════════════════════════════════════════════════════
 # СЛАЙД 13 — ЗАКЛЮЧЕНИЕ
 # ════════════════════════════════════════════════════════════════════════════
 s = content_slide("Заключение", 13)
-card(s, Inches(0.7), Inches(1.6), Inches(11.95), Inches(0.95),
+# ── плашка-итог ───────────────────────────────────────────────────────────
+card(s, Inches(0.7), Inches(1.5), Inches(11.95), Inches(0.88),
      bg=RGBColor(0xEC, 0xF7, 0xF0), border=RGBColor(0xC2, 0xE5, 0xD2),
      accent=GREEN)
-txt(s, Inches(1.0), Inches(1.78), Inches(11.4), Inches(0.6),
+txt(s, Inches(1.0), Inches(1.66), Inches(11.4), Inches(0.6),
     [[("Цель достигнута: ", 17, True, GREEN),
       ("F1 = 0,89 при целевом критерии ≥ 0,85. Все четыре задачи решены.",
-       17, False, DARK)]], line=1.05)
+       17, False, DARK)]], line=1.05, anchor=MSO_ANCHOR.MIDDLE)
+# ── 4 задачи → выполнено ──────────────────────────────────────────────────
 done = [
     "Систематизированы ограничения методов, обоснован выбор архитектуры",
     "Создан комбинированный датасет с оригинальной трёхклассовой разметкой",
     "Реализован программный прототип-конвейер обработки SAR-сцен",
     "Экспериментально подтверждено превосходство над пороговыми методами",
 ]
-y = Inches(2.85)
+y = Inches(2.62)
 for d in done:
     txt(s, Inches(0.7), y, Inches(0.5), Inches(0.4),
-        [[("✓", 17, True, GREEN)]])
+        [[("✓", 16, True, GREEN)]])
     txt(s, Inches(1.2), y + Inches(0.02), Inches(11.3), Inches(0.5),
-        [[(d, 15, False, DARK)]], anchor=MSO_ANCHOR.MIDDLE)
-    y += Inches(0.62)
-card(s, Inches(0.7), Inches(5.5), Inches(11.95), Inches(1.3),
+        [[(d, 14.5, False, DARK)]], anchor=MSO_ANCHOR.MIDDLE)
+    y += Inches(0.56)
+# ── две карточки: новизна | практическая значимость ───────────────────────
+card(s, Inches(0.7), Inches(5.08), Inches(5.85), Inches(1.78),
+     bg=CARDBG, border=LIGHTBLUE, accent=TEAL)
+txt(s, Inches(0.95), Inches(5.24), Inches(5.4), Inches(1.5),
+    [[("Научная новизна", 14.5, True, TEAL)],
+     [("Впервые для арктических портов — трёхклассовая модель с выделением "
+       "льда в отдельный класс; это и даёт прирост точности над бинарными "
+       "методами.", 13, False, DARK)]],
+    line=1.12, space_after=4)
+card(s, Inches(6.75), Inches(5.08), Inches(5.9), Inches(1.78),
      bg=CARDBG, border=LIGHTBLUE, accent=BLUE)
-txt(s, Inches(1.0), Inches(5.68), Inches(11.4), Inches(1.0),
-    [[("Практическая значимость", 15, True, BLUE)],
-     [("Применимость в системах экологического мониторинга арктических "
-       "портов — в интересах Росприроднадзора, МЧС, «Морспасслужбы» и "
-       "мониторинга Северного морского пути.", 14, False, DARK)]],
-    line=1.1, space_after=4)
+txt(s, Inches(7.0), Inches(5.24), Inches(5.45), Inches(1.5),
+    [[("Практическая значимость", 14.5, True, BLUE)],
+     [("Прототип применим в системах экологического мониторинга арктических "
+       "портов — Росприроднадзор, МЧС, «Морспасслужба», контроль Северного "
+       "морского пути.", 13, False, DARK)]],
+    line=1.12, space_after=4)
 
 # ════════════════════════════════════════════════════════════════════════════
 # ПОСЛЕДНИЙ СЛАЙД — СПАСИБО ЗА ВНИМАНИЕ (без счётчика)
