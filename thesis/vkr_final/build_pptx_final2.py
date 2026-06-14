@@ -423,9 +423,9 @@ card(s, Inches(6.9), Inches(2.05), Inches(5.75), Inches(1.45),
      bg=CARDBG, border=LIGHTBLUE, accent=BLUE)
 txt(s, Inches(7.15), Inches(2.18), Inches(5.4), Inches(1.25),
     [[("1125 снимков → 4128 фрагментов 256×256", 14, True, DARK)],
-     [("1112 — открытый набор (переразмечен) +", 13, False, DARK)],
+     [("1112 — MKLab / Krestenitis et al., 2019 +", 13, False, DARK)],
      [("13 — собственные снимки Кольского залива.", 13, False, DARK)],
-     [("Деление 70 / 20 / 10 на уровне снимков.", 12, False, GRAY)]],
+     [("Деление 70 / 20 / 10. Источник: Remote Sensing, 2019.", 11, False, GRAY)]],
     line=1.1, space_after=1)
 card(s, Inches(6.9), Inches(3.65), Inches(5.75), Inches(1.0),
      bg=RGBColor(0xFD, 0xF0, 0xEE), border=RGBColor(0xF0, 0xC8, 0xC0), accent=OIL)
@@ -492,17 +492,25 @@ bullets(s, Inches(8.9), Inches(2.2), Inches(3.9), Inches(3.5),
 s = content_slide("Переносимость на другие акватории", 9)
 add_image_fit(s, FIG + "fig_ports_f1.png", Inches(0.6), Inches(1.7),
               Inches(8.0), Inches(5.3))
-bullets(s, Inches(8.9), Inches(2.1), Inches(3.9), Inches(4.0),
-        [("Кольский залив", " — F1 = 0,89 (обучение)"),
-         ("Варандей", " — F1 = 0,84 (перенос)"),
-         ("Сабетта", " — F1 = 0,76 (перенос)")],
-        size=16, gap=14)
-card(s, Inches(8.9), Inches(4.6), Inches(3.85), Inches(2.0),
+# ── Правая часть: F1 по нефти (2 порта) + тест специфичности (Печенга) ──
+txt(s, Inches(8.9), Inches(1.82), Inches(3.9), Inches(0.38),
+    [[("Детекция нефти (F1):", 13, True, BLUE)]], space_after=0)
+bullets(s, Inches(8.9), Inches(2.24), Inches(3.9), Inches(1.85),
+        [("Кольский залив", " — 0,89 (обучение)"),
+         ("Варандей", " — 0,84 (перенос)"),
+         ("Сабетта", " — 0,76 (перенос)")],
+        size=14, gap=9)
+txt(s, Inches(8.9), Inches(3.72), Inches(3.9), Inches(0.38),
+    [[("Тест специфичности:", 13, True, TEAL)]], space_after=0)
+bullets(s, Inches(8.9), Inches(4.14), Inches(3.9), Inches(0.85),
+        ["Печенга — разливов нет; все тёмные зоны\n= ложные цели → модель не тревожила"],
+        size=13, mcolor=TEAL, gap=4)
+card(s, Inches(8.9), Inches(5.1), Inches(3.85), Inches(1.7),
      bg=CARDBG, border=LIGHTBLUE, accent=BLUE)
-txt(s, Inches(9.15), Inches(4.78), Inches(3.45), Inches(1.7),
-    [[("Вывод", 15, True, BLUE)],
-     [("Методика принципиально применима; для тяжёлых ледовых акваторий "
-       "требуется целевое дообучение.", 13, False, DARK)]],
+txt(s, Inches(9.15), Inches(5.26), Inches(3.45), Inches(1.48),
+    [[("Вывод", 14, True, BLUE)],
+     [("Методика применима; для ледовых акваторий — "
+       "целевое дообучение.\nСлайды 10–12: каждый порт подробно.", 12, False, DARK)]],
     line=1.1, space_after=4)
 
 # ════════════════════════════════════════════════════════════════════════════
