@@ -48,11 +48,14 @@
   header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:all .3s var(--ease)}
   header.nav.scrolled{border-color:var(--slate-200);box-shadow:var(--shadow-soft)}
   .nav .row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
-  .logo{display:inline-flex;align-items:center;gap:12px}
-  .logo-mark{width:40px;height:40px;border-radius:10px;background:var(--navy-800);display:grid;place-items:center;color:var(--gold-400);font-family:'Manrope';font-weight:800}
+  .logo{display:inline-flex;align-items:center;gap:14px;line-height:1}
+  .logo-bar{width:4px;align-self:stretch;border-radius:2px;background:linear-gradient(180deg,var(--gold-400),var(--gold-600))}
   .logo-text{display:flex;flex-direction:column;line-height:1}
-  .logo-text b{font-family:'Manrope';color:var(--navy-900);font-size:18px;font-weight:800;letter-spacing:-.02em}
-  .logo-text span{font-size:11px;color:var(--slate-500);margin-top:3px}
+  .logo-text b{font-family:'Manrope';color:var(--navy-900);font-size:22px;font-weight:800;letter-spacing:-.02em}
+  .logo-text b em{font-style:normal;color:var(--gold-600);font-weight:800}
+  .logo-text span{font-size:11px;color:var(--slate-500);margin-top:5px;letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  footer .logo .logo-text b{color:#fff}
+  footer .logo .logo-text span{color:#94a3b8}
   nav.main{display:none;gap:6px;align-items:center}
   nav.main a{padding:8px 14px;border-radius:9px;font-size:15px;font-weight:500;color:var(--slate-600);transition:color .15s;white-space:nowrap}
   nav.main a:hover{color:var(--navy-900)}
@@ -282,11 +285,11 @@
 <header class="nav" id="header">
   <div class="container row">
     <a href="#top" class="logo">
-      <div class="logo-mark">ЮЛ</div>
-      <div class="logo-text">
-        <b>ЮрЛидер</b>
-        <span>Вступление в СРО под ключ</span>
-      </div>
+      <span class="logo-bar" aria-hidden="true"></span>
+      <span class="logo-text">
+        <b>Юр<em>Лидер</em></b>
+        <span>Допуски СРО · с 2010</span>
+      </span>
     </a>
     <nav class="main">
       <a href="#services">Услуги</a>
@@ -313,7 +316,7 @@
     <div class="reveal">
       <span class="eyebrow-pill"><span class="dot"></span>Юридическая компания · с 2010 года</span>
       <h1>Вступление в&nbsp;СРО <span class="gold-grad">за 24 часа</span></h1>
-      <p class="lead">Аккредитованный представитель надёжных СРО Санкт-Петербурга. Стоимость = взнос в&nbsp;компенсационный фонд. Без ежемесячных взносов и скрытых платежей.</p>
+      <p class="lead">Аккредитованный представитель надёжных СРО Санкт-Петербурга. Помогаем получить допуск под&nbsp;ключ&nbsp;— прозрачно, без скрытых платежей.</p>
       <div class="ctas">
         <a href="#calc" class="btn btn-gold btn-lg">Рассчитать стоимость
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
@@ -394,15 +397,13 @@
     <div class="lt">
       <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg></div>
       <div>
-        <b>Работаем с аккредитованными СРО Санкт-Петербурга</b>
-        <span>Прямые договоры. Без посредников. Полная прозрачность.</span>
+        <b>Аккредитованный представитель СРО Санкт-Петербурга</b>
+        <span>Прямые договоры. Полная прозрачность условий.</span>
       </div>
     </div>
-    <div class="rt">
-      <div><div class="k">На рынке</div><div class="v">с 2010 года</div></div>
-      <div><div class="k">Сроки</div><div class="v">24 часа</div></div>
-      <div><div class="k">Платежи</div><div class="v">без ежемесячных</div></div>
-    </div>
+    <a href="#contacts" class="btn btn-outline">Проверить право на вступление
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </a>
   </div>
 </div>
 
@@ -679,21 +680,14 @@
 <!-- ===== Footer ===== -->
 <footer class="foot">
   <div class="container">
-    <div class="top-cta">
-      <div>
-        <h2>Готовы вступить в СРО?</h2>
-        <p>Рассчитайте стоимость или получите бесплатную консультацию.</p>
-      </div>
-      <div class="ctas">
-        <a href="#calc" class="btn btn-gold">Рассчитать стоимость</a>
-        <a href="tel:+78120000000" class="btn btn-ghost">+7 (812) 000-00-00</a>
-      </div>
-    </div>
     <div class="cols">
       <div class="brand">
         <div class="logo">
-          <div class="logo-mark">ЮЛ</div>
-          <div class="logo-text"><b style="color:#fff">ЮрЛидер</b><span style="color:#94a3b8">Вступление в СРО под ключ</span></div>
+          <span class="logo-bar" aria-hidden="true"></span>
+          <span class="logo-text">
+            <b>Юр<em>Лидер</em></b>
+            <span>Допуски СРО · с 2010</span>
+          </span>
         </div>
         <p>Юридическая компания, оформляющая допуски СРО с 2010 года. Аккредитованный представитель надёжных СРО Санкт-Петербурга.</p>
       </div>
