@@ -1,0 +1,759 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>ЮрЛидер — Вступление в СРО за 24 часа в Санкт-Петербурге</title>
+<meta name="description" content="Аккредитованный представитель СРО Санкт-Петербурга. Вступление в строительные, проектные и изыскательские СРО за 24 часа. Цена = взнос в компенсационный фонд. Без ежемесячных взносов и скрытых платежей." />
+<meta name="theme-color" content="#0e1a31" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#070f1f; --navy-900:#0e1a31; --navy-800:#142340; --navy-700:#1d2f57;
+    --navy-50:#eef2f9; --navy-100:#d6e0f0;
+    --gold-50:#fbf7ec; --gold-100:#f5ebcf; --gold-200:#ecd79e; --gold-300:#e0bf6c;
+    --gold-400:#d6ab49; --gold-500:#c4933a; --gold-600:#a87730; --gold-700:#855a29;
+    --slate-50:#f8fafc; --slate-100:#f1f5f9; --slate-200:#e2e8f0; --slate-300:#cbd5e1;
+    --slate-400:#94a3b8; --slate-500:#64748b; --slate-600:#475569; --slate-700:#334155;
+    --slate-900:#0f172a;
+    --shadow-soft:0 1px 2px rgba(14,26,49,.04),0 4px 16px rgba(14,26,49,.06);
+    --shadow-card:0 1px 3px rgba(14,26,49,.05),0 12px 28px -12px rgba(14,26,49,.18);
+    --shadow-lift:0 2px 6px rgba(14,26,49,.06),0 24px 48px -20px rgba(14,26,49,.28);
+    --ease:cubic-bezier(.22,1,.36,1);
+    --r:14px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:88px}
+  body{
+    margin:0;background:#fff;color:var(--slate-700);
+    font-family:'Inter',ui-sans-serif,system-ui,-apple-system,sans-serif;
+    font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Manrope','Inter',sans-serif;color:var(--navy-900);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin:0}
+  a{color:inherit;text-decoration:none}
+  img,svg{display:block;max-width:100%}
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+  .gold-grad{background:linear-gradient(100deg,var(--gold-300),var(--gold-500));-webkit-background-clip:text;background-clip:text;color:transparent}
+
+  /* ===== Header ===== */
+  .top-strip{background:var(--navy-950);color:#cbd5e1;font-size:13px}
+  .top-strip .row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;gap:24px;flex-wrap:wrap}
+  .top-strip a{color:#cbd5e1;transition:color .2s}
+  .top-strip a:hover{color:var(--gold-300)}
+  .top-strip .badge{display:inline-flex;align-items:center;gap:8px}
+  .top-strip .badge .dot{width:6px;height:6px;border-radius:50%;background:var(--gold-400)}
+
+  header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border-bottom:1px solid transparent;transition:all .3s var(--ease)}
+  header.nav.scrolled{border-color:var(--slate-200);box-shadow:var(--shadow-soft)}
+  .nav .row{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:16px}
+  .logo{display:inline-flex;align-items:center;gap:12px}
+  .logo-mark{width:40px;height:40px;border-radius:10px;background:var(--navy-800);display:grid;place-items:center;color:var(--gold-400);font-family:'Manrope';font-weight:800}
+  .logo-text{display:flex;flex-direction:column;line-height:1}
+  .logo-text b{font-family:'Manrope';color:var(--navy-900);font-size:18px;font-weight:800;letter-spacing:-.02em}
+  .logo-text span{font-size:11px;color:var(--slate-500);margin-top:3px}
+  nav.main{display:none;gap:6px;align-items:center}
+  nav.main a{padding:8px 14px;border-radius:9px;font-size:15px;font-weight:500;color:var(--slate-600);transition:color .15s;white-space:nowrap}
+  nav.main a:hover{color:var(--navy-900)}
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:44px;padding:0 20px;border-radius:12px;font-weight:600;font-size:15px;font-family:inherit;cursor:pointer;border:0;transition:all .2s var(--ease);white-space:nowrap;text-align:center}
+  .btn-gold{background:var(--gold-500);color:var(--navy-950);box-shadow:var(--shadow-soft)}
+  .btn-gold:hover{background:var(--gold-400);box-shadow:0 10px 30px -12px rgba(196,147,58,.45);transform:translateY(-1px)}
+  .btn-outline{background:#fff;border:1px solid var(--slate-200);color:var(--navy-800)}
+  .btn-outline:hover{border-color:var(--navy-400);background:var(--navy-50)}
+  .btn-white{background:#fff;color:var(--navy-900);box-shadow:var(--shadow-soft)}
+  .btn-white:hover{background:var(--gold-50)}
+  .btn-lg{height:52px;padding:0 28px;font-size:16px;border-radius:14px}
+  .btn-ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.2)}
+  .btn-ghost:hover{background:rgba(255,255,255,.08)}
+  .burger{display:inline-flex;width:44px;height:44px;border:1px solid var(--slate-200);border-radius:11px;background:#fff;align-items:center;justify-content:center;cursor:pointer}
+  .burger:hover{background:var(--navy-50)}
+
+  @media (min-width:1100px){
+    nav.main{display:flex}
+    .burger{display:none}
+  }
+
+  /* ===== Hero ===== */
+  .hero{position:relative;background:var(--navy-950);color:#fff;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background-image:
+    linear-gradient(to right,rgba(255,255,255,.04) 1px,transparent 1px),
+    linear-gradient(to bottom,rgba(255,255,255,.04) 1px,transparent 1px);
+    background-size:56px 56px;opacity:.6}
+  .hero::after{content:"";position:absolute;right:-160px;top:-160px;width:560px;height:560px;border-radius:50%;background:rgba(29,47,87,.4);filter:blur(80px)}
+  .hero .glow{position:absolute;left:-160px;bottom:0;width:440px;height:440px;border-radius:50%;background:rgba(168,119,48,.1);filter:blur(80px)}
+  .hero .row{position:relative;display:grid;grid-template-columns:1fr;gap:48px;padding:64px 0 80px}
+  @media (min-width:1024px){.hero .row{grid-template-columns:1.05fr .95fr;padding:96px 0 112px;align-items:center}}
+  .eyebrow-pill{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(255,255,255,.15);background:rgba(255,255,255,.05);padding:7px 16px;border-radius:999px;font-size:13.5px;color:#cbd5e1}
+  .eyebrow-pill .dot{width:8px;height:8px;border-radius:50%;background:var(--gold-400)}
+  .hero h1{color:#fff;font-size:clamp(34px,4.8vw,56px);line-height:1.06;margin-top:22px}
+  .hero h1 .accent{display:inline-block}
+  .hero p.lead{margin-top:18px;font-size:18px;color:#cbd5e1;max-width:560px}
+  .hero .ctas{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+  .trust-row{margin-top:42px;display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:560px}
+  .trust-item{display:flex;align-items:flex-start;gap:12px}
+  .trust-item .ico{width:40px;height:40px;border-radius:11px;background:rgba(255,255,255,.08);display:grid;place-items:center;color:var(--gold-400);flex-shrink:0}
+  .trust-item b{display:block;color:#fff;font-size:14px;font-weight:600}
+  .trust-item span{font-size:12px;color:#94a3b8}
+
+  /* Hero card (calculator) */
+  .calc{background:#fff;border-radius:24px;box-shadow:var(--shadow-lift);padding:28px;color:var(--slate-700)}
+  .calc-head{display:flex;align-items:center;gap:14px}
+  .calc-head .ico{width:48px;height:48px;border-radius:13px;background:var(--gold-100);color:var(--gold-700);display:grid;place-items:center}
+  .calc-head h3{font-size:18px;margin:0}
+  .calc-head p{margin:2px 0 0;font-size:13px;color:var(--slate-500)}
+  .field{margin-top:18px}
+  .field label{display:block;font-size:13.5px;color:var(--slate-600);font-weight:500;margin-bottom:6px}
+  .field select,.field input{width:100%;height:46px;border:1px solid var(--slate-200);background:#fff;border-radius:11px;padding:0 14px;font-size:15px;font-family:inherit;color:var(--navy-900);outline:none;transition:border-color .15s,box-shadow .15s}
+  .field select:focus,.field input:focus{border-color:var(--gold-400);box-shadow:0 0 0 3px rgba(212,171,73,.22)}
+  .result{margin-top:22px;background:var(--navy-900);color:#fff;border-radius:18px;padding:20px}
+  .result .label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#94a3b8}
+  .result .amount{font-family:'Manrope';font-size:30px;font-weight:800;color:#fff;margin-top:6px}
+  .result .note{margin-top:6px;font-size:13.5px;color:#cbd5e1}
+  .calc .submit{width:100%;margin-top:16px}
+  .calc small{display:block;margin-top:10px;text-align:center;font-size:12px;color:var(--slate-400)}
+
+  /* ===== Trust bar ===== */
+  .trustbar{border-bottom:1px solid var(--slate-200);background:#fff}
+  .trustbar .row{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:22px;padding:22px 0}
+  .trustbar .lt{display:flex;align-items:center;gap:14px}
+  .trustbar .lt .ico{width:46px;height:46px;border-radius:12px;background:var(--navy-50);color:var(--navy-700);display:grid;place-items:center}
+  .trustbar .lt b{color:var(--navy-900);font-weight:600;font-size:15px}
+  .trustbar .lt span{color:var(--slate-500);font-size:14px;display:block}
+  .trustbar .rt{display:flex;gap:30px;flex-wrap:wrap}
+  .trustbar .rt > div .k{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--slate-400)}
+  .trustbar .rt > div .v{color:var(--navy-900);font-weight:600;font-size:15px}
+
+  /* ===== Sections ===== */
+  section.block{padding:88px 0}
+  .section-head{max-width:680px;margin:0 auto;text-align:center}
+  .section-head.left{margin:0;text-align:left}
+  .eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--gold-700);margin-bottom:14px}
+  .eyebrow .line{height:1px;width:24px;background:rgba(212,171,73,.7)}
+  h2{font-size:clamp(28px,3.4vw,42px);line-height:1.1}
+  .section-head p{margin-top:16px;font-size:18px;color:var(--slate-600)}
+  .muted{background:var(--slate-50)}
+  .navy-bg{background:var(--navy-900);color:#cbd5e1;position:relative;overflow:hidden}
+  .navy-bg::before{content:"";position:absolute;inset:0;background-image:linear-gradient(to right,rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.04) 1px,transparent 1px);background-size:56px 56px;opacity:.4}
+  .navy-bg .glow-r{position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:380px;height:380px;border-radius:50%;background:rgba(196,147,58,.1);filter:blur(80px)}
+  .navy-bg .section-head h2{color:#fff}
+  .navy-bg .section-head p{color:#cbd5e1}
+  .navy-bg .eyebrow{color:var(--gold-400)}
+
+  /* Cards grid */
+  .grid{display:grid;gap:20px}
+  .g-2{grid-template-columns:repeat(1,1fr)}
+  .g-3{grid-template-columns:repeat(1,1fr)}
+  .g-4{grid-template-columns:repeat(2,1fr)}
+  @media (min-width:640px){.g-2{grid-template-columns:repeat(2,1fr)}.g-3{grid-template-columns:repeat(2,1fr)}}
+  @media (min-width:1024px){.g-3{grid-template-columns:repeat(3,1fr)}.g-4{grid-template-columns:repeat(4,1fr)}}
+
+  .card{background:#fff;border:1px solid var(--slate-200);border-radius:18px;padding:26px;box-shadow:var(--shadow-soft);transition:all .3s var(--ease)}
+  .card:hover{transform:translateY(-4px);border-color:var(--gold-200);box-shadow:var(--shadow-lift)}
+  .card .ico{width:54px;height:54px;border-radius:14px;background:var(--navy-800);color:var(--gold-400);display:grid;place-items:center;margin-bottom:18px}
+  .card h3{font-size:18px;margin-bottom:8px}
+  .card p{font-size:14.5px;color:var(--slate-600);margin:0}
+  .card.alt .ico{background:var(--gold-100);color:var(--gold-700)}
+  .card .arrow{position:absolute;right:22px;top:22px;color:var(--slate-300);transition:all .3s}
+  .card{position:relative}
+  .card:hover .arrow{color:var(--gold-500);transform:translateX(2px)}
+
+  /* Steps */
+  .steps{display:grid;gap:32px;margin-top:64px;grid-template-columns:repeat(1,1fr)}
+  @media(min-width:640px){.steps{grid-template-columns:repeat(2,1fr)}}
+  @media(min-width:1024px){.steps{grid-template-columns:repeat(5,1fr)}}
+  .step .num{width:44px;height:44px;border-radius:12px;background:var(--gold-500);color:var(--navy-950);font-family:'Manrope';font-weight:800;font-size:18px;display:grid;place-items:center;margin-bottom:18px}
+  .step h3{color:#fff;font-size:17px;margin-bottom:8px}
+  .step p{color:#cbd5e1;font-size:14px;margin:0}
+
+  /* Stats band */
+  .stats{display:grid;gap:30px;margin-top:48px;grid-template-columns:repeat(2,1fr);max-width:980px;margin-left:auto;margin-right:auto}
+  @media(min-width:1024px){.stats{grid-template-columns:repeat(4,1fr)}}
+  .stat{text-align:center;padding:0 12px}
+  .stat .val{font-family:'Manrope';font-size:44px;font-weight:800;line-height:1;background:linear-gradient(100deg,var(--gold-300),var(--gold-500));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .stat .lbl{margin-top:10px;color:#cbd5e1;font-size:14.5px;font-weight:500}
+  .stat .sub{margin-top:2px;color:#94a3b8;font-size:12.5px}
+
+  /* FAQ */
+  .faq{max-width:780px;margin:48px auto 0;border:1px solid var(--slate-200);border-radius:18px;background:#fff;overflow:hidden}
+  .faq details{border-top:1px solid var(--slate-200)}
+  .faq details:first-child{border-top:0}
+  .faq summary{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:20px 22px;cursor:pointer;list-style:none;font-weight:600;color:var(--navy-900);font-size:16px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary .chev{width:30px;height:30px;border-radius:50%;background:var(--slate-100);color:var(--navy-700);display:grid;place-items:center;transition:transform .3s var(--ease),background .2s}
+  .faq details[open] summary .chev{transform:rotate(180deg);background:var(--gold-100);color:var(--gold-700)}
+  .faq .body{padding:0 22px 20px;color:var(--slate-600);font-size:15px;line-height:1.7}
+
+  /* CTA band */
+  .cta-band{background:#fff;padding:88px 0}
+  .cta-card{position:relative;overflow:hidden;background:var(--navy-900);border-radius:24px;padding:64px 32px;text-align:center;color:#fff}
+  .cta-card::before{content:"";position:absolute;inset:0;background-image:linear-gradient(to right,rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(to bottom,rgba(255,255,255,.04) 1px,transparent 1px);background-size:56px 56px;opacity:.4}
+  .cta-card::after{content:"";position:absolute;right:-80px;top:-80px;width:280px;height:280px;border-radius:50%;background:rgba(196,147,58,.15);filter:blur(60px)}
+  .cta-card > *{position:relative}
+  .cta-card h2{color:#fff;font-size:clamp(26px,3vw,38px)}
+  .cta-card p{margin:16px auto 0;max-width:580px;font-size:17px;color:#cbd5e1}
+  .cta-card .ctas{margin-top:28px;display:flex;justify-content:center;flex-wrap:wrap;gap:12px}
+  .cta-card .meta{margin-top:24px;color:#94a3b8;font-size:14px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap}
+
+  /* Contacts */
+  .contacts{display:grid;gap:42px;grid-template-columns:1fr}
+  @media(min-width:1024px){.contacts{grid-template-columns:1fr 1fr}}
+  .contact-card{background:#fff;border:1px solid var(--slate-200);border-radius:14px;padding:18px;display:flex;gap:14px;align-items:flex-start;transition:all .25s var(--ease)}
+  .contact-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-card);border-color:var(--gold-200)}
+  .contact-card .ico{width:42px;height:42px;border-radius:11px;background:var(--gold-100);color:var(--gold-700);display:grid;place-items:center;flex-shrink:0}
+  .contact-card .lbl{font-size:13px;color:var(--slate-500)}
+  .contact-card .val{margin-top:2px;font-weight:600;color:var(--navy-900);font-size:15.5px}
+  .cgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+  .form-card{background:#fff;border:1px solid var(--slate-200);border-radius:18px;padding:32px;box-shadow:var(--shadow-soft)}
+  .form-card h3{font-size:22px;margin-bottom:6px}
+  .form-card .sub{color:var(--slate-500);font-size:14px;margin-bottom:22px}
+
+  /* Footer */
+  footer.foot{background:var(--navy-950);color:#cbd5e1;padding:64px 0 28px}
+  footer.foot .top-cta{display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;padding-bottom:36px;border-bottom:1px solid rgba(255,255,255,.1)}
+  footer.foot .top-cta h2{color:#fff;font-size:24px}
+  footer.foot .top-cta p{margin:4px 0 0;color:#94a3b8;font-size:14.5px}
+  footer.foot .top-cta .ctas{display:flex;gap:12px;flex-wrap:wrap}
+  footer.foot .cols{display:grid;gap:36px;padding:40px 0;grid-template-columns:1fr}
+  @media(min-width:768px){footer.foot .cols{grid-template-columns:1.4fr 1fr 1fr 1.3fr}}
+  footer.foot h4{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:#fff;margin-bottom:14px;font-family:'Inter';font-weight:700}
+  footer.foot ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+  footer.foot ul a{color:#94a3b8;font-size:14px;transition:color .2s}
+  footer.foot ul a:hover{color:var(--gold-300)}
+  footer.foot .brand p{font-size:14px;color:#94a3b8;max-width:300px;margin:14px 0 0}
+  footer.foot .bottom{padding-top:24px;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:16px;color:#64748b;font-size:12.5px}
+  footer.foot .bottom a:hover{color:var(--gold-300)}
+
+  /* Reveal */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+  @media (prefers-reduced-motion:reduce){.reveal,.reveal.in{opacity:1!important;transform:none!important}}
+
+  /* Scroll to top */
+  .totop{position:fixed;right:24px;bottom:24px;width:48px;height:48px;border-radius:50%;background:var(--navy-800);color:#fff;border:0;cursor:pointer;display:grid;place-items:center;opacity:0;pointer-events:none;transform:translateY(12px);transition:all .3s var(--ease);box-shadow:var(--shadow-lift);z-index:40}
+  .totop.show{opacity:1;pointer-events:auto;transform:translateY(0)}
+  .totop:hover{background:var(--navy-700)}
+  .toast{position:fixed;left:50%;bottom:30px;transform:translateX(-50%) translateY(20px);background:#10b981;color:#fff;padding:14px 22px;border-radius:12px;font-weight:600;opacity:0;transition:all .3s var(--ease);z-index:60;box-shadow:var(--shadow-lift)}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+
+<!-- ===== Top strip ===== -->
+<div class="top-strip">
+  <div class="container row">
+    <div class="badge">
+      <span class="dot"></span>
+      <span>Аккредитованный представитель СРО Санкт-Петербурга</span>
+    </div>
+    <div style="display:flex;gap:22px;align-items:center;flex-wrap:wrap">
+      <span style="display:inline-flex;align-items:center;gap:8px">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        Пн–Пт, 09:00–19:00
+      </span>
+      <a href="mailto:info@ur-lider.ru" style="display:inline-flex;align-items:center;gap:8px">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg>
+        info@ur-lider.ru
+      </a>
+      <a href="tel:+78120000000" style="display:inline-flex;align-items:center;gap:8px;color:#fff;font-weight:500">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#d6ab49" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+        +7 (812) 000-00-00
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Header ===== -->
+<header class="nav" id="header">
+  <div class="container row">
+    <a href="#top" class="logo">
+      <div class="logo-mark">ЮЛ</div>
+      <div class="logo-text">
+        <b>ЮрЛидер</b>
+        <span>Вступление в СРО под ключ</span>
+      </div>
+    </a>
+    <nav class="main">
+      <a href="#services">Услуги</a>
+      <a href="#calc">Стоимость</a>
+      <a href="#why">Почему мы</a>
+      <a href="#steps">Этапы</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-outline" href="#contacts" style="display:none" id="phonebtn-d">+7 (812) 000-00-00</a>
+      <a class="btn btn-gold" href="#contacts">Заказать звонок</a>
+      <button class="burger" id="burger" aria-label="Меню">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero" id="top">
+  <div class="glow"></div>
+  <div class="container row">
+    <div class="reveal">
+      <span class="eyebrow-pill"><span class="dot"></span>Юридическая компания · с 2010 года</span>
+      <h1>Вступление в&nbsp;СРО <span class="gold-grad">за 24 часа</span></h1>
+      <p class="lead">Аккредитованный представитель надёжных СРО Санкт-Петербурга. Стоимость = взнос в&nbsp;компенсационный фонд. Без ежемесячных взносов и скрытых платежей.</p>
+      <div class="ctas">
+        <a href="#calc" class="btn btn-gold btn-lg">Рассчитать стоимость
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <a href="#contacts" class="btn btn-white btn-lg">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0e1a31" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          Бесплатная консультация
+        </a>
+      </div>
+      <div class="trust-row">
+        <div class="trust-item">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+          <div><b>Аккредитованы</b><span>В надёжных СРО СПб</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <div><b>За 24 часа</b><span>Решение по приёму</span></div>
+        </div>
+        <div class="trust-item">
+          <div class="ico"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1L3 5v6c0 5.5 3.8 10.74 9 12 5.2-1.26 9-6.5 9-12V5l-9-4z"/></svg></div>
+          <div><b>15+ лет</b><span>Опыта с 2010 года</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Calculator card -->
+    <div class="reveal">
+      <div class="calc" id="calc">
+        <div class="calc-head">
+          <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="8" y1="10" x2="10" y2="10"/><line x1="14" y1="10" x2="16" y2="10"/><line x1="8" y1="14" x2="10" y2="14"/><line x1="14" y1="14" x2="16" y2="14"/><line x1="8" y1="18" x2="10" y2="18"/><line x1="14" y1="18" x2="16" y2="18"/></svg></div>
+          <div>
+            <h3>Калькулятор стоимости</h3>
+            <p>Ориентировочный расчёт онлайн</p>
+          </div>
+        </div>
+        <div class="field">
+          <label for="kind">Тип СРО</label>
+          <select id="kind">
+            <option value="builders">Строители</option>
+            <option value="designers">Проектировщики</option>
+            <option value="surveyors">Изыскатели</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="level">Уровень ответственности</label>
+          <select id="level">
+            <option value="1" data-vv="100000" data-amount="до 60 млн ₽">1-й уровень — до 60 млн ₽</option>
+            <option value="2" data-vv="500000" data-amount="до 500 млн ₽">2-й уровень — до 500 млн ₽</option>
+            <option value="3" data-vv="1500000" data-amount="до 3 млрд ₽">3-й уровень — до 3 млрд ₽</option>
+            <option value="4" data-vv="2000000" data-amount="до 10 млрд ₽">4-й уровень — до 10 млрд ₽</option>
+            <option value="5" data-vv="5000000" data-amount="10 млрд ₽ и более">5-й уровень — 10 млрд+ ₽</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="opo">Допуск на особо опасные объекты (ОПО)</label>
+          <select id="opo">
+            <option value="no">Не требуется</option>
+            <option value="yes">Требуется</option>
+          </select>
+        </div>
+        <div class="result">
+          <div class="label">Ориентировочная стоимость</div>
+          <div class="amount" id="amount">100 000 ₽</div>
+          <div class="note"><span id="amount-note">Взнос в КФ возмещения вреда · 1-й уровень</span></div>
+        </div>
+        <a href="#contacts" class="btn btn-gold submit">Получить точный расчёт
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+        </a>
+        <small>Без скрытых платежей. Точную стоимость подтвердит менеджер.</small>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Trust bar ===== -->
+<div class="trustbar">
+  <div class="container row">
+    <div class="lt">
+      <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M3 10h18M5 6l7-3 7 3M4 10v11M20 10v11M8 14v3M12 14v3M16 14v3"/></svg></div>
+      <div>
+        <b>Работаем с аккредитованными СРО Санкт-Петербурга</b>
+        <span>Прямые договоры. Без посредников. Полная прозрачность.</span>
+      </div>
+    </div>
+    <div class="rt">
+      <div><div class="k">На рынке</div><div class="v">с 2010 года</div></div>
+      <div><div class="k">Сроки</div><div class="v">24 часа</div></div>
+      <div><div class="k">Платежи</div><div class="v">без ежемесячных</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Services ===== -->
+<section class="block" id="services">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="line"></span>Услуги<span class="line" style="background:rgba(212,171,73,.7)"></span></div>
+      <h2>Полный спектр услуг по&nbsp;СРО</h2>
+      <p>От вступления до сопровождения. Прямая работа без посредников и скрытых платежей.</p>
+    </div>
+    <div class="grid g-3" style="margin-top:56px">
+      <div class="card reveal">
+        <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h6M9 13h6M9 17h6"/></svg></div>
+        <h3>СРО строителей</h3>
+        <p>Допуск к строительным, монтажным и ремонтным работам. Все уровни ответственности, включая ОПО.</p>
+      </div>
+      <div class="card reveal">
+        <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="13" x2="15" y2="13"/><line x1="9" y1="17" x2="15" y2="17"/></svg></div>
+        <h3>СРО проектировщиков</h3>
+        <p>Вступление в СРО на архитектурно-строительное проектирование. Подбор уровня под объём заказов.</p>
+      </div>
+      <div class="card reveal">
+        <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <h3>СРО изыскателей</h3>
+        <p>Допуск к выполнению инженерных изысканий. Полный комплект документов под ключ.</p>
+      </div>
+      <div class="card reveal alt">
+        <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+        <h3>Внесение в НРС</h3>
+        <p>Подготовка пакета и внесение специалистов в Национальный реестр специалистов НОСТРОЙ/НОПРИЗ.</p>
+      </div>
+      <div class="card reveal alt">
+        <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 22h20M4 22V8l8-5 8 5v14M9 22V14h6v8"/></svg></div>
+        <h3>Допуск на ОПО</h3>
+        <p>Оформление допуска на работы на особо опасных, технически сложных и уникальных объектах.</p>
+      </div>
+      <div class="card reveal alt">
+        <span class="arrow"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></div>
+        <h3>Повышение уровня</h3>
+        <p>Увеличение лимита по одному договору и совокупного объёма обязательств. Сопровождение под ключ.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Why us ===== -->
+<section class="block muted" id="why">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="line"></span>Почему ЮрЛидер<span class="line" style="background:rgba(212,171,73,.7)"></span></div>
+      <h2>Прозрачные условия. Реальные сроки.</h2>
+      <p>Мы не посредник «между посредниками» — мы аккредитованный представитель СРО, поэтому вам не нужно переплачивать за лишние звенья.</p>
+    </div>
+    <div class="grid g-3" style="margin-top:56px">
+      <div class="card alt reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+        <h3>За 24 часа</h3>
+        <p>При полном пакете документов решение о приёме принимается в течение одного рабочего дня.</p>
+      </div>
+      <div class="card alt reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+        <h3>Без ежемесячных взносов</h3>
+        <p>Никаких регулярных платежей «за обслуживание». Платите только обязательный взнос в КФ.</p>
+      </div>
+      <div class="card alt reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1L3 5v6c0 5.5 3.8 10.74 9 12 5.2-1.26 9-6.5 9-12V5l-9-4z"/></svg></div>
+        <h3>Аккредитованный представитель</h3>
+        <p>Работаем напрямую с надёжными СРО Санкт-Петербурга. Прозрачные договоры без посредников.</p>
+      </div>
+      <div class="card alt reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <h3>С 2010 года</h3>
+        <p>Более 15 лет помогаем компаниям получать допуски. Знаем все тонкости и подводные камни.</p>
+      </div>
+      <div class="card alt reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <h3>Личный менеджер</h3>
+        <p>На всех этапах — от заявки до записи в реестре. Один человек, который знает вашу ситуацию.</p>
+      </div>
+      <div class="card alt reveal">
+        <div class="ico"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Фиксированная стоимость</h3>
+        <p>Цена закреплена в договоре. Никаких «доплат по ходу» и сюрпризов в счетах.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Steps ===== -->
+<section class="block navy-bg" id="steps">
+  <div class="glow-r"></div>
+  <div class="container" style="position:relative">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="line"></span>Этапы работы<span class="line" style="background:rgba(212,171,73,.7)"></span></div>
+      <h2>Пять шагов до членства в СРО</h2>
+      <p>Прозрачный процесс с фиксированными сроками. Большую часть работы берём на себя.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal"><div class="num">1</div><h3>Заявка</h3><p>Оставляете заявку или звоните. Перезваниваем в течение 15 минут.</p></div>
+      <div class="step reveal"><div class="num">2</div><h3>Консультация</h3><p>Бесплатно рассчитываем стоимость и составляем перечень документов.</p></div>
+      <div class="step reveal"><div class="num">3</div><h3>Документы</h3><p>Помогаем собрать пакет. Проверяем комплектность до подачи.</p></div>
+      <div class="step reveal"><div class="num">4</div><h3>Подача в СРО</h3><p>Передаём документы напрямую. Контролируем процесс на каждом шаге.</p></div>
+      <div class="step reveal"><div class="num">5</div><h3>Решение за 24 ч</h3><p>Вносим запись в реестр. Вы получаете право выполнять работы.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Stats ===== -->
+<section class="block navy-bg" style="padding:72px 0">
+  <div class="container" style="position:relative">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="line"></span>Коротко о главном<span class="line" style="background:rgba(212,171,73,.7)"></span></div>
+      <h2 style="color:#fff">Цифры, на которые можно положиться</h2>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><div class="val">2010</div><div class="lbl">год основания</div><div class="sub">15+ лет на рынке</div></div>
+      <div class="stat reveal"><div class="val">24 ч</div><div class="lbl">решение о приёме</div><div class="sub">При полном пакете</div></div>
+      <div class="stat reveal"><div class="val">3 СРО</div><div class="lbl">строители, проект, изыскания</div><div class="sub">Аккредитация</div></div>
+      <div class="stat reveal"><div class="val">0 ₽</div><div class="lbl">ежемесячных взносов</div><div class="sub">Только взнос в КФ</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FAQ ===== -->
+<section class="block" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="line"></span>Вопросы и ответы<span class="line" style="background:rgba(212,171,73,.7)"></span></div>
+      <h2>Частые вопросы</h2>
+    </div>
+    <div class="faq reveal">
+      <details open>
+        <summary>Что входит в стоимость?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+        <div class="body">Взнос в компенсационный фонд возмещения вреда (по уровню ответственности), при необходимости — взнос в КФ ОДО, сопровождение оформления документов, подача в СРО и контроль процесса. Никаких скрытых платежей: всё закреплено в договоре.</div>
+      </details>
+      <details>
+        <summary>Реально ли вступить в СРО за 24 часа?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+        <div class="body">Да — при условии, что готов полный пакет документов и специалисты внесены в НРС. Мы помогаем подготовить документы заранее, проверяем комплектность, и решение коллегиального органа СРО при таком сценарии принимается в течение одного рабочего дня.</div>
+      </details>
+      <details>
+        <summary>Какие документы нужны?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+        <div class="body">Учредительные документы компании (Устав, ОГРН, ИНН), документы на двух специалистов из НРС (или мы их вносим параллельно), заявление о приёме. Полный перечень индивидуален под вид работ — менеджер пришлёт список после консультации.</div>
+      </details>
+      <details>
+        <summary>Чем вы отличаетесь от вступления напрямую в СРО?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+        <div class="body">Мы знаем требования каждой СРО, помогаем избежать типовых ошибок в документах (отказы из-за которых сдвигают сроки на недели), подбираем подходящую СРО под ваш профиль и контролируем процесс. Стоимость для клиента — та же, что и при прямом вступлении.</div>
+      </details>
+      <details>
+        <summary>Есть ли ежемесячные платежи после вступления?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+        <div class="body">У наших партнёрских СРО структура взносов прозрачная — без ежемесячных «технических» платежей, которые часто встречаются на рынке. Уплачиваются только установленные внутренними документами СРО членские взносы, размер и периодичность которых вы знаете заранее.</div>
+      </details>
+      <details>
+        <summary>Можно ли повысить уровень ответственности позже?<span class="chev"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg></span></summary>
+        <div class="body">Да. Уровень меняется по заявлению члена СРО с доплатой разницы в компенсационный фонд. Мы оформим всё за вас. Также сопровождаем переход в категорию «допуск на ОПО».</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ===== CTA band ===== -->
+<section class="cta-band">
+  <div class="container">
+    <div class="cta-card reveal">
+      <h2>Получите расчёт стоимости вступления в СРО</h2>
+      <p>Оставьте заявку — менеджер свяжется в течение 15 минут в рабочее время. Бесплатно и без обязательств.</p>
+      <div class="ctas">
+        <a href="#calc" class="btn btn-gold btn-lg">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/></svg>
+          Рассчитать стоимость
+        </a>
+        <a href="#contacts" class="btn btn-ghost btn-lg">Бесплатная консультация</a>
+      </div>
+      <div class="meta">
+        <span>📞 +7 (812) 000-00-00</span>
+        <span>🕐 Пн–Пт, 09:00–19:00</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Contacts ===== -->
+<section class="block muted" id="contacts">
+  <div class="container">
+    <div class="contacts">
+      <div class="reveal">
+        <div class="eyebrow"><span class="line"></span>Контакты</div>
+        <h2 style="margin-bottom:14px">Связаться с нами</h2>
+        <p style="color:var(--slate-600);font-size:17px">Ответим на вопросы, рассчитаем стоимость и поможем с документами.</p>
+        <div class="cgrid">
+          <div class="contact-card">
+            <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg></div>
+            <div><div class="lbl">Телефон</div><div class="val">+7 (812) 000-00-00</div></div>
+          </div>
+          <div class="contact-card">
+            <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></div>
+            <div><div class="lbl">E-mail</div><div class="val">info@ur-lider.ru</div></div>
+          </div>
+          <div class="contact-card">
+            <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+            <div><div class="lbl">Адрес</div><div class="val">Санкт-Петербург</div></div>
+          </div>
+          <div class="contact-card">
+            <div class="ico"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div><div class="lbl">График</div><div class="val">Пн–Пт, 09:00–19:00</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="form-card">
+          <h3>Получить бесплатную консультацию</h3>
+          <p class="sub">Заполните форму — менеджер свяжется в течение 15 минут в рабочее время.</p>
+          <form id="leadform" onsubmit="return submitLead(event)">
+            <div class="field"><label>Ваше имя</label><input type="text" name="name" required placeholder="Иван Иванов" autocomplete="name"></div>
+            <div class="field"><label>Телефон</label><input type="tel" name="phone" required id="phoneInput" placeholder="+7 (___) ___-__-__" autocomplete="tel"></div>
+            <div class="field"><label>Компания</label><input type="text" name="company" placeholder="ООО «Ваша компания»" autocomplete="organization"></div>
+            <div class="field"><label>Сообщение</label><textarea name="message" rows="3" style="width:100%;border:1px solid var(--slate-200);border-radius:11px;padding:12px 14px;font-family:inherit;font-size:15px;resize:none;outline:none" placeholder="Кратко опишите задачу"></textarea></div>
+            <button type="submit" class="btn btn-gold btn-lg" style="width:100%;margin-top:8px">Отправить заявку
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <small style="display:block;margin-top:12px;text-align:center;color:var(--slate-400);font-size:12px">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</small>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== Footer ===== -->
+<footer class="foot">
+  <div class="container">
+    <div class="top-cta">
+      <div>
+        <h2>Готовы вступить в СРО?</h2>
+        <p>Рассчитайте стоимость или получите бесплатную консультацию.</p>
+      </div>
+      <div class="ctas">
+        <a href="#calc" class="btn btn-gold">Рассчитать стоимость</a>
+        <a href="tel:+78120000000" class="btn btn-ghost">+7 (812) 000-00-00</a>
+      </div>
+    </div>
+    <div class="cols">
+      <div class="brand">
+        <div class="logo">
+          <div class="logo-mark">ЮЛ</div>
+          <div class="logo-text"><b style="color:#fff">ЮрЛидер</b><span style="color:#94a3b8">Вступление в СРО под ключ</span></div>
+        </div>
+        <p>Юридическая компания, оформляющая допуски СРО с 2010 года. Аккредитованный представитель надёжных СРО Санкт-Петербурга.</p>
+      </div>
+      <div>
+        <h4>Услуги</h4>
+        <ul>
+          <li><a href="#services">СРО строителей</a></li>
+          <li><a href="#services">СРО проектировщиков</a></li>
+          <li><a href="#services">СРО изыскателей</a></li>
+          <li><a href="#services">Внесение в НРС</a></li>
+          <li><a href="#services">Допуск на ОПО</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Информация</h4>
+        <ul>
+          <li><a href="#why">Почему мы</a></li>
+          <li><a href="#steps">Этапы</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contacts">Контакты</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Контакты</h4>
+        <ul>
+          <li><a href="tel:+78120000000">+7 (812) 000-00-00</a></li>
+          <li><a href="mailto:info@ur-lider.ru">info@ur-lider.ru</a></li>
+          <li>Санкт-Петербург</li>
+          <li>Пн–Пт, 09:00–19:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <span>© 2010—2026 ЮрЛидер. Все права защищены.</span>
+      <div style="display:flex;gap:20px"><a href="#">Политика конфиденциальности</a></div>
+    </div>
+  </div>
+</footer>
+
+<button class="totop" id="totop" aria-label="Наверх">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<div class="toast" id="toast">Заявка отправлена! Менеджер свяжется в течение 15 минут.</div>
+
+<script>
+  // Sticky header shadow
+  const header = document.getElementById('header');
+  const totop = document.getElementById('totop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 8) header.classList.add('scrolled'); else header.classList.remove('scrolled');
+    if (window.scrollY > 600) totop.classList.add('show'); else totop.classList.remove('show');
+  });
+  totop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el => {
+    if (el.getBoundingClientRect().top > window.innerHeight * 0.92) io.observe(el);
+    else el.classList.add('in');
+  });
+
+  // Calculator
+  const KIND_LABELS = { builders:'строителей', designers:'проектировщиков', surveyors:'изыскателей' };
+  const fmt = (n) => n.toLocaleString('ru-RU') + ' ₽';
+  function recalc() {
+    const level = document.getElementById('level');
+    const opt = level.options[level.selectedIndex];
+    const vv = +opt.dataset.vv;
+    const kind = document.getElementById('kind').value;
+    const opo = document.getElementById('opo').value;
+    let total = vv;
+    document.getElementById('amount').textContent = fmt(total);
+    const lvl = level.value;
+    const opoNote = opo === 'yes' ? ' · с допуском на ОПО' : '';
+    document.getElementById('amount-note').textContent =
+      `Взнос в КФ ВВ · СРО ${KIND_LABELS[kind]} · ${lvl}-й уровень${opoNote}`;
+  }
+  ['kind','level','opo'].forEach(id => document.getElementById(id).addEventListener('change', recalc));
+
+  // Phone mask
+  const phone = document.getElementById('phoneInput');
+  phone && phone.addEventListener('input', (e) => {
+    let d = e.target.value.replace(/\D/g,'');
+    if (!d) { e.target.value=''; return; }
+    if (d[0] === '8') d = '7' + d.slice(1);
+    if (d[0] !== '7') d = '7' + d;
+    d = d.slice(0, 11);
+    let out = '+7';
+    const a = d.slice(1,4), b = d.slice(4,7), c = d.slice(7,9), q = d.slice(9,11);
+    if (a) out += ` (${a}`;
+    if (a.length === 3) out += ')';
+    if (b) out += ` ${b}`;
+    if (c) out += `-${c}`;
+    if (q) out += `-${q}`;
+    e.target.value = out;
+  });
+
+  // Lead submit (демо: показывает тост)
+  function submitLead(e) {
+    e.preventDefault();
+    const t = document.getElementById('toast');
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 4000);
+    e.target.reset();
+    return false;
+  }
+
+  // Burger (mobile menu) — простой scroll к секции
+  document.getElementById('burger').addEventListener('click', () => {
+    document.getElementById('services').scrollIntoView({behavior:'smooth'});
+  });
+</script>
+</body>
+</html>
